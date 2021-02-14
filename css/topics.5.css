@@ -1,0 +1,47 @@
+/******************************************************************************
+ * Copyright (c) 14/2/2021 4:22     djml.uk E&OE.                             *
+ ******************************************************************************/
+.class-selecttopics-gallery {
+    background-color: #343a40;
+    border-color: #343a40;
+    color: #ffc006
+}
+
+.btn-topics {
+    color: white;
+}
+.btn-topics-active{
+    color: #ffc006;
+}
+
+.btn-topics:disabled, .showGlobalIndex:disabled .btn-showIndex:disabled {
+    opacity: 20%;
+    -webkit-opacity: 0.2;
+}
+.btn-topics-enabled {
+    opacity: 100%;
+    -webkit-opacity: 1;
+
+}
+.btn-topic-prevnext {
+    color: #ffc006;
+}
+.pill-topics {
+    font-weight: bold;
+    font-size: large;
+    pointer-events: none;
+    margin: 2px 0 2px 8px;
+}
+
+.title-topics {
+    font-weight: bold;
+    font-size: large;
+}
+.topic {
+    display: flex !important;
+    align-items: center !important;
+    pointer-events: none;
+    margin-left: 4px;
+
+}
+

@@ -1,0 +1,357 @@
+/******************************************************************************
+ * Copyright (c) 14/2/2021 4:22     djml.uk E&OE.                             *
+ ******************************************************************************/
+
+.sidebarNotes {
+    font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+    font-size: 1.5rem;
+}
+
+#textarea-notes::placeholder {
+    font-size: small;
+    color: darkgrey;
+}
+
+.btn-postits {
+    color: white;
+    background-color: #ff40ff;
+    border-color: #ff40ff
+}
+
+.btn-postits:hover, .btn-postits-active {
+    color: white;
+    background-color: #a92aa9;
+    border-color: #a92aa9
+}
+
+.div-postitsHanger {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    z-index: 5;
+    /*border:2px solid red;*/
+}
+
+.div-postitsHanger-inactive {
+    pointer-events: none;
+}
+
+.div-postitsHanger-active {
+    background: repeating-radial-gradient(
+            circle at center,
+            rgba(255, 0, 0, 0.1),
+            rgba(255, 255, 255, 0.5) 7%
+    );
+    pointer-events: auto;
+    cursor: copy;
+    overflow: hidden;
+}
+
+.div-postitshanger-editingPostit {
+    cursor: auto;
+}
+
+#div-postitsHanger-message {
+    text-align: center;
+    color: black;
+    font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+    font-size: 0.7rem;
+    overflow: hidden;
+}
+
+.postit-note {
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.postit-note-active {
+    pointer-events: auto;
+    cursor: pointer;
+    box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 0.3);
+}
+
+.postit-note-text {
+    pointer-events: none;
+    touch-action: none;
+    text-align: center;
+    padding: 6px;
+    overflow: hidden;
+    word-wrap: break-word;
+    font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+}
+
+.postit-note-rotated {
+    transform-origin: top left;
+    transform: rotate(-90deg);
+}
+
+.postit-corner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+    border-left: 3px solid black;
+    border-top: 3px solid black;
+    font-size: smaller;
+}
+
+.postit-anchor {
+    transform: rotate(-45deg);
+    opacity: 0.6;
+}
+
+#textarea-postit, #textarea-doodle {
+    width: 100%;
+    height: 100%;
+    font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+    font-size: 1rem;
+}
+#textarea-doodle {
+    font-size: 32px;
+    color: hsla(0,100%,50%,1);
+    background-color: hsla(0,100%,50%,0);
+}
+#textarea-postit::placeholder, #textarea-doodle::placeholder {
+    color: darkgrey;
+}
+
+.pipalette {
+    border: 2px solid pink;
+}
+
+.doodlepalette {
+    border: 2px solid rgba(215, 131, 255, 1);
+}
+
+.hideInFlexCol {
+    position: absolute;
+    left: -9999px;
+!important;
+    top: -9999px;
+!important;
+}
+
+.svgdoodles {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    z-index: 6;
+    pointer-events: none;
+    transform-origin: top left;
+    /*border: 1px solid red;*/
+}
+
+.svg-doodles-active {
+    pointer-events: auto;
+    cursor: auto;
+}
+
+.div-postitsHanger-doodlesActive {
+    background: repeating-radial-gradient(
+            circle at center,
+            rgba(0, 0, 255, 0.1),
+            rgba(255, 255, 255, 0.5) 7%
+    );
+}
+
+.svg-doodles-allowAdd {
+    cursor: copy;
+}
+
+.doodle-group {
+    pointer-events: auto;
+}
+
+.doodle {
+    pointer-events: none;
+}
+
+.doodle-active, .domarker {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.doodleHandlesGroup {
+    stroke: black;
+    stroke-width: 0;
+    pointer-events: auto;
+}
+
+.doodleHandlesGroupHidden {
+    display: none;
+}
+
+.handleEW {
+    cursor: ew-resize;
+}
+
+.handleNS {
+    cursor: ns-resize;
+}
+
+.handleNESW {
+    cursor: pointer;
+    /*cursor: url('../sprites/expand.svg') 8 8, auto;*/
+    pointer-events: auto;
+    stroke: rgba(255, 255, 255, 0.5);
+    stroke-width: 1;
+    fill: rgba(0, 0, 0, 0.5);
+}
+
+.handleNESW-cursor {
+    cursor: pointer;
+    /*cursor: url('../sprites/expand.svg') 8 8, auto;*/
+}
+
+.handleNESW-sprite {
+    pointer-events: none;
+    fill: rgba(255, 255, 255, 0.5);
+    stroke: transparent;
+}
+
+.handleRotate {
+    /*cursor: url('../sprites/rotate.png') 8 8, auto;*/
+    cursor: pointer;
+    pointer-events: auto;
+    stroke: rgba(255, 255, 255, 0.5);
+    stroke-width: 1;
+    fill: rgba(0, 0, 255, 0.5);
+}
+
+.handleRotate-cursor {
+    /*cursor: url('../sprites/rotate.png') 8 8, auto;*/
+    cursor: pointer;
+}
+
+.handleRotate-sprite {
+    pointer-events: none;
+    fill: rgba(255, 255, 255, 0.5);
+    stroke: transparent;
+}
+
+.doodle-selected {
+    cursor: grab;
+}
+
+.doodle-dragging {
+    cursor: grabbing;
+}
+
+.handle-suppressed {
+    pointer-events: none;
+!important;
+}
+
+.handle-all-suppressed {
+    pointer-events: none;
+!important;
+    display: none;
+!important;
+    visibility: hidden;
+!important;
+}
+
+.handleDelete {
+    cursor: pointer;
+    /*cursor: url('../sprites/backspace.svg') 8 8, auto;*/
+    pointer-events: auto;
+    stroke: rgba(255, 255, 255, 0.5);
+    stroke-width: 1;
+    fill: rgba(255, 0, 0, 0.5);
+}
+
+.handleDelete-sprite {
+    pointer-events: none;
+    fill: rgba(255, 255, 255, 0.5);
+    stroke: transparent;
+}
+
+.div-doColourStroke, .div-doColourFill, .div-doStrokeWidth, .div-doTextSize, .div-doTextColour {
+    height: 25px;
+    width: 40px;
+    max-height: 25px; !important;
+    max-width: 40px; !important;
+}
+
+.div-doColourStroke {
+    background-color: white;
+    border-width: 4px;
+    border-style: solid;
+    /*border: 4px solid hsla(0, 100%, 50%, 1);*/
+}
+
+.div-doColourFill {
+    /*background-color: hsla(0, 100%, 50%, 0);*/
+    /*border: 1px solid black;*/
+}
+
+.div-doColourBorder, .div-divDoColourFill {
+    border: 1px solid #333333;
+    padding: 2px;
+}
+.div-divDoColourFill {
+    background-color: #ffffff;
+    background-image: linear-gradient(45deg, #000000 4%, #ffffff 4%, #ffffff 50%, #000000 50%, #000000 54%, #ffffff 54%, #ffffff 100%);
+    background-size: 16px 16px;}
+.div-doTextSize {
+    text-align:center;
+    font-size: 12px;
+}
+.div-doTextColour {
+    /*color: hsla(0, 100%, 50%, 1);*/
+    text-align:center;
+}
+
+.div-doColourPanel {
+    border: 1px solid #333333;
+    /*background-color: #eaeaea;*/
+}
+
+.range-doColourStrokeFill {
+    background: url(../img/spectrum.png) no-repeat;
+    background-size: 100% 100%;
+    border: 1px solid #333333;
+    margin: 1px;
+}
+
+.range-doAlphaStrokeFill {
+    background-image: linear-gradient(to right, white, hsla(0, 100%, 50%, 1));
+    border: 1px solid #333333;
+    margin: 1px;
+}
+
+.div-blackColour, .div-greyColour, .div-whiteColour {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: 1px solid #333333;
+}
+
+.div-blackColour {
+    background-color: black;
+}
+
+.div-whiteColour {
+    background-color: white;
+}
+
+.div-greyColour {
+    background-color: #888888;
+}
+
+.div-doStrokeWidth {
+    border: 2px solid black;
+    margin: 1px;
+}
+
+.svg-text {
+    font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+}
+
+.doodle-textspan {
+}
+.doodle-textRect {
+    pointer-events: none;
+}

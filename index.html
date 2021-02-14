@@ -1,0 +1,2639 @@
+<!--***************************************************************************
+  * Copyright (c) 14/2/2021 4:22     djml.uk E&OE.                            *
+  ***************************************************************************-->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Vetanat</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--  BOOTSTRAP -->
+    <!-- jQ comes first -->
+    <script src="js/jquery-3.4.1.min.js" defer></script>
+    <!-- boostsrap bundle includes popper -->
+    <script src="js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css"/>
+
+    <!--Fitty -->
+    <!--
+        <script src="js/fitty.min.js" defer></script>
+    -->
+
+    <!-- FA ICONS -->
+    <link rel="stylesheet" href="FontAwesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="FontAwesome/css/regular.min.css">
+    <link rel="stylesheet" href="FontAwesome/css/solid.min.css">
+
+    <!--  Normalize  -->
+    <link rel="stylesheet" href="css/vendor/normalize.1.css">
+
+    <!--  my CSS -->
+    <link rel="stylesheet" href="css/myCSS.222.css">
+    <link rel="stylesheet" href="css/topics.5.css">
+    <link rel="stylesheet" href="css/gybt.15.css">
+    <link rel="stylesheet" href="css/gybt_bmk.2.css">
+    <link rel="stylesheet" href="css/sheets.32.css">
+    <link rel="stylesheet" href="css/bookmarks.css">
+    <link rel="stylesheet" href="css/userguide.18.css">
+    <link rel="stylesheet" href="css/notes.12.css">
+
+    <!--  my startup code-->
+    <!--    Objects first as globals uses a CardsetCollection.addcardset() call we can defer as run in order-->
+    <script src="myscripts/objects.9.js" defer></script>
+    <!--    Globals next and utilities-- -->
+    <script src="myscripts/globals.71.js" defer></script>
+    <script src="myscripts/utilities.38.js" defer></script>
+    <script src="myscripts/sheets.2.js" defer></script>
+    <!--    ****** CHANGE ME in the R scripts !! version strings-->
+    <script>
+        window.indicesversionStr = "255";
+        window.topicsversionStr = "126";
+    </script>
+    <!--    The collection objects  !!! Always DEFER these to allow libs to laod !!!  -->
+    <!--    The order they appear here is the order on the dropdown  -->
+    <script src="collections/popeskoBovine.182.js" defer></script>
+<!--
+    <script src="collections/popeskoSheep.181.js" defer></script>
+    <script src="collections/popeskoGoat.181.js" defer></script>
+    <script src="collections/popeskoSwine.189.js" defer></script>
+    <script src="collections/popsekoHorse.182.js" defer></script>
+    <script src="collections/popeskoDog.184.js" defer></script>
+    <script src="collections/popeskoCat.182.js" defer></script>
+    <script src="collections/popeskoRabbit.182.js" defer></script>
+    <script src="collections/saunders.181.js" defer></script>
+    <script src="collections/KLneurology.103.js" defer></script>
+    <script src="collections/UVMPneuroendo.107.js" defer></script>
+    <script src="collections/UVLFgrossanatomy.112.js" defer></script>
+    <script src="collections/UVMPanatomyAngiology.109.js" defer></script>
+    <script src="collections/UVMPanatomySplanchnology.182.js" defer></script>
+    <script src="collections/UVMPanatomyArthrology.181.js" defer></script>
+    <script src="collections/UVMPanatomyMuscles.181.js" defer></script>
+    <script src="collections/UVMPanatomyOsteology.184.js" defer></script>
+-->
+    <!--    The rest-->
+    <script src="myscripts/answers.61.js" defer></script>
+    <script src="myscripts/fileFunctions.24.js" defer></script>
+    <script src="myscripts/hotspots.22.js" defer></script>
+    <script src="myscripts/selectEvents.46.js" defer></script>
+    <script src="myscripts/addListeners.7.js" defer></script>
+    <script src="myscripts/favouritesFunctions.82.js" defer></script>
+    <script src="myscripts/favourites_quickgallery.9.js" defer></script>
+    <script src="myscripts/history.3.js" defer></script>
+    <script src="myscripts/topics.7.js" defer></script>
+    <script src="myscripts/cardFunctions.105.js" defer></script>
+    <script src="myscripts/helpMenu.37.js" defer></script>
+    <script src="myscripts/settings.67.js" defer></script>
+    <script src="myscripts/headScripts.76.js" defer></script>
+    <script src="myscripts/darkMode.32.js" defer></script>
+    <script src="myscripts/notes.6.js" defer></script>
+    <script src="myscripts/postits.22.js" defer></script>
+    <script src="myscripts/doodle.12.js" defer></script>
+    <script src="myscripts/random.1.js" defer></script>
+
+    <!-- MUST DOWNLOAD LAST -->
+    <script src="myscripts/indices.102.js" defer></script>
+    <script src="myscripts/globalIndex.2.js" defer></script>
+    <script src="myscripts/userguide.3.js" defer></script>
+
+    <!--  my startup code-->
+
+    <!--    Other Scripts-->
+
+</head>
+
+<body style="overflow: hidden;!important;">
+<div hidden id="div-userGuide" class="divuserguide">
+    <div class="d-flex flex-row justify-content-between align-items-center userguideHeader">
+        <div>
+            <i class="fas fa-info-circle fa-fw"></i>&nbsp;User Guide
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="scrollToAnchor(this);"
+                data-href="#UserGuide_top">Show Contents
+        </button>
+        <button type="button" class="btn btn-danger btn-sm" onclick="toggleUserGuide('doNotScroll');" title="Close"><i
+                class="fa fa-times"></i></button>
+    </div>
+    <div id="div-userGuide-content" class="userguidecontent"></div>
+</div>
+<div hidden id="div-mainpage" class="divmainpage">
+    <div id="div-hoverLegendlabel" class="div-hoverLegendlabel shadow-lg rounded" hidden>
+        <span id="span-hoverLegendlabel"></span>
+    </div>
+    <div id="div-toolbox-h" class="my-0 mx-1 p-0 toolbox-h">
+        <div class="mt-1" id="row-actionCardsetChaptersCards">
+            <div class="input-group" style="overflow: hidden;!important; background-color: transparent;">
+                <div class="btn-group mr-1">
+                    <button id="btn-help" class="btn btn-outline-dark" type="button"
+                            onclick="toggleUserGuide('UserGuide_top');"
+                            title="Show Help…"><i class="fas fa-info fa-fw"></i></button>
+                    <button id="btton-settings-h" class="btn btn-outline-dark" type="button" title="Show Settings…"
+                            onclick="showSettingsModal('');"><i class="fas fa-cog fa-fw"></i></button>
+                    <button id="button-dropdownMain" type="button" title="Share…" class="btn btn-outline-dark"
+                            onclick="toggleActionmenuToolbar()"><i class="fas fa-share-square fa-fw"></i></button>
+                </div>
+                <button id="btn-gallery" type="button" class="btn btn-cardsset mr-1"
+                        onclick="showGalleryCards();"
+                        title="Open cards gallery…">
+                    <i class="fas fa-book-reader"></i>
+                </button>
+                <label for="select-cardsset"></label>
+                <select name="selectcardsset" class="custom-select btn-cardsset rounded-sm mr-1"
+                        id="select-cardsset"
+                        title="Select cardset to view"></select>
+                <label for="select-chapters"></label>
+                <select name="selectchapters" class="custom-select btn-chapter rounded-sm mr-1"
+                        id="select-chapters"
+                        title="Select chapter to view"></select>
+                <label hidden for="select-cards"></label>
+                <select name="selectcards" class="custom-select btn-cards rounded-sm mr-1" id="select-cards"
+                        title="Select card to view"></select>
+                <button id="btn-history" type="button" class="btn btn-cards mr-1"
+                        onclick="openHistory();"
+                        title="Recently viewed cards…">
+                    <i class="fas fa-history"></i>
+                </button>
+                <button type="button" class="btn btn-cards mr-1"
+                        data-toggle="popover" data-trigger="manual" data-placement="auto"
+                        data-content="Click to select a random card from current chapter"
+                        onclick="btnRandomClicked(this);"
+                        title="Random card">
+                    <i class="fas fa-random" title="Select random card from chapter"></i>
+                </button>
+                <div class="btn-group">
+                    <button id="btn_card-prev" type="button" class="btn btn-cards" value="-1"
+                            title="Previous card in chapter"
+                            onclick="changeCardIndex(this)">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button id="btn_card-next" type="button" class="btn btn-cards" value="1"
+                            title="Next card in chapter"
+                            onclick="changeCardIndex(this)">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="row-favreveaButtons" class="mt-1">
+            <div class="d-flex justify-content-between align-items-center flex-wrap bg-transparent">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-outline-danger"
+                            title="Hide toolbar"
+                            onclick="hideVHToolbars('h');">
+                        <i class="fas fa-angle-double-up fa-fw"></i>
+                    </button>
+                    <button class="btn btn-outline-danger"
+                            onclick="switchToolboxesVH();"
+                            title="Show vertical toolbar">
+                        <i class="fas fa-grip-vertical fa-fw"></i></button>
+                    <button type="button" class="btn btn-outline-danger hideBrowserBtn"
+                            title="Toggle browser full screen mode on/off"
+                            onclick="toggleBrowserVisible(this)">
+                        <i class="far fa-window-restore"></i>
+                    </button>
+                    <button type="button" class="btn btn-outline-danger"
+                            title="Enter app fullscreen mode"
+                            onclick="handleCardDblClick(null);">
+                        <i class="fas fa-expand fa-fw"></i>
+                    </button>
+                </div>
+                <div class="d-flex flex-shrink-0 flex-grow-1 align-items-center">
+                    <div id="col-slider-image-Width" class="pt-2 mx-1 col-slider">
+                        <label hidden for="slider-image-Width"></label>
+                        <input type="range" class="form-control-range" id="slider-image-Width" value="12"
+                               min="1"
+                               max="12"
+                               title="Adjust image width"
+                               step="1" oninput="handleSliderImageWidthChanged(this)">
+                    </div>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label id="imageFitPage" class="btn btn-outline-secondary"
+                               title="Constrain image to available height and width"
+                               onclick="handleSettings_Clicked(this);">
+                            <input type="radio" name="setting_imageFit" autocomplete="off">
+                            <i class="fas fa-arrows-alt"></i></label>
+                        <label id="imageFitWidth" class="btn btn-outline-secondary"
+                               title="Fit image to full width"
+                               onclick="handleSettings_Clicked(this);">
+                            <input type="radio" name="setting_imageFit" autocomplete="off">
+                            <i class="fas fa-arrows-alt-h"></i></label>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center flipBtnClass">
+                        <img id="btn-flipThisImage"
+                             src="img/rotateacnew.png" alt=""
+                             class="rotateacnew"
+                             data-value="original" title="Flip image 90 degrees"
+                             onclick="handleBtnFlipThisImageClicked(this);">
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center mr-1">
+                    <div id="div-avatars" class="div-avatars">
+                        <div id="div-avatars-img"
+                             class="d-flex justify-content-center align-items-center mx-2 div-avatars-img"></div>
+                    </div>
+                    <i id="icon-hotspotsIcon-available"
+                       class="fas fa-question-circle icon-hotspotsIcon-available icon-hotspotsIcon-hv"
+                       title="This card has label hotspots"></i>
+                    <img id="img-bilingual" src="img/bilingual2.png" class="img-bilingual img-bilingual-hv"
+                         alt="" onclick="showSettingsModal('');"
+                         title="This card has bilingual labels. Click to open Settings and select language options">
+                </div>
+                <div class="btn-group mr-1">
+                    <button disabled id="btn-showGlobalIndex"
+                            class="btn btn-outline-primary showGlobalIndex"
+                            title="Global Index is downloading. Please wait."
+                            onclick="handle_showGlobalIndexClicked();">
+                        <i class="fas fa-book fa-fw"></i></button>
+                    <button disabled id="btn-showIndex" class="btn btn-outline-primary btn-showIndex"
+                            title="Search is downloading. Please wait."
+                            onclick="handle_showIndexClicked();">
+                        <i class="fas fa-search fa-fw"></i></button>
+                    <button class="btn btn-outline-primary"
+                            type="button"
+                            onclick="showAllLabels(this)">
+                        <i id="button-showLabelsAll-icon" class="fas fa-eye fa-fw"></i>
+                    </button>
+                    <button id="btn-revealAnswers" type="button" class="btn bt-sm btn-primary">
+                        <i class="fa fa-list-ol fa-fw"></i></button>
+                </div>
+                <div class="btn-group mr-1" style="overflow: hidden;!important;">
+                    <button disabled id="btn-topics" type="button" class="btn btn-dark btn-topics"
+                            onclick="openTopics('tbh')"
+                            title="Topics list is being downloaded. Please wait.">
+                        <i class="fas fa-layer-group"></i>
+                    </button>
+                    <button id="btn-topic-prev" type="button"
+                            class="btn btn-dark btn-disabled btn-topic-prevnext"
+                            title="Previous card in topic"
+                            onclick="handleChangeTopicIndexfromKey('-1');"
+                            data-value="-1"><i
+                            class="fas fa-arrow-up"></i></button>
+                    <button id="btn-topic-next" type="button"
+                            class="btn btn-dark btn-disabled btn-topic-prevnext"
+                            onclick="handleChangeTopicIndexfromKey('1');"
+                            title="Next card in topic"
+                            data-value="1"><i
+                            class="fas fa-arrow-down"></i></button>
+                </div>
+                <div class="btn-group" style="overflow: hidden;!important;">
+                    <button id="btn-bookmarkFixed" type="button"
+                            class="btn bt-sm btn-warning btnBkmk"><i class="far fa-thumbs-up fa-fw"></i></button>
+                    <label hidden for="select-bookmarksListsNames-toolbar-h"></label>
+                    <select name="select-bookmarksListsNames-gallery"
+                            class="custom-select class-selectbookmarks-gallery class-selectbookmarks-gallery-toolbarH"
+                            style="border-left: 1px solid #ffe497;border-right: 2px solid #ffe497;"
+                            id="select-bookmarksListsNames-toolbar-h"
+                            onchange="handleBookmarksGallerySelectChanged(this);">
+                    </select>
+                    <button id="btn-bookmarks-gallery" type="button" class="btn btn-warning btnBMkGally"
+                            title="Open bookmarks gallery">
+                        <i class="far fa-bookmark fa-fw"></i>
+                    </button>
+                    <button id="btn-bmk-prev" type="button"
+                            class="btn btn-warning btn-disabled btn-bmk-prevnext"
+                            data-value="-1"
+                            title="Previous bookmark in list">
+                        <i class="fas fa-arrow-up fa-fw"></i></button>
+                    <button id="btn-bmk-next" type="button"
+                            class="btn btn-warning btn-disabled btn-bmk-prevnext"
+                            data-value="1"
+                            title="Next bookmark in list">
+                        <i class="fas fa-arrow-down fa-fw"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="div-answerButtonsHanger" class="text-center my-0 py-0 toolbox-h"></div>
+    <div id="div-cardTitleDropDown" class="d-flex flex-nowrap">
+        <div id="div-cardTitle" class="flex-grow-1 div-cardTitle mx-2 my-0 py-0"
+             title="Click to hide card title"
+             onclick="toggleCardTitle()"></div>
+        <div hidden id="div-cardTitle-placeholder" class="flex-grow-1 div-cardTitle mx-2 my-0 py-0 text-secondary"
+             title="Click to show card title"
+             onclick="toggleCardTitle()">Click to show card title</div>
+        <div hidden class="flex-shrink-0 mr-1" id="col-dropdown-tools">
+            <div class="dropdown" style="pointer-events: auto;">
+                <button class="btn btn-light btn-sm dropdown-toggle"
+                        style="margin-bottom: 3px;"
+                        type="button" id="dropdown-tools"
+                        title="Show tools menu..."
+                        data-toggle="dropdown">
+                    <i class="fas fa-bars fa-fw"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right dropdownTools">
+                    <form>
+                        <div class="form-group mx-2">
+                            <button hidden type="button" class="btn btn-danger mt-1 mr-1 float-right"
+                                    id="btn-showToolbox-h"
+                                    title="Show toolbar"
+                                    onclick="hideVHToolbars('h');">
+                                <i class="fas fa-angle-double-down"></i>
+                            </button>
+                            <button hidden type="button" class="btn btn-danger mt-1 ml-1 float-right"
+                                    id="btn-showToolbox-v"
+                                    title="Show toolbar"
+                                    onclick="hideVHToolbars('v');">
+                                <i class="fas fa-angle-double-left fa-fw"></i>
+                            </button>
+                            <div class="btn-group mt-1 btn-whiterBackground">
+                                <button id="btn-help-dropdown" class="btn btn-outline-dark" type="button"
+                                        onclick="toggleUserGuide('UserGuide_top');"
+                                        title="Show Help…"><i class="fas fa-info fa-fw"></i></button>
+                                <button id="btton-settings-dropdown" class="btn btn-outline-dark"
+                                        type="button"
+                                        title="Show Settings…"
+                                        onclick="showSettingsModal('dropdown');"><i
+                                        class="fas fa-cog fa-fw"></i>
+                                </button>
+                                <button id="button-dropdownMain-dropdown" type="button"
+                                        title="Share…" class="btn btn-outline-dark"
+                                        onclick="toggleActionmenuToolbar('dropdown')"><i
+                                        class="fas fa-share-square fa-fw"></i></button>
+                            </div>
+                            <div class="btn-group mt-1 btn-whiterBackground">
+                                <button disabled id="btn-showGlobalIndex-dropdown" type="button"
+                                        class="btn btn-outline-primary showGlobalIndex"
+                                        title="Global Index is downloading. Please wait."
+                                        onclick="handle_showGlobalIndexClicked('#dropdown-tools');">
+                                    <i class="fas fa-book fa-fw"></i></button>
+                                <button disabled id="btn-showIndex-dropdown"
+                                        class="btn btn-outline-primary btn-showIndex"
+                                        type="button"
+                                        title="Search is downloading. Please wait."
+                                        onclick="handle_showIndexClicked('#dropdown-tools');">
+                                    <i class="fas fa-search fa-fw"></i></button>
+                                <button class="btn btn-outline-primary"
+                                        type="button"
+                                        onclick="showAllLabels(this)">
+                                    <i id="button-showLabelsAll-icon-dropdown" class="fas fa-eye fa-fw"></i>
+                                </button>
+                                <button id="btn-revealAnswers-dropdown" type="button"
+                                        class="btn bt-sm btn-primary">
+                                    <i class="fa fa-list-ol fa-fw"></i></button>
+                            </div>
+                            <div class="d-flex align-items-center mt-1">
+                                <div class="btn-group mr-1">
+                                    <button id="btn-gallery-dropdown" type="button"
+                                            class="btn btn-cardsset mr-1"
+                                            onclick="showGalleryCards('#dropdown-tools');"
+                                            title="Open cards gallery…">
+                                        <i class="fas fa-book-reader"></i>
+                                    </button>
+                                    <button id="btn-history-dropdown" type="button"
+                                            class="btn btn-cards mr-1"
+                                            onclick="openHistory('#dropdown-tools');"
+                                            title="Recently viewed cards…">
+                                        <i class="fas fa-history"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-cards mr-1"
+                                            onclick="btnRandomClicked(this);"
+                                            title="Random card">
+                                        <i class="fas fa-random" title="Select random card from chapter"></i>
+                                    </button>
+                                    <div class="btn-group">
+                                        <button id="btn_card-prev-dropdown" type="button"
+                                                class="btn btn-cards" value="-1"
+                                                title="Previous card in chapter"
+                                                onclick="changeCardIndex(this)">
+                                            <i class="fas fa-arrow-left"></i>
+                                        </button>
+                                        <button id="btn_card-next-dropdown" type="button"
+                                                class="btn btn-cards" value="1"
+                                                title="Next card in chapter"
+                                                onclick="changeCardIndex(this)">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div id="div-avatars-dropdown" class="div-avatars ml-1">
+                                    <div id="div-avatars-img-dropdown"
+                                         class="d-flex align-items-center div-avatars-img div-avatars-imgSm"></div>
+                                </div>
+                            </div>
+                            <label hidden for="select-cardsset-dropdown"></label>
+                            <select name="selectcardsset-dropdown"
+                                    class="custom-select btn-cardsset rounded-sm mr-1 mt-1"
+                                    id="select-cardsset-dropdown"
+                                    title="Select cardset to view"></select>
+                            <label hidden for="select-chapters-dropdown"></label>
+                            <select name="selectchapters-dropdown"
+                                    class="custom-select btn-chapter rounded-sm mr-1"
+                                    id="select-chapters-dropdown"
+                                    title="Select chapter to view"></select>
+                            <label hidden for="select-cards-dropdown"></label>
+                            <select name="selectcards-dropdown"
+                                    class="custom-select btn-cards rounded-sm mr-1"
+                                    id="select-cards-dropdown"
+                                    title="Select card to view"></select>
+                            <div class="btn-group mt-1" style="overflow: hidden;!important;">
+                                <button disabled id="btn-topics-dropdown" type="button"
+                                        class="btn btn-dark btn-topics"
+                                        onclick="openTopics('dropdown')"
+                                        title="Topics list is being downloaded. Please wait.">
+                                    <i class="fas fa-layer-group"></i>
+                                </button>
+                                <button id="btn-topic-prev-dropdown" type="button"
+                                        class="btn btn-dark btn-disabled btn-topic-prevnext"
+                                        title="Previous card in topic"
+                                        onclick="handleChangeTopicIndexfromKey('-1');"
+                                        data-value="-1"><i
+                                        class="fas fa-arrow-up"></i></button>
+                                <button id="btn-topic-next-dropdown" type="button"
+                                        class="btn btn-dark btn-disabled btn-topic-prevnext"
+                                        onclick="handleChangeTopicIndexfromKey('1');"
+                                        title="Next card in topic"
+                                        data-value="1"><i
+                                        class="fas fa-arrow-down"></i></button>
+                            </div>
+                            <div class="btn-group mt-1" style="overflow: hidden;!important;">
+                                <button id="btn-bookmarkFixed-dropdown" type="button"
+                                        class="btn bt-sm btn-warning btnBkmk"><i
+                                        class="far fa-thumbs-up fa-fw"></i></button>
+                                <label hidden for="select-bookmarksListsNames-dropdown"></label>
+                                <select name="select-bookmarksListsNames-dropdown"
+                                        class="custom-select class-selectbookmarks-gallery class-selectbookmarks-gallery-dropdown"
+                                        style="border-left: 1px solid #ffe497;border-right: 2px solid #ffe497;"
+                                        id="select-bookmarksListsNames-dropdown"
+                                        onchange="handleBookmarksGallerySelectChanged(this);">
+                                </select>
+                                <button id="btn-bookmarks-gallery-dropdown" type="button"
+                                        class="btn btn-warning btnBMkGally"
+                                        title="Open bookmarks gallery">
+                                    <i class="far fa-bookmark fa-fw"></i>
+                                </button>
+                                <button id="btn-bmk-prev-dropdown" type="button"
+                                        class="btn btn-warning btn-disabled btn-bmk-prevnext"
+                                        data-value="-1"
+                                        title="Previous bookmark in list">
+                                    <i class="fas fa-arrow-up fa-fw"></i></button>
+                                <button id="btn-bmk-next-dropdown" type="button"
+                                        class="btn btn-warning btn-disabled btn-bmk-prevnext"
+                                        data-value="1"
+                                        title="Next bookmark in list">
+                                    <i class="fas fa-arrow-down fa-fw"></i></button>
+                            </div>
+                            <div class="d-flex align-items-center mt-1">
+                                <div id="col-slider-image-Width-dropdown" class="pt-2 mx-1 col-slider"
+                                     style="max-width: 400px;!important;">
+                                    <label hidden for="slider-image-Width"></label>
+                                    <input type="range" class="form-control-range"
+                                           id="slider-image-Width-dropdown" value="12"
+                                           min="1"
+                                           max="12"
+                                           title="Adjust image width"
+                                           step="1" oninput="handleSliderImageWidthChanged(this)">
+                                </div>
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons"
+                                     style="background-color: rgba(255,255,255,0.7)">
+                                    <label id="imageFitPage-dropdown" class="btn btn-outline-secondary"
+                                           title="Constrain image to available height and width"
+                                           onclick="handleSettings_Clicked(this);">
+                                        <input type="radio" name="setting_imageFit-dropdown"
+                                               autocomplete="off">
+                                        <i class="fas fa-arrows-alt"></i></label>
+                                    <label id="imageFitWidth-dropdown" class="btn btn-outline-secondary"
+                                           title="Fit image to full width"
+                                           onclick="handleSettings_Clicked(this);">
+                                        <input type="radio" name="setting_imageFit-dropdown"
+                                               autocomplete="off">
+                                        <i class="fas fa-arrows-alt-h"></i></label>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center flipBtnClass  btn-whiterBackground">
+                                    <img id="btn-flipThisImage-dropdown"
+                                         src="img/rotateacnew.png" alt=""
+                                         class="rotateacnew"
+                                         data-value="original" title="Flip image 90 degrees"
+                                         onclick="handleBtnFlipThisImageClicked(this);">
+                                </div>
+                                <button type="button"
+                                        class="btn btn-outline-danger hideBrowserBtn btn-whiterBackground mx-1"
+                                        title="Toggle browser full screen mode on/off"
+                                        onclick="toggleBrowserVisible(this)">
+                                    <i class="far fa-window-restore fa-fw"></i>
+                                </button>
+                                <div class="d-flex justify-content-center align-items-center ml-1">
+                                    <i id="icon-hotspotsIcon-available-dropdown"
+                                       title="This card has label hotspots"
+                                       class="fas fa-question-circle icon-hotspotsIcon-available icon-hotspotsIcon-hv"></i>
+                                    <img id="img-bilingual-dropdown" src="img/bilingual2.png"
+                                         class="img-bilingual img-bilingual-hv"
+                                         alt="" onclick="showSettingsModal('');"
+                                         title="This card has bilingual labels. Click to open Settings and select language options">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div hidden id="h-cardNote" class="titleNote mx-2 my-0 py-0" onclick="toggleNoteVisibility(this)"></div>
+    <div class="container-fluid container-fluid-narrow" id="container-fluid">
+        <div class="row no-gutters px-0" id="row-image-outer">
+            <div class="col" id="col-image-outer">
+                <div class="row no-gutters" id="row-image">
+                    <div class="col col-image" id="col-image">
+                        <div id="div-maximiseIcons" hidden class="div-maximiseIcons">
+                            <i title="This card has label hotspots"
+                               class="fas fa-question-circle iconsMax iconsMax-v0 iconsMax-l icon-hotspotsIcon-available icon-hotspotsIcon-max"></i>
+                            <i id="maximise"
+                               class="fas fa-compress icon-maximise iconsMax iconsMax-v1 iconsMax-l"
+                               title="Exit app fullscreen mode"
+                               onclick="handleCardDblClick(null);"></i>
+                            <i id="btn-gallery-maximise"
+                               class="fas fa-book-reader icon-prevnextgall-max iconsMax iconsMax-v2 iconsMax-l"
+                               title="Show cards gallery"
+                               onclick="showGalleryCards();"></i>
+                            <i id="btn-prev-maximise"
+                               class="fas fa-arrow-circle-left icon-prevnextgall-max  iconsMax iconsMax-v3 iconsMax-l"
+                               title="Previous card in chapter"
+                               onclick="handleChangeCardIndex('-1');"></i>
+                            <i id="btn-next-maximise"
+                               class="fas fa-arrow-circle-right icon-prevnextgall-max iconsMax iconsMax-v4 iconsMax-l"
+                               title="Next card in chapter"
+                               onclick="handleChangeCardIndex('1');"></i>
+                            <i
+                               class="fas fa-random icon-random-max iconsMax iconsMax-v5 iconsMax-l"
+                               title="Random card"
+                               onclick="btnRandomClicked();"></i>
+                            <i id="btn-imgfit-maximise"
+                               class="fas fa-arrows-alt icon-imgfit-maximise iconsMax iconsMax-v6 iconsMax-l"
+                               title="Fit image"
+                               onclick="imageFitMaximiseClicked();"></i>
+                            <img src="img/rotateacnew.png" alt=""
+                                 id="btn-flipThisImage-maximise"
+                                 class=" iconsMax iconsMax-v7 iconsMax-l rotateacnew opacity80"
+                                 data-value="original" title="Flip image 90 degrees"
+                                 onclick="handleBtnFlipThisImageClicked(this);">
+                            <i title="Share…"
+                               class="fas fa-share-square iconActionMax iconsMax iconsMax-v8 iconsMax-l"
+                               onclick="toggleActionmenuToolbar()"></i>
+
+                            <img id="img-bilingual-max" src="img/bilingual2.png"
+                                 class="iconsMax iconsMax-v0 iconsMax-r img-bilingual img-bilingual-max"
+                                 alt="" onclick="showSettingsModal('');"
+                                 title="This card has bilingual labels. Click to open Settings and select language options">
+                            <i id="button-showLabelsAll-icon-maximise"
+                               class="fas fa-eye icon-reveal-maximise iconsMax iconsMax-v1 iconsMax-r"
+                               onclick="showAllLabels(this)"></i>
+                            <i id="btn-revealAnswers-maximise"
+                               class="fa fa-list-ol icon-reveal-maximise iconsMax iconsMax-v2 iconsMax-r"></i>
+                            <i title="Open Search Legend Labels text dialog"
+                               onclick="handle_showIndexClicked();"
+                               class="fas fa-search icon-reveal-maximise iconsMax iconsMax-v3 iconsMax-r"></i>
+                            <i id="btn-showGlobalIndex-maximise"
+                               disabled
+                               class="fas fa-book icon-reveal-maximise iconsMax iconsMax-v4 iconsMax-r showGlobalIndex"
+                               onclick="handle_showGlobalIndexClicked();"
+                               title="Global Index is downloading. Please wait."></i>
+                            <i id="btn-bookmarks-gallery-maximise"
+                               class="fas fa-bookmark btnBMkGally icon-bookmarks iconsMax iconsMax-v5 iconsMax-r"
+                               title="Show bookmarks gallery"></i>
+                            <i id="btn-bookmarkFixed-maximise"
+                               onclick="handleBookmarkMaxClicked();"
+                               class="icon-bookmarks btnBkmk iconsMax iconsMax-v6 iconsMax-r"><i
+                                    class="far fa-thumbs-up fa-fw"></i></i>
+                            <i id="btn-bmk-prev-maximise"
+                               data-value="-1"
+                               class="fas fa-arrow-circle-up btn-bmk-prevnext-max icon-bookmarks iconsMax iconsMax-v7 iconsMax-r"
+                               title="Previous bookmark in list"></i>
+                            <i id="btn-bmk-next-maximise"
+                               data-value="1"
+                               class="fas fa-arrow-circle-down btn-bmk-prevnext-max icon-bookmarks iconsMax iconsMax-v8 iconsMax-r"
+                               title="Next bookmark in list"></i>
+                        </div>
+                        <div id="div-targetsHanger"></div>
+                        <svg id="svg-doodles" class="svgdoodles" xmlns="http://www.w3.org/2000/svg"></svg>
+                        <div id="div-postitsHanger" class="div-postitsHanger div-postitsHanger-inactive"></div>
+                        <div id="div-image-card" class="div-image-card">
+                            <img id="image-card" src=" " alt="" draggable="false" class="image-card">
+                        </div>
+                    </div>
+                    <div class="col overflow-auto" id="col-revealAnswers" hidden>
+                        <div hidden id="div-notesOuter" class="h-100 mr-1">
+                            <!--        sidebarnotes-->
+                            <div id="div-sidebarnotes" class="h-100">
+                                <div class="d-flex flex-column h-100">
+                                    <div class="d-flex flex-wrap justify-content-between my-1">
+                                        <div class="btn-group btn-group-sm mr-1">
+                                            <button id="btn-notes-save" class="btn btn-outline-dark" type="button"
+                                                    title="Save this side bar note"
+                                                    onclick="saveTextAreaNote('btn');">Save
+                                            </button>
+                                            <button class="btn btn-outline-danger" type="button"
+                                                    title="Delete this side bar note"
+                                                    onclick="clearCurrentCardNoteAfterConfirm();"><i
+                                                    class="fas fa-backspace"></i></button>
+                                        </div>
+                                        <div class="btn-group btn-group-sm">
+                                            <button hidden id="btn-showPostitsPalette" type="button"
+                                                    class="btn btn-postits btn-sm mr-1"
+                                                    onclick="togglePostitsPaletteAndSBnote(false);"
+                                                    title="Add and manage post-it notes and annotations">
+                                                <i class="fas fa-shapes"></i></button>
+                                            <button type="button" class="btn btn-primary btn-sm"
+                                                    onclick="toggleNotesLegend('legend');" title="Show Legend">
+                                                <i class="fas fa-list-ol"></i></button>
+                                        </div>
+                                    </div>
+                                    <label hidden for="textarea-notes"></label>
+                                    <textarea id="textarea-notes" class="form-control flex-grow-1 sidebarNotes"
+                                              style="resize: none;" wrap="soft"
+                                              onfocusout="saveTextAreaNote('focusout')"
+                                              autocomplete="off" autocorrect="off" autocapitalize="none"
+                                              spellcheck="false"
+                                              placeholder="Enter your notes here. Always tap Save button or changes may be lost! Export backup copy frequently as browser may delete notes without warning."
+                                              oninput="input_notes_changed();"
+                                    ></textarea>
+                                </div>
+                            </div>
+                            <!--        postitspal-->
+                            <div hidden id="div-postits" class="h-100">
+                                <div class="d-flex flex-column h-100">
+                                    <div class="d-flex flex-wrap justify-content-between flex-shrink-0 my-1">
+                                        <div class="btn-group btn-group-sm ml-1">
+                                            <button id="btn-showdoodle" class="btn btn-postits btn-sm mr-1"
+                                                    type="button"
+                                                    onclick="togglePIpanelDoodle('do',this);"
+                                                    title="Show annotations palette">
+                                                <i class="fas fa-pen-fancy"></i>
+                                            </button>
+                                            <button id="btn-pifromdo" type="button"
+                                                    class="btn btn-postits btn-sm btn-postits-active"
+                                                    onclick="togglePIpanelDoodle('pi',this);"
+                                                    title="Show post-its palette">
+                                                <i class="fas fa-sticky-note"></i>
+                                            </button>
+                                        </div>
+                                        <div class="d-flex">
+                                            <button class="btn btn-danger btn-sm" type="button"
+                                                    onclick="clearAllPostitsDoodlesForCardAfterConfirm();"
+                                                    title="Delete all post-its and annotations on this figure">
+                                                <i class="far fa-trash-alt fa-fw"></i></button>
+                                            <div class="d-flex align-items-center flex-nowrap ml-2">
+                                                <i class="fas fa-eye-slash ml-1 text-primary"
+                                                   onclick="togglePostitsDisplay('img',this);"
+                                                   title="Hide post-its and annotations on all cards (when finished editing)"></i>
+                                                <div class="custom-control custom-switch"
+                                                     title="Hide post-its on all cards (when finished editing)">
+                                                    <input class="custom-control-input" type="checkbox"
+                                                           name="checkbox-hidepostits"
+                                                           id="checkbox-hidepostits"
+                                                           value="false"
+                                                           onclick="togglePostitsDisplay('cbx',this);">
+                                                    <label id="label-hidepostits" class="custom-control-label"
+                                                           for="checkbox-hidepostits"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-group btn-group-sm">
+                                            <button id="btn-showSBNotes" class="btn btn-info btn-sm mr-1"
+                                                    type="button"
+                                                    onclick="togglePostitsPaletteAndSBnote(true);"
+                                                    title="Stop managing post-it notes and show side bar notes instead">
+                                                <i class="fas fa-user-edit"></i></button>
+                                            <button type="button" class="btn btn-primary btn-sm"
+                                                    onclick="toggleNotesLegendFromPostit();"
+                                                    title="Stop managing post-it notes and show legend instead">
+                                                <i class="fas fa-list-ol"></i></button>
+                                        </div>
+                                    </div>
+                                    <div id="div-pipalette"
+                                         class="flex-grow-1 rounded p-2 d-flex flex-column mb-1 pipalette">
+                                        <div class="flex-grow-1 d-flex flex-column">
+                                            <div class="d-flex justify-content-between flex-wrap flex-shrink-0 mb-1">
+                                                <div class="d-flex align-items-center flex-nowrap">
+                                                    <img id="image-postitsrotate" src="img/rotateacnew.png"
+                                                         height="15px"
+                                                         title="Flip post-it when image flipped"
+                                                         style="margin-right:2px;"
+                                                         alt="" onclick="handlePostitsRotateSwitchClick('img');">
+                                                    <div class="custom-control custom-switch"
+                                                         title="Flip post-it when image flipped">
+                                                        <input class="custom-control-input" type="checkbox"
+                                                               name="checkbox-postitsrotate"
+                                                               id="checkbox-postitsrotate"
+                                                               value="false"
+                                                               onclick="handlePostitsRotateSwitchClick('cbx',this);">
+                                                        <label id="label-postitsrotate" class="custom-control-label"
+                                                               for="checkbox-postitsrotate"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-start flex-wrap mr-1">
+                                                    <div class="dropdown">
+                                                        <button id="btn-postit-bgc"
+                                                                class="btn btn-sm dropdown-toggle"
+                                                                type="button"
+                                                                data-toggle="dropdown"
+                                                                title="post-it background colour">
+                                                            <i></i>
+                                                        </button>
+                                                        <div id="dropdown-piBGC" class="dropdown-menu">
+                                                            <button class="btn btn-light btn-sm"
+                                                                    type="button"
+                                                                    data-colour="white"
+                                                                    title="white post-it background"
+                                                                    onclick="setPIPaletteBGColour(this.getAttribute('data-colour'));">
+                                                                <i></i>
+                                                            </button>
+                                                            <button class="btn btn-light btn-sm"
+                                                                    type="button"
+                                                                    data-colour="pink"
+                                                                    title="pink post-it background"
+                                                                    onclick="setPIPaletteBGColour(this.getAttribute('data-colour'));">
+                                                                <i></i>
+                                                            </button>
+                                                            <button class="btn btn-light btn-sm"
+                                                                    type="button"
+                                                                    data-colour="yellow"
+                                                                    title="yellow post-it background"
+                                                                    onclick="setPIPaletteBGColour(this.getAttribute('data-colour'));">
+                                                                <i></i>
+                                                            </button>
+                                                            <button class="btn btn-light btn-sm"
+                                                                    type="button"
+                                                                    data-colour="green"
+                                                                    title="green post-it background"
+                                                                    onclick="setPIPaletteBGColour(this.getAttribute('data-colour'));">
+                                                                <i></i>
+                                                            </button>
+                                                            <button class="btn btn-light btn-sm"
+                                                                    type="button"
+                                                                    data-colour="blue"
+                                                                    title="blue post-it background"
+                                                                    onclick="setPIPaletteBGColour(this.getAttribute('data-colour'));">
+                                                                <i></i>
+                                                            </button>
+                                                            <button class="btn btn-light btn-sm"
+                                                                    type="button"
+                                                                    data-colour="transparent"
+                                                                    title="transparent post-it background"
+                                                                    onclick="setPIPaletteBGColour(this.getAttribute('data-colour'));">
+                                                                <i></i>
+                                                            </button>
+                                                            <!--                                                </div>-->
+                                                        </div>
+                                                    </div>
+                                                    <div class="dropdown">
+                                                        <button id="btn-postit-txtc" class="btn btn-sm dropdown-toggle"
+                                                                type="button"
+                                                                data-toggle="dropdown"
+                                                                title="post-it text colour">
+                                                            <i></i>
+                                                        </button>
+                                                        <div id="dropdown-piTXTC" class="dropdown-menu">
+                                                            <!--                                                <div class="btn-group btn-group-sm mx-2">-->
+                                                            <button class="btn btn-outline-dark btn-sm" type="button"
+                                                                    data-colour="black"
+                                                                    title="black post-it text"
+                                                                    onclick="setPIPaletteTextColour(this.getAttribute('data-colour'));">
+                                                                <i></i>
+                                                            </button>
+                                                            <button class="btn btn-outline-dark btn-sm" type="button"
+                                                                    data-colour="red"
+                                                                    title="red post-it text"
+                                                                    onclick="setPIPaletteTextColour(this.getAttribute('data-colour'));">
+                                                                <i></i>
+                                                            </button>
+                                                            <button class="btn btn-outline-dark btn-sm" type="button"
+                                                                    data-colour="orange"
+                                                                    title="orange post-it text"
+                                                                    onclick="setPIPaletteTextColour(this.getAttribute('data-colour'));">
+                                                                <i></i>
+                                                            </button>
+                                                            <button class="btn btn-outline-dark btn-sm" type="button"
+                                                                    data-colour="green"
+                                                                    title="green post-it text"
+                                                                    onclick="setPIPaletteTextColour(this.getAttribute('data-colour'));">
+                                                                <i></i>
+                                                            </button>
+                                                            <button class="btn btn-outline-dark btn-sm" type="button"
+                                                                    data-colour="blue"
+                                                                    title="blue post-it text"
+                                                                    onclick="setPIPaletteTextColour(this.getAttribute('data-colour'));">
+                                                                <i></i>
+                                                            </button>
+                                                            <!--                                                </div>-->
+                                                        </div>
+                                                    </div>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-sm dropdown-toggle"
+                                                                type="button" id="btn-postit-txtsz" data-txtsz="s"
+                                                                data-toggle="dropdown"
+                                                                title="post-it text size">
+                                                            <i class="fas fa-text-height fa-fw"></i>
+                                                        </button>
+                                                        <div id="dropdown-txtsz" class="dropdown-menu">
+                                                            <button class="btn btn-outline-dark btn-sm" type="button"
+                                                                    data-txtsz="s"
+                                                                    title="Small post-it text"
+                                                                    onclick="setPIPaletteTextSize(this.getAttribute('data-txtsz'));">
+                                                                <i class="fas fa-text-height fa-fw"
+                                                                   style="font-size: smaller"></i>
+                                                            </button>
+                                                            <button class="btn btn-outline-dark btn-sm" type="button"
+                                                                    data-txtsz="m"
+                                                                    title="Medium post-it text"
+                                                                    onclick="setPIPaletteTextSize(this.getAttribute('data-txtsz'));">
+                                                                <i class="fas fa-text-height fa-fw"
+                                                                   style="font-size: medium"></i>
+                                                            </button>
+                                                            <button class="btn btn-outline-dark btn-sm" type="button"
+                                                                    data-txtsz="l"
+                                                                    title="Large post-it text"
+                                                                    onclick="setPIPaletteTextSize(this.getAttribute('data-txtsz'));">
+                                                                <i class="fas fa-text-height fa-fw"
+                                                                   style="font-size: large"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-secondary btn-sm" type="button"
+                                                        title="reset post-it styles to default values"
+                                                        onclick="resetToEmptyPostitsPaletteDefaultStyles(true);">
+                                                    <i class="fas fa-times-circle fa-fw"></i>
+                                                </button>
+                                                <button id="btn-addpostit" class="btn btn-postits btn-sm"
+                                                        type="button"
+                                                        title="Add new post-it to figure"
+                                                        onclick="addNewPostitBtnTapped();">
+                                                    <i class="fas fa-plus fa-fw"></i>
+                                                </button>
+                                            </div>
+                                            <div class="flex-shrink-0 mb-1">
+                                                <div hidden id="btn-updateSelectedPostit" class="flex-grow-1">
+                                                    <div class="flex-grow-1 d-flex justify-content-between">
+                                                        <div class="btn-group btn-group-sm">
+                                                            <button
+                                                                    class="btn btn-postits btn-sm"
+                                                                    type="button"
+                                                                    title="Update selected post-it note on figure"
+                                                                    onclick="addNewPostitToFigure(false);">Update
+                                                            </button>
+                                                            <button
+                                                                    class="btn btn-outline-secondary btn-sm"
+                                                                    type="button"
+                                                                    title="Finish update of selected post-it note on figure"
+                                                                    onclick="resetToEmptyPostitsPaletteDefaultStyles(true);">
+                                                                Done
+                                                            </button>
+                                                        </div>
+                                                        <button class="btn btn-outline-danger btn-sm ml-2"
+                                                                type="button"
+                                                                onclick="deleteSelectedPostit();"
+                                                                title="Delete selected post-it">
+                                                            <i class="fas fa-backspace"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 flex-shrink-0 d-flex flex-column bg-white">
+                                                <label hidden for="textarea-postit"></label>
+                                                <textarea id="textarea-postit" class="form-control flex-grow-1"
+                                                          style="resize: none;" wrap="soft"
+                                                          autocomplete="off" autocorrect="off" autocapitalize="none"
+                                                          spellcheck="false"
+                                                          placeholder="Enter post-it text here">
+                                                </textarea>
+                                            </div>
+                                            <div id="div-postitsHanger-message" class="flex-shrink-1">
+                                                Enter text, choose background, text colour & size then
+                                                tap figure to add post-it at that location, or tap <i
+                                                    class="fas fa-plus"></i> and drag to a new location.
+                                                Tap to edit or delete a post-it. Tap <i class="fas fa-user-edit"></i> or
+                                                <i class="fas fa-list-ol"></i> when finished.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="div-doodlepalette"
+                                         class="flex-grow-1 flex-shrink-0 rounded p-2 d-flex flex-column mb-1 doodlepalette hideInFlexCol">
+                                        <div class="d-flex flex-wrap justify-content-between my-1">
+                                            <div id="btngp-doShape" class="btn-group btn-group-toggle btn-group-sm"
+                                                 data-toggle="buttons">
+                                                <label id="btn-DStext" class="btn btn-outline-dark active"
+                                                       onclick="hideFillPanelForDataShape('text')"
+                                                       data-shape="text">
+                                                    <input type="radio" name="doodleType" autocomplete="off"
+                                                           checked><i
+                                                        class="fas fa-font"></i>
+                                                </label>
+                                                <label id="btn-DSellipse" class="btn btn-outline-dark"
+                                                       onclick="hideFillPanelForDataShape('ellipse')"
+                                                       data-shape="ellipse">
+                                                    <input type="radio" name="doodleType" autocomplete="off"
+                                                           checked><i
+                                                        class="far fa-circle"></i>
+                                                </label>
+                                                <label id="btn-DSrect" class="btn btn-outline-dark"
+                                                       onclick="hideFillPanelForDataShape('rect')"
+                                                       data-shape="rect">
+                                                    <input type="radio" name="doodleType" autocomplete="off"><i
+                                                        class="far fa-square"></i>
+                                                </label>
+                                                <label id="btn-DSline"
+                                                       onclick="hideFillPanelForDataShape('line',true)"
+                                                       class="btn btn-outline-dark" data-shape="line">
+                                                    <input type="radio" name="doodleType" autocomplete="off">—
+                                                </label>
+                                                <button type="button"
+                                                        class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+                                                        data-toggle="dropdown"></button>
+                                                <div id="dropdown-menu-marker" class="dropdown-menu"
+                                                     title="Line end marker style">
+                                                    <h6 class="dropdown-header">Line end marker</h6>
+                                                    <button id="btn-Markerline" class="dropdown-item active"
+                                                            type="button"
+                                                            onclick="dropdownMarkerClicked(this)" data-shape="line">
+                                                        —
+                                                    </button>
+                                                    <button id="btn-MarkerlineArrow" class="dropdown-item"
+                                                            type="button"
+                                                            onclick="dropdownMarkerClicked(this)"
+                                                            data-shape="lineArrow"><img src="sprites/arrowhead.svg"
+                                                                                        alt="" width="16px">
+                                                    </button>
+                                                    <button id="btn-MarkerlineDot" class="dropdown-item"
+                                                            type="button"
+                                                            onclick="dropdownMarkerClicked(this)"
+                                                            data-shape="lineDot">
+                                                        <img src="sprites/circle.svg" alt="" width="20px"></button>
+                                                    <button id="btn-MarkerlineThumbtack" class="dropdown-item"
+                                                            type="button"
+                                                            onclick="dropdownMarkerClicked(this)"
+                                                            data-shape="lineThumbtack"><img
+                                                            src="sprites/lineThumbtack.svg" alt="" width="16">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-secondary btn-sm ml-1" type="button"
+                                                    title="reset annotations styles to default values"
+                                                    onclick="setupDoodlePalette(null)">
+                                                <i class="fas fa-times-circle"></i>
+                                            </button>
+                                            <div id="btns-updateDO" class="btn-group btn-group-sm">
+                                                <button class="btn btn-postits " type="button"
+                                                        title="Update selected annotation with styles"
+                                                        onclick="applyPaletteToDoodle();">Update
+                                                </button>
+                                                <button
+                                                        class="btn btn-outline-secondary"
+                                                        type="button"
+                                                        title="Finish update of selected annotation"
+                                                        onclick="setNoDoodleIsNowSelected();">
+                                                    Done
+                                                </button>
+                                            </div>
+                                            <div id="btngp-backdel" class="btn-group btn-group-sm">
+                                                <button id="btn-sendDOback" class="btn btn-outline-dark" type="button"
+                                                        title="Send selected annotation to back"
+                                                        onclick="sendSelectedDOback();"><i
+                                                        class="fas fa-sort-amount-down-alt fa-fw"></i>
+                                                </button>
+                                                <button id="btn-delSelDoodle"
+                                                        class="btn btn-outline-danger" type="button"
+                                                        onclick="handleDeleteDoodleClicked();"
+                                                        title="Delete selected annotation">
+                                                    <i class="fas fa-backspace fa-fw"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div id="div-panelDoColourFill"
+                                             class="d-flex align-items-center flex-nowrap my-1 div-doColourPanel rounded p-1">
+                                            <div id="div-divDoColourFill"
+                                                 class="rounded mr-1 flex-shrink-0 div-divDoColourFill bg-white">
+                                                <div id="div-doColourFill" title="Background colour"
+                                                     style="background-color: hsla(0,100%,50%,0);"
+                                                     data-colour="hsla(0,100%,50%,0)" data-colourMode="colour"
+                                                     class="div-doColourFill rounded flex-shrink-0"></div>
+                                            </div>
+                                            <div class="d-flex flex-column flex-grow-1">
+                                                <div class="d-flex align-items-center flex-nowrap flex-grow-1">
+                                                    <label hidden for="range-doColourFill"></label>
+                                                    <input id="range-doColourFill" name="range-doColourFill"
+                                                           type="range" title="Change background colour"
+                                                           class="custom-range range-doColourStrokeFill rounded"
+                                                           oninput="  doFillStrokeHueChanged(this,'div-doColourFill','backgroundColor')"
+                                                           min="0" max="360" value="0" step="10">
+                                                    <div title="Set background black"
+                                                         class="flex-shrink-0 div-blackColour rounded ml-1"
+                                                         onclick=" doBlackWhiteClicked('div-doColourFill','backgroundColor','black')"></div>
+                                                    <div title="Set background grey"
+                                                         class="flex-shrink-0 div-greyColour rounded ml-1"
+                                                         onclick=" doBlackWhiteClicked('div-doColourFill','backgroundColor','#888888')"></div>
+                                                    <div title="Set background white"
+                                                         class="flex-shrink-0 div-whiteColour rounded ml-1"
+                                                         onclick=" doBlackWhiteClicked('div-doColourFill','backgroundColor','white')"></div>
+                                                </div>
+                                                <div class="d-flex align-items-center flex-nowrap flex-grow-1">
+                                                    <div class="d-flex align-items-center flex-grow-1 flex-nowrap">
+                                                        <label hidden for="range-doAlphaFill"></label>
+                                                        <input id="range-doAlphaFill" name="range-doAlphaFill"
+                                                               type="range" title="Change background transparency"
+                                                               class="custom-range flex-grow-1 range-doAlphaStrokeFill rounded"
+                                                               oninput=" doStrokeFillAlphaChanged(this,'div-doColourFill','backgroundColor')"
+                                                               min="0" max="1.0" value="0" step="0.01">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center flex-nowrap my-1 rounded p-1 div-doColourPanel">
+                                            <div id="div-divDoColourStroke"
+                                                 class="rounded mr-1 flex-shrink-0 div-doColourBorder bg-white">
+                                                <div id="div-doColourStroke" title="Border/line colour"
+                                                     data-colour="hsla(0,100%,50%,1)" data-colourMode="colour"
+                                                     style="border-color: hsla(0,100%,50%,1);"
+                                                     class="div-doColourStroke rounded flex-shrink-0 hideInFlexCol"></div>
+                                                <div id="div-doTextColour" title="Text colour"
+                                                     style="color: hsla(0,100%,50%,1);"
+                                                     data-colour="hsla(0,100%,50%,1)" data-colourMode="colour"
+                                                     class="div-doTextColour rounded flex-shrink-0"><i
+                                                        class="fas fa-font"></i></div>
+                                            </div>
+                                            <div class="d-flex flex-column flex-grow-1">
+                                                <div class="d-flex align-items-center flex-nowrap flex-grow-1">
+                                                    <label hidden for="range-doColourStroke"></label>
+                                                    <input id="range-doColourStroke" name="range-doColourStroke"
+                                                           type="range" title="Change text colour"
+                                                           class="custom-range rounded range-doColourStrokeFill"
+                                                           oninput="  doFillStrokeHueChanged(this,'div-doColourStroke','borderColor')"
+                                                           min="0" max="360" value="0" step="10">
+                                                    <div class="flex-shrink-0 div-blackColour rounded ml-1"
+                                                         title="Set colour black"
+                                                         onclick=" doBlackWhiteClicked('div-doColourStroke','borderColor','black')"></div>
+                                                    <div title="Set colour grey"
+                                                         class="flex-shrink-0 div-greyColour rounded ml-1"
+                                                         onclick=" doBlackWhiteClicked('div-doColourStroke','borderColor','#888888')"></div>
+                                                    <div class="flex-shrink-0 div-whiteColour rounded ml-1"
+                                                         title="Set colour white"
+                                                         onclick=" doBlackWhiteClicked('div-doColourStroke','borderColor','white')"></div>
+                                                </div>
+                                                <div class="d-flex align-items-center flex-grow-1 flex-nowrap">
+                                                    <label hidden for="range-doAlphaStroke"></label>
+                                                    <input id="range-doAlphaStroke" name="range-doAlphaStroke"
+                                                           type="range" title="Change text transparency"
+                                                           class="custom-range range-doAlphaStrokeFill rounded"
+                                                           oninput=" doStrokeFillAlphaChanged(this,'div-doColourStroke','borderColor')"
+                                                           min="0" max="1.0" value="1.0" step="0.01">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center flex-nowrap my-1 div-doColourPanel rounded p-1">
+                                            <div class="rounded mr-1 flex-shrink-0 div-doColourBorder bg-white">
+                                                <div id="div-doStrokeWidth" title="Border width"
+                                                     class="div-doStrokeWidth rounded flex-shrink-0 hideInFlexCol"></div>
+                                                <div id="div-doTextSize" title="Text size"
+                                                     class="div-doTextSize rounded flex-shrink-0 d-flex align-items-center text-dark">
+                                                    <div style="width: 100%;"><i class="fas fa-text-height"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column flex-grow-1">
+                                                <div class="d-flex align-items-center flex-nowrap flex-grow-1">
+                                                    <div class="d-flex align-items-center flex-grow-1 flex-nowrap">
+                                                        <label hidden for="range-doStrokeWidth"></label>
+                                                        <input id="range-doStrokeWidth" name="range-doStrokeWidth"
+                                                               type="range" title="Change text size"
+                                                               class="custom-range flex-grow-1 rounded"
+                                                               oninput=" doStrokeWidthChanged(this)"
+                                                               min="8" max="48" value="8" step="4">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="div-textarea-doodle"
+                                             class="flex-grow-1 flex-shrink-0 d-flex flex-column my-1 bg-white">
+                                            <label hidden for="textarea-doodle"></label>
+                                            <textarea id="textarea-doodle" class="form-control flex-grow-1"
+                                                      style="resize: none;" wrap="soft"
+                                                      autocomplete="off" autocorrect="off" autocapitalize="none"
+                                                      spellcheck="false"
+                                                      placeholder="Enter annotation text here. Use return key to break lines"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="div-legendouter" class="legendouter">
+                            <div id="div-revealNextLegendItem">
+                                <div class="bg-transparent d-flex justify-content-between my-1 mr-1">
+                                    <div class="flex-grow-1 btn-group btn-group-sm mr-3">
+                                        <button class="btn btn-nextLabel mr-1" type="button"
+                                                title="Show next legend label"
+                                                id="button-revealNextLegendItem">
+                                            <i class="fas fa-crosshairs"></i></button>
+                                        <button class="btn btn-secondary" type="button"
+                                                title="Clear legend labels"
+                                                onclick="resetLegendAnswers();">
+                                            <i class="far fa-times-circle"></i></button>
+                                    </div>
+                                    <div class="btn-group btn-group-sm">
+                                        <button id="btn-showNotes-click" hidden class="btn btn-info mr-1"
+                                                type="button"
+                                                onclick="toggleNotesLegend('sbnotes');"
+                                                title="Show side bar notes">
+                                            <i class="fas fa-user-edit"></i></button>
+                                        <button id="btn-showPostits-click" hidden class="btn btn-postits"
+                                                type="button"
+                                                onclick="toggleNotesLegend('pinotes');"
+                                                title="Add and manage post-it notes and annotations">
+                                            <i class="fas fa-shapes"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="div-searchLegend">
+                                <div class="bg-transparent d-flex justify-content-between mr-1">
+                                    <div class="input-group input-group-sm mb-1" style="padding-top: 2px;">
+                                        <div id="prepend-playLabels" class="input-group-prepend">
+                                            <button id="button-playLegend" class="btn btn-success btn-sm"
+                                                    type="button"
+                                                    value="paused"
+                                                    onclick="playLegendClicked(this)"
+                                                    title="Reveal labels in sequence"
+                                            ><i id="icon-labelPlay" class="fas fa-play"></i></button>
+                                            <button id="button-playRandom"
+                                                    class="btn btn-outline-success btn-sm"
+                                                    type="button"
+                                                    value="order"
+                                                    onclick="playRandomClicked(this)"
+                                                    title="Reveal labels in numerical order"
+                                            ><i class="fas fa-random"></i></button>
+                                        </div>
+                                        <input type="text" id="input-searchlegend"
+                                               class="form-control inputSearchLegend"
+                                               placeholder="Type to search labels…"
+                                               title="Text to find in labels (exact match)"
+                                               oninput="searchLegend()" aria-label="">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-secondary btn-sm" type="button"
+                                                    id="button-clearSearchLegend"
+                                                    onclick="clearSearchLegend()"
+                                                    title="Clear search text and reset labels play order to start"
+                                            ><i class="fas fa-times-circle"></i></button>
+                                        </div>
+                                        <div class="btn-group btn-group-sm ml-1">
+                                            <button id="btn-showNotes" hidden class="btn btn-info mr-1" type="button"
+                                                    onclick="toggleNotesLegend('sbnotes');"
+                                                    title="Show side bar notes">
+                                                <i class="fas fa-user-edit"></i></button>
+                                            <button id="btn-showPostits" hidden class="btn btn-postits"
+                                                    type="button"
+                                                    onclick="toggleNotesLegend('pinotes');"
+                                                    title="Add and manage post-it notes and annotations">
+                                                <i class="fas fa-shapes"></i></button>
+                                        </div>
+                                    </div>
+                                    <button hidden id="btn-showAllTargets" type="button" class="btn bt-sm btn-success"
+                                            onclick="showAllTargets();">
+                                        <i class="fas fa-crosshairs"></i></button>
+                                </div>
+                            </div>
+                            <div id="div-revealAnswers" class="answersBlock"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--        toolbox-->
+            <div hidden class="col-1 col-toolbar" id="col-toolbar">
+                <div id="div-toolbox-v" class="toolbox-v">
+                    <div class="d-flex justify-content-between mb-1">
+                        <div class="btn-group btn-block">
+                            <button id="btn-gallery-toolbox" type="button" class="btn btn-cardsset"
+                                    title="Open cards gallery"
+                                    onclick="showGalleryCards();">
+                                <i class="fas fa-book-reader fa-fw"></i>
+                            </button>
+                            <button id="btn-history-toolbox" type="button" class="btn btn-cards"
+                                    onclick="openHistory();"
+                                    title="Recently viewed cards…">
+                                <i class="fas fa-history fa-fw"></i>
+                            </button>
+                            <button id="btn-help-toolbox" class="btn btn-outline-dark" type="button"
+                                    onclick="toggleUserGuide('UserGuide_top');"
+                                    title="Show Help…"><i class="fas fa-info fa-fw"></i></button>
+                        </div>
+                    </div>
+                    <div class="btn-group btn-group btn-block py-0">
+                        <label for="select-cardsset-toolbox"></label>
+                        <select name="selectcardssettoolbox" class="custom-select btn-cardsset mb-n2"
+                                title="Select cardset to view"
+                                id="select-cardsset-toolbox"></select>
+                        <label for="select-chapters-toolbox"></label>
+                        <select name="selectchapterstoolbox" class="custom-select btn-chapter mb-n2"
+                                title="Select chapter to view"
+                                id="select-chapters-toolbox"></select>
+                        <label for="select-cards-toolbox"></label>
+                        <select name="selectcardstoolbox" class="custom-select btn-cards mb-n2"
+                                title="Select card to view"
+                                id="select-cards-toolbox"></select>
+                    </div>
+                    <div class="btn-group btn-block">
+                        <button id="btn-random-v" type="button" role="button" class="btn btn-cards"
+                                data-toggle="popover" data-trigger="manual" data-placement="bottom"
+                                data-content="Click to select a random card from current chapter"
+                                data-container="#btn-random-v"
+                                onclick="btnRandomClicked(this);"
+                                title="Random card">
+                            <i class="fas fa-random" title="Select random card from chapter"></i>
+                        </button>
+                        <button id="btn_card-prev-toolbox" type="button" class="btn btn-cards" value="-1"
+                                title="Previous card in chapter"
+                                onclick="changeCardIndex(this)"><i class="fas fa-arrow-left"></i></button>
+                        <button id="btn_card-next-toolbox" type="button" class="btn btn-cards" value="1"
+                                title="Next card in chapter"
+                                onclick="changeCardIndex(this)"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <div class="btn-group-vertical btn-block mb-1">
+                        <div class="btn-group btn-block">
+                            <button disabled id="btn-topics-toolbox" type="button"
+                                    class="btn btn-dark btn-topics"
+                                    onclick="openTopics('tbv')"
+                                    title="Topics list is being downloaded. Please wait.">
+                                <i class="fas fa-layer-group"></i>
+                            </button>
+                            <button id="btn-topic-prev-toolbox" type="button"
+                                    class="btn btn-dark btn-disabled btn-topic-prevnext"
+                                    title="Previous card in topic"
+                                    onclick="handleChangeTopicIndexfromKey('-1');"
+                                    data-value="-1"><i
+                                    class="fas fa-arrow-up"></i></button>
+                            <button id="btn-topic-next-toolbox" type="button"
+                                    class="btn btn-dark btn-disabled btn-topic-prevnext"
+                                    onclick="handleChangeTopicIndexfromKey('1');"
+                                    title="Next card in topic"
+                                    data-value="1"><i
+                                    class="fas fa-arrow-down"></i></button>
+                        </div>
+                        <div class="btn-group">
+                            <button id="btn-bookmarkFixed-toolbox" type="button"
+                                    class="btn btn-warning btnBkmk"><i class="far fa-thumbs-up fa-fw"></i></button>
+                            <label hidden for="select-bookmarksListsNames-toolbar-v"></label>
+                            <select name="select-bookmarksListsNames-gallery"
+                                    class="custom-select class-selectbookmarks-gallery select-inputgroup-right"
+                                    style="border-left: 1px solid #ffe497;"
+                                    id="select-bookmarksListsNames-toolbar-v"
+                                    onchange="handleBookmarksGallerySelectChanged(this);">
+                            </select>
+                        </div>
+                        <div class="btn-group btn-block">
+                            <button id="btn-bookmarks-gallery-toolbox" type="button"
+                                    class="btn btn-warning btnBMkGally"
+                                    title="Open bookmarks gallery">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                            <button id="btn-bmk-prev-toolbox" type="button"
+                                    class="btn btn-warning btn-disabled btn-bmk-prevnext"
+                                    title="Previous bookmark in list"
+                                    data-value="-1"><i
+                                    class="fas fa-arrow-up"></i></button>
+                            <button id="btn-bmk-next-toolbox" type="button"
+                                    class="btn btn-warning btn-disabled btn-bmk-prevnext"
+                                    title="Next bookmark in list"
+                                    data-value="1"><i
+                                    class="fas fa-arrow-down"></i></button>
+                        </div>
+                    </div>
+                    <div class="btn-group btn-block mt-0">
+                        <button disabled id="btn-showIndex-toolbox"
+                                class="btn btn-outline-primary btn-showIndex"
+                                title="Search is downloading. Please wait."
+                                onclick="handle_showIndexClicked();">
+                            <i class="fas fa-search"></i></button>
+                        <button class="btn btn-outline-primary"
+                                type="button"
+                                onclick="showAllLabels(this)">
+                            <i id="button-showLabelsAll-icon-toolbox" class="fas fa-eye fa-fw"></i>
+                        </button>
+                        <button id="btn-revealAnswers-toolbox" type="button" class="btn btn-primary">
+                            <i class="fa fa-list-ol"></i></button>
+                    </div>
+                    <div class="btn-group btn-block mb-1 mt-1">
+                        <button disabled id="btn-showGlobalIndex-toolbox"
+                                class="btn btn-outline-primary showGlobalIndex"
+                                title="Global Index is downloading. Please wait."
+                                onclick="handle_showGlobalIndexClicked();">
+                            <i class="fas fa-book fa-fw"></i></button>
+                        <button id="btton-settings-v" class="btn btn-outline-dark" type="button"
+                                title="Show Settings…"
+                                onclick="showSettingsModal('');"><i class="fas fa-cog fa-fw"></i></button>
+                        <button id="button-dropdownMain-toolbar" type="button" title="Share…"
+                                class="btn btn-outline-dark" onclick="toggleActionmenuToolbar()"><i
+                                class="fas fa-share-square fa-fw"></i>
+                        </button>
+                    </div>
+                    <div class="d-flex flex-nowrap mb-1">
+                        <div class="btn-group btn-group-toggle mt-0 btn-block" data-toggle="buttons">
+                            <label id="imageFitPage-toolbox" class="btn btn-outline-secondary"
+                                   title="Constrain image to available height and width"
+                                   onclick="handleSettings_Clicked(this);">
+                                <input type="radio" name="setting_imageFit-toolbox" autocomplete="off">
+                                <i class="fas fa-arrows-alt"></i></label>
+                            <label id="imageFitWidth-toolbox" class="btn btn-outline-secondary"
+                                   title="Fit image to full width"
+                                   onclick="handleSettings_Clicked(this);">
+                                <input type="radio" name="setting_imageFit-toolbox" autocomplete="off">
+                                <i class="fas fa-arrows-alt-h"></i></label>
+                        </div>
+                        <div class="flipBtnClass">
+                            <img id="btn-flipThisImage-toolbox"
+                                 src="img/rotateacnew.png" alt=""
+                                 class="rotateacnew"
+                                 data-value="original" title="Flip image 90 degrees"
+                                 onclick="handleBtnFlipThisImageClicked(this);">
+                        </div>
+                    </div>
+                    <label hidden for="slider-image-Width-toolbox"></label>
+                    <input type="range" class="form-control-range mt-1" id="slider-image-Width-toolbox"
+                           value="12" min="1" max="12" step="1"
+                           oninput="handleSliderImageWidthChanged(this)">
+                    <div class="btn-group btn-block mt-1">
+                        <button type="button" class="btn btn-outline-danger"
+                                title="Enter app fullscreen mode"
+                                onclick="handleCardDblClick(null);">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-danger"
+                                title="Show horizontal toolbar"
+                                onclick="switchToolboxesVH();">
+                            <i class="fas fa-grip-horizontal"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-danger"
+                                title="Hide toolbar"
+                                onclick="hideVHToolbars('v');">
+                            <i class="fas fa-angle-double-right"></i>
+                        </button>
+                    </div>
+                    <div class="d-flex flex-nowrap mt-1">
+                        <button type="button" class="btn btn-outline-danger hideBrowserBtn"
+                                title="Toggle browser full screen mode on/off"
+                                onclick="toggleBrowserVisible(this)">
+                            <i class="far fa-window-restore fa-fw"></i>
+                        </button>
+                        <div id="div-avatars-toolbox" class="flex-grow-1 div-avatars d-flex justify-content-center align-items-center">
+                            <div id="div-avatars-img-toolbox"
+                                 class="d-flex justify-content-center align-items-center flex-wrap div-avatars-img div-avatars-imgSm"></div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center mt-1">
+                        <i id="icon-hotspotsIcon-available-toolbox" title="This card has label hotspots"
+                           class="fas fa-question-circle icon-hotspotsIcon-available icon-hotspotsIcon-hv"></i>
+                        <img id="img-bilingual-toolbox" src="img/bilingual2.png"
+                             class="img-bilingual img-bilingual-hv"
+                             alt="" onclick="showSettingsModal('');"
+                             title="This card has bilingual labels. Click to open Settings and select language options">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--  bootstrap container-->
+    <div class="d-flex justify-content-between align-items-center px-2" style="max-height: 20px;overflow: hidden; color: darkgrey;font-size: 10px; font-family: 'Trebuchet MS',sans-serif;">
+        <div>
+            <i class='fas fa-code-branch'></i>&nbsp;<span id="span-version-cache"></span>
+        </div>
+        <div id="div-cacheClouds-h" class="d-flex justify-content-left align-items-center text-secondary mt-1"
+             style="visibility: hidden;">
+            <div class="spinner-border spinner-border-sm" role="status" title="Preloading card images…"></div>
+            <div id="span-cacheClouds-h" style="font-size: smaller">0</div>
+        </div>
+        <i id="icon-persistent" class="fas fa-user-lock invisible"
+           title="Settings, Bookmarks, Self-Test Answers, Side Bar Notes, Post-its, Annotations and downloaded images will only be deleted when you clear the browser cache"
+        ></i>
+    </div>
+</div><!--  mainpage-->
+<div hidden id="div-sheetholder" class="sheetholder"></div>
+<div id="div-placeholder" class="divplaceholder">
+    <h4>Vetanat version <span id="span-version-placeholder"></span> beta</h4>
+    <img src="img/logo.png" alt="">
+    <p class="card-title">The webpage is loading the card sets... this may take a moment.</p>
+    <p>This website downloads multiple high resolution image files and uses a lot of data.<br>A high speed
+        broadband
+        connection is advised and significant data charges may be incurred.</p>
+    <p class="card-text">If this message remains longer than a minute or two tap reload first. If reloading
+        fails then
+        try clearing your browser cache and
+        re-starting the browser although this will lose any saved settings, bookmarks and answers.</p>
+    <p><img src="img/chrome.png" alt="">&nbsp;Chrome browser gives the best results.&nbsp;<img
+            src="img/explorer.png"
+            alt="">&nbsp;Internet
+        Explorer is not compatible.</p>
+    <p style="color: darkorange;">This is a beta version website that is undergoing active development and may alter
+        significantly during use.<br>Bookmarks and other features may be reset without warning. E&OE.
+    </p>
+</div>
+</body>
+
+<div class="modal fade" id="modalClearAnswers" tabindex="-1">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" id="modalClearAnswers-content">
+            <div class="modal-header py-1 modalClearAnswersHeader">
+                <h3 id="modalClear-Title"><i class="fas fa-check-square"></i>⌫&nbsp;&nbsp;Clear Answers
+                </h3>
+            </div>
+            <div class="modal-body text-center" id="modalClearAnswers-body">Are you certain you want to clear your
+                recorded answers
+                ?<br>This
+                cannot be undone.
+            </div>
+            <div class="modal-footer" id="modalClearAnswers-footer">
+                <div class="container-fluid">
+                    <div class="row py-3">
+                        <div class="col">
+                            <button id="clearActionAll" type="button" class="btn btn-sm btn-block btn-danger"
+                                    data-dismiss="modal"
+                                    onclick="clearAnswersFromModal(this)"><i class="fas fa-book"></i>&nbsp;&nbsp;Clear
+                                All
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button id="clearActionCardset" type="button" class="btn btn-sm btn-block btn-primary"
+                                    data-dismiss="modal"
+                                    onclick="clearAnswersFromModal(this)"><i class="fas fa-book-open"></i>&nbsp;&nbsp;Clear
+                                Cardset
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row py-3">
+                        <div class="col">
+                            <button id="clearActionChapter" type="button" class="btn btn-sm btn-block btn-secondary"
+                                    data-dismiss="modal"
+                                    onclick="clearAnswersFromModal(this)"><i class="fas fa-indent"></i>&nbsp;&nbsp;Clear
+                                Chapter
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button id="clearActionCard" type="button" class="btn btn-sm btn-block btn-dark"
+                                    data-dismiss="modal"
+                                    onclick="clearAnswersFromModal(this)"><i class="far fa-image"></i>&nbsp;&nbsp;Clear
+                                Card
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col">
+                            <button type="button" class="btn btn-sm btn-block btn-light" data-dismiss="modal"
+                                    onclick="dontClearFavouritesOrAnswersForCurrentCardset()">Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalClearFavouritess" tabindex="-1">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" id="modalClearFavouritess-content">
+            <div class="modal-header py-1 sheetBookmarksHeader">
+                <h4 id="modalClear-FavsTitle"><i class="far fa-bookmark"></i>⌫&nbsp;&nbsp;Clear Bookmarks</h4>
+            </div>
+            <div class="modal-body text-center">
+                <h6>Are you certain you want to clear the Bookmarks?<br>
+                    Once you click the button this cannot be undone.<br>
+                    The default list will be emptied, other lists will be deleted.</h6>
+            </div>
+            <div class="d-flex flex-column mx-4">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Clear list:</span>
+                    </div>
+                    <label for="select-bookmarksListsNames-clear"></label>
+                    <select name="select-bookmarksListsNames-clear"
+                            class="custom-select class-selectbookmarks-gallery select-inputgroup-right"
+                            id="select-bookmarksListsNames-clear"
+                    ></select>
+                    <div class="input-group-append">
+                        <button id="btn-bmklist-clear" type="button" class="btn btn-danger ml-1"
+                                title="Delete bookmark list"
+                                onclick="clearAllBookmarks(false);">
+                            <i class="fas fa-backspace"></i>
+                        </button>
+                    </div>
+                </div>
+                <button id="modalClear-ClearFavsButton" type="button" class="btn btn-danger my-3"
+                        data-dismiss="modal"
+                        onclick="clearAllBookmarks(true)"><i class="fas fa-globe"></i>&nbsp;&nbsp;Clear all
+                    bookmarks and lists
+                </button>
+                <button type="button" class="btn btn-light mb-2" data-dismiss="modal"
+                        onclick="dontClearFavouritesOrAnswersForCurrentCardset()">Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalClearNotes" tabindex="-1">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" id="modalClearNotes-content">
+            <div class="modal-header py-1 sheetBookmarksHeader">
+                <h4 id="modalClearNotes-title"><i class="fas fa-user-edit"></i>⌫&nbsp;&nbsp;Clear Sidebar Notes</h4>
+            </div>
+            <div class="modal-body text-center">
+                <h6>Are you certain you want to clear the side bar notes?<br>
+                    Once you click the button this cannot be undone.</h6>
+            </div>
+            <div class="d-flex flex-column mx-4">
+                <button type="button" class="btn btn-danger my-3"
+                        data-dismiss="modal"
+                        onclick="clearNotes()"><i class="fas fa-book"></i>&nbsp;&nbsp;Clear all side bar notes
+                </button>
+                <button type="button" class="btn btn-light mb-2" data-dismiss="modal"
+                        onclick="dontClearFavouritesOrAnswersForCurrentCardset()">Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalClearPostits" tabindex="-1">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" id="modalClearPostits-content">
+            <div class="modal-header py-1 sheetBookmarksHeader">
+                <h4 id="modalClearPostits-title"><i class="fas fa-shapes"></i>⌫&nbsp;&nbsp;Clear Post-it Notes &
+                    Annotations</h4>
+            </div>
+            <div class="modal-body text-center">
+                <h6>Are you certain you want to clear all the post-it notes and annotations?<br>
+                    Once you click the button this cannot be undone.</h6>
+            </div>
+            <div class="d-flex flex-column mx-4">
+                <button type="button" class="btn btn-danger my-3"
+                        data-dismiss="modal"
+                        onclick="clearPostits()"><i class="fas fa-book"></i>&nbsp;&nbsp;Clear all post-it notes and
+                    annotations
+                </button>
+                <button type="button" class="btn btn-light mb-2" data-dismiss="modal"
+                        onclick="dontClearFavouritesOrAnswersForCurrentCardset()">Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-answers" tabindex="-1">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" id="modal-answers-content">
+            <div id="aModal-body" class="modal-body" style="font-family: 'Trebuchet MS', sans-serif;"></div>
+            <div class="modal-footer"><span style="color: lightgrey">Score your answer &nbsp;&nbsp;&nbsp;</span>
+                <button id="aModal-btn-correct" type="button" class="btn btn-success" data-dismiss="modal"
+                        title="Score as Correct"
+                        onclick="handleAnswerModalDismissed()">✓
+                </button>
+                <button id="aModal-btn-equal" type="button" class="btn btn-light" data-dismiss="modal"
+                        title="Do not score"
+                        onclick="handleAnswerModalDismissed()">≈
+                </button>
+                <button id="aModal-btn-wrong" type="button" class="btn btn-outline-danger" data-dismiss="modal"
+                        title="Score as Incorrect"
+                        onclick="handleAnswerModalDismissed()">X
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-popuplegend" tabindex="-1">
+    <div class="modal-dialog modal-sm modal-hotspotslabel modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header modal-hotspotslabel-header" id="modal-hotspotslabel-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body modal-hotspotslabel-body" id="body-modal-popuplegend">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalAlert" tabindex="-1" style="z-index: 10000">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" id="modalAlert-content">
+            <div class="modal-header py-1 bg-warning">
+                <h3><span id="span-alert-icon"></span></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalAlert-body" style="background-color: #424242; color: white;"></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalConfirmAlert" tabindex="-1" style="z-index: 10000">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header py-1 bg-warning">
+                <h3><i class="fas fa-exclamation-triangle"></i></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalConfirmAlert-body" style="background-color: #424242; color: white;"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light mr-5"
+                        data-dismiss="modal">Cancel
+                </button>
+                <button id="modalConfirmAlert-confirmBtn" type="button" class="btn btn-danger"
+                        data-dismiss="modal">Proceed
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalOptionAlert" tabindex="-1" style="z-index: 10000">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header py-1 bg-warning">
+                <h3><i class="fas fa-exclamation-triangle"></i></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalOptionAlert-body" style="background-color: #424242; color: white;"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light mr-5"
+                        data-dismiss="modal">Cancel
+                </button>
+                <button id="modalOptionAlert-opt1Btn" type="button" class="btn btn-warning"
+                        data-dismiss="modal">
+                </button>
+                <button id="modalOptionAlert-opt2Btn" type="button" class="btn btn-danger"
+                        data-dismiss="modal">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-bookmarks-listChoose" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-body sheetBookmarksHeader">
+                <div class="container-fluid">
+                    <div class="row no-gutters">
+                        <div class="col mr-1">
+                            <h5 class="labelBMchoosList">Add to list:</h5>
+                        </div>
+                        <div class="col mt-n4">
+                            <label for="select-bookmarksListsNames-choose"></label>
+                            <select name="select-bookmarksListsNames-choose"
+                                    class="custom-select class-selectbookmarks-gallery"
+                                    id="select-bookmarksListsNames-choose"
+                            ></select>
+                        </div>
+                        <div class="col ml-2">
+                            <button id="btn-bmklist-choose" type="button" class="btn btn-primary float-left"
+                                    title="Add bookmark to this list"
+                                    onclick="bookmarkCardObjToSpecificList(this);">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modaExportFavourites" tabindex="-1">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" id="modaExportFavourites-content">
+            <div class="modal-header py-1 sheetBookmarksHeader">
+                <h4 id="modaExportFavourites-title"><i class=" fas fa-save"></i>&nbsp;&nbsp;Export
+                    Bookmarks</h4>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex flex-column mx-4">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Export list:</span>
+                        </div>
+                        <label for="select-bookmarksListsNames-export"></label>
+                        <select name="select-bookmarksListsNames-export"
+                                class="custom-select class-selectbookmarks-gallery"
+                                id="select-bookmarksListsNames-export"
+                        ></select>
+                        <div class="input-group-append">
+                            <button id="btn-bmklist-export" type="button" class="btn btn-primary ml-1"
+                                    data-dismiss="modal" title="Export bookmark list only"
+                                    onclick="doExportAllBookmarks(false);">
+                                <i class=" fas fa-save"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button id="modalexport-exportFavsButton" type="button" class="btn btn-primary my-3"
+                            data-dismiss="modal" title="Export all bookmarks"
+                            onclick="doExportAllBookmarks(true)"><i class="fas fa-globe"></i>&nbsp;<i
+                            class=" fas fa-save"></i>&nbsp;&nbsp;Export all
+                        bookmarks and lists
+                    </button>
+                    <button type="button" class="btn btn-light mb-2" data-dismiss="modal"
+                            onclick="dontClearFavouritesOrAnswersForCurrentCardset()">Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalActionMenu" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <!-- Modal content-->
+        <div class="modal-content bg-transparent" id="modalActionMenu-content">
+            <div class="modal-header d-flex align-items-center justify-content-between text-white p-2 actiomenu-modal-header"
+                 id="modalActionMenu-header">
+                <i class="fas fa-share-square"></i>
+                <div>Share Menu</div>
+                <button type="button" class="btn btn-outline-light btn-sm" data-dismiss="modal"
+                        title="Close"
+                        aria-label="Close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div id="modalActionMenu-body" class="modal-body text-center bg-white">
+                <div class="d-flex flex-wrap justify-content-around">
+                    <div class="actionmenu-btnblock">
+                        <div class="actionmenu-header"><i class="far fa-bookmark"></i> Bookmarks</div>
+                        <div class="btn-group-vertical btn-block div-dropdownmenuMain-toolbar">
+                            <button class="btn btn-light" type="button"
+                                    onclick="showClearFavouritesModal()">
+                                <i class="fas fa-backspace"></i> Clear…
+                            </button>
+                            <button class="btn btn-light" type="button" onclick="showExportBookmarksModal(true);">
+                                <i class=" fas fa-save"></i> Export…
+                            </button>
+                            <button class="btn btn-light" type="button" onclick="importFileWithSuffix('.vabkmks',true)">
+                                <i class="fas fa-file-upload"></i> Import…
+                            </button>
+                        </div>
+                    </div>
+                    <div class="actionmenu-btnblock">
+                        <div class="actionmenu-header"><i class="fas fa-check-square"></i> Self-test Answers</div>
+                        <div class="btn-group-vertical btn-block div-dropdownmenuMain-toolbar">
+                            <button class="btn btn-light" type="button" onclick="showClearAnswersModal(true);">
+                                <i class="fas fa-backspace"></i> Clear…
+                            </button>
+                            <button class="btn btn-light" type="button" onclick="saveAnswers(true);">
+                                <i class=" fas fa-save"></i> Export
+                            </button>
+                            <button class="btn btn-light" type="button"
+                                    onclick="importFileWithSuffix('.vaanswers',true)">
+                                <i class="fas fa-file-upload"></i> Import…
+                            </button>
+                        </div>
+                    </div>
+                    <div class="actionmenu-btnblock">
+                        <div class="actionmenu-header"><i class="fas fa-user-edit"></i> Sidebar Notes</div>
+                        <div class="btn-group-vertical btn-block div-dropdownmenuMain-toolbar">
+                            <button class="btn btn-light" type="button"
+                                    onclick="showClearNotesModal(true)">
+                                <i class="fas fa-backspace"></i> Clear…
+                            </button>
+                            <button class="btn btn-light" type="button" onclick="exportSideNotes();">
+                                <i class=" fas fa-save"></i> Export
+                            </button>
+                            <button class="btn btn-light" type="button" onclick="importFileWithSuffix('.vasbnts',true)">
+                                <i class="fas fa-file-upload"></i> Import…
+                            </button>
+                        </div>
+                    </div>
+                    <div class="actionmenu-btnblock">
+                        <div class="actionmenu-header"><i class="fas fa-shapes"></i> Post-it Notes & Annotations</div>
+                        <div class="btn-group-vertical btn-block div-dropdownmenuMain-toolbar">
+                            <button class="btn btn-light" type="button"
+                                    onclick="showClearPostitsModal(true)">
+                                <i class="fas fa-backspace"></i> Clear…
+                            </button>
+                            <button class="btn btn-light" type="button" onclick="exportPostits();">
+                                <i class=" fas fa-save"></i> Export
+                            </button>
+                            <button class="btn btn-light" type="button" onclick="importFileWithSuffix('.vapints',true)">
+                                <i class="fas fa-file-upload"></i> Import…
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body text-center p-1 bg-white overflow-hidden">
+                <div class="text-muted actionmenu-version">
+                    <i class="fas fa-code-branch"></i>&nbsp;<span id="span-version-toolbox"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div hidden id="div-sheets">
+    <!--    SETTINGS -->
+    <div id="sheet-settings" class="sheets-div" style="max-width: 580px; left:50%; transform: translate(-50%,0);">
+        <div id="sheet-settings-body" class="sheets-body">
+            <div class="sheets-header sheets-header-sticky sheetSettingsHeader mb-1">
+                <div class="sheets-icontitle">
+                    <i class="fas fa-cog icon-gallery-header mx-3"></i>
+                    <div class="sheets-title">Settings</div>
+                </div>
+                <button type="button" class="btn btn-outline-light btn-sm mr-3"
+                        onclick="hideSheet('sheet-settings');"
+                        title="Close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="container">
+                <!-- textheight -->
+                <div class="row no-gutters">
+                    <div class="col">
+                        <h6 class="mt-2">Legend Font</h6>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label id="textSizeAuto" class="btn btn-outline-primary"
+                                   onclick="handleSettings_Clicked(this);">
+                                <input type="radio" name="setting_textAutoSize" autocomplete="off">
+                                <i class="fas fa-text-height"></i>
+                                &nbsp;&nbsp;<span style="font-size: small;">Adjusts</span><span
+                                    style="font-size: large;"> Size</span>
+                            </label>
+                            <label id="textSizeFixedMedium" class="btn btn-outline-primary"
+                                   onclick="handleSettings_Clicked(this);">
+                                <input type="radio" name="setting_textAutoSize" autocomplete="off">
+                                &nbsp;&nbsp;<span style="font-size: medium;">Fixed Medium</span>
+                            </label>
+                            <label id="textSizeFixedLarge" class="btn btn-outline-primary"
+                                   onclick="handleSettings_Clicked(this);">
+                                <input type="radio" name="setting_textAutoSize" autocomplete="off">
+                                &nbsp;&nbsp;<span style="font-size: large;">Fixed Large</span>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- pin legend -->
+                </div>
+                <!-- pin legend -->
+                <div class="row no-gutters mt-2">
+                    <div class="col">
+                        <h6 class="mt-2">Legend & Side Bar Notes Hide</h6>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label id="legendHideAuto" class="btn btn-outline-primary"
+                                   onclick="handleSettings_Clicked(this);">
+                                <input type="radio" name="ls_legendAutoHide" autocomplete="off">
+                                <i class="fas fa-arrow-circle-right"></i>
+                                &nbsp;&nbsp;Whenever Card Changes
+                            </label>
+                            <label id="legendHidePinned" class="btn btn-outline-primary"
+                                   onclick="handleSettings_Clicked(this);">
+                                <input type="radio" name="ls_legendAutoHide" autocomplete="off">
+                                <i class="fa fa-list-ol"></i>
+                                &nbsp;&nbsp;Only When Button Clicked
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- show legend on click -->
+                <div class="row no-gutters mt-2">
+                    <div class="col">
+                        <h6 class="mt-2">Legend Labels Appear</h6>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label id="legendAppearsAll" class="btn btn-outline-primary"
+                                   onclick="handleSettings_Clicked(this);">
+                                <input type="radio" name="ls_legendlabelsAppear" autocomplete="off">
+                                <i class="fa fa-list-ol"></i>
+                                &nbsp;&nbsp;At Once
+                            </label>
+                            <label id="legendAppearsInOrder" class="btn btn-outline-primary"
+                                   onclick="handleSettings_Clicked(this);">
+                                <input type="radio" name="ls_legendlabelsAppear" autocomplete="off">
+                                <i class="fas fa-sort-amount-down-alt"></i>
+                                &nbsp;&nbsp;In Order On Click
+                            </label>
+                            <label id="legendAppearsRandom" class="btn btn-outline-primary"
+                                   onclick="handleSettings_Clicked(this);">
+                                <input type="radio" name="ls_legendlabelsAppear" autocomplete="off">
+                                <i class="fas fa-random"></i>
+                                &nbsp;&nbsp;At Random On Click
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- languages -->
+                <div class="row no-gutters mt-2">
+                    <div class="col">
+                        <h6 class="mt-2">Bilingual Labels Show</h6>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label id="languageFirst" title="Latin only" class="btn btn-outline-primary"
+                                   onclick="handleSettings_Clicked(this);">
+                                <input type="radio" name="ls_language_3" autocomplete="off">
+                                <img src="img/centurion.png" alt="" class="flagsButtonImage">
+                            </label>
+                            <label id="languageSecond" title="English only" class="btn btn-outline-primary"
+                                   onclick="handleSettings_Clicked(this);">
+                                <input type="radio" name="ls_language_3" autocomplete="off">
+                                <img src="img/england2.png" alt="" class="flagsButtonImage">
+                            </label>
+                            <label id="languageBoth" title="English and Latin" class="btn btn-outline-primary"
+                                   onclick="handleSettings_Clicked(this);">
+                                <input type="radio" name="ls_language_3" autocomplete="off">
+                                <img src="img/bilingual2.png" alt="" class="flagsButtonImage">
+                            </label>
+                        </div>
+                    </div>
+                </div><!-- languages -->
+                <!-- precache -->
+                <div class="row no-gutters mt-2">
+                    <div class="col">
+                        <h6 class="mt-2">Browser Image Caching</h6>
+                        <div id="settingsSwitchGroup-preload" class="settingsSwitchGroup-preload">
+                            <div class="input-group-prepend my-auto mr-2">
+                                <div class="spinner-border spinner-border-sm"
+                                     onclick="handleCheckboxPreloadImagesChanged('img');"></div>
+                            </div>
+                            <div class="custom-control custom-switch">
+                                <label hidden for="checkbox-preloadImages"></label>
+                                <input class="custom-control-input" type="checkbox" name="checkbox-preloadImages"
+                                       id="checkbox-preloadImages"
+                                       value="false" onclick="handleCheckboxPreloadImagesChanged('cbx');">
+                                <label class="custom-control-label"
+                                       title="Download adjacent card images in the background in different scenarios"
+                                       for="checkbox-preloadImages">Preload Card Images To Speed-Up Display<br>
+                                    <span class="text-warning font-italic" style="font-size: smaller;">
+                                    <i class="fas fa-signal"></i>&nbsp;May increase mobile data use</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- orientation  -->
+                <div class="row no-gutters mt-2">
+                    <div class="col">
+                        <h6 class="mt-2">Image Orientation</h6>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label id="forceOrientation_none" class="btn btn-outline-info"
+                                   title="Keep original image orientation"
+                                   onclick="handleSettings_Clicked(this);">
+                                <input type="radio" name="ls_orientation"
+                                       autocomplete="off">
+                                <img src="img/rotateacnew.png" class="rotateac_back" alt="">
+                                &nbsp;&nbsp;Original
+                            </label>
+                            <label id="forceOrientation_landscape" class="btn btn-outline-info"
+                                   title="Force horizontal orientation"
+                                   onclick="handleSettings_Clicked(this);">
+                                <input type="radio" name="ls_orientation"
+                                       autocomplete="off">
+                                <img src="img/rotateacnewH.png" class="rotateac_back" alt="">
+                                &nbsp;&nbsp;Horizontal
+                            </label>
+                            <label id="forceOrientation_portrait" class="btn btn-outline-info"
+                                   title="Force vertical orientation"
+                                   onclick="handleSettings_Clicked(this);">
+                                <input type="radio" name="ls_orientation"
+                                       autocomplete="off">
+                                <img src="img/rotateacnewV.png" class="rotateac_back" alt="">
+                                &nbsp;&nbsp;Vertical
+                            </label>
+                        </div>
+                    </div>
+                </div><!-- orientation -->
+                <!-- show hotspots -->
+                <div id="btns-hotspotsOnHover" class="row no-gutters my-2">
+                    <div class="col">
+                        <h6 class="mt-2">Hotspot Labels Appear</h6>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label id="hotspotOnClick" class="btn btn-outline-warning"
+                                       onclick="handleSettings_Clicked(this);">
+                                    <input type="radio" name="ls_hotspotLabelsAppear" autocomplete="off">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    &nbsp;&nbsp;Only On Click / Tap
+                                </label>
+                                <label id="hotspotOnHover" class="btn btn-outline-warning"
+                                       onclick="handleSettings_Clicked(this);">
+                                    <input type="radio" name="ls_hotspotLabelsAppear" autocomplete="off">
+                                    <i class="fas fa-desktop"></i>
+                                    &nbsp;&nbsp;Also On Hover
+                                </label>
+                            </div>
+                            <div id="div-hovercursor" class="btn-group btn-group-toggle ml-1" data-toggle="buttons">
+                                <label id="banner-cursor" class="btn btn-outline-warning"
+                                       title="Banner follows cursor"
+                                       onclick="handleHoverOnCursorChanged('banner-cursor');">
+                                    <input type="radio" name="ls_bannerLocation" autocomplete="off">
+                                    <img src="img/banner_cursor.png" height="15" alt=""/>
+                                </label>
+                                <label id="banner-top" class="btn btn-outline-warning"
+                                       title="Banner at top of screen"
+                                       onclick="handleHoverOnCursorChanged('banner-top');">
+                                    <input type="radio" name="ls_bannerLocation" autocomplete="off">
+                                    <img src="img/banner_top.png" height="15" alt=""/>
+                                </label>
+                                <label id="banner-centre" class="btn btn-outline-warning"
+                                       title="Banner at centre of screen"
+                                       onclick="handleHoverOnCursorChanged('banner-centre');">
+                                    <input type="radio" name="ls_bannerLocation" autocomplete="off">
+                                    <img src="img/banner_centre.png" height="15" alt=""/>
+                                </label>
+                                <label id="banner-bottom" class="btn btn-outline-warning"
+                                       title="Banner at bottom of screen"
+                                       onclick="handleHoverOnCursorChanged('banner-bottom');">
+                                    <input type="radio" name="ls_bannerLocation" autocomplete="off">
+                                    <img src="img/banner_bottom.png" height="15" alt=""/>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- show hotspots -->
+                <!-- test dark avatars -->
+                <div class="row no-gutters my-2">
+                    <div class="col">
+                        <h6>Other Settings</h6>
+                        <div class="d-flex flex-wrap justify-content-between mt-1 settingsSwitchGroupContainer">
+                            <div id="settingsBox-acrossChapters" class="settingsSwitchGroup">
+                                <div class="input-group-prepend">
+                                    <img src="img/prvnxt.png" class="settingsCheckboxIcon" alt=""
+                                         onclick="handleCheckboxChapterChangeAutoChanged('img');">
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input class="custom-control-input" type="checkbox" name="checkbox-chapterChange"
+                                           id="checkbox-chapterChange"
+                                           value="false" onclick="handleCheckboxChapterChangeAutoChanged('cbx');">
+                                    <label class="custom-control-label"
+                                           title="Move into previous or next chapter when you reach the beginning or end card in a chapter"
+                                           for="checkbox-chapterChange">Move Across Chapters</label>
+                                </div>
+                            </div>
+                            <div id="settingsBox-selfTest" class="settingsSwitchGroup">
+                                <div class="input-group-prepend">
+                                    <img src="img/answerButton.png" class="settingsCheckboxIcon" alt=""
+                                         onclick="handleCheckboxSelfTestButtonsChanged('img');">
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
+                                           id="checkbox-testButtons"
+                                           value="false" onclick="handleCheckboxSelfTestButtonsChanged('cbx');">
+                                    <label class="custom-control-label"
+                                           for="checkbox-testButtons">Self
+                                        Test Buttons</label>
+                                </div>
+                            </div>
+                            <div id="settingsBox-dark" class="settingsSwitchGroup">
+                                <div class="input-group-prepend">
+                                    <img id="image-darkMode" src="img/dark.png" class="settingsCheckboxIcon"
+                                         alt=""
+                                         onclick="handleCheckboxDarkModeChanged('img');">
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input class="custom-control-input" type="checkbox" name="checkbox-darkmode"
+                                           id="checkbox-darkmode"
+                                           value="false" onclick="handleCheckboxDarkModeChanged('cbx');">
+                                    <label id="label-darkMode" class="custom-control-label"
+                                           for="checkbox-darkmode">Dark Mode</label>
+                                </div>
+                            </div>
+                            <div id="settingsBox-avatars" class="settingsSwitchGroup">
+                                <div class="input-group-prepend">
+                                    <img src="img/avatar.png" class="settingsCheckboxIcon" alt=""
+                                         onclick="handleCheckboxAvatarsChanged('img');">
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input class="custom-control-input" type="checkbox" name="checkbox-avatars"
+                                           id="checkbox-avatars"
+                                           value="false" onclick="handleCheckboxAvatarsChanged('cbx');">
+                                    <label class="custom-control-label" for="checkbox-avatars">Species
+                                        avatars</label>
+                                </div>
+                            </div>
+                            <div id="settingsBox-speak" class="settingsSwitchGroup">
+                                <div class="mr-1">
+                                    <span class="text-success"><i class="fas fa-play"></i></span>
+                                </div>
+                                <div class="mr-1">
+                                    <label hidden for="input-labelShowdelay"></label>
+                                    <input type="number" name="input-labelShowdelay" style="width: 5ch;"
+                                           id="input-labelShowdelay" min="1" step="1"
+                                           title="Number of seconds between labels when revealing in sequence"
+                                           value="2" onclick="handleLabelsdelayChanged(this);">
+                                </div>
+                                <div class="mr-3">s delay</div>
+                                <div class="d-flex">
+                                    <div class="mr-1 text-success"><i class="fas fa-bullhorn"></i></div>
+                                    <div class="custom-control custom-switch">
+                                        <input class="custom-control-input" type="checkbox"
+                                               name="checkbox-speakLabels"
+                                               id="checkbox-speakLabels"
+                                               value="false" onclick="handleCheckboxSSpeakCheckboxChanged(this);">
+                                        <label class="custom-control-label"
+                                               title="Speak label text when revealed (may not work on all devices or operating systems)"
+                                               for="checkbox-speakLabels">Speak labels</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- test dark avatars-->
+                    </div>
+                </div>
+            </div><!-- container -->
+        </div>
+    </div>
+    <!--    TOPICS -->
+    <div id="sheet-topics" class="sheets-div">
+        <div id="sheet-topics-body" class="sheets-body">
+            <div class="sheets-header sheets-header-sticky sheetBookmarksHeader">
+                <i class="fas fa-layer-group icon-gallery-header mx-3"></i>
+                <div class="input-group">
+                    <label hidden for="select-topics"></label>
+                    <select name="select-topics"
+                            class="custom-select class-selecttopics-gallery"
+                            id="select-topics"
+                            onchange="handleSelectTopicsChanged(this);">
+                    </select>
+                    <div class="input-group-append my-auto">
+                        <button id="btn-bookmarkTopics" type="button"
+                                title="Add topic as new list to Bookmarks"
+                                onclick="addSelectedTopicToBookmarks();"
+                                class="btn bt-sm btn-warning"><i class="far fa-thumbs-up fa-fw"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="custom-control custom-switch my-auto mx-3">
+                    <input class="custom-control-input cbxCardSize" type="checkbox" name="cbx-cardSize-topics"
+                           id="cbx-cardSize-topics"
+                           value="false"
+                           onclick="handleCardsSmallChanged('sheet-topics');">
+                    <label class="custom-control-label"
+                           title="Display small cards"
+                           for="cbx-cardSize-topics">
+                        <i class="fas fa-th"></i> </label>
+                </div>
+                <button class="btn btn-sm btn-outline-dark" type="button"
+                        onclick="toggleUserGuide('Topics_Lists_');"
+                        title="Show Help…"><i class="fas fa-info fa-fw"></i></button>
+                <button type="button" class="btn btn-outline-dark btn-sm mx-3"
+                        onclick="hideSheet('sheet-topics');"
+                        title="Close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="gydv" id="list-topics"></div>
+        </div>
+    </div>
+    <!--    BOOKMARKS -->
+    <div id="sheet-bookmarks" class="sheets-div">
+        <div id="sheet-bookmarks-body" class="sheets-body sheets-div-border">
+            <div class="sheets-header sticky-top sheetBookmarksHeader">
+                <div class="container-fluid">
+                    <div class="row no-gutters">
+                        <div class="col sheets-header-aligment">
+                            <i class="fas fa-bookmark icon-gallery-header my-auto mr-2"></i>
+                            <div class="input-group" style="overflow: hidden;">
+                                <label hidden for="select-bookmarksListsNames-gallery"></label>
+                                <select name="select-bookmarksListsNames-gallery"
+                                        class="custom-select class-selectbookmarks-gallery"
+                                        id="select-bookmarksListsNames-gallery"
+                                        onchange="handleBookmarksGallerySelectChanged(this);">
+                                </select>
+                                <div class="input-group-append">
+                                    <button id="btn-bmklist-add" type="button" class="btn btn-secondary"
+                                            title="Add new list…"
+                                            onclick="setupHideAddBMlist('add');">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                    <button id="btn-bmklist-copy" type="button" class="btn btn-secondary"
+                                            title="Duplicate currently selected bookmarks list"
+                                            onclick="duplicateSelectedBMList();">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                    <button id="btn-bmklist-merge" type="button" class="btn btn-secondary"
+                                            title="Merge lists…"
+                                            onclick="setupHideAddBMlist('merge');">
+                                        <i class="fas fa-link"></i>
+                                    </button>
+                                    <button id="btn-bmklist-rename" type="button"
+                                            class="btn btn-secondary float-left"
+                                            title="Rename list…"
+                                            onclick="setupHideAddBMlist('rename');">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button id="btn-bmklist-edit" type="button" class="btn btn-secondary"
+                                            title="Edit bookmarks in list" data-value="s"
+                                            onclick="editBookmarkList(this);">
+                                        <i class="fas fa-ellipsis-v fa-fw"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col sheets-header-aligment">
+                            <div class="btn-group ml-2">
+                                <button type="button" class="btn btn-dark" title="Clear bookmarks…"
+                                        onclick="bookmarkGalleryOpenNewModal('clear');">
+                                    <i class="fas fa-backspace"></i>
+                                </button>
+                                <button type="button" class="btn btn-dark" title="Export bookmarks…"
+                                        onclick="bookmarkGalleryOpenNewModal('download');">
+                                    <i class=" fas fa-save"></i>
+                                </button>
+                                <button type="button" class="btn btn-dark" title="Import bookmarks…"
+                                        onclick="bookmarkGalleryOpenNewModal('upload');">
+                                    <i class="fas fa-file-upload"></i>
+                                </button>
+                                <button disabled id="btn-topics-gallery" type="button"
+                                        class="btn btn-dark btn-topics"
+                                        onclick="openTopics('modal')"
+                                        title="Topics list is being downloaded. Please wait.">
+                                    <i class="fas fa-layer-group"></i>
+                                </button>
+                            </div>
+                            <div class="custom-control custom-switch my-auto ml-2">
+                                <input class="custom-control-input cbxCardSize" type="checkbox"
+                                       name="cbx-cardSize-bmkG"
+                                       id="cbx-cardSize-bmkG"
+                                       value="false"
+                                       onclick="handleCardsSmallChanged('sheet-bookmarks');">
+                                <label class="custom-control-label"
+                                       title="Display small cards"
+                                       for="cbx-cardSize-bmkG">
+                                    <i class="fas fa-th"></i>
+                                </label>
+                            </div>
+                            <button class="btn btn-outline-dark btn-sm ml-1" type="button"
+                                    onclick="toggleUserGuide('Bookmarks');"
+                                    title="Show Help…"><i class="fas fa-info fa-fw"></i></button>
+                            <button type="button" class="btn btn-outline-dark btn-sm mx-3"
+                                    onclick="hideSheet('sheet-bookmarks');"
+                                    title="Close">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div hidden class="text-center alertInline" id="row-alert-bookmarks"></div>
+                    <div hidden id="row-addBMlistName" class="row no-gutters mt-1">
+                        <div hidden id="col-select-bookmarksListsNames-merge" class="col-6 mt-n4">
+                            <label for="select-bookmarksListsNames-merge"></label>
+                            <select name="select-bookmarksListsNames-merge"
+                                    class="custom-select class-selectbookmarks-gallery"
+                                    title="List to merge with"
+                                    id="select-bookmarksListsNames-merge"
+                            ></select>
+                        </div>
+                        <div class="col ml-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button id="btn-doaddrenameBMlistWithName"
+                                            class="btn btn-primary">
+                                        <i class="fas fa-edit"></i></button>
+                                </div>
+                                <label hidden for="input-newBMlistName"></label>
+                                <input id="input-newBMlistName" type="text" class="form-control input-bmlistname"
+                                       required pattern="\w+" title="New list name. Only letters and numbers accepted"
+                                       placeholder="Enter only letters and numbers. No spaces or punctuation"
+                                       autocomplete="off" autocorrect="off" autocapitalize="none"
+                                       spellcheck="false">
+                                <div class="input-group-append">
+                                    <button id="btn-cancelAddNewBMlistWithName" class="btn btn-secondary"
+                                            title="Clear list name"
+                                            onclick="setupHideAddBMlist('hide');">
+                                        <i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="div-nobookmarkswarning" class="nobookmarkswarning">This list has no bookmarks</div>
+            <div id="list-bookmarks-gallery" class="gydv"></div>
+        </div>
+    </div>
+    <!--    GLOBAL INDEX -->
+    <div id="sheet-globalindex" class="sheets-div">
+        <div id="sheet-globalindex-body" class="sheets-body sheets-div-border">
+            <div class="sheets-header sheets-header-sticky modal-globalindex-header"
+                 style="width: 100%;!important;max-width: 100%;!important; overflow: hidden;">
+                <div class="btn-group btn-sm my-auto btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-primary"
+                           title="Show Popesko Index"
+                           onclick="showOnlyPopeskoGlobalIndex(true);">
+                        <input type="radio" name="globalIndexSelect" autocomplete="off">
+                        Popesko
+                    </label>
+                    <label class="btn btn-outline-primary active"
+                           title="Show all cardsets"
+                           onclick="showOnlyPopeskoGlobalIndex(false);">
+                        <input type="radio" name="globalIndexSelect" autocomplete="off">
+                        Cardsets
+                    </label>
+                </div>
+                <label hidden for="select-globalIndexChapters"></label>
+                <select class="custom-select select-primary" id="select-globalIndexChapters"
+                        onchange="handleGlobalIndexSelectChange(this);"></select>
+                <button type="button" class="btn btn-outline-light btn-sm mx-1"
+                        onclick="hideSheet('sheet-globalindex');"
+                        title="Close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div id="list-globalIndex" class="list-globalIndex"></div>
+            <div hidden id="list-globalIndexPopesko" class="list-globalIndex"></div>
+        </div>
+    </div>
+    <!--    QGALLERY -->
+    <div id="sheet-gallery" class="sheets-div">
+        <div id="sheet-gallery-body" class="sheets-body">
+            <div class="sheets-header-sticky">
+                <div class="sheets-header selectcardsset-gallery">
+                    <i class="fas fa-book-reader icon-gallery-header mx-3"></i>
+                    <div class="input-group"
+                         style="overflow: hidden;">
+                        <label for="select-cardsset-gallery"></label>
+                        <select name="select-cardsset-gallery"
+                                class="custom-select selectcardsset-gallery"
+                                id="select-cardsset-gallery"
+                                onchange="handleGalleryCardsetChanged(this);">
+                        </select>
+                        <div class="input-group-append">
+                            <button id="btn-qkGyBmks" type="button" class="btn btn-warning"
+                                    value="0"
+                                    onclick="handleQkGyManageBmksClicked();">
+                                <i class="far fa-bookmark fa-fw"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="custom-control custom-switch my-auto mx-2">
+                        <input class="custom-control-input cbxCardSize" type="checkbox" name="cbx-cardSize-glly"
+                               id="cbx-cardSize-glly"
+                               value="false"
+                               onclick="handleCardsSmallChanged('sheet-gallery');">
+                        <label class="custom-control-label"
+                               title="Display small cards"
+                               for="cbx-cardSize-glly">
+                            <i class="fas fa-th"></i> </label>
+                    </div>
+                    <button class="btn btn-outline-light btn-sm mr-1" type="button"
+                            onclick="toggleUserGuide('cardGallery');"
+                            title="Show Help…"><i class="fas fa-info fa-fw"></i></button>
+                    <button type="button" class="btn btn-outline-light btn-sm mr-3"
+                            onclick="hideSheet('sheet-gallery');"
+                            title="Close">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+                <div id="gy-div-bmlist" class="gy-div-bmlist">
+                    <p id="gy-bmlist"></p>
+                </div>
+            </div>
+            <div id="list-gallery"></div>
+        </div>
+    </div>
+    <!--    HISTORY -->
+    <div id="sheet-history" class="sheets-div">
+        <div id="sheet-history-body" class="sheets-body">
+            <div class="sheets-header sheets-header-sticky cardsGalleryHeader">
+                <div class="sheets-icontitle">
+                    <i class="fas fa-history icon-gallery-header mx-3"></i>
+                    <div class="sheets-title">Recently Viewed Cards</div>
+                </div>
+                <div class="custom-control custom-switch my-auto">
+                    <input class="custom-control-input cbxCardSize" type="checkbox" name="cbx-cardSize-history"
+                           id="cbx-cardSize-history"
+                           value="false"
+                           onclick="handleCardsSmallChanged('sheet-history');">
+                    <label class="custom-control-label"
+                           title="Display small cards"
+                           for="cbx-cardSize-history">
+                        <i class="fas fa-th"></i> </label>
+                </div>
+                <button type="button" class="btn btn-outline-light btn-sm mr-3"
+                        onclick="hideSheet('sheet-history');"
+                        title="Close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="gydv" id="list-history-gallery"></div>
+        </div>
+    </div>
+    <!--    SEARCH -->
+    <div id="sheet-index" class="sheets-div">
+        <div class="sheets-body">
+            <div class="sheets-header-sticky">
+                <div class="sheets-header modal-index-header">
+                    <div class="sheets-icontitle">
+                        <i class="fas fa-search icon-gallery-header mx-2"></i>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="mr-1">Show:</div>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label id="searchShowLabels" class="btn btn-outline-primary active"
+                                   title="Show legend labels"
+                                   onclick="handleSearchLabTitClicked('label');">
+                                <input type="radio" name="searchShowLabTit" autocomplete="off">
+                                <i class="fas fa-list-ol"></i>
+                            </label>
+                            <label id="searchShowTitles" class="btn btn-outline-primary"
+                                   title="Show card titles"
+                                   onclick="handleSearchLabTitClicked('title');">
+                                <input type="radio" name="searchShowLabTit" autocomplete="off">
+                                <i class="fas fa-book"></i>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="custom-control custom-switch my-auto ml-2">
+                        <input class="custom-control-input cbxCardSize" type="checkbox" name="cbx-cardSize-index"
+                               id="cbx-cardSize-index"
+                               value="false"
+                               onclick="handleCardsSmallChanged('sheet-index');">
+                        <label class="custom-control-label"
+                               title="Display small cards"
+                               for="cbx-cardSize-index">
+                            <i class="fas fa-th"></i> </label>
+                    </div>
+                    <button class="btn btn-outline-light btn-sm mx-1" type="button"
+                            onclick="toggleUserGuide('Searching_for_text_in_card_titles_or');"
+                            title="Show Help…"><i class="fas fa-info fa-fw"></i></button>
+                    <button type="button" class="btn btn-outline-light btn-sm mr-3"
+                            onclick="hideSheet('sheet-index');"
+                            title="Close">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+                <div id="sheet-index-upper" class="container-fluid sheets-body sheets-div-border modeLight">
+                    <div class="row">
+                        <div class="col mx-0 px-0">
+                            <div class="container m-0 p-0 mw-100 w-100">
+                                <div hidden class="row mb-2 mx-0" id="row-titlesCol">
+                                    <div class="col latinCol"
+                                         id="div-indexhanger-titles"
+                                         title="Click on any title to show the card">Loading index…
+                                    </div>
+                                </div>
+                                <div class="row mx-0 px-0 bg-primary" id="row-searchAZbuttons">
+                                    <div class="col mx-0 px-0 ">
+                                        <div id="div-searchAZbuttons"
+                                             title="Click to scroll to labels starting with letter"
+                                             class="mw-100 w-100 d-flex flex-row flex-wrap justify-content-center"></div>
+                                    </div>
+                                </div>
+                                <div class="row mx-0 my-0" id="row-englishLatinCols" style="overflow:hidden;">
+                                    <div class="col h-100 px-0">
+                                        <div class="div-imgLatinEng"><img src="img/centurion.png" height="20" alt=""/>
+                                        </div>
+                                        <div class="latinCol"
+                                             title="Click on any label to show all cards with that Latin label"
+                                             id="div-indexhanger-latin">Loading index…
+                                        </div>
+                                    </div>
+                                    <div class="col h-100 px-0">
+                                        <div class="div-imgLatinEng"><img src="img/england2.png" height="20" alt=""/>
+                                        </div>
+                                        <div class="englishCol"
+                                             title="Click on any label to show all cards with that English label"
+                                             id="div-indexhanger-english">Loading index…
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row no-gutters" style="font-size:small;margin-bottom:1px;margin-top:1px;">
+                                    <div class="col text-center text-muted my-0">
+                                        <span class="font-italic">Tap one row above, or tap </span>
+                                        <i class="far fa-images bg-success" style="color:white; padding:3px;"></i>
+                                        <span class="font-italic"> for all rows</span>
+                                    </div>
+                                </div>
+                                <div class="row no-gutters mb-2">
+                                    <div class="col">
+                                        <div class="d-flex flex-wrap justify-content-center">
+                                            <div class="" style="overflow: hidden;!important;">
+                                                <div class="input-group" style="flex-wrap: nowrap;!important;">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text bg-primary text-white border-primary"
+                                                              id="span-searchCount"></span>
+                                                    </div>
+                                                    <label hidden for="input-searchString"></label>
+                                                    <input id="input-searchString" type="text" class="form-control"
+                                                           style="min-width: 6ch;"
+                                                           placeholder="Exact text to find…"
+                                                           autocomplete="off" autocorrect="off" autocapitalize="none"
+                                                           spellcheck="false"
+                                                           title="Enter exact text to match - includes spaces and punctuation">
+                                                    <div class="input-group-prepend">
+                                                        <button id="btn-searchIndex" class="btn btn-primary"
+                                                                title="Tap to search for exact text in labels, or press Enter on keyboard"
+                                                                onclick="doSearchIndex();">
+                                                            <span hidden id="spinner_search_btn"
+                                                                  class="spinner-border spinner-border-sm"></span>
+                                                            <i id="icon-spinner_search_btn" class="fas fa-search"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="input-group-append ml-1">
+                                                        <button id="btn-addAllSearchLabels" class="btn btn-index-cards"
+                                                                style="border-right: 1px solid white;"
+                                                                title="Show cards for all labels or titles listed above"
+                                                                onclick="makeCardsForAllShownLabels();">
+                                                <span hidden id="spinner_search"
+                                                      class="spinner-border spinner-border-sm"></span>
+                                                            <i id="icon-spinner_search" class="far fa-images"></i>
+                                                        </button>
+                                                        <div class="input-group-text btn-index-cards"
+                                                             style="border-radius:0 4px 4px 0;">
+                                                            <div class="custom-control custom-switch cbxCardSize pr-2">
+                                                                <input checked type="checkbox"
+                                                                       class="custom-control-input"
+                                                                       id="cbx-labels-index"
+                                                                       title="Include cards with search text in labels"
+                                                                       onclick="handleCbxIndexLabelsTitlesClicked('l');">
+                                                                <label class="custom-control-label"
+                                                                       for="cbx-labels-index"
+                                                                       title="Include cards with search text in labels"
+                                                                       onclick="handleCbxIndexLabelsTitlesClicked('l');"><i
+                                                                        class="fas fa-list-ol"></i></label>
+                                                            </div>
+                                                            <div class="custom-control custom-switch cbxCardSize">
+                                                                <input checked type="checkbox"
+                                                                       class="custom-control-input"
+                                                                       id="cbx-titles-index"
+                                                                       title="Include cards with search text in title"
+                                                                       onclick="handleCbxIndexLabelsTitlesClicked('t');">
+                                                                <label class="custom-control-label"
+                                                                       for="cbx-titles-index"
+                                                                       title="Include cards with search text in title"
+                                                                       onclick="handleCbxIndexLabelsTitlesClicked('t');"><i
+                                                                        class="fas fa-book"></i></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="">
+                                                <div class="input-group"
+                                                     style="flex-wrap: nowrap;!important; overflow: hidden;">
+                                                    <button id="btn-searchClear" class="btn btn-secondary mx-2"
+                                                            title="Clear search text and selected cards"
+                                                            onclick="clearSearchIndex();">
+                                                        <i id="icon-spinner_search_clear"
+                                                           class="fas fa-times-circle"></i>
+                                                        <span hidden id="spinner_search_clear"
+                                                              class="spinner-border spinner-border-sm"></span>
+                                                    </button>
+                                                    <div class="input-group-prepend">
+                                                        <button disabled id="btn-searchBookmarkAll"
+                                                                style="border-radius:4px 0 0 4px;"
+                                                                class="btn btn-warning"
+                                                                title="Bookmark all cards listed below"
+                                                                onclick="bookmarkAllSearch();">
+                                                            <i class="far fa-thumbs-up"></i>
+                                                        </button>
+                                                    </div>
+                                                    <label hidden
+                                                           for="select-bookmarksListsNames-search"></label>
+                                                    <select disabled name="select-bookmarksListsNames-search"
+                                                            style="min-width: 9ch;!important;"
+                                                            title="Add bookmarks to this list, or enter a name for a new list"
+                                                            class="custom-select class-selectbookmarks-gallery"
+                                                            id="select-bookmarksListsNames-search">
+                                                    </select>
+                                                    <div class="input-group-append">
+                                                        <label hidden for="input-bmlistName-search"></label>
+                                                        <input disabled id="input-bmlistName-search" type="text"
+                                                               class="form-control input-bmlistname"
+                                                               required pattern="\w+"
+                                                               title="Leave blank to add bookmarks to selected list, or enter a name for a new list. Only letters and numbers will be used"
+                                                               placeholder="New list name"
+                                                               autocomplete="off" autocorrect="off"
+                                                               autocapitalize="none"
+                                                               spellcheck="false">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div hidden class="row" id="row-searchCardsproceed">
+                        <div class="col">
+                            <div class="div-inputgpsearchCardsproceed">
+                                <div class="btn-group btn-group-sm">
+                                    <div class="input-group-prepend">
+                                                <span class="input-group-text"
+                                                      id="span-confirmProcceedSearchCards"></span>
+                                    </div>
+                                    <button class="btn btn-index-cards"
+                                            onclick="confirmProccedSearchCardsMake('proceed')">Proceed
+                                    </button>
+                                    <button class="btn btn-secondary"
+                                            onclick="confirmProccedSearchCardsMake('cancel')">Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="div-indexedCards-hanger" class="gydv"
+                 title="Click on a card listed here to load and highlight label"
+            ></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    /* update version in menu */
+    const vers = "28/12/2020 1111";
+    [document.getElementById("span-version-toolbox"), document.getElementById("span-version-placeholder")].forEach(span => span.innerHTML = vers +
+        "<br><img src='img/unionflag.png' height='15' alt=''>&nbsp;<img src='img/wales.png' height='15' alt=''>&nbsp;<img src='img/slovakia.png' height='15' alt=''>");
+    document.getElementById("span-version-cache").innerHTML = vers;
+</script>
+</html>
