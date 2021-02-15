@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 14/2/2021 4:22     djml.uk E&OE.                            *
+  * Copyright (c) 15/2/2021 3:3     djml.uk E&OE.                             *
   ***************************************************************************-->
 
 <!doctype html>
@@ -32,21 +32,22 @@
     <link rel="stylesheet" href="css/vendor/normalize.1.css">
 
     <!--  my CSS -->
-    <link rel="stylesheet" href="css/myCSS.222.css">
+    <link rel="stylesheet" href="css/myCSS.1.css">
     <link rel="stylesheet" href="css/topics.5.css">
     <link rel="stylesheet" href="css/gybt.15.css">
     <link rel="stylesheet" href="css/gybt_bmk.2.css">
     <link rel="stylesheet" href="css/sheets.32.css">
-    <link rel="stylesheet" href="css/bookmarks.css">
+    <link rel="stylesheet" href="css/bookmarks.1.css">
     <link rel="stylesheet" href="css/userguide.18.css">
     <link rel="stylesheet" href="css/notes.12.css">
+    <link rel="stylesheet" href="css/legend.1.css">
 
     <!--  my startup code-->
     <!--    Objects first as globals uses a CardsetCollection.addcardset() call we can defer as run in order-->
     <script src="myscripts/objects.9.js" defer></script>
     <!--    Globals next and utilities-- -->
     <script src="myscripts/globals.71.js" defer></script>
-    <script src="myscripts/utilities.38.js" defer></script>
+    <script src="myscripts/utilities.1.js" defer></script>
     <script src="myscripts/sheets.2.js" defer></script>
     <!--    ****** CHANGE ME in the R scripts !! version strings-->
     <script>
@@ -55,27 +56,10 @@
     </script>
     <!--    The collection objects  !!! Always DEFER these to allow libs to laod !!!  -->
     <!--    The order they appear here is the order on the dropdown  -->
-    <script src="collections/popeskoBovine.182.js" defer></script>
-<!--
-    <script src="collections/popeskoSheep.181.js" defer></script>
-    <script src="collections/popeskoGoat.181.js" defer></script>
-    <script src="collections/popeskoSwine.189.js" defer></script>
-    <script src="collections/popsekoHorse.182.js" defer></script>
-    <script src="collections/popeskoDog.184.js" defer></script>
-    <script src="collections/popeskoCat.182.js" defer></script>
-    <script src="collections/popeskoRabbit.182.js" defer></script>
-    <script src="collections/saunders.181.js" defer></script>
-    <script src="collections/KLneurology.103.js" defer></script>
-    <script src="collections/UVMPneuroendo.107.js" defer></script>
-    <script src="collections/UVLFgrossanatomy.112.js" defer></script>
-    <script src="collections/UVMPanatomyAngiology.109.js" defer></script>
-    <script src="collections/UVMPanatomySplanchnology.182.js" defer></script>
-    <script src="collections/UVMPanatomyArthrology.181.js" defer></script>
-    <script src="collections/UVMPanatomyMuscles.181.js" defer></script>
-    <script src="collections/UVMPanatomyOsteology.184.js" defer></script>
--->
+    <script src="collections/Ruminants.1.js" defer></script>
+
     <!--    The rest-->
-    <script src="myscripts/answers.61.js" defer></script>
+    <script src="myscripts/answers.1.js" defer></script>
     <script src="myscripts/fileFunctions.24.js" defer></script>
     <script src="myscripts/hotspots.22.js" defer></script>
     <script src="myscripts/selectEvents.46.js" defer></script>
@@ -84,7 +68,7 @@
     <script src="myscripts/favourites_quickgallery.9.js" defer></script>
     <script src="myscripts/history.3.js" defer></script>
     <script src="myscripts/topics.7.js" defer></script>
-    <script src="myscripts/cardFunctions.105.js" defer></script>
+    <script src="myscripts/cardFunctions.1.js" defer></script>
     <script src="myscripts/helpMenu.37.js" defer></script>
     <script src="myscripts/settings.67.js" defer></script>
     <script src="myscripts/headScripts.76.js" defer></script>
@@ -126,7 +110,7 @@
     <div id="div-toolbox-h" class="my-0 mx-1 p-0 toolbox-h">
         <div class="mt-1" id="row-actionCardsetChaptersCards">
             <div class="input-group" style="overflow: hidden;!important; background-color: transparent;">
-                <div class="btn-group mr-1">
+                <div hidden class="btn-group mr-1">
                     <button id="btn-help" class="btn btn-outline-dark" type="button"
                             onclick="toggleUserGuide('UserGuide_top');"
                             title="Show Help…"><i class="fas fa-info fa-fw"></i></button>
@@ -134,6 +118,14 @@
                             onclick="showSettingsModal('');"><i class="fas fa-cog fa-fw"></i></button>
                     <button id="button-dropdownMain" type="button" title="Share…" class="btn btn-outline-dark"
                             onclick="toggleActionmenuToolbar()"><i class="fas fa-share-square fa-fw"></i></button>
+                </div>
+                <div id="col-slider-image-Width" class="pt-2 mx-1 col-slider">
+                    <label hidden for="slider-image-Width"></label>
+                    <input type="range" class="form-control-range" id="slider-image-Width" value="6"
+                           min="2"
+                           max="9"
+                           title="Adjust image width"
+                           step="1" oninput="handleSliderImageWidthChanged(this)">
                 </div>
                 <button id="btn-gallery" type="button" class="btn btn-cardsset mr-1"
                         onclick="showGalleryCards();"
@@ -177,9 +169,9 @@
                 </div>
             </div>
         </div>
-        <div id="row-favreveaButtons" class="mt-1">
+        <div hidden id="row-favreveaButtons" class="mt-1">
             <div class="d-flex justify-content-between align-items-center flex-wrap bg-transparent">
-                <div class="btn-group">
+                <div hidden class="btn-group">
                     <button type="button" class="btn btn-outline-danger"
                             title="Hide toolbar"
                             onclick="hideVHToolbars('h');">
@@ -201,15 +193,7 @@
                     </button>
                 </div>
                 <div class="d-flex flex-shrink-0 flex-grow-1 align-items-center">
-                    <div id="col-slider-image-Width" class="pt-2 mx-1 col-slider">
-                        <label hidden for="slider-image-Width"></label>
-                        <input type="range" class="form-control-range" id="slider-image-Width" value="12"
-                               min="1"
-                               max="12"
-                               title="Adjust image width"
-                               step="1" oninput="handleSliderImageWidthChanged(this)">
-                    </div>
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <div hidden class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label id="imageFitPage" class="btn btn-outline-secondary"
                                title="Constrain image to available height and width"
                                onclick="handleSettings_Clicked(this);">
@@ -221,15 +205,15 @@
                             <input type="radio" name="setting_imageFit" autocomplete="off">
                             <i class="fas fa-arrows-alt-h"></i></label>
                     </div>
-                    <div class="d-flex align-items-center justify-content-center flipBtnClass">
-                        <img id="btn-flipThisImage"
+                    <div hidden class="d-flex align-items-center justify-content-center flipBtnClass">
+                        <img hidden id="btn-flipThisImage"
                              src="img/rotateacnew.png" alt=""
                              class="rotateacnew"
                              data-value="original" title="Flip image 90 degrees"
                              onclick="handleBtnFlipThisImageClicked(this);">
                     </div>
                 </div>
-                <div class="d-flex justify-content-center align-items-center mr-1">
+                <div hidden class="d-flex justify-content-center align-items-center mr-1">
                     <div id="div-avatars" class="div-avatars">
                         <div id="div-avatars-img"
                              class="d-flex justify-content-center align-items-center mx-2 div-avatars-img"></div>
@@ -241,7 +225,7 @@
                          alt="" onclick="showSettingsModal('');"
                          title="This card has bilingual labels. Click to open Settings and select language options">
                 </div>
-                <div class="btn-group mr-1">
+                <div hidden class="btn-group mr-1">
                     <button disabled id="btn-showGlobalIndex"
                             class="btn btn-outline-primary showGlobalIndex"
                             title="Global Index is downloading. Please wait."
@@ -259,7 +243,7 @@
                     <button id="btn-revealAnswers" type="button" class="btn bt-sm btn-primary">
                         <i class="fa fa-list-ol fa-fw"></i></button>
                 </div>
-                <div class="btn-group mr-1" style="overflow: hidden;!important;">
+                <div hidden class="btn-group mr-1" style="overflow: hidden;!important;">
                     <button disabled id="btn-topics" type="button" class="btn btn-dark btn-topics"
                             onclick="openTopics('tbh')"
                             title="Topics list is being downloaded. Please wait.">
@@ -278,7 +262,7 @@
                             data-value="1"><i
                             class="fas fa-arrow-down"></i></button>
                 </div>
-                <div class="btn-group" style="overflow: hidden;!important;">
+                <div hidden class="btn-group" style="overflow: hidden;!important;">
                     <button id="btn-bookmarkFixed" type="button"
                             class="btn bt-sm btn-warning btnBkmk"><i class="far fa-thumbs-up fa-fw"></i></button>
                     <label hidden for="select-bookmarksListsNames-toolbar-h"></label>
@@ -313,7 +297,8 @@
              onclick="toggleCardTitle()"></div>
         <div hidden id="div-cardTitle-placeholder" class="flex-grow-1 div-cardTitle mx-2 my-0 py-0 text-secondary"
              title="Click to show card title"
-             onclick="toggleCardTitle()">Click to show card title</div>
+             onclick="toggleCardTitle()">Click to show card title
+        </div>
         <div hidden class="flex-shrink-0 mr-1" id="col-dropdown-tools">
             <div class="dropdown" style="pointer-events: auto;">
                 <button class="btn btn-light btn-sm dropdown-toggle"
@@ -556,9 +541,9 @@
                                title="Next card in chapter"
                                onclick="handleChangeCardIndex('1');"></i>
                             <i
-                               class="fas fa-random icon-random-max iconsMax iconsMax-v5 iconsMax-l"
-                               title="Random card"
-                               onclick="btnRandomClicked();"></i>
+                                    class="fas fa-random icon-random-max iconsMax iconsMax-v5 iconsMax-l"
+                                    title="Random card"
+                                    onclick="btnRandomClicked();"></i>
                             <i id="btn-imgfit-maximise"
                                class="fas fa-arrows-alt icon-imgfit-maximise iconsMax iconsMax-v6 iconsMax-l"
                                title="Fit image"
@@ -612,7 +597,7 @@
                             <img id="image-card" src=" " alt="" draggable="false" class="image-card">
                         </div>
                     </div>
-                    <div class="col overflow-auto" id="col-revealAnswers" hidden>
+                    <div class="col overflow-auto" id="col-revealAnswers">
                         <div hidden id="div-notesOuter" class="h-100 mr-1">
                             <!--        sidebarnotes-->
                             <div id="div-sidebarnotes" class="h-100">
@@ -1143,9 +1128,22 @@
                                 </div>
                             </div>
                             <div id="div-searchLegend">
-                                <div class="bg-transparent d-flex justify-content-between mr-1">
-                                    <div class="input-group input-group-sm mb-1" style="padding-top: 2px;">
-                                        <div id="prepend-playLabels" class="input-group-prepend">
+                                <div class="bg-transparent d-flex align-items-center justify-content-end mr-1">
+                                    <div class="my-1 mr-1" style="text-align: right; line-height: 0.9; color: lightgrey;">
+                                        Click labels below to reveal text, or click buttons to reveal/hide all text
+                                    </div>
+                                    <div class="btn-group btn-group-sm flex-shrink-0 m-1">
+                                        <button type="button" class="btn btn-success"
+                                                onclick="toggleLegendTextItemsVisibility(this,'visible');"
+                                                title="Reveal all text">
+                                            <i class="far fa-eye"></i></button>
+                                        <button type="button" class="btn btn-outline-success"
+                                                onclick="toggleLegendTextItemsVisibility(this,'hidden');"
+                                                title="Hide all text">
+                                            <i class="far fa-eye-slash"></i></button>
+                                    </div>
+                                    <div hidden class="input-group input-group-sm mb-1" style="padding-top: 2px;">
+                                        <div hidden id="prepend-playLabels" class="input-group-prepend">
                                             <button id="button-playLegend" class="btn btn-success btn-sm"
                                                     type="button"
                                                     value="paused"
@@ -1160,19 +1158,19 @@
                                                     title="Reveal labels in numerical order"
                                             ><i class="fas fa-random"></i></button>
                                         </div>
-                                        <input type="text" id="input-searchlegend"
+                                        <input hidden type="text" id="input-searchlegend"
                                                class="form-control inputSearchLegend"
                                                placeholder="Type to search labels…"
                                                title="Text to find in labels (exact match)"
                                                oninput="searchLegend()" aria-label="">
-                                        <div class="input-group-append">
+                                        <div hidden class="input-group-append">
                                             <button class="btn btn-secondary btn-sm" type="button"
                                                     id="button-clearSearchLegend"
                                                     onclick="clearSearchLegend()"
                                                     title="Clear search text and reset labels play order to start"
                                             ><i class="fas fa-times-circle"></i></button>
                                         </div>
-                                        <div class="btn-group btn-group-sm ml-1">
+                                        <div hidden class="btn-group btn-group-sm ml-1">
                                             <button id="btn-showNotes" hidden class="btn btn-info mr-1" type="button"
                                                     onclick="toggleNotesLegend('sbnotes');"
                                                     title="Show side bar notes">
@@ -1370,7 +1368,8 @@
                                 onclick="toggleBrowserVisible(this)">
                             <i class="far fa-window-restore fa-fw"></i>
                         </button>
-                        <div id="div-avatars-toolbox" class="flex-grow-1 div-avatars d-flex justify-content-center align-items-center">
+                        <div id="div-avatars-toolbox"
+                             class="flex-grow-1 div-avatars d-flex justify-content-center align-items-center">
                             <div id="div-avatars-img-toolbox"
                                  class="d-flex justify-content-center align-items-center flex-wrap div-avatars-img div-avatars-imgSm"></div>
                         </div>
@@ -1387,7 +1386,8 @@
             </div>
         </div>
     </div><!--  bootstrap container-->
-    <div class="d-flex justify-content-between align-items-center px-2" style="max-height: 20px;overflow: hidden; color: darkgrey;font-size: 10px; font-family: 'Trebuchet MS',sans-serif;">
+    <div class="d-flex justify-content-between align-items-center px-2"
+         style="max-height: 20px;overflow: hidden; color: darkgrey;font-size: 10px; font-family: 'Trebuchet MS',sans-serif;">
         <div>
             <i class='fas fa-code-branch'></i>&nbsp;<span id="span-version-cache"></span>
         </div>

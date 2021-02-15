@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 14/2/2021 4:22     djml.uk E&OE.                             *
+ * Copyright (c) 15/2/2021 3:3     djml.uk E&OE.                              *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards) {
@@ -380,7 +380,7 @@ function adjustCardWidthHeight() {    // called on window resize and card-image 
 }
 
 function hideLegendIfAppropriate() {
-    if (window.setting_legendautohide === legendHideAuto) document.getElementById("col-revealAnswers").hidden = true;
+    //if (window.setting_legendautohide === legendHideAuto) document.getElementById("col-revealAnswers").hidden = true;
 }
 
 function changeCardIndex(btn) {

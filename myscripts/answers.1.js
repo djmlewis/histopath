@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 14/2/2021 4:22     djml.uk E&OE.                             *
+ * Copyright (c) 15/2/2021 3:3     djml.uk E&OE.                              *
  ******************************************************************************/
 
 // =================================================================== AnswersRecord
@@ -99,32 +99,7 @@ function handleAnswerModalDismissed(btn, resultString, uniqueCardID, answerIndex
     }
 }
 
-function answerStringFromAnswerTabString(answerTabString, setting_language_touse, pointer_touse) {
-    const pointer= pointer_touse ? pointer_touse : " → ";
-    if(!!answerTabString) {
-        const answerArray = answerTabString.split(answerSplitter);
-        if (answerArray.length === 2) {
-            if (pointer_touse==="none") return answerArray[1];
-            else return answerArray.slice(0, 2).join(pointer);
-        } else {
-            switch (setting_language_touse) {
-                case languageBoth:
-                    const spanType = window.setting_modeDarkLight === modeDark ? "<span style = 'color: #b3d4fc;'>" : "<span style = 'color: grey;'>";
-                    if (pointer_touse==="none") return answerArray[1] + " " + spanType + answerArray[2] + "<\span>";
-                    else return answerArray[0] + pointer + answerArray[1] + " " + spanType + answerArray[2] + "<\span>";
-                case languageFirst:
-                    if (pointer_touse==="none") return answerArray[1];
-                    else return answerArray[0] + pointer + answerArray[1];
-                case languageSecond:
-                    if (pointer_touse==="none") return answerArray[2];
-                    else return answerArray[0] + pointer + answerArray[2];
-                default:
-                    if (pointer_touse==="none") return answerArray[1];
-                    else return answerArray[0] + pointer + answerArray[1];
-            }
-        }
-    } else return "";
-}
+
 
 function handleAnswerButtonClicked(thisButton, label_answer, selectedCardObj, answerIndex) {
     if (label_answer === revealButtonKey) revealAnswers(selectedCardObj);
@@ -163,7 +138,7 @@ function showClearAnswersModal(toolbar) {
 
 function dontClearFavouritesOrAnswersForCurrentCardset() {
     // dont know why but fails unless we get off this option
-    ["select-chapters","select-chapters-toolbox","select-chapters-dropdown"].forEach(chapselect=>document.getElementById(chapselect).selectedIndex = "0");
+    ["select-chapters", "select-chapters-toolbox", "select-chapters-dropdown"].forEach(chapselect => document.getElementById(chapselect).selectedIndex = "0");
     populateSelectChapterOnCardsetChange();
 }
 
@@ -180,7 +155,7 @@ function clearAllAnswerButtons() {
 function revealAnswers(selectedCardObj) {
     const colrevealanswers = document.getElementById("col-revealAnswers");
     colrevealanswers.hidden = !colrevealanswers.hidden;
-    if(colrevealanswers.hidden){
+    if (colrevealanswers.hidden) {
         toggleNotesLegendFromPostit();
     }
     hideTargetIcon();
@@ -228,9 +203,9 @@ function updateRevealLegendButtonForCardObj(selectedCardObj) {
     }
 
     // omit btn-revealAnswers-maximise that is hidden by its own click
-    ["btn-revealAnswers", "btn-revealAnswers-toolbox","btn-revealAnswers-dropdown"].forEach((revealBt) => {
+    ["btn-revealAnswers", "btn-revealAnswers-toolbox", "btn-revealAnswers-dropdown"].forEach((revealBt) => {
         // set button class for existing legend hide state
-        const b= document.getElementById(revealBt);
+        const b = document.getElementById(revealBt);
         setButtonClass(b);
         b.onclick = revealFunc;
         b.hidden = false;
@@ -241,17 +216,23 @@ function updateRevealLegendButtonForCardObj(selectedCardObj) {
 
 }
 
-function answersArrayFromSelectedCardObj(selectedCardObj,filterNote) {
+function answersArrayFromSelectedCardObj(selectedCardObj, filterNote) {
     const array = splitTextByCharacterSkippingBlanks(selectedCardObj.answersText, "\n");
-    if(filterNote && array.length>0) return array.filter(a=>{return !a.startsWith('Note')});
+    if (filterNote && array.length > 0) return array.filter(a => {
+        return !a.startsWith('Note')
+    });
     else return array;
 }
-function titleAndNoteForCardObj (selectedCardObj){
-    const answersArray=answersArrayFromSelectedCardObj(selectedCardObj,false);
-    let noteArray = answersArray.filter(a=>{return a.startsWith('Note')});
-    const note =noteArray.length>0 ?  noteArray[0].split("\t")[1] : "";
-    return [selectedCardObj.title,note];
+
+function titleAndNoteForCardObj(selectedCardObj) {
+    const answersArray = answersArrayFromSelectedCardObj(selectedCardObj, false);
+    let noteArray = answersArray.filter(a => {
+        return a.startsWith('Note')
+    });
+    const note = noteArray.length > 0 ? noteArray[0].split("\t")[1] : "";
+    return [selectedCardObj.title, note];
 }
+
 function resetLegendAnswers() {
     addLegendArrayToDiv(getSelectCardsSelectedCardObject());
 }
@@ -260,7 +241,7 @@ function createAnswerButtonsForCardObject(selectedCardObj) {
     let btndiv = document.getElementById("div-answerButtonsHanger");
     clearAllAnswerButtons();
     // split answerText block by LF, removing any blank lines
-    let answersArray = answersArrayFromSelectedCardObj(selectedCardObj,true);
+    let answersArray = answersArrayFromSelectedCardObj(selectedCardObj, true);
     if (answersArray.length > 0) {
         let answerMatrix = window.allRecordedAnswersArchiveObj.getAnswerMatrixForCardOrMakeOne(selectedCardObj.uniqueCardID, answersArray.length);
         // make the answer buttons with necessary colours - attach the inner div in the column div-answerButtonsHanger
@@ -281,15 +262,8 @@ function createAnswerButtonsForCardObject(selectedCardObj) {
 }
 
 
-function mapAnswersArrayToParas(answersArray, reverse) {
-    if (reverse === true) answersArray.reverse();
-    return answersArray.map(function (answer) {
-        return "<p class='answersParas'>" + answerStringFromAnswerTabString(answer, window.setting_language) + "</p>";
-    });
-}
-
 function addLegendArrayToDiv(selectedCardObj) {
-    let answersArray = answersArrayFromSelectedCardObj(selectedCardObj,true);
+    let answersArray = answersArrayFromSelectedCardObj(selectedCardObj, true);
     let hotspots = selectedCardObj.hotspots;
     document.getElementById("div-revealNextLegendItem").hidden = window.setting_legendLabelsAppear === legendAppearsAll;
     document.getElementById("div-searchLegend").hidden = window.setting_legendLabelsAppear !== legendAppearsAll;
@@ -313,8 +287,8 @@ function addLegendArrayToDiv(selectedCardObj) {
     }
     const divLegend = document.getElementById("div-revealAnswers");
     if (window.setting_legendLabelsAppear === legendAppearsAll) {
-        divLegend.innerHTML = mapAnswersArrayToParas(answersArray, false).join("");
-        divLegend.scrollTop=0;
+        divLegend.innerHTML = "<div class='container-fluid containerAnswers'>" +  mapAnswersArrayToParas(answersArray, false).join("")+ '</div>';
+        divLegend.scrollTop = 0;
     } else {
         let counter = 1;
         let QorA = "Q";
@@ -378,16 +352,6 @@ function createLegendInstructions(i_setting_legendLabelsAppear) {
         "Click the <i class='far fa-times-circle' style = 'color:white;background-color:grey; width: 3em;border: 5px solid grey; border-radius: 5px;'></i> button to reset.</p>" + randomiseSuggestion;
 }
 
-function handleLegendItemClicked(evt, hotspotsarray) {
-    if (window.setting_legendLabelsAppear === legendAppearsAll) {
-        let itemClickedIndex = getIndexOfClickedPara(evt.target, true);
-        if (itemClickedIndex !== undefined) {
-            // find rows in hotspotsarray where the third coord === itemclickedindex which matches the index of backtext exactly
-            showTargetsForHotspotsArrayDelayAndIndex(hotspotsarray, targetTimeoutDuration, itemClickedIndex);
-        }
-    }
-}
-
 function showTargetsForHotspotsArrayDelayAndIndex(hotspotsarray, delay, itemClickedIndex) {
     const coordsForIndexArray = hotspotsarray.filter(coord => {
         return coord.split("\t")[2] === String(itemClickedIndex);
@@ -409,15 +373,15 @@ function showTargetsForCoordinatesArrayWithDelay(coordsArray, delay) {
     //remove any existing children
     clearTargets();
     coordsArray.forEach(coords => {
-        const coordsSplit= coords.split("\t");
+        const coordsSplit = coords.split("\t");
         const corrXY = hotspotXYcorrectedToDivTargetsHangerXY(coordsSplit);
         //window.coordsWaitingToBeTargetted==>coordsArray is an array of 1 because it returns the filtered item from ..hotspots.split("\n")
         //the filtered item is a tab delim string of X-Y-radius-LabelIndex.
-        const labelIndex=coordsSplit[3];
-        if(!!labelIndex && labelIndex !== "undefined") {
-            const answer = answerStringFromAnswerTabString(getSelectCardsSelectedCardObject().answersText.split("\n")[labelIndex],window.setting_language);
-            if(!!answer) {
-                setPopupLabel(answer,false, undefined, true);
+        const labelIndex = coordsSplit[3];
+        if (!!labelIndex && labelIndex !== "undefined") {
+            const answer = answerStringFromAnswerTabString(getSelectCardsSelectedCardObject().answersText.split("\n")[labelIndex], window.setting_language);
+            if (!!answer) {
+                setPopupLabel(answer, false, undefined, true);
             }
         }
         const target = document.createElement('img');
@@ -427,12 +391,12 @@ function showTargetsForCoordinatesArrayWithDelay(coordsArray, delay) {
         target.classList.add("icon-target");
         const targetIconTimeoutID = setTimeout(function () {
             hideMultiTarget(target, targetIconTimeoutID);
-            setPopupLabel("",true);
+            setPopupLabel("", true);
         }, delay);
         target.setAttribute("data-targetIconTimeoutID", String(targetIconTimeoutID));
         target.onclick = function () {
             hideMultiTarget(target, targetIconTimeoutID);
-            setPopupLabel("",true);
+            setPopupLabel("", true);
         };
         targetsHanger.appendChild(target);
         setTimeout(function () {
@@ -502,17 +466,18 @@ function updateDivRevealAnswersForClick(selectedCardObj) {
     for (let i = 0; i < divrevealanswChildrenNum; i++) {
         const para = divrevealanswChildren[i];
         //legend paras click only if legendAppearsAll and hs available
-        if (window.setting_legendLabelsAppear === legendAppearsAll && !!selectedCardObj.hotspots) {
+        if (window.setting_legendLabelsAppear === legendAppearsAll /*&& !!selectedCardObj.hotspots*/) {
             para.onclick = function (evt) {
-                handleLegendItemClicked(evt, selectedCardObj.hotspots.split("\n"));
+                handleLegendItemClicked(evt/*, selectedCardObj.hotspots.split("\n")*/);
             };
         } else {
             para.onclick = undefined;
         }
     }
 }
+
 function showLabelsInRandom() {
-    return document.getElementById("button-playRandom").value==='random';
+    return document.getElementById("button-playRandom").value === 'random';
 }
 
 function shuffleRandomIndexArray() {
@@ -521,7 +486,7 @@ function shuffleRandomIndexArray() {
 }
 
 function playLegendClicked(btn) {
-    btn.value = btn.value==="playing" ? 'paused' : 'playing';
+    btn.value = btn.value === "playing" ? 'paused' : 'playing';
     if (btn.value === 'playing') {
         shuffleRandomIndexArray();
         continuePlayingLabels();
@@ -536,21 +501,23 @@ function showIconForLabelPlayButtonState(btn) {
     if (btn.value === 'playing') {
         iconPlay.classList.remove("fa-play");
         iconPlay.classList.add("fa-pause");
-        btn.title="Pause showing labels in sequence"
+        btn.title = "Pause showing labels in sequence"
     } else {
         iconPlay.classList.remove("fa-pause");
         iconPlay.classList.add("fa-play");
-        btn.title="Reveal labels in sequence"
+        btn.title = "Reveal labels in sequence"
     }
 }
-function clearPlayTimeouts(){
+
+function clearPlayTimeouts() {
     clearTimeout(window.labelPlayRevealTimeout);
     clearTimeout(window.labelPlayTimeout);
     clearTimeout(window.labelPlayTargetHideTimeout);
 }
+
 function continuePlayingLabels() {
     clearPlayTimeouts();
-    setPopupLabel("",true);
+    setPopupLabel("", true);
     clearTargets();
     const labelsHanger = document.getElementById("div-revealAnswers");
     const labels = labelsHanger.children;
@@ -558,7 +525,7 @@ function continuePlayingLabels() {
     if (window.labelPlayIndex >= labels.length) window.labelPlayIndex = 0;
     const labelIndex = showLabelsInRandom() ? window.answersRandomIndexArray[window.labelPlayIndex] : window.labelPlayIndex;
     //pause a moment before showing the next target
-    window.labelPlayTargetHideTimeout=setTimeout(function() {
+    window.labelPlayTargetHideTimeout = setTimeout(function () {
         labels[labelIndex].click();
         //clear the target quickly
         window.labelPlayTargetHideTimeout = setTimeout(function () {
@@ -573,25 +540,26 @@ function continuePlayingLabels() {
                 continuePlayingLabels();
             }, window.labelPlayDelay * 1000);
         }, window.labelPlayDelay * 1000);
-    },500);
+    }, 500);
 }
+
 function speakLabel(labelIndex) {
-    if(window.speakLabels===true){
-        const answer=answersArrayFromSelectedCardObj(getSelectCardsSelectedCardObject(),true)[labelIndex];
+    if (window.speakLabels === true) {
+        const answer = answersArrayFromSelectedCardObj(getSelectCardsSelectedCardObject(), true)[labelIndex];
         let utterance;
         const answersplit = answer.split("\t");
-        switch(window.setting_language){
+        switch (window.setting_language) {
             case languageFirst:
-                utterance=answersplit[0]+"; "+answersplit[1]+"; ";
+                utterance = answersplit[0] + "; " + answersplit[1] + "; ";
                 break;
             case languageSecond:
                 //we may have only one language somehow so just avoid undefined
-                if(answersplit.length>2) utterance=answersplit[0]+"; "+answersplit[2]+"; "; else utterance=answer.replace(/\t/gi,"; ");
+                if (answersplit.length > 2) utterance = answersplit[0] + "; " + answersplit[2] + "; "; else utterance = answer.replace(/\t/gi, "; ");
                 break;
             default:
-                utterance=answer.replace(/\t/gi,"; ");
+                utterance = answer.replace(/\t/gi, "; ");
         }
-        const speech=new SpeechSynthesisUtterance(utterance);
+        const speech = new SpeechSynthesisUtterance(utterance);
         window.speechSynthesis.cancel();
         window.speechSynthesis.speak(speech);
     }
@@ -601,32 +569,78 @@ function pausePlayingLabels() {
     window.speechSynthesis.cancel();
     clearPlayTimeouts();
     clearTargets();
-    setPopupLabel("",true);
+    setPopupLabel("", true);
 }
 
 function stopPlayingLabels() {
     window.labelPlayIndex = -1;
     shuffleRandomIndexArray();
     //force a pause even if we are not yet playing
-    const btn=document.getElementById("button-playLegend");
-    btn.value='paused';
+    const btn = document.getElementById("button-playLegend");
+    btn.value = 'paused';
     showIconForLabelPlayButtonState(btn);
     pausePlayingLabels();
 }
 
 function playRandomClicked(btn) {
-    btn.value = btn.value==="order" ? 'random' : 'order';
+    btn.value = btn.value === "order" ? 'random' : 'order';
     showIconForLabelPlayRandomButtonState(btn);
     localStorage.setItem(ls_labelsPlayRandom, btn.value);
 }
+
 function showIconForLabelPlayRandomButtonState(btn) {
     if (btn.value === 'random') {
         btn.classList.remove("btn-outline-success");
         btn.classList.add("btn-success");
-        btn.title="Don't shuffle reveal order"
+        btn.title = "Don't shuffle reveal order"
     } else {
         btn.classList.remove("btn-success");
         btn.classList.add("btn-outline-success");
-        btn.title="Shuffle reveal order"
+        btn.title = "Shuffle reveal order"
     }
 }
+
+/* ******************** */
+function mapAnswersArrayToParas(answersArray, reverse) {
+    if (reverse === true) answersArray.reverse();
+    //calc the length of the longest subhead
+    let maxLen=0;
+    for(const ans of answersArray) maxLen = Math.max(maxLen,getStringCharacterLength(ans.split("\t")[0]));
+    return answersArray.map(function (answer) {
+        return "<div class='row answersParas py-2 d-flex align-items-center'>" + answerStringFromAnswerTabString(answer, maxLen) + "</div>";
+    });
+}
+
+function answerStringFromAnswerTabString(answerTabString, maxLen) {
+    if (!!answerTabString) {
+        const answerArray = answerTabString.split(answerSplitter);
+        return '<div class="col-3 legend-subhead mr-1">' +
+            answerArray[0] +
+            '</div><div class="col legend-text ml-1" style="visibility: hidden;">' +
+            answerArray[1] + '</div>';
+    } else return "";
+}
+/* ******************** */
+function toggleElementVisibility(element) {
+    if (!!element) element.style.visibility = element.style.visibility === "visible" ? "hidden" : "visible";
+}
+
+function toggleLegendTextItemsVisibility(btn,action) {
+    btn.blur();
+    for(const legtext of document.getElementById("div-revealAnswers").getElementsByClassName("legend-text"))
+        legtext.style.visibility = action;
+}
+
+function handleLegendItemClicked(evt) {
+    if (evt.target.className.includes('subhead')) toggleElementVisibility(evt.target.parentNode.getElementsByClassName('legend-text')[0]);
+    /*
+        if (window.setting_legendLabelsAppear === legendAppearsAll) {
+            let itemClickedIndex = getIndexOfClickedPara(evt.target, true);
+            if (itemClickedIndex !== undefined) {
+                // find rows in hotspotsarray where the third coord === itemclickedindex which matches the index of backtext exactly
+                //showTargetsForHotspotsArrayDelayAndIndex(hotspotsarray, targetTimeoutDuration, itemClickedIndex);
+            }
+        }
+    */
+}
+

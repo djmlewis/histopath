@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 14/2/2021 4:22     djml.uk E&OE.                             *
+ * Copyright (c) 15/2/2021 3:3     djml.uk E&OE.                              *
  ******************************************************************************/
 /*
 html,body {
@@ -779,13 +779,6 @@ html{
     -webkit-opacity: 0.75;
     width: 5vmax;
     height: 5vmax;
-}
-
-.answersParas {
-    margin-left: 1.5vw;
-    margin-bottom: 0;
-    padding: 0;
-    text-indent: -1.5vw;
 }
 
 /*

@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 14/2/2021 4:22     djml.uk E&OE.                             *
+ * Copyright (c) 15/2/2021 3:3     djml.uk E&OE.                              *
  ******************************************************************************/
 const runningLocalFile = 0;
 
@@ -80,6 +80,12 @@ function locationType() {
 }
 
 // =================================================================== UTILITY FUNCTIONS
+function getStringCharacterLength (str) {
+    // string .length is unreliable as it uses UTF16!
+    // The string iterator that is used here iterates over characters,not mere code units
+    return [...str].length;
+}
+
 function smartStringTrim(string, maxLength) {
     const maxL = maxLength === undefined || maxLength === null ? 20 : maxLength;
     if (!string) return string;

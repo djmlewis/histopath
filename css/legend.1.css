@@ -1,0 +1,29 @@
+/******************************************************************************
+ * Copyright (c) 15/2/2021 3:3     djml.uk E&OE.                              *
+ ******************************************************************************/
+.answersParas {
+    line-height: 1.1;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.containerAnswers > .row:nth-child(odd) {background: #efefef}
+
+.legend-subhead {
+    font-size: 1rem;
+    font-family: "Trebuchet MS", sans-serif;
+    text-align: right;
+    hyphens: auto;
+    color: grey;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.legend-text {
+    font-size: 1.3rem;
+    font-family: "Trebuchet MS", sans-serif;
+    color: #424242;
+    font-weight: normal;
+    cursor: none;
+    pointer-events: none;
+}
