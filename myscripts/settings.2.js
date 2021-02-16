@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 14/2/2021 4:22     djml.uk E&OE.                             *
+ * Copyright (c) 16/2/2021 2:3     djml.uk E&OE.                              *
  ******************************************************************************/
 
 //================= STARTUP
@@ -442,4 +442,11 @@ function  setPreloadBoxStatus(){
 function  setSettingsBoxStatus(status,boxName){
     if(status) document.getElementById(boxName).classList.add("settingsSwitchGroup-selected");
     else  document.getElementById(boxName).classList.remove("settingsSwitchGroup-selected");
+}
+
+
+/* ************************** */
+function checkboxInitiallyHideClicked(cbx) {
+    initiallyHideTextImages = cbx.checked;
+    loadCardImage();
 }

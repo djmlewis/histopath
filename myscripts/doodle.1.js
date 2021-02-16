@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 14/2/2021 4:22     djml.uk E&OE.                             *
+ * Copyright (c) 16/2/2021 2:3     djml.uk E&OE.                              *
  ******************************************************************************/
 let draggingUnderway = false;
 let doodleDragStartOffset = [0,0];
@@ -53,16 +53,18 @@ function clearSVGdoodlesOnCardLoad() {
 
 function updateSVGdoodlesOnCardImageLoad() {
     //this get calls AFTER the new card image has actually loaded so we can use its dimensions
-    window.svgDoodles.setAttributeNS(null, 'viewBox', [0, 0, window.imageCard.naturalWidth, window.imageCard.naturalHeight].join(" "));
+    //window.svgDoodles.setAttributeNS(null, 'viewBox', [0, 0, window.imageCard.naturalWidth, window.imageCard.naturalHeight].join(" "));
     // handleCardImageLoad actually loads the doodles SVG
 }
 
 function updateSVGdoodlesOnPostitsDoodlesRecordLoad() {
+/*
     //called when postits has loaded the postitsrecord so we can use it
     if (!!window.postitsDoodlesRecordForSelectedCard && !!window.postitsDoodlesRecordForSelectedCard[dbNotes_svgHTML]) {
         window.svgDoodles.innerHTML = window.postitsDoodlesRecordForSelectedCard[dbNotes_svgHTML];
         restoreEventsToAllHandles();
     }
+*/
 }
 
 function restoreEventsToAllHandles() {
@@ -73,6 +75,7 @@ function restoreEventsToAllHandles() {
 }
 
 function adjustSVGdoodlesSize(cardimage) {
+/*
     //do svgdoodles. Because, iunlike postitshanger, it rotates with the cardimage, it can just mimic the card image dimensions without trnsposition
     const svgdoodles = document.getElementById("svg-doodles");
     svgdoodles.style.width = cardimage.width + "px";
@@ -80,6 +83,7 @@ function adjustSVGdoodlesSize(cardimage) {
     svgdoodles.style.left = cardimage.offsetLeft + "px";
     svgdoodles.style.transformOrigin = setting_cardIsRotatedIsTrue() ? "top left" : "50% 50%";
     svgdoodles.style.transform = setting_cardIsRotatedIsTrue() ? "translate(0," + cardimage.width + "px) rotate(-90deg)" : "none";
+*/
 }
 
 // ================================================= db

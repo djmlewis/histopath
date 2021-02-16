@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 15/2/2021 3:3     djml.uk E&OE.                              *
+ * Copyright (c) 16/2/2021 2:3     djml.uk E&OE.                              *
  ******************************************************************************/
 
 // =================================================================== AnswersRecord
@@ -616,7 +616,7 @@ function answerStringFromAnswerTabString(answerTabString, maxLen) {
         const answerArray = answerTabString.split(answerSplitter);
         return '<div class="col-3 legend-subhead mr-1">' +
             answerArray[0] +
-            '</div><div class="col legend-text ml-1" style="visibility: hidden;">' +
+            '</div><div class="col legend-text ml-1" style="visibility: '+(initiallyHideTextImages ? 'hidden':'visible')+';">' +
             answerArray[1] + '</div>';
     } else return "";
 }
@@ -630,7 +630,6 @@ function toggleLegendTextItemsVisibility(btn,action) {
     for(const legtext of document.getElementById("div-revealAnswers").getElementsByClassName("legend-text"))
         legtext.style.visibility = action;
 }
-
 function handleLegendItemClicked(evt) {
     if (evt.target.className.includes('subhead')) toggleElementVisibility(evt.target.parentNode.getElementsByClassName('legend-text')[0]);
     /*

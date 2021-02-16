@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 15/2/2021 3:4     djml.uk E&OE.                              *
+ * Copyright (c) 16/2/2021 2:3     djml.uk E&OE.                              *
  ******************************************************************************/
 /*
 html,body {
@@ -117,15 +117,23 @@ html{
     background-color: #17a2b8;
     color: white;!important;
 }
+#col-image-outer, #row-image-outer {
+    overflow: hidden;!important;
+}
 .col-image {
     border-left: darkgray 1px solid;
+    overflow: hidden;!important;
     /*border-top: darkgray 1px solid*/
 }
 .div-image-card {
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .image-card {
     /*border: 1px solid grey;*/
+}
+.paraImage {
+    margin: 4px;
 }
 .div-avatars-img img {
     margin: 0 2px 0 0;
@@ -483,7 +491,6 @@ html{
 .inputSearchLegend {
     background-color: transparent;
 }
-
 /*
 .div-revealNextLegendItem, .div-searchLegend {
     display: flex;

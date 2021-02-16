@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 14/2/2021 4:22     djml.uk E&OE.                             *
+ * Copyright (c) 16/2/2021 2:3     djml.uk E&OE.                              *
  ******************************************************************************/
 window.globalIndexHTML = "Still downloading… Please try later";
 window.globalIndexPopeskoHTML = "Still downloading… Please try later";
@@ -233,3 +233,7 @@ window.postitsRotate=true;
 const doodlexmlns="http://www.w3.org/2000/svg";
 window.selectedDoodleGroup=null;
 const dbNotes_svgHTML="svgHTML";
+
+
+/* ********************************* */
+let initiallyHideTextImages = true;

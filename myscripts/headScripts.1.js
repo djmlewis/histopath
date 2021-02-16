@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 14/2/2021 4:22     djml.uk E&OE.                             *
+ * Copyright (c) 16/2/2021 2:3     djml.uk E&OE.                              *
  ******************************************************************************/
 
 //---------- ******** IMMEDIATE GLOBALS *********** ------------------------//
@@ -97,7 +97,7 @@ window.addEventListener('DOMContentLoaded', function () {
     document.getElementById("list-globalIndex").onclick = ev => handleGlobalIndexLineClicked(ev.target);
     document.getElementById("list-globalIndexPopesko").onclick = ev => handleGlobalIndexLineClicked(ev.target);
     document.getElementById("div-postitsHanger").onclick = ev => handlePostitsHangerClicked(ev);
-    document.getElementById("svg-doodles").onclick = ev => handleSVGdoodleClick(ev);
+    //document.getElementById("svg-doodles").onclick = ev => handleSVGdoodleClick(ev);
     /* **** BOOKMARKS *** */
     document.getElementById("list-bookmarks-gallery").onclick = ev => handleGenericGalleryClick(ev.target, "sheet-bookmarks");
     /* **** HISTORY *** */
