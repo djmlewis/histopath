@@ -1,0 +1,217 @@
+/******************************************************************************
+ * Copyright (c) 19/2/2021 11:13     djml.uk E&OE.                            *
+ ******************************************************************************/
+/* gydv sits inside gybt and orders the items */
+.gydv {
+    padding: 2px;
+    margin: 0;
+    display: flex !important;
+    -ms-flex-wrap:wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+    -ms-flex-direction: row !important;
+    flex-direction: row !important;
+}
+/* gybt is the outer shell of the card */
+.gybt, .gybt-100 {
+    background-color: #fff;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center;
+    font-family: "Trebuchet MS",sans-serif;
+    font-size: 1em;
+    border-color: grey;
+    overflow-x: hidden;!important;
+}
+.gybt-100 {
+    width: 100%;
+    border: 1px solid lightgrey;
+}
+.gybt {
+    margin: 4px;
+    /*border-radius: 4px;*/
+    border-width:  1px 1px 1px 6px;
+    -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5); !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5); !important;
+}
+#list-gallery .gybt, #div-indexedCards-hanger .gybt, #list-history-gallery .gybt {
+    border-color: #cb6633;
+}
+#list-bookmarks-gallery .gybt {
+    border-color: #f5a700;
+}
+#div-indexedCards-hanger .gybt {
+    border-color: #4aa427;
+}
+.gybt:hover, .gybt:focus,.gybt-100:hover, .gybt-100:focus,
+#list-bookmarks-gallery .gybt:hover, #list-bookmarks-gallery .gybt:focus,
+#div-indexedCards-hanger .gybt:hover, #div-indexedCards-hanger .gybt:focus,
+#list-gallery .gybt:hover, #list-gallery .gybt:focus,
+#list-history-gallery .gybt:hover, #list-history-gallery .gybt:focus  {
+    /*z-index: 1;*/
+    outline: none;
+    -webkit-box-shadow:  none; !important;
+    box-shadow: none; !important;
+    border-color: black;!important;
+}
+.gybt:active, .gybt-100:active  {
+    border-color: black;
+
+}
+
+.gybt img {
+    height: 160px;!important;
+    width: 160px;!important;
+    min-height: 160px;!important;
+    min-width: 160px;!important;
+    pointer-events: none;
+}
+
+.gybt-small {
+    font-size: 0.65em;
+}
+.gybt-small img {
+    height: 60px;!important;
+    width: 60px;!important;
+    min-height: 60px;!important;
+    min-width: 60px;!important;
+}
+
+.icon-Gallery-imgdiv {
+    pointer-events: none;/* as onclick is the parent button */
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin:0;
+    padding: 0;
+    /*min-width:180px;!important;*/
+    /* consider image-thumbnail 160px */
+}
+
+.icon-Gallery-hotspot {
+    color: rgba(255, 69, 0, 1);
+    background-color: transparent;
+    pointer-events: none;
+    /* 1em scales with card size */
+    font-size: 1em;
+}
+
+/*Bookmark paragraphs sit inside bmpDIV*/
+/* bmpDIV24ch is 100% to fill but capped at 24 character*/
+.bmpDIV, .bmpDIV24ch {
+    pointer-events: none;
+    width: 100%;
+}
+.bmpDIV24ch {
+    max-width: 24ch;!important;
+}
+
+.bmpCS, .bmpCH, .bmpAS, .bmpCD {
+    text-align: left;
+    line-height: 1;
+    margin: 0 0 2px 2px;
+    /*margin-top: 0;*/
+    /*margin-bottom: 2px;*/
+    pointer-events: none;/*just in case they emerge from the div!*/
+}
+
+.bmpCD {
+    color: black;
+}
+
+.bmpAS {
+    color: #339900;
+}
+
+.bmpCH {
+    color: darkgray;
+}
+
+.bmpCS {
+    color: steelblue;
+    font-style: oblique;
+}
+
+.iconBookmarksGalleryEdit {
+    opacity: 0.5;
+    -webkit-opacity: 0.5;
+    pointer-events: auto;!important;
+    font-size: 32pt;
+    background-color: transparent;
+}
+.iconBookmarksGalleryEdit:hover {
+    opacity: 1;
+    -webkit-opacity: 1;
+}
+.icon-bookmarksGallery-delete {
+    color: red;
+    top: 5px;
+}
+.icon-bookmarksGallery-up {
+    color: #a9a9a9;
+    top: 50px;
+}
+.icon-bookmarksGallery-down {
+    color: #a9a9a9;
+    top: 90px;
+}
+.icon-bookmarksGallery-drag {
+    color: #0096ff;
+}
+.iconBookmarksGalleryupdown-drag,.iconBookmarksGallerydrag-dragged {
+    color: #9437ff;
+}
+.iconBookmarksGallerydrag-notdragged {
+    color: grey;
+}
+
+.icon-bookmarksGallery-drag {
+    top: 135px;
+}
+/* This is for the chapter titles in gallery*/
+.hct {
+    background-color: #ffccb2;
+    /*border-color: #983300;*/
+    /*border-top: 4px solid;*/
+    /*border-left: 4px solid;*/
+    /*border-right: 4px solid;*/
+    border: 2px solid #983300;
+    color: #983300;
+    text-align: center;
+    padding: 4px;
+    margin: 4px 4px 0 4px;
+    /*border-radius: 4px 4px 0 0;*/
+}
+#list-gallery .gydv {
+    border-top: 0 solid;
+    border-left: 1px solid #983300;
+    border-right: 1px solid #983300;
+    border-bottom: 1px solid #983300;
+
+    margin: 0 4px 0 4px;
+}
+
+
+.icon-gallery-header {
+    font-size: 1.5em;
+}
+
+.🔴 {
+    position: relative;
+    top: 50%;
+    right: 2px;
+    transform: translate(0%, -50%);
+    color: rgba(255, 69, 0, 0.5);
+    background-color: transparent;
+    pointer-events: none;
+    font-size: 10pt;
+}
+.btn-gallery-title {
+    color: #424242;
+    pointer-events: none;/* as onclick is the parent button */
+    max-width: 150px;
+    margin-right: 5px;
+    margin-left: 5px;
+    text-align: center !important;
+}

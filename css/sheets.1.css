@@ -1,0 +1,108 @@
+/******************************************************************************
+ * Copyright (c) 19/2/2021 11:13     djml.uk E&OE.                            *
+ ******************************************************************************/
+.sheetholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+!important;
+    height: 100%;
+!important;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5000;
+    overflow: hidden;
+}
+
+.sheets-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+!important;
+    background-color: whitesmoke;
+    width: 100%;
+!important;
+    height: 100%;
+!important;
+}
+
+@media (min-width: 576px) {
+    .sheets-div {
+        width: 92%;
+    !important;
+        left: 4%;
+    !important;
+    }
+}
+
+.sheets-header-aligment, .sheets-header {
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+
+.sheets-header {
+    padding: 6px 0 6px 0;
+}
+
+.sheets-header-aligment {
+    margin-top: auto;
+}
+
+.sheets-header-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.sheets-icontitle {
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+
+.sheets-title {
+    font-size: 1.1em;
+}
+
+.sheets-body {
+    height: 100% !important;
+    overflow: auto;
+}
+
+.sheets-div-border {
+    height: 100% !important;
+    overflow: auto;
+}
+
+.div-image-help {
+    position: absolute;
+    top: 50px;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    padding-bottom: 60px;
+}
+
+.noscroll {
+    overflow: hidden;
+!important;
+}
+
+@media (max-width: 576px) {
+    #input-searchString {
+        max-width: 40%;
+    !important;
+    }
+}
+
+.dropdownTools {
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 80vw;
+    max-width: 600px;
+}

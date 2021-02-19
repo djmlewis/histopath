@@ -1,13 +1,12 @@
 /******************************************************************************
- * Copyright (c) 15/2/2021 3:3     djml.uk E&OE.                              *
+ * Copyright (c) 19/2/2021 11:13     djml.uk E&OE.                            *
  ******************************************************************************/
 .answersParas {
-    line-height: 1.1;
-    overflow-y: hidden;
-    overflow-x: hidden;
+    line-height: 1;
+    overflow: hidden;
 }
 
-.containerAnswers > .row:nth-child(odd) {background: #efefef}
+.stripedrows > .row:nth-child(odd) {background-color: #f0f0f0}
 
 .legend-subhead {
     font-size: 1rem;

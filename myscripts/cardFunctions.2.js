@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 16/2/2021 2:3     djml.uk E&OE.                              *
+ * Copyright (c) 19/2/2021 11:13     djml.uk E&OE.                            *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards) {
@@ -67,95 +67,13 @@ function adjustSliderImageWidthValue(col_revealAsnwers, col_image) {
 
 function adjustCardWidthHeight() {    // called on window resize and card-image onload
     // called on window resize and card-image onload
-    //const cardimage = window.imageCard;
-    // const div_cardimage = document.getElementById("div-image-card");
-    const col_revealAsnwers = document.getElementById("col-revealAnswers");
-    const col_image = document.getElementById("col-image");
-    // const pad = 0; // pad should match col-image margin-left
-    const pad_v = 24;
-
-    // cardimage.style.transform = "none";
-    // cardimage.style.transformOrigin = "50% 50%";
-
-    // adjust col_image width //
-    adjustSliderImageWidthValue(col_revealAsnwers, col_image);
-
-    //ww and wh not affected by rtn
-    // let ww = col_image.getBoundingClientRect().width - pad;
-    const wh = window.innerHeight - col_image.getBoundingClientRect().top - pad_v;
-
-
-    //inh and inw unaffected by rotation
-    // const inh = cardimage.naturalHeight;
-    // const inw = cardimage.naturalWidth;
-    //
-    // const hwRatio = inh / inw;
-    //
-    // const widthUsingWheight = wh / hwRatio;
-    // const whhwR = wh * hwRatio;
-
+    const barsHeights=
+        document.getElementById("toolbar-row1").getBoundingClientRect().height +
+        document.getElementById("toolbar-row2").getBoundingClientRect().height +
+        document.getElementById("div-statusbar").getBoundingClientRect().height;
+    const screenH=document.getElementById('div-mainpage').clientHeight;
     // DODGEROO -set the column heights to ensure scrolling is ok
-    col_revealAsnwers.style.height = wh + "px";
-    col_image.style.height = wh + "px";
-    col_image.style.overflowY = "auto";
-    col_image.style.overflowX = "hidden";
-    //this is weird and a bit brutal but only way to redraw the scrollbars and stop darkMode disappearing
-    // if (window.setting_modeDarkLight === modeDark) col_image.classList.add("scrollerDark");
-    // else col_image.classList.remove("scrollerDark");
-
-    // if (window.setting_imageFit === imageFitPage) {
-    //     if (setting_cardIsRotatedIsTrue()) {
-    //         if (whhwR <= ww) {
-    //             cardimage.height = whhwR;
-    //             cardimage.width = wh;
-    //             cardimage.style.position = "absolute";
-    //             cardimage.style.left = ((ww - whhwR) / 2).toString() + "px";
-    //         } else {
-    //             const wwhwR = ww / hwRatio;
-    //             cardimage.height = ww;
-    //             cardimage.width = wwhwR;
-    //             cardimage.style.position = "absolute";
-    //             cardimage.style.left = "0px";
-    //         }
-    //         cardimage.style.transformOrigin = setting_cardIsRotatedIsTrue() ? "top left" : "50% 50%";
-    //         cardimage.style.transform = setting_cardIsRotatedIsTrue() ? "translate(0," + cardimage.width + "px) rotate(-90deg)" : "none";
-    //         // cardimage.style.webkitTransform=setting_cardIsRotatedIsTrue() ? "translate(0," + cardimage.width + "px) rotate(-90deg)" : "none";
-    //         // cardimage.style.webkitTransformOrigin = setting_cardIsRotatedIsTrue() ? "top left" : "50% 50%";
-    //     } else {
-    //         if (widthUsingWheight <= ww) {
-    //             // set height to wh as width fits
-    //             cardimage.height = wh;
-    //             cardimage.width = widthUsingWheight;
-    //             cardimage.style.position = "absolute";
-    //             cardimage.style.left = ((ww - widthUsingWheight) / 2).toString() + "px";
-    //         } else {
-    //             // set width to ww as height fits
-    //             cardimage.height = ww * hwRatio;
-    //             cardimage.width = ww;
-    //             cardimage.style.position = "absolute";
-    //             cardimage.style.left = "0px";
-    //         }
-    //     }
-    //     col_image.style.overflowY = "hidden";
-    //     div_cardimage.style.height = "";
-    // } else {
-    //     cardimage.style.position = "absolute";
-    //     cardimage.style.left = "0px";
-    //     // use width plus a pad for scroll bar when height overflowsand allow height to overflow
-    //     // set img element properties not attribs to enforce dimesions between states and avoid confusions
-    //     // calculate exact sizes using hwRatio
-    //     cardimage.height = setting_cardIsRotatedIsTrue() ? (ww - 20) : (ww - 20) * hwRatio;//-20 as scrollbar will appear for height>wh!!
-    //     cardimage.width = setting_cardIsRotatedIsTrue() ? (ww - 20) / hwRatio : (ww - 20);
-    //     cardimage.style.transformOrigin = setting_cardIsRotatedIsTrue() ? "top left" : "50% 50%";
-    //     cardimage.style.transform = setting_cardIsRotatedIsTrue() ? "translate(0," + cardimage.width + "px) rotate(-90deg)" : "none";
-    //     // cardimage.style.webkitTransform=setting_cardIsRotatedIsTrue() ? "translate(0," + cardimage.width + "px) rotate(-90deg)" : "none";
-    //     // cardimage.style.webkitTransformOrigin = setting_cardIsRotatedIsTrue() ? "top left" : "50% 50%";
-    //     div_cardimage.style.height = setting_cardIsRotatedIsTrue() ? cardimage.width + "px" : "";
-    //     col_image.style.overflowY = "auto";
-    // }
-    // adjustDivPostitsSize(cardimage);
-    // adjustSVGdoodlesSize(cardimage);
-
+    document.getElementById("row-image").style.height = (screenH-barsHeights) + "px";
 }
 
 function hideLegendIfAppropriate() {
@@ -285,11 +203,10 @@ function handleCardDblClick(ev) {
 }
 
 function handleSliderImageWidthChanged(slider) {
-    // bring the sliders into alignment. can't harm to reassign hte event target saves an if else
-    document.getElementById("slider-image-Width").value = slider.value;
-    document.getElementById("slider-image-Width-toolbox").value = slider.value;
-    document.getElementById("slider-image-Width-dropdown").value = slider.value;
-    hideTargetIcon();
+    const colimage = document.getElementById("col-image");
+    colimage.style.width = slider.value+'%';
+    colimage.style.maxWidth = colimage.style.width;
+    colimage.style.minWidth = colimage.style.width;
     adjustCardWidthHeight();
 }
 
@@ -412,89 +329,22 @@ function loadCardImage() {
         const selectedCardObj = JSON.parse(selectcard.selectedOptions[0].getAttribute(attr_cardObject));
         // could adjustwindowwidthsize auto if(lastCardLoadedUniqueID()===selectedCardObj.uniqueCardID);
         recordLastCardLoaded(selectedCardObj.uniqueCardID);
-        const cardImagePathArray = selectedCardObj.imagePath.split(".");
-        const numImages = selectedCardObj['numImages'];
-        for(let i=1;i<=numImages;i++) {
+        const numImages = selectedCardObj['imageNamesOrientsArray'].length;
+        for(const imageNameOrient of selectedCardObj['imageNamesOrientsArray']) {
+            //[0] is name "xxx yyy pX" [1] is orientation p or l
             const newImg = document.createElement('img');
-            const src = cardImagePathArray[0]+" p"+i.toString()+"."+cardImagePathArray[1];
+            const src = selectedCardObj.imagePath+imageNameOrient.split("\t")[0]+selectedCardObj.imageType;
             divimagecard.appendChild(newImg);
             newImg.className = "paraImage";
             newImg.style.width= numImages>1 ? "45%" : "95%";
-            newImg.style.visibility=(initiallyHideTextImages ? 'hidden':'visible');
+            newImg.style.visibility=(initiallyHideImages ? 'hidden':'visible');
             newImg.src = src;
         }
         addLegendArrayToDiv(selectedCardObj);
-        // when loading favourites we may be viewing cards not in the currently selected cardset
-/*
-        if (window.setting_ForceOrientation === forceOrientation_none) {
-            // use imagePath unles force flip
-            cardimage.src = selectedCardObj.imagePath;//forceFlip ? selectedCardObj.imagePathRotated : selectedCardObj.imagePath;
-            assignSetting_cardIsRotated(forceImgFlip());
-        } else if ((window.setting_ForceOrientation === forceOrientation_portrait && selectedCardObj.orient === orientation_portrait) ||
-            (window.setting_ForceOrientation === forceOrientation_landscape && selectedCardObj.orient === orientation_landscape)) {
-            // original and forced match so use imagePath unles force flip
-            cardimage.src = selectedCardObj.imagePath;//forceFlip ? selectedCardObj.imagePathRotated : selectedCardObj.imagePath;
-            assignSetting_cardIsRotated(forceImgFlip());
-        } else {
-            // original and forced do not match so use imagePathRotated unles force flip
-            cardimage.src = selectedCardObj.imagePath;//forceFlip ? selectedCardObj.imagePath : selectedCardObj.imagePathRotated;
-            assignSetting_cardIsRotated(!forceImgFlip());
-        }
-*/
-
-        // setPopupLabel("", true);
-
-        // hotspots //
-/*
-        document.getElementById("prepend-playLabels").hidden = !!!selectedCardObj.hotspots;
-        //card hotspot handlers
-        Array.from(document.getElementsByClassName("icon-hotspotsIcon-available")).forEach((icon) => {
-            icon.hidden = !!selectedCardObj.hotspots === false;
-        });
-        if (!!selectedCardObj.hotspots) {
-            cardimage.onclick = function (e) {
-                handleCardClick(e, selectedCardObj);
-            };
-            cardimage.onmousemove = function (e) {
-                handleCardMouseMove(e, selectedCardObj);
-            };
-        } else {
-            cardimage.onclick = undefined;
-            cardimage.onmousemove = undefined;
-        }
-*/
-        // createAnswerButtonsForCardObject() also calls addLegendArrayToDiv(selectedCardObj)
-        //createAnswerButtonsForCardObject(selectedCardObj);
-        // update the reveal all button
-        //updateRevealLegendButtonForCardObj(selectedCardObj);
-        // update the bookmark button
-        //updateBookmarkButton(selectedCardObj);
-        //updateTopicsButton(selectedCardObj);
-
-        // update the additional title even if we dont see it
-        // const titleAndNoteArray = titleAndNoteForCardObj(selectedCardObj);
-        // document.getElementById("div-cardTitle").innerHTML = titleAndNoteArray[0];
-        // document.getElementById("h-cardNote").innerHTML = titleAndNoteArray[1];
-        // document.getElementById("h-cardNote").hidden = titleAndNoteArray[1].length === 0;
-
-        //setupAvatars(selectedCardObj.avatars);
-        //updateNotesForCardObj(selectedCardObj);
-        //updatePostitsRecordForCardObjOnLoad(selectedCardObj);
-        // if we reload the same image, the onload function handleCardImageLoad()is not called so we have to manually call updateSVGdoodlesOnCardImageLoad
-        //if (existingSrc === cardimage.src) updateSVGdoodlesOnCardImageLoad();
-        //else clearSVGdoodlesOnCardLoad();
     } else {
         cll("no image",selectcard.value);
-        // update the additional title even if we dont see it
-        //document.getElementById("div-cardTitle").innerHTML = "";
-        //cardimage.src = "";
-        //clearAllAnswerButtons();
-        //setupAvatars(undefined);
-        //resetSideBarForCardUniqueID(undefined);
-        //clearSVGdoodlesOnCardLoad();
-        //updatePostitsRecordForCardObjOnLoad(undefined);
-        adjustCardWidthHeight();
     }
+    adjustCardWidthHeight();
     clearSearchLegend();
 }
 function toggleImagesVisibility(btn,action) {

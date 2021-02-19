@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 16/2/2021 2:3     djml.uk E&OE.                              *
+ * Copyright (c) 19/2/2021 11:13     djml.uk E&OE.                            *
  ******************************************************************************/
 
 // =================================================================== AnswersRecord
@@ -262,53 +262,6 @@ function createAnswerButtonsForCardObject(selectedCardObj) {
 }
 
 
-function addLegendArrayToDiv(selectedCardObj) {
-    let answersArray = answersArrayFromSelectedCardObj(selectedCardObj, true);
-    let hotspots = selectedCardObj.hotspots;
-    document.getElementById("div-revealNextLegendItem").hidden = window.setting_legendLabelsAppear === legendAppearsAll;
-    document.getElementById("div-searchLegend").hidden = window.setting_legendLabelsAppear !== legendAppearsAll;
-    document.getElementById("input-searchlegend").value = "";
-    const havehotspots = hotspots !== undefined;
-    if (havehotspots) {
-        hotspots = hotspots.split("\n");
-        //remove radius
-        hotspots.shift();
-    }
-    // hotspots array and answers array no longer align, hsa may be longer
-    // we need an array with the indices of the answers array that we can shuffle with it
-    let answersIndexArray = Array.from(Array(answersArray.length).keys());//0...N
-    // if shuffle Fisher-Yates Algorithm. keep hotspots in sync!
-    if (window.setting_legendLabelsAppear === legendAppearsRandom) {
-        for (let i = answersArray.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [answersArray[i], answersArray[j]] = [answersArray[j], answersArray[i]];
-            if (havehotspots) [answersIndexArray[i], answersIndexArray[j]] = [answersIndexArray[j], answersIndexArray[i]];
-        }
-    }
-    const divLegend = document.getElementById("div-revealAnswers");
-    if (window.setting_legendLabelsAppear === legendAppearsAll) {
-        divLegend.innerHTML = "<div class='container-fluid containerAnswers'>" +  mapAnswersArrayToParas(answersArray, false).join("")+ '</div>';
-        divLegend.scrollTop = 0;
-    } else {
-        let counter = 1;
-        let QorA = "Q";
-        document.getElementById("button-revealNextLegendItem").onclick = function () {
-            if (window.setting_legendLabelsAppear !== legendAppearsAll) {
-                document.getElementById("div-revealAnswers").innerHTML = creatLegendParasAndTextFromAnswersArray(answersArray, counter, QorA);
-                //counter starts at 1 so the first hotspot (radius) is ignored
-                if (havehotspots && counter <= answersIndexArray.length) {
-                    showTargetsForHotspotsArrayDelayAndIndex(hotspots, targetTimeoutDurationLong, answersIndexArray[counter - 1]);
-                } else hideTargetIcon();
-                counter += 1;
-                QorA = QorA === "Q" ? "A" : "Q";
-            }
-        };
-        divLegend.innerHTML = createLegendInstructions(window.setting_legendLabelsAppear);
-    }
-
-    //must call updateDivRevealAnswersForClick LAST to ensure paras are labelled correctly
-    updateDivRevealAnswersForClick(selectedCardObj);
-}
 
 function creatLegendParasAndTextFromAnswersArray(ansArray, indexOfNextQlabel) {
     //const endParaPads = "<br><br>";
@@ -601,26 +554,7 @@ function showIconForLabelPlayRandomButtonState(btn) {
 }
 
 /* ******************** */
-function mapAnswersArrayToParas(answersArray, reverse) {
-    if (reverse === true) answersArray.reverse();
-    //calc the length of the longest subhead
-    let maxLen=0;
-    for(const ans of answersArray) maxLen = Math.max(maxLen,getStringCharacterLength(ans.split("\t")[0]));
-    return answersArray.map(function (answer) {
-        return "<div class='row answersParas py-2 d-flex align-items-center'>" + answerStringFromAnswerTabString(answer, maxLen) + "</div>";
-    });
-}
 
-function answerStringFromAnswerTabString(answerTabString, maxLen) {
-    if (!!answerTabString) {
-        const answerArray = answerTabString.split(answerSplitter);
-        return '<div class="col-3 legend-subhead mr-1">' +
-            answerArray[0] +
-            '</div><div class="col legend-text ml-1" style="visibility: '+(initiallyHideTextImages ? 'hidden':'visible')+';">' +
-            answerArray[1] + '</div>';
-    } else return "";
-}
-/* ******************** */
 function toggleElementVisibility(element) {
     if (!!element) element.style.visibility = element.style.visibility === "visible" ? "hidden" : "visible";
 }
@@ -632,14 +566,29 @@ function toggleLegendTextItemsVisibility(btn,action) {
 }
 function handleLegendItemClicked(evt) {
     if (evt.target.className.includes('subhead')) toggleElementVisibility(evt.target.parentNode.getElementsByClassName('legend-text')[0]);
-    /*
-        if (window.setting_legendLabelsAppear === legendAppearsAll) {
-            let itemClickedIndex = getIndexOfClickedPara(evt.target, true);
-            if (itemClickedIndex !== undefined) {
-                // find rows in hotspotsarray where the third coord === itemclickedindex which matches the index of backtext exactly
-                //showTargetsForHotspotsArrayDelayAndIndex(hotspotsarray, targetTimeoutDuration, itemClickedIndex);
-            }
-        }
-    */
 }
-
+function addLegendArrayToDiv(selectedCardObj) {
+    let answersArray = answersArrayFromSelectedCardObj(selectedCardObj, true);
+    const divLegend = document.getElementById("div-revealAnswers");
+    divLegend.innerHTML = '<div class="container container-fluid stripedrows">' + mapAnswersArrayToParas(answersArray) + '</div>';
+    divLegend.scrollTop = 0;
+    //must call updateDivRevealAnswersForClick LAST to ensure paras are labelled correctly
+    updateDivRevealAnswersForClick(selectedCardObj);
+}
+function mapAnswersArrayToParas(answersArray) {
+    //calc the length of the longest subhead
+    let maxLen=0;
+    for(const ans of answersArray) maxLen = Math.max(maxLen,getStringCharacterLength(ans.split("\t")[0]));
+    return answersArray.map(function (answer) {
+        return answerStringFromAnswerTabString(answer, maxLen);
+    }).join("");
+}
+function answerStringFromAnswerTabString(answerTabString) {
+    if (!!answerTabString) {
+        const answerArray = answerTabString.split(answerSplitter);
+        return '<div class="row d-flex align-items-center w-100"><div class="col-3 legend-subhead">' +
+            answerArray[0] + '</div>' +
+            '<div class="col legend-text" style="visibility: ' + (initiallyHideText ? 'hidden':'visible')+';">' +
+            answerArray[1] + '</div></div>';
+    } else return "";
+}
