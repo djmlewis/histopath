@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 19/2/2021 11:13     djml.uk E&OE.                            *
+ * Copyright (c) 19/2/2021 4:1     djml.uk E&OE.                              *
  ******************************************************************************/
 function toggleActionmenuToolbar(fromdropdown) {
     if(!!fromdropdown)$(fromdropdown).dropdown('hide');
@@ -33,5 +33,5 @@ function loadHelp(){
 }
 
 function openLocalHelp() {
-    window.open("userGuide.html", "Vetanat User Guide");
+    window.open("userGuide.html", "Parasites Atlas User Guide");
 }
