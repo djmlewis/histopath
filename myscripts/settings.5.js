@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 19/2/2021 0:22     djml.uk E&OE.                             *
+ * Copyright (c) 19/2/2021 0:23     djml.uk E&OE.                             *
  ******************************************************************************/
 
 //================= STARTUP
@@ -7,6 +7,7 @@ function applySettingsAtStartup() {
     if (!localStorage.getItem(ls_history)) localStorage.setItem(ls_history, JSON.stringify([]));
     loadLastCardLoaded();
 //     loadLastCardLoaded() must be first
+
 /*    setupToolboxAtStartup();
     setupModeDarkLightAtStartup();
     setupImageFitAtStartup();
