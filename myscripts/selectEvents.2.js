@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 19/2/2021 11:13     djml.uk E&OE.                            *
+ * Copyright (c) 26/2/2021 5:8     djml.uk E&OE.                              *
  ******************************************************************************/
 
 //---------- ******** SELECT EVENTS *********** ------------------------//
@@ -173,11 +173,12 @@ function populateSelectCardsOnChapterChange(btnValue) {
     btnFlipThisImageOriginal();
     // auto-hide any revealed answers
     hideLegendIfAppropriate();
-    window.randomCardIndices=[];
+    resetRandomIndexArray();
     let selectChapterValue = document.getElementById("select-chapters").value;
     toggleSelectCardsetsHidden(false);
 
     const selectedCardsetValue = document.getElementById("select-cardsset").value;
+    const hideCardTitles=window.collectionobject.cardsetsObj[selectedCardsetValue].hideCardTitles;
     let cardsInChapterNamesArray = window.collectionobject.cardsetsObj[selectedCardsetValue].chaptersObj[selectChapterValue].cardsNamesArray;
     let cardsInChapterObj = window.collectionobject.cardsetsObj[selectedCardsetValue].chaptersObj[selectChapterValue].cardsObj;
     let cuidArray = [];
@@ -185,10 +186,10 @@ function populateSelectCardsOnChapterChange(btnValue) {
         const selectcards = document.getElementById(select);
         //clear existing options
         selectcards.length = 0;
-        cardsInChapterNamesArray.forEach(function (cardName) {
+        cardsInChapterNamesArray.forEach(function (cardName,index) {
             const cardObj = cardsInChapterObj[cardName];
             cuidArray.push(cardObj.uniqueCardID);
-            createOptionForCardMenuWithCardObject(cardObj, selectcards);
+            createOptionForCardMenuWithCardObject(cardObj, selectcards,index,hideCardTitles);
         });
     });
     if (!!btnValue) {
@@ -217,8 +218,6 @@ function getSelectCardsSelectedCardObjectHotspotsArray() {
     if(getSelectCardsSelectedCardObject().hotspots) return getSelectCardsSelectedCardObject().hotspots.split("\n");
     else return undefined;
 }
-
-
 function getSelectCardsSelectedCardObjectUniqueCardID() {
     return getSelectCardsSelectedCardObject().uniqueCardID;
 }

@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 19/2/2021 11:13     djml.uk E&OE.                            *
+ * Copyright (c) 26/2/2021 5:8     djml.uk E&OE.                              *
  ******************************************************************************/
 
 // =================================================================== AnswersRecord
@@ -98,7 +98,6 @@ function handleAnswerModalDismissed(btn, resultString, uniqueCardID, answerIndex
         window.allRecordedAnswersArchiveObj.recordAnswerForCardUniqueID(resultString, uniqueCardID, answerIndex);
     }
 }
-
 
 
 function handleAnswerButtonClicked(thisButton, label_answer, selectedCardObj, answerIndex) {
@@ -260,7 +259,6 @@ function createAnswerButtonsForCardObject(selectedCardObj) {
     }
     addLegendArrayToDiv(selectedCardObj);
 }
-
 
 
 function creatLegendParasAndTextFromAnswersArray(ansArray, indexOfNextQlabel) {
@@ -559,36 +557,43 @@ function toggleElementVisibility(element) {
     if (!!element) element.style.visibility = element.style.visibility === "visible" ? "hidden" : "visible";
 }
 
-function toggleLegendTextItemsVisibility(btn,action) {
+function toggleLegendTextItemsVisibility(btn, action) {
     btn.blur();
-    for(const legtext of document.getElementById("div-revealAnswers").getElementsByClassName("legend-text"))
+    for (const legtext of document.getElementById("div-revealAnswers").getElementsByClassName("legend-text"))
         legtext.style.visibility = action;
 }
+
 function handleLegendItemClicked(evt) {
     if (evt.target.className.includes('subhead')) toggleElementVisibility(evt.target.parentNode.getElementsByClassName('legend-text')[0]);
 }
+
 function addLegendArrayToDiv(selectedCardObj) {
     let answersArray = answersArrayFromSelectedCardObj(selectedCardObj, true);
     const divLegend = document.getElementById("div-revealAnswers");
-    divLegend.innerHTML = '<div class="container container-fluid stripedrows">' + mapAnswersArrayToParas(answersArray) + '</div>';
+    divLegend.innerHTML = '<div class="container container-fluid stripedrows"' +
+        // we must override container container-fluid padding and width
+        ' style="padding:0; margin:0; width:100%; min-width:100%;">' +
+        mapAnswersArrayToParas(answersArray) + '</div>';
     divLegend.scrollTop = 0;
     //must call updateDivRevealAnswersForClick LAST to ensure paras are labelled correctly
     updateDivRevealAnswersForClick(selectedCardObj);
 }
+
 function mapAnswersArrayToParas(answersArray) {
     //calc the length of the longest subhead
-    let maxLen=0;
-    for(const ans of answersArray) maxLen = Math.max(maxLen,getStringCharacterLength(ans.split("\t")[0]));
+    let maxLen = 0;
+    for (const ans of answersArray) maxLen = Math.max(maxLen, getStringCharacterLength(ans.split("\t")[0]));
     return answersArray.map(function (answer) {
         return answerStringFromAnswerTabString(answer, maxLen);
     }).join("");
 }
+
 function answerStringFromAnswerTabString(answerTabString) {
     if (!!answerTabString) {
         const answerArray = answerTabString.split(answerSplitter);
-        return '<div class="row d-flex align-items-center w-100"><div class="col-3 legend-subhead">' +
+        return '<div class="row d-flex align-items-center"><div class="col-3 legend-subhead">' +
             answerArray[0] + '</div>' +
-            '<div class="col legend-text" style="visibility: ' + (initiallyHideText ? 'hidden':'visible')+';">' +
+            '<div class="col legend-text" style="visibility: ' + (initiallyHideText ? 'hidden' : 'visible') + ';">' +
             answerArray[1] + '</div></div>';
     } else return "";
 }

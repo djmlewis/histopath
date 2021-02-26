@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 19/2/2021 11:13     djml.uk E&OE.                            *
+ * Copyright (c) 26/2/2021 5:8     djml.uk E&OE.                              *
  ******************************************************************************/
 window.globalIndexHTML = "Still downloading… Please try later";
 window.globalIndexPopeskoHTML = "Still downloading… Please try later";
@@ -238,3 +238,6 @@ const dbNotes_svgHTML="svgHTML";
 /* ********************************* */
 let initiallyHideText = false;
 let initiallyHideImages = false;
+
+let db_Obj;
+let dbObj_answersObj;

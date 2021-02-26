@@ -1,11 +1,11 @@
 /******************************************************************************
- * Copyright (c) 19/2/2021 3:51     djml.uk E&OE.                             *
+ * Copyright (c) 26/2/2021 5:8     djml.uk E&OE.                              *
  ******************************************************************************/
 
-function createOptionForCardMenuWithCardObject(cardObj, selectcards) {
+function createOptionForCardMenuWithCardObject(cardObj, selectcards,index,hideCardTitles) {
     let opt = document.createElement("option");
     opt.value = cardObj.uniqueCardID;
-    opt.text = cardObj.title;
+    opt.text = hideCardTitles ? "Image "+index : cardObj.title;
     opt.setAttribute(attr_cardUniqueID, cardObj.uniqueCardID);
     opt.setAttribute(attr_cardImagePath, cardObj.imagePath);
     opt.setAttribute(attr_cardAnswersText, cardObj.answersText);
@@ -339,8 +339,10 @@ function loadCardImage() {
             newImg.src = src;
         }
         addLegendArrayToDiv(selectedCardObj);
+        setStatusBtnsForCardUID(selectedCardObj.uniqueCardID);
     } else {
         cll("no image",selectcard.value);
+        clearStatusBtns();
     }
     adjustCardWidthHeight();
     clearSearchLegend();
