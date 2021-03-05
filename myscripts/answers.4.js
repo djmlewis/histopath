@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 26/2/2021 5:8     djml.uk E&OE.                              *
+ * Copyright (c) 5/3/2021 7:59     djml.uk E&OE.                              *
  ******************************************************************************/
 
 // =================================================================== AnswersRecord
@@ -583,7 +583,7 @@ function mapAnswersArrayToParas(answersArray) {
     //calc the length of the longest subhead
     let maxLen = 0;
     for (const ans of answersArray) maxLen = Math.max(maxLen, getStringCharacterLength(ans.split("\t")[0]));
-    return answersArray.map(function (answer) {
+    return answersArray.map(answer=>{
         return answerStringFromAnswerTabString(answer, maxLen);
     }).join("");
 }
@@ -591,8 +591,10 @@ function mapAnswersArrayToParas(answersArray) {
 function answerStringFromAnswerTabString(answerTabString) {
     if (!!answerTabString) {
         const answerArray = answerTabString.split(answerSplitter);
-        return '<div class="row d-flex align-items-center"><div class="col-3 legend-subhead">' +
-            answerArray[0] + '</div>' +
+        return '<div class="row'+
+            (answerArray[0].includes('◎') ? ' px-5 ' : ' ') +
+            'd-flex align-items-center"><div class="col-3 legend-subhead">' +
+            answerArray[0].replace('◎ ','') + '</div>' +
             '<div class="col legend-text" style="visibility: ' + (initiallyHideText ? 'hidden' : 'visible') + ';">' +
             answerArray[1] + '</div></div>';
     } else return "";
