@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 19/2/2021 11:13     djml.uk E&OE.                            *
+ * Copyright (c) 6/3/2021 4:43     djml.uk E&OE.                              *
  ******************************************************************************/
 
 function showSheet(sheetID) {
@@ -37,11 +37,6 @@ function hideSheet(sheetID) {
         const sheetsdiv = document.getElementById("div-sheets");
         const sheet = document.getElementById(sheetID);
         sheetholder.hidden = true;
-/*
-        const mainpage = document.getElementById("div-mainpage");
-        mainpage.hidden = false;
-        forceRepaintObject(mainpage);
-*/
         sheetsdiv.appendChild(sheetholder.removeChild(sheet));
 
         //clean up when modals show/hide

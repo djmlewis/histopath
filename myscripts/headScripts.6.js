@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 26/2/2021 5:8     djml.uk E&OE.                              *
+ * Copyright (c) 6/3/2021 4:43     djml.uk E&OE.                              *
  ******************************************************************************/
 
 //---------- ******** IMMEDIATE GLOBALS *********** ------------------------//
@@ -93,12 +93,15 @@ window.addEventListener('DOMContentLoaded', function () {
 window.addEventListener('load', function () {
     // DEFERRED actions
     setTimeout(() => loadHelp(), 80);
+    document.getElementById('div-image-card').addEventListener("click", ev => divimgcardClicked(ev));
 
     window.addEventListener("orientationchange", function () {
         // i don't know why I love you, but I do....
         setTimeout(() => handleWindowResize(), 100);
     });
     $('[data-toggle="popover"]').popover()
+
+
 
 });
 

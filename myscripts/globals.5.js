@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 26/2/2021 5:8     djml.uk E&OE.                              *
+ * Copyright (c) 6/3/2021 4:43     djml.uk E&OE.                              *
  ******************************************************************************/
 window.globalIndexHTML = "Still downloading… Please try later";
 window.globalIndexPopeskoHTML = "Still downloading… Please try later";
@@ -42,6 +42,8 @@ const attr_cardObject = "data-attr_cardObject";
 const targetTimeoutDuration = 5000;
 const targetTimeoutDurationLong = 8000;
 window.coordsWaitingToBeTargetted = undefined;
+
+let cardImgNamesArray = [];
 
 // =================================================================== FAVOURITE FUNCTIONS
 const ls_BookmarksObjectkey = "ls_BookmarksObjectkey-d";

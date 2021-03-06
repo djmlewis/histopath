@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 19/2/2021 11:13     djml.uk E&OE.                            *
+ * Copyright (c) 6/3/2021 4:43     djml.uk E&OE.                              *
  ******************************************************************************/
 /*
 html,body {
@@ -126,9 +126,14 @@ html{
     /*border: 1px solid grey;*/
 }
 .paraImage {
-    margin: 4px;
+    pointer-events: none;
 }
-
+.divImgFrame {
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    margin: 2px;
+    cursor: zoom-in;
+}
 .div-avatars-img img {
     margin: 0 2px 0 0;
     height: 30px;

@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 26/2/2021 5:8     djml.uk E&OE.                              *
+ * Copyright (c) 6/3/2021 4:43     djml.uk E&OE.                              *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards,index,hideCardTitles) {
@@ -314,7 +314,7 @@ function toggleCardTitle() {
 function loadCardImage() {
     hideTargetIcon();
     window.showingAllTargetIndex = -1;
-    let selectcard = document.getElementById("select-cards");
+    const selectcard = document.getElementById("select-cards");
     enablePrevNextBtnForSelectCard(selectcard);
     let selectedcardName = selectcard.value;
     //let cardimage = window.imageCard; // getImageCardInIframe();
@@ -327,17 +327,7 @@ function loadCardImage() {
         const selectedCardObj = JSON.parse(selectcard.selectedOptions[0].getAttribute(attr_cardObject));
         // could adjustwindowwidthsize auto if(lastCardLoadedUniqueID()===selectedCardObj.uniqueCardID);
         recordLastCardLoaded(selectedCardObj.uniqueCardID);
-        const numImages = selectedCardObj['imageNamesOrientsArray'].length;
-        for(const imageNameOrient of selectedCardObj['imageNamesOrientsArray']) {
-            //[0] is name "xxx yyy pX" [1] is orientation p or l
-            const newImg = document.createElement('img');
-            const src = selectedCardObj.imagePath+imageNameOrient.split("\t")[0]+selectedCardObj.imageType;
-            divimagecard.appendChild(newImg);
-            newImg.className = "paraImage";
-            newImg.style.width= numImages>1 ? "45%" : "95%";
-            newImg.style.visibility=(initiallyHideImages ? 'hidden':'visible');
-            newImg.src = src;
-        }
+        addImagesForCardObj(selectedCardObj,divimagecard);
         addLegendArrayToDiv(selectedCardObj);
         setStatusBtnsForCardUID(selectedCardObj.uniqueCardID);
     } else {
@@ -352,3 +342,54 @@ function toggleImagesVisibility(btn,action) {
     for(const img of document.getElementById("div-image-card").children) img.style.visibility = action;
 }
 
+function addImagesForCardObj(selectedCardObj,divimagecard){
+    const numImages = selectedCardObj['imageNamesOrientsArray'].length;
+    cardImgNamesArray = selectedCardObj['imageNamesOrientsArray'];
+    for(const imageNameOrient of cardImgNamesArray) {
+        //[0] is name "xxx yyy pX" [1] is orientation p or l
+        const imageNameOrientArray=imageNameOrient.split("\t");
+        const dv=document.createElement('div');
+        dv.className="divImgFrame";
+        dv.style.width= numImages>1 ? "45%" : "95%";
+        dv.setAttribute('data-imgname',imageNameOrientArray[0]);
+        divimagecard.appendChild(dv);
+        const newImg = document.createElement('img');
+        const imgsrc = selectedCardObj.imagePath+imageNameOrientArray[0]+selectedCardObj.imageType;
+        dv.appendChild(newImg);
+        newImg.setAttribute('data-imgname',imageNameOrientArray[0]);
+        newImg.className = "paraImage";
+        newImg.style.width= '100%';
+        newImg.style.visibility=(initiallyHideImages ? 'hidden':'visible');
+        newImg.src = imgsrc;
+    }
+}
+
+function divimgcardClicked(ev) {
+    if(ev.target.className==='divImgFrame') {
+        const selectedCardObj = JSON.parse(document.getElementById("select-cards").selectedOptions[0].getAttribute(attr_cardObject));
+        const indicsList=document.getElementById('carouselZoomImg-indicators');
+        const carouselInner=document.getElementById('carouselZoomImg-inner');
+        indicsList.innerHTML="";
+        carouselInner.innerHTML="";
+        for(const imageNameOrient of cardImgNamesArray) {
+            //[0] is name "xxx yyy pX" [1] is orientation p or l
+            const imageNameOrientArray=imageNameOrient.split("\t");
+            const li=document.createElement('li');
+            li.setAttribute('data-target','#carouselZoomImg');
+            li.setAttribute('data-slide-to','0');
+            indicsList.appendChild(li);
+            const dv=document.createElement('div');
+            dv.className="carousel-item";
+            carouselInner.appendChild(dv);
+            const img=document.createElement('img');
+            img.alt="";
+            img.className='d-block w-100';
+            img.src=selectedCardObj.imagePath+imageNameOrientArray[0]+selectedCardObj.imageType;
+            dv.appendChild(img);
+        }
+        indicsList.children[0].classList.add('active');
+        carouselInner.children[0].classList.add('active');
+
+        showSheet('sheet-zoom');
+    }
+}
