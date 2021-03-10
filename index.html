@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 6/3/2021 4:50     djml.uk E&OE.                             *
+  * Copyright (c) 10/3/2021 2:13     djml.uk E&OE.                            *
   ***************************************************************************-->
 
 <!doctype html>
@@ -24,7 +24,7 @@
     <!--  Normalize  -->
     <link rel="stylesheet" href="css/vendor/normalize.1.css">
     <!--  my CSS -->
-    <link rel="stylesheet" href="css/myCSS.2.css">
+    <link rel="stylesheet" href="css/myCSS.3.css">
     <link rel="stylesheet" href="css/topics.1.css">
     <link rel="stylesheet" href="css/gybt.1.css">
     <link rel="stylesheet" href="css/gybt_bmk.1.css">
@@ -36,8 +36,9 @@
     <!--  my startup code-->
     <!--    Objects first as globals uses a CardsetCollection.addcardset() call we can defer as run in order-->
     <script src="myscripts/objects.2.js" defer></script>
+    <script src="myscripts/imgCaptionsObj.1.js" defer></script>
     <!--    Globals next and utilities-- -->
-    <script src="myscripts/globals.5.js" defer></script>
+    <script src="myscripts/globals.6.js" defer></script>
     <script src="myscripts/db.1.js" defer></script>
     <script src="myscripts/utilities.2.js" defer></script>
     <script src="myscripts/sheets.2.js" defer></script>
@@ -48,18 +49,18 @@
     </script>
     <!--    The collection objects  !!! Always DEFER these to allow libs to laod !!!  -->
     <!--    The order they appear here is the order on the dropdown  -->
-    <script src="collections/Ruminants.45.js" defer></script>
-    <script src="collections/Horses.45.js" defer></script>
-    <script src="collections/Carnivores.45.js" defer></script>
-    <script src="collections/Pigs.45.js" defer></script>
-    <script src="collections/Hares.45.js" defer></script>
-    <script src="collections/Rodents.45.js" defer></script>
-    <script src="collections/Poultry.45.js" defer></script>
-    <script src="collections/Ectoparasites.45.js" defer></script>
-    <script src="collections/Helminths.45.js" defer></script>
-    <script src="collections/Protozoa.45.js" defer></script>
-    <script src="collections/Ectoparasites (all hosts).45.js" defer></script>
-    <script src="collections/Picture Quiz.45.js" defer></script>
+    <script src="collections/Ruminants.46.js" defer></script>
+    <script src="collections/Horses.46.js" defer></script>
+    <script src="collections/Carnivores.46.js" defer></script>
+    <script src="collections/Pigs.46.js" defer></script>
+    <script src="collections/Hares.46.js" defer></script>
+    <script src="collections/Rodents.46.js" defer></script>
+    <script src="collections/Poultry.46.js" defer></script>
+    <script src="collections/Ectoparasites.46.js" defer></script>
+    <script src="collections/Helminths.46.js" defer></script>
+    <script src="collections/Protozoa.46.js" defer></script>
+    <script src="collections/Ectoparasites (all hosts).46.js" defer></script>
+    <script src="collections/Picture Quiz.46.js" defer></script>
 
     <!--    The rest-->
     <script src="myscripts/answers.4.js" defer></script>
@@ -71,9 +72,9 @@
     <script src="myscripts/favourites_quickgallery.1.js" defer></script>
     <script src="myscripts/history.1.js" defer></script>
     <script src="myscripts/topics.1.js" defer></script>
-    <script src="myscripts/cardFunctions.5.js" defer></script>
+    <script src="myscripts/cardFunctions.6.js" defer></script>
     <script src="myscripts/helpMenu.2.js" defer></script>
-    <script src="myscripts/settings.5.js" defer></script>
+    <script src="myscripts/settings.6.js" defer></script>
     <script src="myscripts/headScripts.6.js" defer></script>
     <script src="myscripts/darkMode.1.js" defer></script>
     <script src="myscripts/notes.1.js" defer></script>
@@ -190,27 +191,27 @@
                     <span class="input-group-text text-right">Mark this card:</span>
                 </div>
                 <div id="btngp-status" class="btn-group btn-group-sm">
-                        <button id="btnstatus-untested" type="button" class="btn btn-secondary"
-                                onclick="btnStatusClicked(this,'untested');"
-                                title="Set status as untested">
-                            <i class="fas fa-question-circle"></i>
-                        </button>
-                        <button id="btnstatus-incorrect" type="button" class="btn btn-outline-danger"
-                                onclick="btnStatusClicked(this,'incorrect');"
-                                title="Set status as incorrect">
-                            <i class="fas fa-times-circle"></i>
-                        </button>
-                        <button id="btnstatus-correct" type="button" class="btn btn-outline-success"
-                                onclick="btnStatusClicked(this,'correct');"
-                                title="Set status as correct">
-                            <i class="fas fa-check-circle"></i>
-                        </button>
-                        <button id="btnstatus-star" type="button" class="btn btn-outline-warning"
-                                onclick="btnStatusClicked(this,'star');"
-                                title="Set status as starred">
-                            <i class="fas fa-star"></i>
-                        </button>
-                    </div>
+                    <button id="btnstatus-untested" type="button" class="btn btn-secondary"
+                            onclick="btnStatusClicked(this,'untested');"
+                            title="Set status as untested">
+                        <i class="fas fa-question-circle"></i>
+                    </button>
+                    <button id="btnstatus-incorrect" type="button" class="btn btn-outline-danger"
+                            onclick="btnStatusClicked(this,'incorrect');"
+                            title="Set status as incorrect">
+                        <i class="fas fa-times-circle"></i>
+                    </button>
+                    <button id="btnstatus-correct" type="button" class="btn btn-outline-success"
+                            onclick="btnStatusClicked(this,'correct');"
+                            title="Set status as correct">
+                        <i class="fas fa-check-circle"></i>
+                    </button>
+                    <button id="btnstatus-star" type="button" class="btn btn-outline-warning"
+                            onclick="btnStatusClicked(this,'star');"
+                            title="Set status as starred">
+                        <i class="fas fa-star"></i>
+                    </button>
+                </div>
                 <div class="input-group-append ml-1">
                     <span class="input-group-text text-right">Unmark:</span>
                     <div class="btn-group btn-group-sm">
@@ -232,12 +233,22 @@
     <div id="row-image" class="flex-grow-1 d-flex flex-row flex-nowrap mt-1">
         <div id="col-image" class="flex-grow-1" style="width: 50%; max-width: 50%; min-width: 50%;overflow-y: auto;">
             <div class="d-flex align-items-center justify-content-between sticky-top pr-3">
-                <div class="custom-control custom-switch ml-2">
-                    <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
-                           id="checkbox-initiallyHideI"
-                           value="true" onclick="checkboxInitiallyHideClicked(this,'images');">
-                    <label class="custom-control-label" for="checkbox-initiallyHideI">Initially Hide <i
-                            class="fas fa-images"></i></label>
+                <div class="ml-2 flex-shrink-1 d-flex  flex-wrap">
+                    <div class=""> Initially Hide:</div>
+                    <div class="custom-control custom-switch ml-1 border-secondary" title="Hide images initially">
+                        <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
+                               id="checkbox-initiallyHideI"
+                               value="true" onclick="checkboxInitiallyHideClicked(this,'images');">
+                        <label class="custom-control-label" for="checkbox-initiallyHideI"><i
+                                class="fas fa-images"></i></label>
+                    </div>
+                    <div class="custom-control custom-switch ml-2 border-secondary" title="Hide image captions initially">
+                        <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
+                               id="checkbox-initiallyHideCap"
+                               value="true" onclick="checkboxInitiallyHideClicked(this,'captions');">
+                        <label class="custom-control-label" for="checkbox-initiallyHideCap">
+                            <i class="fas fa-closed-captioning"></i></label>
+                    </div>
                 </div>
                 <div class="d-flex align-items-center mr-5">
                     <div style="text-align: right; line-height: 0.9; color: lightgrey;">Click to
@@ -1961,7 +1972,7 @@
                 </button>
             </div>
             <div>
-                <div id="carouselZoomImg" class="carousel slide" data-ride="false">
+                <div id="carouselZoomImg" class="carousel slide" data-interval="false" data-ride="false">
                     <ol id="carouselZoomImg-indicators" class="carousel-indicators"></ol>
                     <div id="carouselZoomImg-inner" class="carousel-inner"></div>
                     <a class="carousel-control-prev" href="#carouselZoomImg" role="button" data-slide="prev">
@@ -2781,7 +2792,7 @@
 
 <script>
     /* update version in menu */
-    const vers = "06/03/2021 1650";
+    const vers = "10/03/2021 1409";
     [document.getElementById("span-version-toolbox"), document.getElementById("span-version-placeholder")].forEach(span => span.innerHTML = vers +
         "<br><img src='img/unionflag.png' height='15' alt=''>&nbsp;<img src='img/wales.png' height='15' alt=''>&nbsp;<img src='img/slovakia.png' height='15' alt=''>");
     document.getElementById("span-version-cache").innerHTML = vers;
