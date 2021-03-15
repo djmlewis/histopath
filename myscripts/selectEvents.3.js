@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 26/2/2021 5:8     djml.uk E&OE.                              *
+ * Copyright (c) 15/3/2021 2:55     djml.uk E&OE.                             *
  ******************************************************************************/
 
 //---------- ******** SELECT EVENTS *********** ------------------------//
@@ -97,6 +97,7 @@ function populateSelectChapterOnCardsetChange() {
     }
 
     let selectcardssetValue = document.getElementById("select-cardsset").value;
+    document.getElementById('btn-fullscreen').style.visibility = selectcardssetValue.includes('Quiz') ? 'visible' : 'hidden';
     const cardsset = window.collectionobject.cardsetsObj[selectcardssetValue];
     let chaptersInCardset = cardsset.chapterNamesArray;
     Array.from(document.getElementsByClassName("img-bilingual")).forEach(e => {

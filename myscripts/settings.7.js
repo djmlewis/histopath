@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 10/3/2021 2:13     djml.uk E&OE.                             *
+ * Copyright (c) 15/3/2021 2:55     djml.uk E&OE.                             *
  ******************************************************************************/
 
 //================= STARTUP
@@ -8,28 +8,28 @@ function applySettingsAtStartup() {
     loadLastCardLoaded();
 //     loadLastCardLoaded() must be first
 
-/*    setupToolboxAtStartup();
-    setupModeDarkLightAtStartup();
-    setupImageFitAtStartup();
-    setupTextSizeAtStartup();
-    setupTestButtonsShowHideAtStartup();
-    setupHideLegendAtStartup();
-    setupLegendLabelsAppearAtStartup();
-    setupHotspotLabelsAppearAtStartup();
-    setupLanguageAtStartup();
-    setupAvatarsShownAtStartup();
-    setupOrientationAtStartup();
-    //setupHelpAtStartup();
-    setupLabelsPlayAtStartup();
-    setupChangeChapterAutoAtStartup();
-    setupCardsSizeAtStartup();
-    setupCheckboxPreloadImagesAtStartup();*/
+    /*    setupToolboxAtStartup();
+        setupModeDarkLightAtStartup();
+        setupImageFitAtStartup();
+        setupTextSizeAtStartup();
+        setupTestButtonsShowHideAtStartup();
+        setupHideLegendAtStartup();
+        setupLegendLabelsAppearAtStartup();
+        setupHotspotLabelsAppearAtStartup();
+        setupLanguageAtStartup();
+        setupAvatarsShownAtStartup();
+        setupOrientationAtStartup();
+        //setupHelpAtStartup();
+        setupLabelsPlayAtStartup();
+        setupChangeChapterAutoAtStartup();
+        setupCardsSizeAtStartup();
+        setupCheckboxPreloadImagesAtStartup();*/
 }
 
 //================= MODAL
 function showSettingsModal(toolbar) {
-    if(toolbar==='dropdown') $('#dropdown-tools').dropdown('hide');
-    if (toolbar==='toolbar') {
+    if (toolbar === 'dropdown') $('#dropdown-tools').dropdown('hide');
+    if (toolbar === 'toolbar') {
         toggleActionmenuToolbar();
         setTimeout(function () {
             showSheet("sheet-settings");
@@ -63,6 +63,7 @@ function loadLastCardLoaded() {
         window.setting_lastCardLoadedArray = lastCard.split(cardUniqueIDSplitter);
     }
 }
+
 /*
 function lastCardLoadedUniqueID() {
     const lastCard = localStorage.getItem(ls_lastCardLoaded);
@@ -76,26 +77,27 @@ function lastCardLoadedUniqueID() {
 //================= CARDS SIZE
 function setupCardsSizeAtStartup() {
     if (!localStorage.getItem(ls_cards_small)) localStorage.setItem(ls_cards_small, "false");
-    window.cards_small = localStorage.getItem(ls_cards_small)==="true";
+    window.cards_small = localStorage.getItem(ls_cards_small) === "true";
     alignCardsSizeSwitches();
 }
 
 function saveCardsSizeSetting() {
     localStorage.setItem(ls_cards_small, window.cards_small ? "true" : "false");
 }
+
 //================= TOOLBOX
 function setupToolboxAtStartup() {
     /* image sizing */
     if (!localStorage.getItem(ls_toolbox)) localStorage.setItem(ls_toolbox, toolboxH);
     if (!localStorage.getItem(ls_toolboxMenuHidden)) localStorage.setItem(ls_toolboxMenuHidden, true.toString());
-    const menuToolbarVisible = localStorage.getItem(ls_toolboxMenuHidden)===false.toString();
+    const menuToolbarVisible = localStorage.getItem(ls_toolboxMenuHidden) === false.toString();
     window.setting_toolbox = localStorage.getItem(ls_toolbox);
     if (window.setting_toolbox === toolboxV) {
         /* switchToolboxesVH will toggle window.setting_toolbox, so we must toggle first */
         window.setting_toolbox = toolboxH;
         switchToolboxesVH();
-        if(menuToolbarVisible) hideVHToolbars('v');
-    } else if(menuToolbarVisible) hideVHToolbars('h');
+        if (menuToolbarVisible) hideVHToolbars('v');
+    } else if (menuToolbarVisible) hideVHToolbars('h');
 }
 
 function switchToolboxesVH() {
@@ -115,8 +117,8 @@ function switchToolboxesVH() {
 //================= IMAGEFIT
 function setupImageFitButtonsForImageFit() {
     const btnimgfitmaximise = document.getElementById("btn-imgfit-maximise");
-    const imgfitbtnsP=["imageFitPage-toolbox","imageFitPage-dropdown",imageFitPage];
-    const imgfitbtnsW=["imageFitWidth-toolbox","imageFitWidth-dropdown",imageFitWidth];
+    const imgfitbtnsP = ["imageFitPage-toolbox", "imageFitPage-dropdown", imageFitPage];
+    const imgfitbtnsW = ["imageFitWidth-toolbox", "imageFitWidth-dropdown", imageFitWidth];
     if (window.setting_imageFit === imageFitPage) {
         imgfitbtnsP.forEach((btn) => document.getElementById(btn).classList.add("active"));
         imgfitbtnsW.forEach((btn) => document.getElementById(btn).classList.remove("active"));
@@ -173,7 +175,7 @@ function handleCheckboxAvatarsChanged(eletype) {
     elementsArrayForClassName("div-avatars").forEach(e => {
         e.hidden = !window.setting_avatarsShown;
     });
-    setSettingsBoxStatus(window.setting_avatarsShown,"settingsBox-avatars");
+    setSettingsBoxStatus(window.setting_avatarsShown, "settingsBox-avatars");
 }
 
 function setupAvatarsShownAtStartup() {
@@ -183,7 +185,7 @@ function setupAvatarsShownAtStartup() {
         e.hidden = !window.setting_avatarsShown;
     });
     document.getElementById("checkbox-avatars").checked = window.setting_avatarsShown;
-    setSettingsBoxStatus(window.setting_avatarsShown,"settingsBox-avatars");
+    setSettingsBoxStatus(window.setting_avatarsShown, "settingsBox-avatars");
 }
 
 function retrieveSetting_AvatarsShownString(predicateTrue) {
@@ -203,7 +205,7 @@ function setupLabelsPlayAtStartup() {
     const btn = document.getElementById("button-playRandom");
     btn.value = localStorage.getItem(ls_labelsPlayRandom);
     showIconForLabelPlayRandomButtonState(btn);
-    setSettingsBoxStatus(window.speakLabels,"settingsBox-speak");
+    setSettingsBoxStatus(window.speakLabels, "settingsBox-speak");
 }
 
 function handleLabelsdelayChanged(input) {
@@ -218,7 +220,7 @@ function labelsShowDelayInt() {
 function handleCheckboxSSpeakCheckboxChanged(cbx) {
     window.speakLabels = cbx.checked;
     localStorage.setItem(ls_speakLabels, cbx.checked);
-    setSettingsBoxStatus(window.speakLabels,"settingsBox-speak");
+    setSettingsBoxStatus(window.speakLabels, "settingsBox-speak");
 }
 
 //================= LEGEND HIDE
@@ -327,13 +329,26 @@ function applyLanguageSetting() {
 
 //================= HOTSPOT LABELS APPEAR
 function handleCanHoverChange(query) {
-    document.getElementById("btns-hotspotsOnHover").hidden=!query.matches;
+    document.getElementById("btns-hotspotsOnHover").hidden = !query.matches;
     //document.getElementById("message-hotspotsOnHover").hidden=query.matches;
 }
+
 function setupHotspotLabelsAppearAtStartup() {
     window.canHover = window.matchMedia("(hover: hover)");
-    try {window.canHover.addEventListener('change', (e) => {handleCanHoverChange(e)});}// not Safari
-    catch /* Safari*/ (e1) {try {window.canHover.addListener((e) => {handleCanHoverChange(e)});} catch (e2) {cll(e2);}}
+    try {
+        window.canHover.addEventListener('change', (e) => {
+            handleCanHoverChange(e)
+        });
+    }// not Safari
+    catch /* Safari*/ (e1) {
+        try {
+            window.canHover.addListener((e) => {
+                handleCanHoverChange(e)
+            });
+        } catch (e2) {
+            cll(e2);
+        }
+    }
     // run handleCanHoverChange once, the listeners will alert if it changes
     handleCanHoverChange(window.canHover);
     if (window.canHover.matches === false) localStorage.setItem(ls_hotspotLabelsAppear, hotspotOnClick);
@@ -350,13 +365,13 @@ function setupHotspotLabelsAppearAtStartup() {
     document.getElementById(bannerLoc).classList.add("active");
     window.hoverOnCursor = bannerLoc.includes('cursor');
     document.getElementById("div-hoverLegendlabel").classList.add(bannerLoc);
-    document.getElementById("div-hovercursor").hidden=window.setting_hotspotLabelsAppear !== hotspotOnHover;
+    document.getElementById("div-hovercursor").hidden = window.setting_hotspotLabelsAppear !== hotspotOnHover;
 }
 
 function handleSettings_hotspotLabelsAppearClicked(btnid) {
     localStorage.setItem(ls_hotspotLabelsAppear, btnid);
     window.setting_hotspotLabelsAppear = btnid;
-    document.getElementById("div-hovercursor").hidden=window.setting_hotspotLabelsAppear !== hotspotOnHover;
+    document.getElementById("div-hovercursor").hidden = window.setting_hotspotLabelsAppear !== hotspotOnHover;
 }
 
 function handleHoverOnCursorChanged(btnsid) {
@@ -367,31 +382,32 @@ function handleHoverOnCursorChanged(btnsid) {
     popupDiv.classList.remove("banner-bottom");
     popupDiv.classList.remove("banner-centre");
     popupDiv.classList.remove("banner-cursor");
-    popupDiv.style.left="";
-    popupDiv.style.top="";
-    popupDiv.style.bottom="";
+    popupDiv.style.left = "";
+    popupDiv.style.top = "";
+    popupDiv.style.bottom = "";
 
     popupDiv.classList.add(btnsid);
 
 }
+
 //================= CHAPTER AUTOCHANGE
 function setupChangeChapterAutoAtStartup() {
     if (!localStorage.getItem(ls_changeChapterAuto)) localStorage.setItem(ls_changeChapterAuto, "true");
     const cbx = document.getElementById("checkbox-chapterChange");
     //TODO Hack chapterchange auto
     cbx.checked = true; /*localStorage.getItem(ls_changeChapterAuto) === "true";*/
-    window.changeChapterAuto=true; /*localStorage.getItem(ls_changeChapterAuto) === "true";*/
+    window.changeChapterAuto = true; /*localStorage.getItem(ls_changeChapterAuto) === "true";*/
 
-    setSettingsBoxStatus(cbx.checked,"settingsBox-acrossChapters");
+    setSettingsBoxStatus(cbx.checked, "settingsBox-acrossChapters");
 }
 
 function handleCheckboxChapterChangeAutoChanged(eletype) {
     const cbx = document.getElementById("checkbox-chapterChange");
     if (eletype === "img") cbx.checked = !cbx.checked;
-    window.changeChapterAuto=cbx.checked;
+    window.changeChapterAuto = cbx.checked;
     localStorage.setItem(ls_changeChapterAuto, cbx.checked ? "true" : "false");
     enablePrevNextBtnForSelectCard(document.getElementById("select-cards"));
-    setSettingsBoxStatus(cbx.checked,"settingsBox-acrossChapters");
+    setSettingsBoxStatus(cbx.checked, "settingsBox-acrossChapters");
 }
 
 //================= TEST BUTTONS
@@ -400,14 +416,14 @@ function setupTestButtonsShowHideAtStartup() {
     let setting_testButtonShowHide = localStorage.getItem(ls_testButtonsShowHide);
     document.getElementById("checkbox-testButtons").checked = setting_testButtonShowHide === testButtonsShow;
     applyTestButtonsShowHideSetting(setting_testButtonShowHide);
-    setSettingsBoxStatus(setting_testButtonShowHide === testButtonsShow,"settingsBox-selfTest");
+    setSettingsBoxStatus(setting_testButtonShowHide === testButtonsShow, "settingsBox-selfTest");
 }
 
 function handleCheckboxSelfTestButtonsChanged(eletype) {
     const cbx = document.getElementById("checkbox-testButtons");
     if (eletype === "img") cbx.checked = !cbx.checked;
     handleSettings_TestButtonsShowHideClicked(cbx.checked ? testButtonsShow : testButtonsHide);
-    setSettingsBoxStatus(cbx.checked,"settingsBox-selfTest");
+    setSettingsBoxStatus(cbx.checked, "settingsBox-selfTest");
 }
 
 function handleSettings_TestButtonsShowHideClicked(btnid) {
@@ -425,33 +441,51 @@ function applyTestButtonsShowHideSetting(setting) {
 function handleCheckboxPreloadImagesChanged(eletype) {
     const cbx = document.getElementById("checkbox-preloadImages");
     if (eletype === "img") cbx.checked = !cbx.checked;
-    window.preloadImages=cbx.checked;
+    window.preloadImages = cbx.checked;
     localStorage.setItem(ls_preloadImages, cbx.checked ? "true" : "false");
     setPreloadBoxStatus();
 }
+
 function setupCheckboxPreloadImagesAtStartup() {
     if (!localStorage.getItem(ls_preloadImages)) localStorage.setItem(ls_preloadImages, window.preloadImages);
     window.preloadImages = localStorage.getItem(ls_preloadImages) === "true";
     document.getElementById("checkbox-preloadImages").checked = window.preloadImages;
     setPreloadBoxStatus();
 }
-function  setPreloadBoxStatus(){
-    if(window.preloadImages) document.getElementById("settingsSwitchGroup-preload").classList.add("settingsSwitchGroup-preload-selected");
-    else  document.getElementById("settingsSwitchGroup-preload").classList.remove("settingsSwitchGroup-preload-selected");
+
+function setPreloadBoxStatus() {
+    if (window.preloadImages) document.getElementById("settingsSwitchGroup-preload").classList.add("settingsSwitchGroup-preload-selected");
+    else document.getElementById("settingsSwitchGroup-preload").classList.remove("settingsSwitchGroup-preload-selected");
 }
 
-function  setSettingsBoxStatus(status,boxName){
-    if(status) document.getElementById(boxName).classList.add("settingsSwitchGroup-selected");
-    else  document.getElementById(boxName).classList.remove("settingsSwitchGroup-selected");
+function setSettingsBoxStatus(status, boxName) {
+    if (status) document.getElementById(boxName).classList.add("settingsSwitchGroup-selected");
+    else document.getElementById(boxName).classList.remove("settingsSwitchGroup-selected");
 }
 
 
 /* ************************** */
-function checkboxInitiallyHideClicked(cbx,what) {
+function checkboxInitiallyHideClicked(cbx, what) {
     switch (what) {
-        case 'text': {initiallyHideText = cbx.checked;break;}
-        case 'images': {initiallyHideImages = cbx.checked;break;}
-        case 'captions': {initiallyHideCaptions = cbx.checked;break;}
+        case 'text': {
+            initiallyHideText = cbx.checked;
+            break;
+        }
+        case 'images': {
+            initiallyHideImages = cbx.checked;
+            break;
+        }
+        case 'captions': {
+            initiallyHideCaptions = cbx.checked;
+            alignCBXsCaption();
+            break;
+        }
     }
     loadCardImage();
+}
+
+function alignCBXsCaption() {
+    fullscreenIDs.forEach(suffix => {
+        document.getElementById('checkbox-initiallyHideCap' + suffix).checked = initiallyHideCaptions;
+    });
 }

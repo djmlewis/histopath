@@ -1,8 +1,10 @@
 /******************************************************************************
- * Copyright (c) 26/2/2021 5:8     djml.uk E&OE.                              *
+ * Copyright (c) 15/3/2021 2:55     djml.uk E&OE.                             *
  ******************************************************************************/
 function displayNumRandomised() {
-    document.getElementById('span-randomSlideCount').innerHTML = '<i class="fas fa-images"></i>&nbsp;' + window.randomCardIndices.length;
+    randomSlideCountsIDs.forEach(id => {
+        document.getElementById(id).innerHTML = '<i class="fas fa-images"></i>&nbsp;' + window.randomCardIndices.length
+    });
 }
 
 function showNextRandomCard() {
@@ -56,17 +58,19 @@ function resetRandomIndexArray() {
     displayNumRandomised();
 }
 
-function btnStatusClicked(btn, what) {
-    clearStatusBtns();
-    btn.className = btn.className.replace('btn-outline-', 'btn-');
-    if (what === 'untested') delete dbObj_answersObj[getSelectCardsSelectedCardObjectUniqueCardID()];
-    else dbObj_answersObj[getSelectCardsSelectedCardObjectUniqueCardID()] = what;
+function btnStatusClicked(what) {
+    const cardUID=getSelectCardsSelectedCardObjectUniqueCardID();
+    if (what === 'untested') delete dbObj_answersObj[cardUID];
+    else dbObj_answersObj[cardUID] = what;
+    setStatusBtnsForCardUID(cardUID);
     setTimeout(() => updateAnswersObjToDB(), 500);
 }
 
 function clearStatusBtns() {
-    for (const btn of document.getElementById('btngp-status').getElementsByTagName('button'))
-        if (!btn.className.includes('outline')) btn.className = btn.className.replace('btn-', 'btn-outline-');
+    fullscreenIDs.forEach(suffix => {
+        for (const btn of document.getElementById('btngp-status' + suffix).getElementsByTagName('button'))
+            if (!btn.className.includes('outline')) btn.className = btn.className.replace('btn-', 'btn-outline-');
+    });
 }
 
 function setStatusBtnSelected(btnid) {
@@ -76,9 +80,11 @@ function setStatusBtnSelected(btnid) {
 
 function setStatusBtnsForCardUID(cardUID) {
     clearStatusBtns();
-    if (dbObj_answersObj && dbObj_answersObj[getSelectCardsSelectedCardObjectUniqueCardID()])
-        setStatusBtnSelected('btnstatus-' + dbObj_answersObj[cardUID]);
-    else setStatusBtnSelected('btnstatus-untested');
+    fullscreenIDs.forEach(suffix => {
+        if (dbObj_answersObj && dbObj_answersObj[getSelectCardsSelectedCardObjectUniqueCardID()])
+            setStatusBtnSelected('btnstatus-' + dbObj_answersObj[cardUID] + suffix);
+        else setStatusBtnSelected('btnstatus-untested'+suffix);
+    });
 }
 
 function btnClearStatusClicked(what) {
@@ -90,6 +96,6 @@ function btnClearStatusClicked(what) {
 }
 
 function showHideCardSelect() {
-    document.getElementById("select-cards").style.visibility= document.getElementById("select-cards").style.visibility==='hidden' ?
+    document.getElementById("select-cards").style.visibility = document.getElementById("select-cards").style.visibility === 'hidden' ?
         'visible' : 'hidden';
 }

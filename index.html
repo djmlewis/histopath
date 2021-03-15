@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 13/3/2021 9:56     djml.uk E&OE.                            *
+  * Copyright (c) 15/3/2021 2:55     djml.uk E&OE.                            *
   ***************************************************************************-->
 
 <!doctype html>
@@ -24,11 +24,11 @@
     <!--  Normalize  -->
     <link rel="stylesheet" href="css/vendor/normalize.1.css">
     <!--  my CSS -->
-    <link rel="stylesheet" href="css/myCSS.4.css">
+    <link rel="stylesheet" href="css/myCSS.5.css">
     <link rel="stylesheet" href="css/topics.1.css">
     <link rel="stylesheet" href="css/gybt.1.css">
     <link rel="stylesheet" href="css/gybt_bmk.1.css">
-    <link rel="stylesheet" href="css/sheets.1.css">
+    <link rel="stylesheet" href="css/sheets.2.css">
     <link rel="stylesheet" href="css/bookmarks.1.css">
     <link rel="stylesheet" href="css/userguide.1.css">
     <link rel="stylesheet" href="css/notes.1.css">
@@ -38,10 +38,10 @@
     <script src="myscripts/objects.2.js" defer></script>
     <script src="myscripts/imgCaptionsObj.4.js" defer></script>
     <!--    Globals next and utilities-- -->
-    <script src="myscripts/globals.7.js" defer></script>
+    <script src="myscripts/globals.8.js" defer></script>
     <script src="myscripts/db.1.js" defer></script>
     <script src="myscripts/utilities.2.js" defer></script>
-    <script src="myscripts/sheets.2.js" defer></script>
+    <script src="myscripts/sheets.3.js" defer></script>
     <!--    ****** CHANGE ME in the R scripts !! version strings-->
     <script>
         window.indicesversionStr = "255";
@@ -49,38 +49,38 @@
     </script>
     <!--    The collection objects  !!! Always DEFER these to allow libs to laod !!!  -->
     <!--    The order they appear here is the order on the dropdown  -->
-    <script src="collections/Ruminants.48.js" defer></script>
-    <script src="collections/Horses.48.js" defer></script>
-    <script src="collections/Carnivores.48.js" defer></script>
-    <script src="collections/Pigs.48.js" defer></script>
-    <script src="collections/Hares.48.js" defer></script>
-    <script src="collections/Rodents.48.js" defer></script>
-    <script src="collections/Poultry.48.js" defer></script>
-    <script src="collections/Ectoparasites.48.js" defer></script>
-    <script src="collections/Helminths.48.js" defer></script>
-    <script src="collections/Protozoa.48.js" defer></script>
-    <script src="collections/Ectoparasites (all hosts).48.js" defer></script>
-    <script src="collections/Picture Quiz.48.js" defer></script>
+    <script src="collections/Ruminants.49.js" defer></script>
+    <script src="collections/Horses.49.js" defer></script>
+    <script src="collections/Carnivores.49.js" defer></script>
+    <script src="collections/Pigs.49.js" defer></script>
+    <script src="collections/Hares.49.js" defer></script>
+    <script src="collections/Rodents.49.js" defer></script>
+    <script src="collections/Poultry.49.js" defer></script>
+    <script src="collections/Ectoparasites.49.js" defer></script>
+    <script src="collections/Helminths.49.js" defer></script>
+    <script src="collections/Protozoa.49.js" defer></script>
+    <script src="collections/Ectoparasites (all hosts).49.js" defer></script>
+    <script src="collections/Picture Quiz.50.js" defer></script>
 
     <!--    The rest-->
     <script src="myscripts/answers.4.js" defer></script>
     <script src="myscripts/fileFunctions.1.js" defer></script>
     <script src="myscripts/hotspots.1.js" defer></script>
-    <script src="myscripts/selectEvents.2.js" defer></script>
+    <script src="myscripts/selectEvents.3.js" defer></script>
     <script src="myscripts/addListeners.1.js" defer></script>
     <script src="myscripts/favouritesFunctions.1.js" defer></script>
     <script src="myscripts/favourites_quickgallery.1.js" defer></script>
     <script src="myscripts/history.1.js" defer></script>
     <script src="myscripts/topics.1.js" defer></script>
-    <script src="myscripts/cardFunctions.7.js" defer></script>
+    <script src="myscripts/cardFunctions.8.js" defer></script>
     <script src="myscripts/helpMenu.2.js" defer></script>
-    <script src="myscripts/settings.6.js" defer></script>
+    <script src="myscripts/settings.7.js" defer></script>
     <script src="myscripts/headScripts.7.js" defer></script>
-    <script src="myscripts/darkMode.1.js" defer></script>
+    <script src="myscripts/darkMode.2.js" defer></script>
     <script src="myscripts/notes.1.js" defer></script>
     <script src="myscripts/postits.1.js" defer></script>
     <script src="myscripts/doodle.1.js" defer></script>
-    <script src="myscripts/random.2.js" defer></script>
+    <script src="myscripts/random.3.js" defer></script>
 
     <!-- MUST DOWNLOAD LAST -->
     <script src="myscripts/indices.1.js" defer></script>
@@ -128,16 +128,26 @@
         </div>
     </div>
     <div id="toolbar-row2" class="d-flex flex-row justify-content-between align-items-center flex-wrap mx-1 mt-1">
-        <div>
-            <div class="input-group input-group-sm">
+        <div id="col-slider-image-Width" class="col-slider">
+            <label hidden for="slider-image-Width"></label>
+            <input type="range" class="form-control-range" id="slider-image-Width"
+                   title="Adjust image width"
+                   min="10" max="70" step="10" value="50"
+                   oninput="handleSliderImageWidthChanged(this)">
+        </div>
+        <div class="d-flex flex-row align-items-center flex-wrap">
+            <button type="button" class="btn btn-sm btn-outline-primary mr-1"
+                    id="btn-fullscreen"
+                    style="visibility: hidden;"
+                    onclick="showSheet('sheet-fullscreen');"
+                    title="Fullscreen images">
+                <i class="fas fa-expand-alt"></i></button>
+            <div><div class="input-group input-group-sm">
                 <div class="input-group-prepend">
                     <button class="btn btn-sm btn-primary" type="button" id="button-addon1"
                             onclick="randomiseBtnClicked();"
                     >Randomise
                     </button>
-<!--
-                    <span class="input-group-text text-right">Include:</span>
--->
                     <div id="inputgp-statuscbxs" class="input-group-text bg-white">
                         <div class="custom-control custom-switch text-secondary mr-1">
                             <input class="custom-control-input" type="checkbox" name="checkbox-randomiseUntested"
@@ -170,74 +180,55 @@
                 </div>
                 <div class="input-group-append">
                     <span id="span-randomSlideCount" class="input-group-text text-right"></span>
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-sm btn-primary"
-                                onclick="btnRandomClicked(this);"
-                                title="Click to select next random card from current chapter">
-                            <i class="fas fa-random"></i></button>
-                    </div>
+                    <button type="button" class="btn btn-sm btn-primary"
+                            onclick="btnRandomClicked();"
+                            title="Click to select next random card from current chapter">
+                        <i class="fas fa-random"></i></button>
+                </div>
+            </div></div>
+        </div>
+            <div id="btngp-status" class="btn-group btn-group-sm">
+                <button id="btnstatus-untested" type="button" class="btn btn-secondary"
+                        onclick="btnStatusClicked('untested');"
+                        title="Set status as untested">
+                    <i class="fas fa-question-circle"></i>
+                </button>
+                <button id="btnstatus-incorrect" type="button" class="btn btn-outline-danger"
+                        onclick="btnStatusClicked('incorrect');"
+                        title="Set status as incorrect">
+                    <i class="fas fa-times-circle"></i>
+                </button>
+                <button id="btnstatus-correct" type="button" class="btn btn-outline-success"
+                        onclick="btnStatusClicked('correct');"
+                        title="Set status as correct">
+                    <i class="fas fa-check-circle"></i>
+                </button>
+                <button id="btnstatus-star" type="button" class="btn btn-outline-warning"
+                        onclick="btnStatusClicked('star');"
+                        title="Set status as starred">
+                    <i class="fas fa-star"></i>
+                </button>
+                <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" data-toggle="dropdown"><i
+                        class="fas fa-eraser"></i></button>
+                <div class="dropdown-menu" style="z-index:10000;">
+                    <button class="dropdown-item text-danger" type="button"
+                            onclick="btnClearStatusClicked('chapter');"
+                            title="Unmark all cards in this chapter">
+                        Unmark this chapter
+                    </button>
+                    <button class="dropdown-item text-danger" type="button"
+                            onclick="btnClearStatusClicked('cardset');"
+                            title="Unmark all cards in this cardset">
+                        Unmark this cardset
+                    </button>
                 </div>
             </div>
-        </div>
-        <div id="col-slider-image-Width" class="col-slider">
-            <label hidden for="slider-image-Width"></label>
-            <input type="range" class="form-control-range" id="slider-image-Width"
-                   title="Adjust image width"
-                   min="10" max="70" step="10" value="50"
-                   oninput="handleSliderImageWidthChanged(this)">
-        </div>
-        <div>
-            <div class="input-group input-group-sm">
-<!--
-                <div class="input-group-prepend">
-                    <span class="input-group-text text-right">Mark:</span>
-                </div>
--->
-                <div id="btngp-status" class="btn-group btn-group-sm">
-                    <button id="btnstatus-untested" type="button" class="btn btn-secondary"
-                            onclick="btnStatusClicked(this,'untested');"
-                            title="Set status as untested">
-                        <i class="fas fa-question-circle"></i>
-                    </button>
-                    <button id="btnstatus-incorrect" type="button" class="btn btn-outline-danger"
-                            onclick="btnStatusClicked(this,'incorrect');"
-                            title="Set status as incorrect">
-                        <i class="fas fa-times-circle"></i>
-                    </button>
-                    <button id="btnstatus-correct" type="button" class="btn btn-outline-success"
-                            onclick="btnStatusClicked(this,'correct');"
-                            title="Set status as correct">
-                        <i class="fas fa-check-circle"></i>
-                    </button>
-                    <button id="btnstatus-star" type="button" class="btn btn-outline-warning"
-                            onclick="btnStatusClicked(this,'star');"
-                            title="Set status as starred">
-                        <i class="fas fa-star"></i>
-                    </button>
-                </div>
-                <div class="input-group-append ml-1">
-                    <span class="input-group-text text-right">Unmark:</span>
-                    <div class="btn-group btn-group-sm">
-                        <button type="button" class="btn btn-outline-danger"
-                                onclick="btnClearStatusClicked('chapter');"
-                                title="Unmark all cards in this chapter">
-                            Chapter
-                        </button>
-                        <button class="btn btn-danger"
-                                onclick="btnClearStatusClicked('cardset');"
-                                title="Unmark all cards in this cardset">
-                            Cardset
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <div id="row-image" class="flex-grow-1 d-flex flex-row flex-nowrap mt-1">
         <div id="col-image" class="flex-grow-1" style="width: 50%; max-width: 50%; min-width: 50%;overflow-y: auto;">
             <div class="d-flex align-items-center justify-content-between sticky-top pr-3">
                 <div class="ml-2 flex-shrink-1 d-flex  flex-wrap">
-                    <div class=""> Initially Hide:</div>
+                    <div class="text-secondary"> Hide:</div>
                     <div class="custom-control custom-switch ml-1 border-secondary" title="Hide images initially">
                         <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
                                id="checkbox-initiallyHideI"
@@ -245,7 +236,8 @@
                         <label class="custom-control-label" for="checkbox-initiallyHideI"><i
                                 class="fas fa-images"></i></label>
                     </div>
-                    <div class="custom-control custom-switch ml-2 border-secondary" title="Hide image captions initially">
+                    <div class="custom-control custom-switch ml-2 border-secondary"
+                         title="Hide image captions initially">
                         <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
                                id="checkbox-initiallyHideCap"
                                value="true" onclick="checkboxInitiallyHideClicked(this,'captions');">
@@ -273,16 +265,19 @@
         </div>
         <div id="div-legendouter" class="flex-grow-1" style="overflow-y: auto; overflow-x:hidden;">
             <div class="d-flex align-items-center justify-content-between sticky-top" style="background-color: white;">
-                <div class="custom-control custom-switch mx-1">
-                    <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
-                           id="checkbox-initiallyHideT"
-                           value="true" onclick="checkboxInitiallyHideClicked(this,'text');">
-                    <label class="custom-control-label" for="checkbox-initiallyHideT">Initially Hide <i
-                            class="fas fa-list-ul"></i></label>
+                <div class="ml-2 flex-shrink-1 d-flex  flex-wrap">
+                    <div class="text-secondary"> Hide:</div>
+                    <div class="custom-control custom-switch mx-1">
+                        <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
+                               id="checkbox-initiallyHideT"
+                               value="true" onclick="checkboxInitiallyHideClicked(this,'text');">
+                        <label class="custom-control-label" for="checkbox-initiallyHideT"><i
+                                class="fas fa-list-ul"></i></label>
+                    </div>
                 </div>
                 <div class="d-flex align-items-center">
                     <div class="my-1 mr-1" style="text-align: right; line-height: 0.9; color: lightgrey;">
-                        Click labels, or click buttons to reveal/hide text
+                        Click labels, or click to reveal/hide all:
                     </div>
                     <div class="btn-group btn-group-sm flex-shrink-0 m-1">
                         <button type="button" class="btn btn-outline-secondary"
@@ -389,7 +384,7 @@
                         data-toggle="popover" data-trigger="manual" data-placement="bottom"
                         data-content="Click to select a random card from current chapter"
                         data-container="#btn-random-v"
-                        onclick="btnRandomClicked(this);"
+                        onclick="btnRandomClicked();"
                         title="Random card">
                     <i class="fas fa-random" title="Select random card from chapter"></i>
                 </button>
@@ -631,7 +626,7 @@
                                         <i class="fas fa-history"></i>
                                     </button>
                                     <button type="button" class="btn btn-cards mr-1"
-                                            onclick="btnRandomClicked(this);"
+                                            onclick="btnRandomClicked();"
                                             title="Random card">
                                         <i class="fas fa-random" title="Select random card from chapter"></i>
                                     </button>
@@ -1961,6 +1956,69 @@
 
 <div hidden id="div-sheets">
     <!--    IMAGES -->
+    <div id="sheet-fullscreen" class="sheet-fullscreen">
+        <div class="sheets-body">
+            <div class="sheets-header sheets-header-sticky justify-content-between sheetFullscreenHeader mx-2">
+                <div class="flex-shrink-1 d-flex  flex-wrap">
+                    <div class="">Hide:</div>
+                    <div class="custom-control custom-switch border-secondary"
+                         title="Hide image captions initially">
+                        <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
+                               id="checkbox-initiallyHideCap-fullscreen"
+                               value="true" onclick="checkboxInitiallyHideClicked(this,'captions');">
+                        <label class="custom-control-label" for="checkbox-initiallyHideCap-fullscreen">
+                            <i class="fas fa-closed-captioning"></i></label>
+                    </div>
+                </div>
+                <div id="btngp-status-fullscreen" class="btn-group btn-group-sm">
+                    <button id="btnstatus-untested-fullscreen" type="button" class="btn btn-secondary"
+                            onclick="btnStatusClicked('untested');"
+                            title="Set status as untested">
+                        <i class="fas fa-question-circle"></i>
+                    </button>
+                    <button id="btnstatus-incorrect-fullscreen" type="button" class="btn btn-outline-danger"
+                            onclick="btnStatusClicked('incorrect');"
+                            title="Set status as incorrect">
+                        <i class="fas fa-times-circle"></i>
+                    </button>
+                    <button id="btnstatus-correct-fullscreen" type="button" class="btn btn-outline-success"
+                            onclick="btnStatusClicked('correct');"
+                            title="Set status as correct">
+                        <i class="fas fa-check-circle"></i>
+                    </button>
+                    <button id="btnstatus-star-fullscreen" type="button" class="btn btn-outline-warning"
+                            onclick="btnStatusClicked('star');"
+                            title="Set status as starred">
+                        <i class="fas fa-star"></i>
+                    </button>
+                </div>
+                <div>
+                    <div class="input-group input-group-sm">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-sm btn-primary" type="button"
+                                    onclick="randomiseBtnClicked();"
+                            >Randomise
+                            </button>
+                        </div>
+                        <div class="input-group-append">
+                            <span id="span-randomSlideCount-fullscreen" class="input-group-text text-right"></span>
+                            <button type="button" class="btn btn-sm btn-primary"
+                                    onclick="btnRandomClicked();"
+                                    title="Click to select next random card from current chapter">
+                                <i class="fas fa-random"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-outline-dark btn-sm"
+                        onclick="hideSheet('sheet-fullscreen');"
+                        title="Close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div id="div-image-card-fullscreen"
+                 class="d-flex flex-row flex-wrap align-items-start justify-content-center"></div>
+        </div>
+    </div>
     <div id="sheet-zoom" class="sheets-div">
         <div class="sheets-body">
             <div class="sheets-header sheets-header-sticky justify-content-between bg-dark">
@@ -2795,7 +2853,7 @@
 
 <script>
     /* update version in menu */
-    const vers = "10/03/2021 1409";
+    const vers = "15/03/2021 1454";
     [document.getElementById("span-version-toolbox"), document.getElementById("span-version-placeholder")].forEach(span => span.innerHTML = vers +
         "<br><img src='img/unionflag.png' height='15' alt=''>&nbsp;<img src='img/wales.png' height='15' alt=''>&nbsp;<img src='img/slovakia.png' height='15' alt=''>");
     document.getElementById("span-version-cache").innerHTML = vers;

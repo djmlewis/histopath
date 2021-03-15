@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 13/3/2021 9:56     djml.uk E&OE.                             *
+ * Copyright (c) 15/3/2021 2:55     djml.uk E&OE.                             *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards,index,hideCardTitles) {
@@ -325,12 +325,11 @@ function loadCardImage() {
     const selectcard = document.getElementById("select-cards");
     enablePrevNextBtnForSelectCard(selectcard);
     let selectedcardName = selectcard.value;
-    const divimagecard = document.getElementById("div-image-card");
-    divimagecard.innerHTML = "";
+    imageDivsIDs.forEach(divimagecardID=> {document.getElementById(divimagecardID).innerHTML = "";});
     if (selectedcardName.length > 0) {
         const selectedCardObj = JSON.parse(selectcard.selectedOptions[0].getAttribute(attr_cardObject));
         recordLastCardLoaded(selectedCardObj.uniqueCardID);
-        addImagesForCardObj(selectedCardObj,divimagecard);
+        addImagesForCardObj(selectedCardObj);
         addLegendArrayToDiv(selectedCardObj);
         setStatusBtnsForCardUID(selectedCardObj.uniqueCardID);
     } else {
@@ -342,41 +341,44 @@ function loadCardImage() {
 }
 function toggleImagesVisibility(btn,action) {
     btn.blur();
-    for(const img of document.getElementById("div-image-card").children) img.style.visibility = action;
+    imageDivsIDs.forEach(id=>{for(const img of document.getElementById(id).children) img.style.visibility = action});
 }
 
-function addImagesForCardObj(selectedCardObj,divimagecard){
+function addImagesForCardObj(selectedCardObj){
     const numImages = selectedCardObj['imageNamesOrientsArray'].length;
     cardImgNamesArray = selectedCardObj['imageNamesOrientsArray'];
-    for(const imageNameOrient of cardImgNamesArray) {
-        //[0] is name "xxx yyy pX" [1] is orientation p or l
-        const imageNameOrientArray=imageNameOrient.split("\t");
-        const imgName = imageNameOrientArray[0];
-        const dv=document.createElement('div');
-        dv.className="divImgFrame";
-        dv.style.width= numImages>1 ? "45%" : "95%";
-        dv.setAttribute('data-imgname',imgName);
-        if(!!imgCaptionsObj && imgCaptionsObj[imgName]) {
-            const capt = document.createElement('div');
-            capt.className = "imgCaption";
-            capt.title="Click to show/hide caption";
-            const spn = document.createElement('span');
-            spn.className='spanImgCaption';
-            spn.style.visibility=(initiallyHideCaptions ? 'hidden':'visible');
-            spn.innerText=imgCaptionsObj[imgName];
-            capt.appendChild(spn);
-            dv.appendChild(capt);
+    imageDivsIDs.forEach(divimagecardID=> {
+        for (const imageNameOrient of cardImgNamesArray) {
+            //[0] is name "xxx yyy pX" [1] is orientation p or l
+            const imageNameOrientArray = imageNameOrient.split("\t");
+            const imgName = imageNameOrientArray[0];
+            const dv = document.createElement('div');
+            dv.className = "divImgFrame";
+            dv.style.width = numImages > 1 ? "45%" : "95%";
+            dv.setAttribute('data-imgname', imgName);
+            if (!!imgCaptionsObj && imgCaptionsObj[imgName]) {
+                const capt = document.createElement('div');
+                capt.className = "imgCaption";
+                capt.addEventListener("click", ev => divimgcardClicked(ev));
+                capt.title = "Click to show/hide caption";
+                const spn = document.createElement('span');
+                spn.className = 'spanImgCaption';
+                spn.style.visibility = (initiallyHideCaptions ? 'hidden' : 'visible');
+                spn.innerText = imgCaptionsObj[imgName];
+                capt.appendChild(spn);
+                dv.appendChild(capt);
+            }
+            document.getElementById(divimagecardID).appendChild(dv);
+            const newImg = document.createElement('img');
+            const imgsrc = selectedCardObj.imagePath + imgName + selectedCardObj.imageType;
+            dv.appendChild(newImg);
+            newImg.setAttribute('data-imgname', imgName);
+            if(!divimagecardID.includes("fullscreen")) newImg.className = "paraImage";
+            newImg.style.width = '100%';
+            newImg.style.visibility = (initiallyHideImages ? 'hidden' : 'visible');
+            newImg.src = imgsrc;
         }
-        divimagecard.appendChild(dv);
-        const newImg = document.createElement('img');
-        const imgsrc = selectedCardObj.imagePath+imgName+selectedCardObj.imageType;
-        dv.appendChild(newImg);
-        newImg.setAttribute('data-imgname',imgName);
-        newImg.className = "paraImage";
-        newImg.style.width= '100%';
-        newImg.style.visibility=(initiallyHideImages ? 'hidden':'visible');
-        newImg.src = imgsrc;
-    }
+    });
 }
 
 function divimgcardClicked(ev) {

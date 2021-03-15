@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 19/2/2021 11:13     djml.uk E&OE.                            *
+ * Copyright (c) 15/3/2021 2:55     djml.uk E&OE.                             *
  ******************************************************************************/
 
 function setupModeDarkLightAtStartup() {
@@ -132,15 +132,6 @@ function applyModeDarkLightSetting() {
     forceRefreshCollImage();
 }
 
-function forceRefreshCollImage() {
-    //this is weird and a bit brutal but only way to redraw the scrollbars
-    [document.getElementById("col-toolbar"), document.getElementById("col-image"), document.getElementById("div-revealAnswers")
-    ].forEach((siteHeader)=> {
-        siteHeader.style.display = 'none';
-        siteHeader.offsetHeight; // no need to store this anywhere, the reference is enough
-        siteHeader.style.display = 'block';
-    });
-}
 
 function applyDarkModeScrollers() {
     ["col-image","div-revealAnswers","div-indexhanger-latin","div-indexhanger-english","div-toolbox-v"].forEach((div)=>{

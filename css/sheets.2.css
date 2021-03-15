@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 19/2/2021 11:13     djml.uk E&OE.                            *
+ * Copyright (c) 15/3/2021 2:55     djml.uk E&OE.                             *
  ******************************************************************************/
 .sheetholder {
     position: absolute;
@@ -14,7 +14,7 @@
     overflow: hidden;
 }
 
-.sheets-div {
+.sheets-div,.sheet-fullscreen {
     position: absolute;
     top: 0;
     left: 0;
@@ -59,6 +59,9 @@
     z-index: 10;
 }
 
+.sheetFullscreenHeader {
+    background-color: whitesmoke;
+}
 .sheets-icontitle {
     display: -ms-flexbox !important;
     display: flex !important;

@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 13/3/2021 9:56     djml.uk E&OE.                             *
+ * Copyright (c) 15/3/2021 2:55     djml.uk E&OE.                             *
  ******************************************************************************/
 window.globalIndexHTML = "Still downloading… Please try later";
 window.globalIndexPopeskoHTML = "Still downloading… Please try later";
@@ -246,3 +246,7 @@ let db_Obj;
 let dbObj_answersObj;
 
 let sliderImageWidthMax = 0;
+
+let imageDivsIDs = ["div-image-card","div-image-card-fullscreen"];
+let randomSlideCountsIDs = ["span-randomSlideCount","span-randomSlideCount-fullscreen"];
+let fullscreenIDs = ["","-fullscreen"];
