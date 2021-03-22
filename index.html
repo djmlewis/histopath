@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 15/3/2021 2:55     djml.uk E&OE.                            *
+  * Copyright (c) 22/3/2021 7:19     djml.uk E&OE.                            *
   ***************************************************************************-->
 
 <!doctype html>
@@ -24,7 +24,7 @@
     <!--  Normalize  -->
     <link rel="stylesheet" href="css/vendor/normalize.1.css">
     <!--  my CSS -->
-    <link rel="stylesheet" href="css/myCSS.5.css">
+    <link rel="stylesheet" href="css/myCSS.6.css">
     <link rel="stylesheet" href="css/topics.1.css">
     <link rel="stylesheet" href="css/gybt.1.css">
     <link rel="stylesheet" href="css/gybt_bmk.1.css">
@@ -41,7 +41,7 @@
     <script src="myscripts/globals.8.js" defer></script>
     <script src="myscripts/db.1.js" defer></script>
     <script src="myscripts/utilities.2.js" defer></script>
-    <script src="myscripts/sheets.3.js" defer></script>
+    <script src="myscripts/sheets.34.js" defer></script>
     <!--    ****** CHANGE ME in the R scripts !! version strings-->
     <script>
         window.indicesversionStr = "255";
@@ -49,33 +49,33 @@
     </script>
     <!--    The collection objects  !!! Always DEFER these to allow libs to laod !!!  -->
     <!--    The order they appear here is the order on the dropdown  -->
-    <script src="collections/Ruminants.49.js" defer></script>
-    <script src="collections/Horses.49.js" defer></script>
-    <script src="collections/Carnivores.49.js" defer></script>
-    <script src="collections/Pigs.49.js" defer></script>
-    <script src="collections/Hares.49.js" defer></script>
-    <script src="collections/Rodents.49.js" defer></script>
-    <script src="collections/Poultry.49.js" defer></script>
-    <script src="collections/Ectoparasites.49.js" defer></script>
-    <script src="collections/Helminths.49.js" defer></script>
-    <script src="collections/Protozoa.49.js" defer></script>
-    <script src="collections/Ectoparasites (all hosts).49.js" defer></script>
-    <script src="collections/Picture Quiz.50.js" defer></script>
+    <script src="collections/Ruminants.51.js" defer></script>
+    <script src="collections/Horses.51.js" defer></script>
+    <script src="collections/Carnivores.51.js" defer></script>
+    <script src="collections/Pigs.51.js" defer></script>
+    <script src="collections/Hares.51.js" defer></script>
+    <script src="collections/Rodents.51.js" defer></script>
+    <script src="collections/Poultry.51.js" defer></script>
+    <script src="collections/Ectoparasites.51.js" defer></script>
+    <script src="collections/Helminths.51.js" defer></script>
+    <script src="collections/Protozoa.51.js" defer></script>
+    <script src="collections/Ectoparasites (all hosts).51.js" defer></script>
+    <script src="collections/Picture Quiz.51.js" defer></script>
 
     <!--    The rest-->
     <script src="myscripts/answers.4.js" defer></script>
     <script src="myscripts/fileFunctions.1.js" defer></script>
     <script src="myscripts/hotspots.1.js" defer></script>
-    <script src="myscripts/selectEvents.3.js" defer></script>
+    <script src="myscripts/selectEvents.4.js" defer></script>
     <script src="myscripts/addListeners.1.js" defer></script>
     <script src="myscripts/favouritesFunctions.1.js" defer></script>
     <script src="myscripts/favourites_quickgallery.1.js" defer></script>
     <script src="myscripts/history.1.js" defer></script>
     <script src="myscripts/topics.1.js" defer></script>
-    <script src="myscripts/cardFunctions.8.js" defer></script>
+    <script src="myscripts/cardFunctions.9.js" defer></script>
     <script src="myscripts/helpMenu.2.js" defer></script>
     <script src="myscripts/settings.7.js" defer></script>
-    <script src="myscripts/headScripts.7.js" defer></script>
+    <script src="myscripts/headScripts.8.js" defer></script>
     <script src="myscripts/darkMode.2.js" defer></script>
     <script src="myscripts/notes.1.js" defer></script>
     <script src="myscripts/postits.1.js" defer></script>
@@ -84,7 +84,7 @@
 
     <!-- MUST DOWNLOAD LAST -->
     <script src="myscripts/indices.1.js" defer></script>
-    <script src="myscripts/globalIndex.1.js" defer></script>
+    <script src="myscripts/globalIndex.2.js" defer></script>
     <script src="myscripts/userguide.1.js" defer></script>
 
     <!--  my startup code-->
@@ -97,6 +97,11 @@
 <div id="div-mainpage" class="d-flex flex-column" style="height: 100vh; max-height: 100vh;">
     <div id="toolbar-row1" class="mx-1 mt-1">
         <div class="input-group" style="overflow: hidden;!important; background-color: transparent;">
+            <button type="button" class="btn btn-outline-dark mr-1"
+                    title="Show Family/Genera or Species Index"
+                    onclick="showSheet('sheet-groupings');">
+                <i class="fas fa-book"></i>
+            </button>
             <label for="select-cardsset"></label>
             <select name="selectcardsset" class="custom-select btn-cardsset rounded-sm mr-1"
                     id="select-cardsset"
@@ -142,87 +147,90 @@
                     onclick="showSheet('sheet-fullscreen');"
                     title="Fullscreen images">
                 <i class="fas fa-expand-alt"></i></button>
-            <div><div class="input-group input-group-sm">
-                <div class="input-group-prepend">
-                    <button class="btn btn-sm btn-primary" type="button" id="button-addon1"
-                            onclick="randomiseBtnClicked();"
-                    >Randomise
-                    </button>
-                    <div id="inputgp-statuscbxs" class="input-group-text bg-white">
-                        <div class="custom-control custom-switch text-secondary mr-1">
-                            <input class="custom-control-input" type="checkbox" name="checkbox-randomiseUntested"
-                                   id="checkbox-randomiseUntested" data-status="untested"
-                                   value="true" checked onclick="randomiseCBXclicked();">
-                            <label class="custom-control-label" for="checkbox-randomiseUntested"><i
-                                    class="fas fa-question-circle"></i></label>
-                        </div>
-                        <div class="custom-control custom-switch text-danger mx-1">
-                            <input class="custom-control-input" type="checkbox" name="checkbox-randomiseIncorrect"
-                                   id="checkbox-randomiseIncorrect" data-status="incorrect"
-                                   value="true" checked onclick="randomiseCBXclicked();">
-                            <label class="custom-control-label" for="checkbox-randomiseIncorrect"><i
-                                    class="fas fa-times-circle"></i></label>
-                        </div>
-                        <div class="custom-control custom-switch text-success mx-1">
-                            <input class="custom-control-input" type="checkbox" name="checkbox-randomiseCorrect"
-                                   id="checkbox-randomiseCorrect" data-status="correct"
-                                   value="true" checked onclick="randomiseCBXclicked();">
-                            <label class="custom-control-label" for="checkbox-randomiseCorrect"><i
-                                    class="fas fa-check-circle"></i></label>
-                        </div>
-                        <div class="custom-control custom-switch text-warning mx-1">
-                            <input class="custom-control-input" type="checkbox" name="checkbox-randomiseStar"
-                                   id="checkbox-randomiseStar" data-status="star"
-                                   value="true" checked onclick="randomiseCBXclicked();">
-                            <label class="custom-control-label" for="checkbox-randomiseStar"><i class="fas fa-star"></i></label>
+            <div>
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-sm btn-primary" type="button" id="button-addon1"
+                                onclick="randomiseBtnClicked();"
+                        >Randomise
+                        </button>
+                        <div id="inputgp-statuscbxs" class="input-group-text bg-white">
+                            <div class="custom-control custom-switch text-secondary mr-1">
+                                <input class="custom-control-input" type="checkbox" name="checkbox-randomiseUntested"
+                                       id="checkbox-randomiseUntested" data-status="untested"
+                                       value="true" checked onclick="randomiseCBXclicked();">
+                                <label class="custom-control-label" for="checkbox-randomiseUntested"><i
+                                        class="fas fa-question-circle"></i></label>
+                            </div>
+                            <div class="custom-control custom-switch text-danger mx-1">
+                                <input class="custom-control-input" type="checkbox" name="checkbox-randomiseIncorrect"
+                                       id="checkbox-randomiseIncorrect" data-status="incorrect"
+                                       value="true" checked onclick="randomiseCBXclicked();">
+                                <label class="custom-control-label" for="checkbox-randomiseIncorrect"><i
+                                        class="fas fa-times-circle"></i></label>
+                            </div>
+                            <div class="custom-control custom-switch text-success mx-1">
+                                <input class="custom-control-input" type="checkbox" name="checkbox-randomiseCorrect"
+                                       id="checkbox-randomiseCorrect" data-status="correct"
+                                       value="true" checked onclick="randomiseCBXclicked();">
+                                <label class="custom-control-label" for="checkbox-randomiseCorrect"><i
+                                        class="fas fa-check-circle"></i></label>
+                            </div>
+                            <div class="custom-control custom-switch text-warning mx-1">
+                                <input class="custom-control-input" type="checkbox" name="checkbox-randomiseStar"
+                                       id="checkbox-randomiseStar" data-status="star"
+                                       value="true" checked onclick="randomiseCBXclicked();">
+                                <label class="custom-control-label" for="checkbox-randomiseStar"><i
+                                        class="fas fa-star"></i></label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="input-group-append">
-                    <span id="span-randomSlideCount" class="input-group-text text-right"></span>
-                    <button type="button" class="btn btn-sm btn-primary"
-                            onclick="btnRandomClicked();"
-                            title="Click to select next random card from current chapter">
-                        <i class="fas fa-random"></i></button>
-                </div>
-            </div></div>
-        </div>
-            <div id="btngp-status" class="btn-group btn-group-sm">
-                <button id="btnstatus-untested" type="button" class="btn btn-secondary"
-                        onclick="btnStatusClicked('untested');"
-                        title="Set status as untested">
-                    <i class="fas fa-question-circle"></i>
-                </button>
-                <button id="btnstatus-incorrect" type="button" class="btn btn-outline-danger"
-                        onclick="btnStatusClicked('incorrect');"
-                        title="Set status as incorrect">
-                    <i class="fas fa-times-circle"></i>
-                </button>
-                <button id="btnstatus-correct" type="button" class="btn btn-outline-success"
-                        onclick="btnStatusClicked('correct');"
-                        title="Set status as correct">
-                    <i class="fas fa-check-circle"></i>
-                </button>
-                <button id="btnstatus-star" type="button" class="btn btn-outline-warning"
-                        onclick="btnStatusClicked('star');"
-                        title="Set status as starred">
-                    <i class="fas fa-star"></i>
-                </button>
-                <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" data-toggle="dropdown"><i
-                        class="fas fa-eraser"></i></button>
-                <div class="dropdown-menu" style="z-index:10000;">
-                    <button class="dropdown-item text-danger" type="button"
-                            onclick="btnClearStatusClicked('chapter');"
-                            title="Unmark all cards in this chapter">
-                        Unmark this chapter
-                    </button>
-                    <button class="dropdown-item text-danger" type="button"
-                            onclick="btnClearStatusClicked('cardset');"
-                            title="Unmark all cards in this cardset">
-                        Unmark this cardset
-                    </button>
+                    <div class="input-group-append">
+                        <span id="span-randomSlideCount" class="input-group-text text-right"></span>
+                        <button type="button" class="btn btn-sm btn-primary"
+                                onclick="btnRandomClicked();"
+                                title="Click to select next random card from current chapter">
+                            <i class="fas fa-random"></i></button>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div id="btngp-status" class="btn-group btn-group-sm">
+            <button id="btnstatus-untested" type="button" class="btn btn-secondary"
+                    onclick="btnStatusClicked('untested');"
+                    title="Set status as untested">
+                <i class="fas fa-question-circle"></i>
+            </button>
+            <button id="btnstatus-incorrect" type="button" class="btn btn-outline-danger"
+                    onclick="btnStatusClicked('incorrect');"
+                    title="Set status as incorrect">
+                <i class="fas fa-times-circle"></i>
+            </button>
+            <button id="btnstatus-correct" type="button" class="btn btn-outline-success"
+                    onclick="btnStatusClicked('correct');"
+                    title="Set status as correct">
+                <i class="fas fa-check-circle"></i>
+            </button>
+            <button id="btnstatus-star" type="button" class="btn btn-outline-warning"
+                    onclick="btnStatusClicked('star');"
+                    title="Set status as starred">
+                <i class="fas fa-star"></i>
+            </button>
+            <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" data-toggle="dropdown"><i
+                    class="fas fa-eraser"></i></button>
+            <div class="dropdown-menu" style="z-index:10000;">
+                <button class="dropdown-item text-danger" type="button"
+                        onclick="btnClearStatusClicked('chapter');"
+                        title="Unmark all cards in this chapter">
+                    Unmark this chapter
+                </button>
+                <button class="dropdown-item text-danger" type="button"
+                        onclick="btnClearStatusClicked('cardset');"
+                        title="Unmark all cards in this cardset">
+                    Unmark this cardset
+                </button>
+            </div>
+        </div>
     </div>
     <div id="row-image" class="flex-grow-1 d-flex flex-row flex-nowrap mt-1">
         <div id="col-image" class="flex-grow-1" style="width: 50%; max-width: 50%; min-width: 50%;overflow-y: auto;">
@@ -1955,6 +1963,351 @@
 </div>
 
 <div hidden id="div-sheets">
+    <!--    INDEX -->
+    <div id="sheet-groupings" class="sheets-div">
+        <div class="sheets-body">
+            <div class="sheets-header sheets-header-sticky bg-white">
+                <div class="btn-group btn-group-toggle ml-2" data-toggle="buttons" onclick="generaSpeciesClicked()">
+                    <label class="btn btn-outline-dark active">
+                        <input type="radio" name="options" autocomplete="off" checked>Families/Genera
+                    </label>
+                    <label class="btn btn-outline-dark">
+                        <input type="radio" name="options" autocomplete="off">Species
+                    </label>
+                </div>
+                <button type="button" class="btn btn-outline-dark btn-sm mr-3"
+                        onclick="hideSheet('sheet-groupings');"
+                        title="Close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div id="div-groupings" class="divgroupings"><p data-cardid="chnr ael">Aelurostrongylus sp.</p>
+                <p data-cardid="cht ala">Alaria spp.</p>
+                <p data-cardid="chnd noanc">Ancylostomatidae</p>
+                <p data-cardid="chnr ang">Angiostrongylus sp.</p>
+                <p data-cardid="hhc noano">Anoplocephalidae</p>
+                <p data-cardid="eta argas">Argas spp</p>
+                <p data-cardid="bhnd asc">Ascaridia spp.</p>
+                <p data-cardid="phnd asc">Ascaris sp</p>
+                <p data-cardid="mhnd asp">Aspiculuris sp.</p>
+                <p data-cardid="cpb bab">Babesia spp</p>
+                <p data-cardid="hei bovic">Bovicola spp. Horses</p>
+                <p data-cardid="rei bovic">Bovicola spp. Ruminants</p>
+                <p data-cardid="chnd cap">Capillaria spp. (threadworms) Carnivores</p>
+                <p data-cardid="bhnd capill">Capillaria spp. (threadworms) Poultry</p>
+                <p data-cardid="eid cerat">Ceratopogonidae (biting midges)</p>
+                <p data-cardid="rhnd chaber">Chabertia sp.</p>
+                <p data-cardid="bhcd choa">Choanotaenia sp.</p>
+                <p data-cardid="eih cim">Cimicidae</p>
+                <p data-cardid="lhcd citto">Cittotaenia spp.</p>
+                <p data-cardid="bei colum">Columbicola sp.</p>
+                <p data-cardid="rpd crypt">Cryptosporidium spp.</p>
+                <p data-cardid="cei cten">Ctenocephalides spp.</p>
+                <p data-cardid="eid cul">Culicidae (mosquitoes)</p>
+                <p data-cardid="hhnd cyath">Cyathostomum spp.</p>
+                <p data-cardid="cpd cyst">Cystoisospora spp.</p>
+                <p data-cardid="cem dem">Demodex sp.</p>
+                <p data-cardid="eti derm">Dermacentor spp</p>
+                <p data-cardid="bem derm">Dermanyssus sp</p>
+                <p data-cardid="rht dicro">Dicrocoelium sp.</p>
+                <p data-cardid="hhnr dicty">Dictyocaulus spp. Horses</p>
+                <p data-cardid="rhnr dicty">Dictyocaulus spp. Ruminants</p>
+                <p data-cardid="chc diph">Diphyllobothrium sp.</p>
+                <p data-cardid="chc dipy">Dipylidium sp.</p>
+                <p data-cardid="chnb diro">Dirofilaria spp.</p>
+                <p data-cardid="chc ech">Echinococcus spp.</p>
+                <p data-cardid="lpd eim">Eimeria spp. Hares</p>
+                <p data-cardid="hpd eim">Eimeria spp. Horses</p>
+                <p data-cardid="ppd eim">Eimeria spp. Pigs</p>
+                <p data-cardid="bpd eim">Eimeria spp. Poultry</p>
+                <p data-cardid="rpd eim">Eimeria spp. Ruminants</p>
+                <p data-cardid="rht fasciola">Fasciola sp.</p>
+                <p data-cardid="rht fascioloides">Fascioloides sp.</p>
+                <p data-cardid="hei gaster">Gasterophilus spp.</p>
+                <p data-cardid="cpd giar">Giardia spp.</p>
+                <p data-cardid="bei gon">Goniodes sp.</p>
+                <p data-cardid="eti haem">Haemaphysalis spp.</p>
+                <p data-cardid="pei haem">Haematopinus spp. Pigs</p>
+                <p data-cardid="rei haematopin">Haematopinus spp. Ruminants</p>
+                <p data-cardid="cpb hepa">Hepatozoon sp.</p>
+                <p data-cardid="mhnd het">Heterakis sp. Rodents</p>
+                <p data-cardid="bhnd heter">Heterakis spp. Poultry</p>
+                <p data-cardid="mhc hymen">Hymenolepis spp.</p>
+                <p data-cardid="rei hypoderm">Hypoderma sp.</p>
+                <p data-cardid="eti ixo">Ixodes spp.</p>
+                <p data-cardid="bem knem">Knemidocoptes spp.</p>
+                <p data-cardid="cpb leish">Leishmania spp.</p>
+                <p data-cardid="rei linog">Linognathus sp.</p>
+                <p data-cardid="pha mac">Macracanthorhynchus sp.</p>
+                <p data-cardid="rei meloph">Melophagus sp.</p>
+                <p data-cardid="bei men">Menopon sp</p>
+                <p data-cardid="chc meso">Mesocestoides spp.</p>
+                <p data-cardid="cht meta">Metagonimus sp.</p>
+                <p data-cardid="phnr meta">Metastrongylus spp.</p>
+                <p data-cardid="rhc moni">Moniezia spp.</p>
+                <p data-cardid="rhnr muell">Muellerius sp.</p>
+                <p data-cardid="eid musc">Muscidae (filth, dung and sweat flies)</p>
+                <p data-cardid="rhnd nematodir">Nematodirus spp.</p>
+                <p data-cardid="cem noto">Notoedres sp.</p>
+                <p data-cardid="rhnd oesoph">Oesophagostomum sp.</p>
+                <p data-cardid="rei oest">Oestrus sp.</p>
+                <p data-cardid="cem oto">Otodectes sp.</p>
+                <p data-cardid="hhnd oxy">Oxyuris sp.</p>
+                <p data-cardid="rht paramph">Paramphistomum spp.</p>
+                <p data-cardid="hhnd parasc">Parascaris sp</p>
+                <p data-cardid="lhnd pass">Passalurus sp.</p>
+                <p data-cardid="bha poly">Polymorphus sp.</p>
+                <p data-cardid="rhnr protostrong">Protostrongylus spp.</p>
+                <p data-cardid="hem pso">Psoroptes sp</p>
+                <p data-cardid="lem pso">Psoroptes sp</p>
+                <p data-cardid="bhcd rail">Raillietina spp.</p>
+                <p data-cardid="cpd sarc">Sarcocystis spp.</p>
+                <p data-cardid="pem sarc">Sarcoptes sp.</p>
+                <p data-cardid="eid sim">Simuliidae (Black flies)</p>
+                <p data-cardid="chnd strong">Strongyloides spp. Carnivores</p>
+                <p data-cardid="phnd strong">Strongyloides spp. Pigs</p>
+                <p data-cardid="bhnd strong">Strongyloides spp. Poultry</p>
+                <p data-cardid="rhnd strong">Strongyloides spp. Ruminants</p>
+                <p data-cardid="hhnd strong">Strongylus spp.</p>
+                <p data-cardid="bhn syng">Syngamus sp.</p>
+                <p data-cardid="mhnd syp">Syphacia spp.</p>
+                <p data-cardid="eid tab">Tabanidae (Horse flies)</p>
+                <p data-cardid="chc taen">Taenia spp</p>
+                <p data-cardid="chnb thel">Thelazia sp.</p>
+                <p data-cardid="chnd toxasc">Toxascaris spp.</p>
+                <p data-cardid="chnd toxo">Toxocara spp. Carnivores</p>
+                <p data-cardid="rhnd toxo">Toxocara spp. Ruminants</p>
+                <p data-cardid="phnd trich">Trichinella spp</p>
+                <p data-cardid="cei trich">Trichodectes sp.</p>
+                <p data-cardid="bp trich">Trichomonas sp.</p>
+                <p data-cardid="rhnd notrichostrong">Trichostrongylidae</p>
+                <p data-cardid="chnd trich">Trichuris sp. (whipworms) Carnivores</p>
+                <p data-cardid="rhnd trich">Trichuris sp. (whipworms) Ruminants</p>
+                <p data-cardid="hpb tryp">Trypanosoma spp. Horses</p>
+                <p data-cardid="rpb tryp">Trypanosoma spp. Ruminants</p></div>
+            <div hidden id="div-species" class="divspecies"><p data-cardid="chnr ael">Aelurostrongylus abstrusus</p>
+                <p data-cardid="cht ala">Alaria alata</p>
+                <p data-cardid="cht ala">Alaria americana</p>
+                <p data-cardid="chnd noanc">Ancylostoma caninum</p>
+                <p data-cardid="chnr ang">Angiostrongylus vasorum (French Worm)</p>
+                <p data-cardid="hhc noano">Anoplocephala magna</p>
+                <p data-cardid="hhc noano">Anoplocephala perfoliata</p>
+                <p data-cardid="eta argas">Argas persicus</p>
+                <p data-cardid="eta argas">Argas polonicus</p>
+                <p data-cardid="eta argas">Argas reflexus</p>
+                <p data-cardid="eta argas">Argas vespertilionis</p>
+                <p data-cardid="bhnd asc">Ascaridia columbae</p>
+                <p data-cardid="bhnd asc">Ascaridia dissimilis</p>
+                <p data-cardid="bhnd asc">Ascaridia galli</p>
+                <p data-cardid="phnd asc">Ascaris suum</p>
+                <p data-cardid="mhnd asp">Aspiculuris tetraptera</p>
+                <p data-cardid="rei bovic">Bovicola bovis</p>
+                <p data-cardid="rei bovic">Bovicola caprae</p>
+                <p data-cardid="hei bovic">Bovicola equi (syn. Werneckiella equi asini)</p>
+                <p data-cardid="chnd cap">Capillaria aerophila</p>
+                <p data-cardid="bhnd capill">Capillaria anatis</p>
+                <p data-cardid="bhnd capill">Capillaria annulata</p>
+                <p data-cardid="bhnd capill">Capillaria bursata</p>
+                <p data-cardid="bhnd capill">Capillaria caudinflata</p>
+                <p data-cardid="bhnd capill">Capillaria contorta</p>
+                <p data-cardid="bhnd capill">Capillaria obsignata</p>
+                <p data-cardid="chnd cap">Capillaria plica</p>
+                <p data-cardid="rhnd chaber">Chabertia ovina</p>
+                <p data-cardid="bhcd choa">Choanotaenia infundibulum</p>
+                <p data-cardid="eih cim">Cimex columbarius</p>
+                <p data-cardid="eih cim">Cimex hemipterus</p>
+                <p data-cardid="eih cim">Cimex lectularius</p>
+                <p data-cardid="lhcd citto">Cittotaenia ctenoides</p>
+                <p data-cardid="lhcd citto">Cittotaenia denticulata</p>
+                <p data-cardid="lhcd citto">Cittotaenia pectinata</p>
+                <p data-cardid="bei colum">Columbicola columbae</p>
+                <p data-cardid="rhnd notrichostrong">Cooperia curticei</p>
+                <p data-cardid="rhnd notrichostrong">Cooperia oncophora</p>
+                <p data-cardid="rpd crypt">Cryptosporidium andersoni</p>
+                <p data-cardid="rpd crypt">Cryptosporidium bovis</p>
+                <p data-cardid="rpd crypt">Cryptosporidium parvum</p>
+                <p data-cardid="cei cten">Ctenocephalides canis</p>
+                <p data-cardid="cei cten">Ctenocephalides felis</p>
+                <p data-cardid="hhnd cyath">Cyathostomum catinatum</p>
+                <p data-cardid="hhnd cyath">Cyathostomum coronatum</p>
+                <p data-cardid="hhnd cyath">Cyathostomum labiatum</p>
+                <p data-cardid="hhnd cyath">Cyathostomum nassatus</p>
+                <p data-cardid="hhnd cyath">Cyathostomum pateratum</p>
+                <p data-cardid="hhnd cyath">Cylicocyclus radiatus</p>
+                <p data-cardid="cem dem">Demodex canis</p>
+                <p data-cardid="eti derm">Dermacentor marginatus</p>
+                <p data-cardid="eti derm">Dermacentor reticulatus</p>
+                <p data-cardid="bem derm">Dermanyssus gallinae</p>
+                <p data-cardid="rht dicro">Dicrocoelium dendriticum</p>
+                <p data-cardid="hhnr dicty">Dictyocaulus arnfieldi</p>
+                <p data-cardid="rhnr dicty">Dictyocaulus filaria</p>
+                <p data-cardid="chc diph">Diphyllobothrium latum (Dibothriocephalus latus)</p>
+                <p data-cardid="chc dipy">Dipylidium caninum</p>
+                <p data-cardid="chnb diro">Dirofilaria immitis</p>
+                <p data-cardid="chnb diro">Dirofilaria repens</p>
+                <p data-cardid="chc ech">Echinococcus granulosus</p>
+                <p data-cardid="chc ech">Echinococcus multilocularis</p>
+                <p data-cardid="bpd eim">Eimeria acervulina</p>
+                <p data-cardid="bpd eim">Eimeria adenoides</p>
+                <p data-cardid="rpd eim">Eimeria ahsata</p>
+                <p data-cardid="rpd eim">Eimeria alabamensis</p>
+                <p data-cardid="rpd eim">Eimeria alijevi</p>
+                <p data-cardid="bpd eim">Eimeria anseris</p>
+                <p data-cardid="rpd eim">Eimeria arloingi</p>
+                <p data-cardid="rpd eim">Eimeria auburnensis</p>
+                <p data-cardid="rpd eim">Eimeria bovis</p>
+                <p data-cardid="bpd eim">Eimeria brunetti</p>
+                <p data-cardid="rpd eim">Eimeria crandallis</p>
+                <p data-cardid="bpd eim">Eimeria danailovi</p>
+                <p data-cardid="ppd eim">Eimeria debliecki</p>
+                <p data-cardid="lpd eim">Eimeria europaea</p>
+                <p data-cardid="rpd eim">Eimeria faurei</p>
+                <p data-cardid="lpd eim">Eimeria flavescens</p>
+                <p data-cardid="lpd eim">Eimeria intestinalis</p>
+                <p data-cardid="rpd eim">Eimeria intricata</p>
+                <p data-cardid="lpd eim">Eimeria leporis</p>
+                <p data-cardid="hpd eim">Eimeria leuckarti</p>
+                <p data-cardid="lpd eim">Eimeria magna</p>
+                <p data-cardid="bpd eim">Eimeria maxima</p>
+                <p data-cardid="lpd eim">Eimeria media</p>
+                <p data-cardid="bpd eim">Eimeria meleagrimitis</p>
+                <p data-cardid="bpd eim">Eimeria mulardi</p>
+                <p data-cardid="bpd eim">Eimeria necatrix</p>
+                <p data-cardid="ppd eim">Eimeria neodebliecki</p>
+                <p data-cardid="bpd eim">Eimeria nocens</p>
+                <p data-cardid="rpd eim">Eimeria ovinoidalis</p>
+                <p data-cardid="ppd eim">Eimeria perminuta</p>
+                <p data-cardid="ppd eim">Eimeria polita</p>
+                <p data-cardid="ppd eim">Eimeria scabra</p>
+                <p data-cardid="ppd eim">Eimeria spinosa</p>
+                <p data-cardid="lpd eim">Eimeria stiedai</p>
+                <p data-cardid="bpd eim">Eimeria tenella</p>
+                <p data-cardid="lpd eim">Eimeria townsendi</p>
+                <p data-cardid="bpd eim">Eimeria truncata</p>
+                <p data-cardid="rpd eim">Eimeria zuernii</p>
+                <p data-cardid="rht fasciola">Fasciola hepatica</p>
+                <p data-cardid="rht fascioloides">Fascioloides magna</p>
+                <p data-cardid="hei gaster">Gasterophilus haemorrhoidalis</p>
+                <p data-cardid="hei gaster">Gasterophilus inermis</p>
+                <p data-cardid="hei gaster">Gasterophilus intestinalis</p>
+                <p data-cardid="hei gaster">Gasterophilus nasalis</p>
+                <p data-cardid="hei gaster">Gasterophilus nigricornis</p>
+                <p data-cardid="hei gaster">Gasterophilus pecorum</p>
+                <p data-cardid="cpd giar">Giardia duodenalis (syn. Giardia intestinalis) assemblage C & D (syn. Giardia
+                    canis)</p>
+                <p data-cardid="bei gon">Goniodes gigas (large chicken louse)</p>
+                <p data-cardid="eti haem">Haemaphysalis concinna</p>
+                <p data-cardid="eti haem">Haemaphysalis inermis</p>
+                <p data-cardid="eti haem">Haemaphysalis punctata</p>
+                <p data-cardid="rei haematopin">Haematopinus eurysternus</p>
+                <p data-cardid="pei haem">Haematopinus suis</p>
+                <p data-cardid="rhnd notrichostrong">Haemonchus contortus</p>
+                <p data-cardid="cpb hepa">Hepatozoon canis</p>
+                <p data-cardid="bhnd heter">Heterakis gallinarum</p>
+                <p data-cardid="mhnd het">Heterakis spumosa</p>
+                <p data-cardid="mhc hymen">Hymenolepis diminuta</p>
+                <p data-cardid="mhc hymen">Hymenolepis microstoma</p>
+                <p data-cardid="mhc hymen">Hymenolepis nana</p>
+                <p data-cardid="rei hypoderm">Hypoderma bovis (warble fly)</p>
+                <p data-cardid="eti ixo">Ixodes apronophorus</p>
+                <p data-cardid="eti ixo">Ixodes arboricola</p>
+                <p data-cardid="eti ixo">Ixodes canisuga</p>
+                <p data-cardid="eti ixo">Ixodes hexagonus</p>
+                <p data-cardid="eti ixo">Ixodes persulcatus</p>
+                <p data-cardid="eti ixo">Ixodes ricinus</p>
+                <p data-cardid="eti ixo">Ixodes scapularis</p>
+                <p data-cardid="eti ixo">Ixodes simplex</p>
+                <p data-cardid="eti ixo">Ixodes trianguliceps</p>
+                <p data-cardid="eti ixo">Ixodes vespertilionis</p>
+                <p data-cardid="bem knem">Knemidocoptes mutans</p>
+                <p data-cardid="bem knem">Knemidocoptes pilae</p>
+                <p data-cardid="bem knem">Knemidocoptes. gallinae</p>
+                <p data-cardid="cpb leish">Leishmania infantum</p>
+                <p data-cardid="cpb leish">Leishmania tropica</p>
+                <p data-cardid="rei linog">Linognathus vituli</p>
+                <p data-cardid="pha mac">Macracanthorhynchus hirudinaceus</p>
+                <p data-cardid="rei meloph">Melophagus ovinus</p>
+                <p data-cardid="bei men">Menopon gallinae (shaft louse)</p>
+                <p data-cardid="chc meso">Mesocestoides lineatus</p>
+                <p data-cardid="chc meso">Mesocestoides litteratus</p>
+                <p data-cardid="cht meta">Metagonimus yokogavai</p>
+                <p data-cardid="rhc moni">Moniezia benedeni</p>
+                <p data-cardid="rhc moni">Moniezia expansa</p>
+                <p data-cardid="rhnr muell">Muellerius capillaris</p>
+                <p data-cardid="rhnd nematodir">Nematodirus battus</p>
+                <p data-cardid="rhnd nematodir">Nematodirus helvetianus</p>
+                <p data-cardid="rhnd nematodir">Nematodirus spathiger</p>
+                <p data-cardid="cem noto">Notoedres cati</p>
+                <p data-cardid="eih cim">Oeciacus dissimilis</p>
+                <p data-cardid="eih cim">Oeciacus hirundinis</p>
+                <p data-cardid="rhnd oesoph">Oesophagostomum radiatum</p>
+                <p data-cardid="rei oest">Oestrus ovis</p>
+                <p data-cardid="rhnd notrichostrong">Ostertagio ostertagi</p>
+                <p data-cardid="cem oto">Otodectes cynotis</p>
+                <p data-cardid="hhnd oxy">Oxyuris equi</p>
+                <p data-cardid="rht paramph">Paramphistomum cervi</p>
+                <p data-cardid="rht paramph">Paramphistomum ichikawai</p>
+                <p data-cardid="hhc noano">Paranoplocephala mamillana</p>
+                <p data-cardid="hhnd parasc">Parascaris equorum</p>
+                <p data-cardid="lhnd pass">Passalurus ambiguus</p>
+                <p data-cardid="bha poly">Polymorphus minutus (syn. P boschadis)</p>
+                <p data-cardid="rhnr protostrong">Protostrongylus brevispiculum</p>
+                <p data-cardid="rhnr protostrong">Protostrongylus rufescens</p>
+                <p data-cardid="lem pso">Psoroptes cuniculi</p>
+                <p data-cardid="hem pso">Psoroptes equi</p>
+                <p data-cardid="bhcd rail">Raillietina cesticillus</p>
+                <p data-cardid="bhcd rail">Raillietina echinobothrida</p>
+                <p data-cardid="bhcd rail">Raillietina tetragona</p>
+                <p data-cardid="cpd sarc">Sarcocystis arieticanis</p>
+                <p data-cardid="cpd sarc">Sarcocystis bertrami (syn. Sarcocystis equicanis)</p>
+                <p data-cardid="cpd sarc">Sarcocystis capracanis</p>
+                <p data-cardid="cpd sarc">Sarcocystis cruzi</p>
+                <p data-cardid="cpd sarc">Sarcocystis fayeri</p>
+                <p data-cardid="cpd sarc">Sarcocystis gigantea</p>
+                <p data-cardid="cpd sarc">Sarcocystis hircicanis</p>
+                <p data-cardid="cpd sarc">Sarcocystis hirsuta</p>
+                <p data-cardid="cpd sarc">Sarcocystis hominis</p>
+                <p data-cardid="cpd sarc">Sarcocystis horvathi</p>
+                <p data-cardid="cpd sarc">Sarcocystis medusiformis</p>
+                <p data-cardid="cpd sarc">Sarcocystis moulei</p>
+                <p data-cardid="cpd sarc">Sarcocystis neurona</p>
+                <p data-cardid="cpd sarc">Sarcocystis rommeli</p>
+                <p data-cardid="cpd sarc">Sarcocystis tenella</p>
+                <p data-cardid="cpd sarc">Sarcocystis wenzeli</p>
+                <p data-cardid="pem sarc">Sarcoptes scabiei (variet suis)</p>
+                <p data-cardid="bhnd strong">Strongyloides avium</p>
+                <p data-cardid="rhnd strong">Strongyloides papillosus</p>
+                <p data-cardid="phnd strong">Strongyloides ransomi (suis)</p>
+                <p data-cardid="chnd strong">Strongyloides stercoralis</p>
+                <p data-cardid="hhnd strong">Strongylus edentatus (large strongyles)</p>
+                <p data-cardid="hhnd strong">Strongylus equinus</p>
+                <p data-cardid="hhnd strong">Strongylus vulgaris</p>
+                <p data-cardid="bhn syng">Syngamus trachea</p>
+                <p data-cardid="mhnd syp">Syphacia muris</p>
+                <p data-cardid="mhnd syp">Syphacia obvelata</p>
+                <p data-cardid="chc taen">Taenia hydatigena</p>
+                <p data-cardid="chc taen">Taenia multiceps</p>
+                <p data-cardid="chc taen">Taenia ovis</p>
+                <p data-cardid="chc taen">Taenia pisiformis</p>
+                <p data-cardid="chc taen">Taenia serialis</p>
+                <p data-cardid="chc taen">Taenia teaniaeformis</p>
+                <p data-cardid="rhnd notrichostrong">Telodorsagia circumcinta</p>
+                <p data-cardid="chnb thel">Thelazia callipaeda</p>
+                <p data-cardid="chnd toxasc">Toxascaris leonina</p>
+                <p data-cardid="chnd toxo">Toxocara canis</p>
+                <p data-cardid="chnd toxo">Toxocara cati</p>
+                <p data-cardid="rhnd toxo">Toxocara vitulorum</p>
+                <p data-cardid="cei trich">Trichodectes canis (dog-biting louse)</p>
+                <p data-cardid="bp trich">Trichomonas gallinae</p>
+                <p data-cardid="rhnd notrichostrong">Trichostrongylus axei</p>
+                <p data-cardid="rhnd notrichostrong">Trichostrongylus colubriformis</p>
+                <p data-cardid="rhnd trich">Trichuris ovis</p>
+                <p data-cardid="chnd trich">Trichuris vulpis</p>
+                <p data-cardid="rpb tryp">Trypanosoma brucei brucei</p>
+                <p data-cardid="hpb tryp">Trypanosoma equiperdum</p>
+                <p data-cardid="chnd noanc">Uncinaria stenocephala</p></div>
+        </div>
+    </div>
     <!--    IMAGES -->
     <div id="sheet-fullscreen" class="sheet-fullscreen">
         <div class="sheets-body">
@@ -2853,7 +3206,7 @@
 
 <script>
     /* update version in menu */
-    const vers = "15/03/2021 1454";
+    const vers = "22/03/2021 1914";
     [document.getElementById("span-version-toolbox"), document.getElementById("span-version-placeholder")].forEach(span => span.innerHTML = vers +
         "<br><img src='img/unionflag.png' height='15' alt=''>&nbsp;<img src='img/wales.png' height='15' alt=''>&nbsp;<img src='img/slovakia.png' height='15' alt=''>");
     document.getElementById("span-version-cache").innerHTML = vers;

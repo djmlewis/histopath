@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 15/3/2021 2:55     djml.uk E&OE.                             *
+ * Copyright (c) 22/3/2021 7:19     djml.uk E&OE.                             *
  ******************************************************************************/
 /*
 html,body {
@@ -1101,3 +1101,23 @@ font-size: 0.6em;
     color: black;
 }
 
+.divgroupings, .divspecies {
+    font-family: "Trebuchet MS",sans-serif;
+    column-width: 20rem;
+    /*column-rule: rgba(0,0,0,0.1) 1px solid;*/
+    cursor: none;
+    pointer-events: none;
+}
+
+.divgroupings p, .divspecies p {
+    cursor: pointer;
+    padding-left:1rem;
+    margin-bottom: 2px;
+    pointer-events: auto;
+}
+
+.divgroupings p:hover, .divspecies p:hover {
+    background-color: #6772b0;
+    color: white;
+    border-radius: 4px;
+}

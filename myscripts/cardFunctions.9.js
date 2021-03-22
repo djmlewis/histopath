@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 15/3/2021 2:55     djml.uk E&OE.                             *
+ * Copyright (c) 22/3/2021 7:19     djml.uk E&OE.                             *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards,index,hideCardTitles) {
@@ -426,4 +426,32 @@ function divimgcardClicked(ev) {
         ev.preventDefault();
         ev.stopPropagation();
     }
+}
+
+function loadCardWithUCID(ucid) {
+    function findcardWithUICD(){
+        for (const cardsetname of Object.keys(window.collectionobject.cardsetsObj)) {
+            for (const chaptername of Object.keys(window.collectionobject.cardsetsObj[cardsetname].chaptersObj)) {
+                for (const cardname of Object.keys(window.collectionobject.cardsetsObj[cardsetname].chaptersObj[chaptername].cardsObj)) {
+                    if (cardname === ucid)
+                        return window.collectionobject.cardsetsObj[cardsetname].chaptersObj[chaptername].cardsObj[cardname];
+                }
+            }
+        }
+        return null;
+    }
+    const cardObj = findcardWithUICD();
+    if (!!cardObj) {
+        loadCardByUniqueID(cardObj.uniqueCardID);
+        //hideSheet('sheet-groupingIndex')
+    }
+}
+
+function divgroupingsClicked(ev) {
+    const ucid = ev.target.getAttribute('data-cardid');
+    if(!!ucid) {
+        loadCardWithUCID(ucid);
+        hideSheet('sheet-groupings');
+    }
+
 }

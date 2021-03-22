@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 15/3/2021 2:55     djml.uk E&OE.                             *
+ * Copyright (c) 22/3/2021 7:19     djml.uk E&OE.                             *
  ******************************************************************************/
 
 //---------- ******** SELECT EVENTS *********** ------------------------//
@@ -190,7 +190,7 @@ function populateSelectCardsOnChapterChange(btnValue) {
         cardsInChapterNamesArray.forEach(function (cardName,index) {
             const cardObj = cardsInChapterObj[cardName];
             cuidArray.push(cardObj.uniqueCardID);
-            createOptionForCardMenuWithCardObject(cardObj, selectcards,index,hideCardTitles);
+            createOptionForCardMenuWithCardObject(cardObj, selectcards,index+1,hideCardTitles);
         });
     });
     if (!!btnValue) {

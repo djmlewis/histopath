@@ -1,10 +1,10 @@
 /******************************************************************************
- * Copyright (c) 19/2/2021 11:13     djml.uk E&OE.                            *
+ * Copyright (c) 22/3/2021 7:19     djml.uk E&OE.                             *
  ******************************************************************************/
 
 // ============ Global Index
 function handle_showGlobalIndexClicked(fromdropdown) {
-    if(!!fromdropdown)$(fromdropdown).dropdown('hide');
+    if (!!fromdropdown) $(fromdropdown).dropdown('hide');
     const div = document.getElementById("list-globalIndex");
     const divpopesko = document.getElementById("list-globalIndexPopesko");
     const select = document.getElementById("select-globalIndexChapters");
@@ -39,7 +39,11 @@ function showGlobalIndexLineForCurrentCard() {
         galleryChildren[btnIndex].scrollIntoView({behavior: "auto", block: "center", inline: "nearest"});
         galleryChildren[btnIndex].classList.add("list-globalIndex-selected");
         window.globalIndexSelectedLine = galleryChildren[btnIndex];
-    } else if(!!galleryChildren[0])galleryChildren[0].scrollIntoView({behavior: "auto", block: "center", inline: "nearest"});
+    } else if (!!galleryChildren[0]) galleryChildren[0].scrollIntoView({
+        behavior: "auto",
+        block: "center",
+        inline: "nearest"
+    });
     // scrollIntoView(block: "center") ensures it is centre below the header
     //document.getElementById("modal-globalIndex-body").scrollTo(0,0);
 }
@@ -80,10 +84,12 @@ function downloadGlobalIndex() {
     }
 }
 
+/*
 function handleGlobalIndexLineClicked(target) {
     const ucid = target.getAttribute("data-cuid");
     if (!!ucid) handleGalleryClick(ucid, undefined, "sheet-globalindex");
 }
+*/
 
 function revealGlobalIndexButtons() {
     elementsArrayForClassName("showGlobalIndex").forEach(b => {
@@ -101,7 +107,7 @@ function handleGlobalIndexSelectChange(select) {
 }
 
 function showOnlyPopeskoGlobalIndex(showPopesko) {
-    document.getElementById("select-globalIndexChapters").style.visibility = showPopesko? "hidden" : "visible";
+    document.getElementById("select-globalIndexChapters").style.visibility = showPopesko ? "hidden" : "visible";
     document.getElementById("list-globalIndex").hidden = showPopesko;
     document.getElementById("list-globalIndexPopesko").hidden = !showPopesko;
     showGlobalIndexLineForCurrentCard();
@@ -112,37 +118,40 @@ function downloadPopeskoThumbs() {
         if (window.Worker) {
             const globalindexWorker = newJSONobjWorker();
             globalindexWorker.onmessage = function (e) {
-                window.popeskoThumbsObj=e.data;
+                window.popeskoThumbsObj = e.data;
                 addPopeskoThumbsToGallery();
             };
-            globalindexWorker.postMessage('indices/popeskoThumbs.'+window.indicesversionStr+'.json');
+            globalindexWorker.postMessage('indices/popeskoThumbs.' + window.indicesversionStr + '.json');
         } else {
-            fetch('indices/popeskoThumbs.'+window.indicesversionStr+'.json')
+            fetch('indices/popeskoThumbs.' + window.indicesversionStr + '.json')
                 .then(response => response.json())
                 .then(data => {
-                    window.popeskoThumbsObj=data;
+                    window.popeskoThumbsObj = data;
                     addPopeskoThumbsToGallery();
                 });
         }
     } else {
-        loadLocalScript("globalindex", 'indices/popeskoThumbs.'+window.indicesversionStr+'.js');
+        loadLocalScript("globalindex", 'indices/popeskoThumbs.' + window.indicesversionStr + '.js');
     }
 }
 
 function addPopeskoThumbsToGallery() {
-    if(!!window.popeskoThumbsObj) {
+    if (!!window.popeskoThumbsObj) {
         const selectcardsset = document.getElementById("select-cardsset-gallery");
         let topt = document.createElement("option");
         topt.value = "";
         topt.text = "Atlas of Topographic Anatomy of Domestic Animals (Popesko)";
-        topt.disabled=true;
+        topt.disabled = true;
         selectcardsset.appendChild(topt);
         Object.keys(window.popeskoThumbsObj).forEach(function (chaptername) {
             let opt = document.createElement("option");
             opt.value = String(chaptername); //<== this will not be found in window.collectionobject.cardsetObj[id] indicating it is a popeskoThumbs chapter
-            opt.text = "\u00A0- "+String(chaptername);
+            opt.text = "\u00A0- " + String(chaptername);
             selectcardsset.appendChild(opt);
         });
 
     }
 }
+
+
+/* ******************************* */

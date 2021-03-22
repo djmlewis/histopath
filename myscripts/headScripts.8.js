@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 13/3/2021 9:56     djml.uk E&OE.                             *
+ * Copyright (c) 22/3/2021 7:19     djml.uk E&OE.                             *
  ******************************************************************************/
 
 //---------- ******** IMMEDIATE GLOBALS *********** ------------------------//
@@ -95,14 +95,14 @@ window.addEventListener('load', function () {
     // DEFERRED actions
     setTimeout(() => loadHelp(), 80);
     document.getElementById('div-image-card').addEventListener("click", ev => divimgcardClicked(ev));
+    ['div-groupings','div-species'].forEach(id=>document.getElementById(id).addEventListener("click", ev => divgroupingsClicked(ev)));
+
 
     window.addEventListener("orientationchange", function () {
         // i don't know why I love you, but I do....
         setTimeout(() => handleWindowResize(), 100);
     });
     $('[data-toggle="popover"]').popover()
-
-
 
 });
 

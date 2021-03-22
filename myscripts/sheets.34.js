@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 15/3/2021 2:55     djml.uk E&OE.                             *
+ * Copyright (c) 22/3/2021 7:19     djml.uk E&OE.                             *
  ******************************************************************************/
 
 function showSheet(sheetID) {
@@ -66,4 +66,8 @@ function addSheetHolderEventListener() {
         const {id} = e.target;
         if (id === "div-sheetholder") hideSheet(window.modal_shown);
     });
+}
+
+function generaSpeciesClicked(){
+    ['div-groupings','div-species'].forEach(id=>document.getElementById(id).toggleAttribute('hidden'));
 }
