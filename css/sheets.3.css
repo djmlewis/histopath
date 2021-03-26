@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 15/3/2021 2:55     djml.uk E&OE.                             *
+ * Copyright (c) 26/3/2021 2:37     djml.uk E&OE.                             *
  ******************************************************************************/
 .sheetholder {
     position: absolute;
@@ -108,4 +108,12 @@
     background-color: rgba(255, 255, 255, 0.8);
     width: 80vw;
     max-width: 600px;
+}
+
+.zoomImg {
+    max-width: 100vw;
+    max-height: 100vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

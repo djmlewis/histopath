@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 22/3/2021 7:19     djml.uk E&OE.                             *
+ * Copyright (c) 26/3/2021 2:37     djml.uk E&OE.                             *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards,index,hideCardTitles) {
@@ -388,12 +388,12 @@ function divimgcardClicked(ev) {
         const carouselInner=document.getElementById('carouselZoomImg-inner');
         indicsList.innerHTML="";
         carouselInner.innerHTML="";
-        for(const imageNameOrient of cardImgNamesArray) {
+        cardImgNamesArray.forEach((imageNameOrient,indx)=> {
             //[0] is name "xxx yyy pX" [1] is orientation p or l
             const imgName = imageNameOrient.split("\t")[0];
             const li=document.createElement('li');
             li.setAttribute('data-target','#carouselZoomImg');
-            li.setAttribute('data-slide-to','0');
+            li.setAttribute('data-slide-to',indx.toString());
             indicsList.appendChild(li);
             const dv=document.createElement('div');
             dv.className="carousel-item";
@@ -412,14 +412,14 @@ function divimgcardClicked(ev) {
             carouselInner.appendChild(dv);
             const img=document.createElement('img');
             img.alt="";
-            img.className='d-block w-100';
+            img.classList.add('zoomImg');
             img.src=selectedCardObj.imagePath+imgName+selectedCardObj.imageType;
             dv.appendChild(img);
-        }
+        });
         const clickedImgID = ev.target.getAttribute('data-imgname');
         const clickedIndex = Math.max(0,cardImgNamesArray.findIndex(e=>e.startsWith(clickedImgID)));
         [indicsList,carouselInner].forEach(e=>e.children[clickedIndex].classList.add('active'));
-        showSheet('sheet-zoom');
+        hideSheetZoom(false);
     }  else if(ev.target.className==='imgCaption') {
         ev.target.getElementsByClassName('spanImgCaption')[0].style.visibility =
             (ev.target.getElementsByClassName('spanImgCaption')[0].style.visibility==="visible" ? 'hidden' : 'visible');

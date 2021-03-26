@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 22/3/2021 7:19     djml.uk E&OE.                            *
+  * Copyright (c) 26/3/2021 2:37     djml.uk E&OE.                            *
   ***************************************************************************-->
 
 <!doctype html>
@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="css/topics.1.css">
     <link rel="stylesheet" href="css/gybt.1.css">
     <link rel="stylesheet" href="css/gybt_bmk.1.css">
-    <link rel="stylesheet" href="css/sheets.2.css">
+    <link rel="stylesheet" href="css/sheets.3.css">
     <link rel="stylesheet" href="css/bookmarks.1.css">
     <link rel="stylesheet" href="css/userguide.1.css">
     <link rel="stylesheet" href="css/notes.1.css">
@@ -41,7 +41,7 @@
     <script src="myscripts/globals.8.js" defer></script>
     <script src="myscripts/db.1.js" defer></script>
     <script src="myscripts/utilities.2.js" defer></script>
-    <script src="myscripts/sheets.34.js" defer></script>
+    <script src="myscripts/sheets.35.js" defer></script>
     <!--    ****** CHANGE ME in the R scripts !! version strings-->
     <script>
         window.indicesversionStr = "255";
@@ -72,7 +72,7 @@
     <script src="myscripts/favourites_quickgallery.1.js" defer></script>
     <script src="myscripts/history.1.js" defer></script>
     <script src="myscripts/topics.1.js" defer></script>
-    <script src="myscripts/cardFunctions.9.js" defer></script>
+    <script src="myscripts/cardFunctions.10.js" defer></script>
     <script src="myscripts/helpMenu.2.js" defer></script>
     <script src="myscripts/settings.7.js" defer></script>
     <script src="myscripts/headScripts.8.js" defer></script>
@@ -94,229 +94,255 @@
 </head>
 
 <body class="" style="overflow: hidden;!important;">
-<div id="div-mainpage" class="d-flex flex-column" style="height: 100vh; max-height: 100vh;">
-    <div id="toolbar-row1" class="mx-1 mt-1">
-        <div class="input-group" style="overflow: hidden;!important; background-color: transparent;">
-            <button type="button" class="btn btn-outline-dark mr-1"
-                    title="Show Family/Genera or Species Index"
-                    onclick="showSheet('sheet-groupings');">
-                <i class="fas fa-book"></i>
-            </button>
-            <label for="select-cardsset"></label>
-            <select name="selectcardsset" class="custom-select btn-cardsset rounded-sm mr-1"
-                    id="select-cardsset"
-                    title="Select cardset to view"></select>
-            <label for="select-chapters"></label>
-            <select name="selectchapters" class="custom-select btn-chapter rounded-sm mr-1"
-                    id="select-chapters"
-                    title="Select chapter to view"></select>
-            <label hidden for="select-cards"></label>
-            <select name="selectcards" class="custom-select btn-cards rounded-sm mr-1" id="select-cards"
-                    title="Select card to view"></select>
-            <button type="button" class="btn btn-cards mr-1"
-                    title="Show/Hide card title menu"
-                    onclick="showHideCardSelect()">
-                <i class="fas fa-low-vision"></i>
-            </button>
-            <div class="btn-group">
-                <button id="btn_card-prev" type="button" class="btn btn-cards" value="-1"
-                        title="Previous card in chapter"
-                        onclick="changeCardIndex(this)">
-                    <i class="fas fa-arrow-left"></i>
+<div id="div-mainpage" style="height: 100vh; max-height: 100vh;">
+    <div class="d-flex flex-column">
+        <div id="toolbar-row1" class="mx-1 mt-1">
+            <div class="input-group" style="overflow: hidden;!important; background-color: transparent;">
+                <button type="button" class="btn btn-outline-dark mr-1"
+                        title="Show Family/Genera or Species Index"
+                        onclick="showSheet('sheet-groupings');">
+                    <i class="fas fa-book"></i>
                 </button>
-                <button id="btn_card-next" type="button" class="btn btn-cards" value="1"
-                        title="Next card in chapter"
-                        onclick="changeCardIndex(this)">
-                    <i class="fas fa-arrow-right"></i>
+                <label for="select-cardsset"></label>
+                <select name="selectcardsset" class="custom-select btn-cardsset rounded-sm mr-1"
+                        id="select-cardsset"
+                        title="Select cardset to view"></select>
+                <label for="select-chapters"></label>
+                <select name="selectchapters" class="custom-select btn-chapter rounded-sm mr-1"
+                        id="select-chapters"
+                        title="Select chapter to view"></select>
+                <label hidden for="select-cards"></label>
+                <select name="selectcards" class="custom-select btn-cards rounded-sm mr-1" id="select-cards"
+                        title="Select card to view"></select>
+                <button type="button" class="btn btn-cards mr-1"
+                        title="Show/Hide card title menu"
+                        onclick="showHideCardSelect()">
+                    <i class="fas fa-low-vision"></i>
                 </button>
+                <div class="btn-group">
+                    <button id="btn_card-prev" type="button" class="btn btn-cards" value="-1"
+                            title="Previous card in chapter"
+                            onclick="changeCardIndex(this)">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button id="btn_card-next" type="button" class="btn btn-cards" value="1"
+                            title="Next card in chapter"
+                            onclick="changeCardIndex(this)">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="toolbar-row2" class="d-flex flex-row justify-content-between align-items-center flex-wrap mx-1 mt-1">
-        <div id="col-slider-image-Width" class="col-slider">
-            <label hidden for="slider-image-Width"></label>
-            <input type="range" class="form-control-range" id="slider-image-Width"
-                   title="Adjust image width"
-                   min="10" max="70" step="10" value="50"
-                   oninput="handleSliderImageWidthChanged(this)">
-        </div>
-        <div class="d-flex flex-row align-items-center flex-wrap">
-            <button type="button" class="btn btn-sm btn-outline-primary mr-1"
-                    id="btn-fullscreen"
-                    style="visibility: hidden;"
-                    onclick="showSheet('sheet-fullscreen');"
-                    title="Fullscreen images">
-                <i class="fas fa-expand-alt"></i></button>
-            <div>
-                <div class="input-group input-group-sm">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-sm btn-primary" type="button" id="button-addon1"
-                                onclick="randomiseBtnClicked();"
-                        >Randomise
-                        </button>
-                        <div id="inputgp-statuscbxs" class="input-group-text bg-white">
-                            <div class="custom-control custom-switch text-secondary mr-1">
-                                <input class="custom-control-input" type="checkbox" name="checkbox-randomiseUntested"
-                                       id="checkbox-randomiseUntested" data-status="untested"
-                                       value="true" checked onclick="randomiseCBXclicked();">
-                                <label class="custom-control-label" for="checkbox-randomiseUntested"><i
-                                        class="fas fa-question-circle"></i></label>
-                            </div>
-                            <div class="custom-control custom-switch text-danger mx-1">
-                                <input class="custom-control-input" type="checkbox" name="checkbox-randomiseIncorrect"
-                                       id="checkbox-randomiseIncorrect" data-status="incorrect"
-                                       value="true" checked onclick="randomiseCBXclicked();">
-                                <label class="custom-control-label" for="checkbox-randomiseIncorrect"><i
-                                        class="fas fa-times-circle"></i></label>
-                            </div>
-                            <div class="custom-control custom-switch text-success mx-1">
-                                <input class="custom-control-input" type="checkbox" name="checkbox-randomiseCorrect"
-                                       id="checkbox-randomiseCorrect" data-status="correct"
-                                       value="true" checked onclick="randomiseCBXclicked();">
-                                <label class="custom-control-label" for="checkbox-randomiseCorrect"><i
-                                        class="fas fa-check-circle"></i></label>
-                            </div>
-                            <div class="custom-control custom-switch text-warning mx-1">
-                                <input class="custom-control-input" type="checkbox" name="checkbox-randomiseStar"
-                                       id="checkbox-randomiseStar" data-status="star"
-                                       value="true" checked onclick="randomiseCBXclicked();">
-                                <label class="custom-control-label" for="checkbox-randomiseStar"><i
-                                        class="fas fa-star"></i></label>
+        <div id="toolbar-row2" class="d-flex flex-row justify-content-between align-items-center flex-wrap mx-1 mt-1">
+            <div id="col-slider-image-Width" class="col-slider">
+                <label hidden for="slider-image-Width"></label>
+                <input type="range" class="form-control-range" id="slider-image-Width"
+                       title="Adjust image width"
+                       min="10" max="70" step="10" value="50"
+                       oninput="handleSliderImageWidthChanged(this)">
+            </div>
+            <div class="d-flex flex-row align-items-center flex-wrap">
+                <button type="button" class="btn btn-sm btn-outline-primary mr-1"
+                        id="btn-fullscreen"
+                        style="visibility: hidden;"
+                        onclick="showSheet('sheet-fullscreen');"
+                        title="Fullscreen images">
+                    <i class="fas fa-expand-alt"></i></button>
+                <div>
+                    <div class="input-group input-group-sm">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-sm btn-primary" type="button" id="button-addon1"
+                                    onclick="randomiseBtnClicked();"
+                            >Randomise
+                            </button>
+                            <div id="inputgp-statuscbxs" class="input-group-text bg-white">
+                                <div class="custom-control custom-switch text-secondary mr-1">
+                                    <input class="custom-control-input" type="checkbox"
+                                           name="checkbox-randomiseUntested"
+                                           id="checkbox-randomiseUntested" data-status="untested"
+                                           value="true" checked onclick="randomiseCBXclicked();">
+                                    <label class="custom-control-label" for="checkbox-randomiseUntested"><i
+                                            class="fas fa-question-circle"></i></label>
+                                </div>
+                                <div class="custom-control custom-switch text-danger mx-1">
+                                    <input class="custom-control-input" type="checkbox"
+                                           name="checkbox-randomiseIncorrect"
+                                           id="checkbox-randomiseIncorrect" data-status="incorrect"
+                                           value="true" checked onclick="randomiseCBXclicked();">
+                                    <label class="custom-control-label" for="checkbox-randomiseIncorrect"><i
+                                            class="fas fa-times-circle"></i></label>
+                                </div>
+                                <div class="custom-control custom-switch text-success mx-1">
+                                    <input class="custom-control-input" type="checkbox" name="checkbox-randomiseCorrect"
+                                           id="checkbox-randomiseCorrect" data-status="correct"
+                                           value="true" checked onclick="randomiseCBXclicked();">
+                                    <label class="custom-control-label" for="checkbox-randomiseCorrect"><i
+                                            class="fas fa-check-circle"></i></label>
+                                </div>
+                                <div class="custom-control custom-switch text-warning mx-1">
+                                    <input class="custom-control-input" type="checkbox" name="checkbox-randomiseStar"
+                                           id="checkbox-randomiseStar" data-status="star"
+                                           value="true" checked onclick="randomiseCBXclicked();">
+                                    <label class="custom-control-label" for="checkbox-randomiseStar"><i
+                                            class="fas fa-star"></i></label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="input-group-append">
-                        <span id="span-randomSlideCount" class="input-group-text text-right"></span>
-                        <button type="button" class="btn btn-sm btn-primary"
-                                onclick="btnRandomClicked();"
-                                title="Click to select next random card from current chapter">
-                            <i class="fas fa-random"></i></button>
+                        <div class="input-group-append">
+                            <span id="span-randomSlideCount" class="input-group-text text-right"></span>
+                            <button type="button" class="btn btn-sm btn-primary"
+                                    onclick="btnRandomClicked();"
+                                    title="Click to select next random card from current chapter">
+                                <i class="fas fa-random"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="btngp-status" class="btn-group btn-group-sm">
-            <button id="btnstatus-untested" type="button" class="btn btn-secondary"
-                    onclick="btnStatusClicked('untested');"
-                    title="Set status as untested">
-                <i class="fas fa-question-circle"></i>
-            </button>
-            <button id="btnstatus-incorrect" type="button" class="btn btn-outline-danger"
-                    onclick="btnStatusClicked('incorrect');"
-                    title="Set status as incorrect">
-                <i class="fas fa-times-circle"></i>
-            </button>
-            <button id="btnstatus-correct" type="button" class="btn btn-outline-success"
-                    onclick="btnStatusClicked('correct');"
-                    title="Set status as correct">
-                <i class="fas fa-check-circle"></i>
-            </button>
-            <button id="btnstatus-star" type="button" class="btn btn-outline-warning"
-                    onclick="btnStatusClicked('star');"
-                    title="Set status as starred">
-                <i class="fas fa-star"></i>
-            </button>
-            <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" data-toggle="dropdown"><i
-                    class="fas fa-eraser"></i></button>
-            <div class="dropdown-menu" style="z-index:10000;">
-                <button class="dropdown-item text-danger" type="button"
-                        onclick="btnClearStatusClicked('chapter');"
-                        title="Unmark all cards in this chapter">
-                    Unmark this chapter
+            <div id="btngp-status" class="btn-group btn-group-sm">
+                <button id="btnstatus-untested" type="button" class="btn btn-secondary"
+                        onclick="btnStatusClicked('untested');"
+                        title="Set status as untested">
+                    <i class="fas fa-question-circle"></i>
                 </button>
-                <button class="dropdown-item text-danger" type="button"
-                        onclick="btnClearStatusClicked('cardset');"
-                        title="Unmark all cards in this cardset">
-                    Unmark this cardset
+                <button id="btnstatus-incorrect" type="button" class="btn btn-outline-danger"
+                        onclick="btnStatusClicked('incorrect');"
+                        title="Set status as incorrect">
+                    <i class="fas fa-times-circle"></i>
                 </button>
-            </div>
-        </div>
-    </div>
-    <div id="row-image" class="flex-grow-1 d-flex flex-row flex-nowrap mt-1">
-        <div id="col-image" class="flex-grow-1" style="width: 50%; max-width: 50%; min-width: 50%;overflow-y: auto;">
-            <div class="d-flex align-items-center justify-content-between sticky-top pr-3">
-                <div class="ml-2 flex-shrink-1 d-flex  flex-wrap">
-                    <div class="text-secondary"> Hide:</div>
-                    <div class="custom-control custom-switch ml-1 border-secondary" title="Hide images initially">
-                        <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
-                               id="checkbox-initiallyHideI"
-                               value="true" onclick="checkboxInitiallyHideClicked(this,'images');">
-                        <label class="custom-control-label" for="checkbox-initiallyHideI"><i
-                                class="fas fa-images"></i></label>
-                    </div>
-                    <div class="custom-control custom-switch ml-2 border-secondary"
-                         title="Hide image captions initially">
-                        <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
-                               id="checkbox-initiallyHideCap"
-                               value="true" onclick="checkboxInitiallyHideClicked(this,'captions');">
-                        <label class="custom-control-label" for="checkbox-initiallyHideCap">
-                            <i class="fas fa-closed-captioning"></i></label>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mr-5">
-                    <div style="text-align: right; line-height: 0.9; color: lightgrey;">Click to
-                        reveal/hide <i class="fas fa-images"></i>
-                    </div>
-                    <div class="btn-group btn-group-sm flex-shrink-0 ml-1">
-                        <button type="button" class="btn btn-outline-secondary"
-                                onclick="toggleImagesVisibility(this,'hidden');"
-                                title="Hide images">
-                            <i class="far fa-square"></i></button>
-                        <button type="button" class="btn btn-outline-secondary"
-                                onclick="toggleImagesVisibility(this,'visible');"
-                                title="Reveal images">
-                            <i class="fas fa-images"></i></button>
-                    </div>
+                <button id="btnstatus-correct" type="button" class="btn btn-outline-success"
+                        onclick="btnStatusClicked('correct');"
+                        title="Set status as correct">
+                    <i class="fas fa-check-circle"></i>
+                </button>
+                <button id="btnstatus-star" type="button" class="btn btn-outline-warning"
+                        onclick="btnStatusClicked('star');"
+                        title="Set status as starred">
+                    <i class="fas fa-star"></i>
+                </button>
+                <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" data-toggle="dropdown"><i
+                        class="fas fa-eraser"></i></button>
+                <div class="dropdown-menu" style="z-index:10000;">
+                    <button class="dropdown-item text-danger" type="button"
+                            onclick="btnClearStatusClicked('chapter');"
+                            title="Unmark all cards in this chapter">
+                        Unmark this chapter
+                    </button>
+                    <button class="dropdown-item text-danger" type="button"
+                            onclick="btnClearStatusClicked('cardset');"
+                            title="Unmark all cards in this cardset">
+                        Unmark this cardset
+                    </button>
                 </div>
             </div>
-            <div id="div-image-card" class="d-flex flex-row flex-wrap align-items-start justify-content-center"></div>
         </div>
-        <div id="div-legendouter" class="flex-grow-1" style="overflow-y: auto; overflow-x:hidden;">
-            <div class="d-flex align-items-center justify-content-between sticky-top" style="background-color: white;">
-                <div class="ml-2 flex-shrink-1 d-flex  flex-wrap">
-                    <div class="text-secondary"> Hide:</div>
-                    <div class="custom-control custom-switch mx-1">
-                        <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
-                               id="checkbox-initiallyHideT"
-                               value="true" onclick="checkboxInitiallyHideClicked(this,'text');">
-                        <label class="custom-control-label" for="checkbox-initiallyHideT"><i
-                                class="fas fa-list-ul"></i></label>
+        <div id="row-image" class="flex-grow-1 d-flex flex-row flex-nowrap mt-1">
+            <div id="col-image" class="flex-grow-1"
+                 style="width: 50%; max-width: 50%; min-width: 50%;overflow-y: auto;">
+                <div class="d-flex align-items-center justify-content-between sticky-top pr-3">
+                    <div class="ml-2 flex-shrink-1 d-flex  flex-wrap">
+                        <div class="text-secondary"> Hide:</div>
+                        <div class="custom-control custom-switch ml-1 border-secondary" title="Hide images initially">
+                            <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
+                                   id="checkbox-initiallyHideI"
+                                   value="true" onclick="checkboxInitiallyHideClicked(this,'images');">
+                            <label class="custom-control-label" for="checkbox-initiallyHideI"><i
+                                    class="fas fa-images"></i></label>
+                        </div>
+                        <div class="custom-control custom-switch ml-2 border-secondary"
+                             title="Hide image captions initially">
+                            <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
+                                   id="checkbox-initiallyHideCap"
+                                   value="true" onclick="checkboxInitiallyHideClicked(this,'captions');">
+                            <label class="custom-control-label" for="checkbox-initiallyHideCap">
+                                <i class="fas fa-closed-captioning"></i></label>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mr-5">
+                        <div style="text-align: right; line-height: 0.9; color: lightgrey;">Click to
+                            reveal/hide <i class="fas fa-images"></i>
+                        </div>
+                        <div class="btn-group btn-group-sm flex-shrink-0 ml-1">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    onclick="toggleImagesVisibility(this,'hidden');"
+                                    title="Hide images">
+                                <i class="far fa-square"></i></button>
+                            <button type="button" class="btn btn-outline-secondary"
+                                    onclick="toggleImagesVisibility(this,'visible');"
+                                    title="Reveal images">
+                                <i class="fas fa-images"></i></button>
+                        </div>
                     </div>
                 </div>
-                <div class="d-flex align-items-center">
-                    <div class="my-1 mr-1" style="text-align: right; line-height: 0.9; color: lightgrey;">
-                        Click labels, or click to reveal/hide all:
-                    </div>
-                    <div class="btn-group btn-group-sm flex-shrink-0 m-1">
-                        <button type="button" class="btn btn-outline-secondary"
-                                onclick="toggleLegendTextItemsVisibility(this,'hidden');"
-                                title="Show only labels">
-                            <i class="fas fa-ellipsis-v fa-fw"></i></button>
-                        <button type="button" class="btn btn-outline-secondary"
-                                onclick="toggleLegendTextItemsVisibility(this,'visible');"
-                                title="Reveal all text">
-                            <i class="fas fa-list-ul fa-fw"></i></button>
-                    </div>
-                </div>
+                <div id="div-image-card"
+                     class="d-flex flex-row flex-wrap align-items-start justify-content-center"></div>
             </div>
-            <div id="div-revealAnswers"></div>
+            <div id="div-legendouter" class="flex-grow-1" style="overflow-y: auto; overflow-x:hidden;">
+                <div class="d-flex align-items-center justify-content-between sticky-top"
+                     style="background-color: white;">
+                    <div class="ml-2 flex-shrink-1 d-flex  flex-wrap">
+                        <div class="text-secondary"> Hide:</div>
+                        <div class="custom-control custom-switch mx-1">
+                            <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
+                                   id="checkbox-initiallyHideT"
+                                   value="true" onclick="checkboxInitiallyHideClicked(this,'text');">
+                            <label class="custom-control-label" for="checkbox-initiallyHideT"><i
+                                    class="fas fa-list-ul"></i></label>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="my-1 mr-1" style="text-align: right; line-height: 0.9; color: lightgrey;">
+                            Click labels, or click to reveal/hide all:
+                        </div>
+                        <div class="btn-group btn-group-sm flex-shrink-0 m-1">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    onclick="toggleLegendTextItemsVisibility(this,'hidden');"
+                                    title="Show only labels">
+                                <i class="fas fa-ellipsis-v fa-fw"></i></button>
+                            <button type="button" class="btn btn-outline-secondary"
+                                    onclick="toggleLegendTextItemsVisibility(this,'visible');"
+                                    title="Reveal all text">
+                                <i class="fas fa-list-ul fa-fw"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div id="div-revealAnswers"></div>
+            </div>
         </div>
-    </div>
-    <div id="div-statusbar" class="d-flex justify-content-between align-items-center"
-         style="height: 20px; max-height: 20px; min-height: 20px;overflow: hidden; color: darkgrey;font-size: 10px; font-family: 'Trebuchet MS',sans-serif;">
-        <div>
-            <i class='fas fa-code-branch'></i>&nbsp;<span id="span-version-cache"></span>
+        <div id="div-statusbar" class="d-flex justify-content-between align-items-center"
+             style="height: 20px; max-height: 20px; min-height: 20px;overflow: hidden; color: darkgrey;font-size: 10px; font-family: 'Trebuchet MS',sans-serif;">
+            <div>
+                <i class='fas fa-code-branch'></i>&nbsp;<span id="span-version-cache"></span>
+            </div>
+            <div id="div-cacheClouds-h" class="d-flex justify-content-left align-items-center text-secondary mt-1"
+                 style="visibility: hidden;">
+                <div class="spinner-border spinner-border-sm" role="status" title="Preloading card images…"></div>
+                <div id="span-cacheClouds-h" style="font-size: smaller">0</div>
+            </div>
+            <i id="icon-persistent" class="fas fa-user-lock invisible"
+               title="Settings, Bookmarks, Self-Test Answers, Side Bar Notes, Post-its, Annotations and downloaded images will only be deleted when you clear the browser cache"
+            ></i>
         </div>
-        <div id="div-cacheClouds-h" class="d-flex justify-content-left align-items-center text-secondary mt-1"
-             style="visibility: hidden;">
-            <div class="spinner-border spinner-border-sm" role="status" title="Preloading card images…"></div>
-            <div id="span-cacheClouds-h" style="font-size: smaller">0</div>
-        </div>
-        <i id="icon-persistent" class="fas fa-user-lock invisible"
-           title="Settings, Bookmarks, Self-Test Answers, Side Bar Notes, Post-its, Annotations and downloaded images will only be deleted when you clear the browser cache"
-        ></i>
     </div>
 </div><!--  mainpage-->
+<div hidden id="sheet-zoom" class="">
+    <button type="button" class="btn btn-secondary btn-sm sticky-top float-right"
+            onclick="hideSheetZoom(true);"
+            title="Close">
+        <i class="fa fa-times"></i>
+    </button>
+    <div id="carouselZoomImg" class="carousel slide bg-dark" style="position: absolute;top: 0;left: 0; height: 100vh; width: 100vw;" data-interval="false" data-ride="false">
+        <ol id="carouselZoomImg-indicators" class="carousel-indicators"></ol>
+        <div id="carouselZoomImg-inner" class="carousel-inner"></div>
+        <a class="carousel-control-prev" href="#carouselZoomImg" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselZoomImg" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
 </body>
 <div hidden id="div-sheetholder" class="sheetholder"></div>
 <div hidden>
@@ -2372,35 +2398,37 @@
                  class="d-flex flex-row flex-wrap align-items-start justify-content-center"></div>
         </div>
     </div>
-    <div id="sheet-zoom" class="sheets-div">
-        <div class="sheets-body">
-            <div class="sheets-header sheets-header-sticky justify-content-between bg-dark">
-                <div class="sheets-icontitle text-white">
-                    <i class="fas fa-images icon-gallery-header mx-3"></i>
+    <!--
+        <div id="sheet-zoom" class="sheets-div">
+            <div class="sheets-body">
+                <div class="sheets-header sheets-header-sticky justify-content-between bg-dark">
+                    <div class="sheets-icontitle text-white">
+                        <i class="fas fa-images icon-gallery-header mx-3"></i>
+                    </div>
+                    <div class="text-center text-secondary">Click image left / right edge to show previous / next</div>
+                    <button type="button" class="btn btn-outline-light btn-sm mr-3"
+                            onclick="hideSheet('sheet-zoom');"
+                            title="Close">
+                        <i class="fa fa-times"></i>
+                    </button>
                 </div>
-                <div class="text-center text-secondary">Click image left / right edge to show previous / next</div>
-                <button type="button" class="btn btn-outline-light btn-sm mr-3"
-                        onclick="hideSheet('sheet-zoom');"
-                        title="Close">
-                    <i class="fa fa-times"></i>
-                </button>
-            </div>
-            <div>
-                <div id="carouselZoomImg" class="carousel slide" data-interval="false" data-ride="false">
-                    <ol id="carouselZoomImg-indicators" class="carousel-indicators"></ol>
-                    <div id="carouselZoomImg-inner" class="carousel-inner"></div>
-                    <a class="carousel-control-prev" href="#carouselZoomImg" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselZoomImg" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                <div>
+                    <div id="carouselZoomImg" class="carousel slide" data-interval="false" data-ride="false">
+                        <ol id="carouselZoomImg-indicators" class="carousel-indicators"></ol>
+                        <div id="carouselZoomImg-inner" class="carousel-inner"></div>
+                        <a class="carousel-control-prev" href="#carouselZoomImg" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselZoomImg" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    -->
     <!--    SETTINGS -->
     <div id="sheet-settings" class="sheets-div" style="max-width: 580px; left:50%; transform: translate(-50%,0);">
         <div id="sheet-settings-body" class="sheets-body">
@@ -3206,7 +3234,7 @@
 
 <script>
     /* update version in menu */
-    const vers = "22/03/2021 1914";
+    const vers = "26/03/2021 1435";
     [document.getElementById("span-version-toolbox"), document.getElementById("span-version-placeholder")].forEach(span => span.innerHTML = vers +
         "<br><img src='img/unionflag.png' height='15' alt=''>&nbsp;<img src='img/wales.png' height='15' alt=''>&nbsp;<img src='img/slovakia.png' height='15' alt=''>");
     document.getElementById("span-version-cache").innerHTML = vers;
