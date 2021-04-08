@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 8/4/2021 7:16     djml.uk E&OE.                             *
+  * Copyright (c) 8/4/2021 7:20     djml.uk E&OE.                             *
   ***************************************************************************-->
 
 <!doctype html>
@@ -97,10 +97,11 @@
     <div class="d-flex flex-column">
         <div id="toolbar-row1" class="mx-1 mt-1">
             <div class="input-group" style="overflow: hidden;!important; background-color: transparent;">
-                <a type="button" class="btn btn-dark text-white mr-1"
-                   href="eggPics.html" target="_blank"
+                <a href="eggPics.html" target="_blank">
+                <button type="button" class="btn btn-dark mr-1"
                         title="Show Egg pics in new tab">
                     <i class="fas fa-egg"></i>
+                </button>
                 </a>
                 <button type="button" class="btn btn-outline-dark mr-1"
                         title="Show Family/Genera or Species Index"
@@ -3238,7 +3239,7 @@
 
 <script>
     /* update version in menu */
-    const vers = "08/04/2021 1916";
+    const vers = "08/04/2021 1920";
     [document.getElementById("span-version-toolbox"), document.getElementById("span-version-placeholder")].forEach(span => span.innerHTML = vers +
         "<br><img src='img/unionflag.png' height='15' alt=''>&nbsp;<img src='img/wales.png' height='15' alt=''>&nbsp;<img src='img/slovakia.png' height='15' alt=''>");
     document.getElementById("span-version-cache").innerHTML = vers;
