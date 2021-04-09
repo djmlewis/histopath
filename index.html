@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 9/4/2021 1:30     djml.uk E&OE.                             *
+  * Copyright (c) 9/4/2021 7:25     djml.uk E&OE.                             *
   ***************************************************************************-->
 
 <!doctype html>
@@ -72,7 +72,7 @@
     <script src="myscripts/history.1.js" defer></script>
     <script src="myscripts/topics.1.js" defer></script>
     <script src="myscripts/cardFunctions.10.js" defer></script>
-    <script src="myscripts/helpMenu.2.js" defer></script>
+    <script src="myscripts/helpMenu.3.js" defer></script>
     <script src="myscripts/settings.7.js" defer></script>
     <script src="myscripts/headScripts.8.js" defer></script>
     <script src="myscripts/darkMode.2.js" defer></script>
@@ -95,9 +95,11 @@
 <body class="" style="overflow: hidden;!important;">
 <div id="div-mainpage" style="height: 100vh; max-height: 100vh;">
     <div class="d-flex flex-column">
-        <div id="toolbar-row1" class="mx-1 mt-1">
-
+        <div id="toolbar-row1" class="mx-1 mt-2">
             <div class="input-group" style="background-color: transparent;">
+                <button id="btn-help-toolbox" class="btn btn-outline-dark mr-1" type="button"
+                        onclick="toggleUserGuide('UserGuide_top');"
+                        title="Show Help…"><i class="fas fa-info fa-fw"></i></button>
                 <div class="dropdown mr-1">
                     <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" title="Open pictures in new window/tab">
                         <i class="far fa-images"></i>
@@ -323,20 +325,6 @@
                 <div id="div-revealAnswers"></div>
             </div>
         </div>
-        <div id="div-statusbar" class="d-flex justify-content-between align-items-center"
-             style="height: 20px; max-height: 20px; min-height: 20px;overflow: hidden; color: darkgrey;font-size: 10px; font-family: 'Trebuchet MS',sans-serif;">
-            <div>
-                <i class='fas fa-code-branch'></i>&nbsp;<span id="span-version-cache"></span>
-            </div>
-            <div id="div-cacheClouds-h" class="d-flex justify-content-left align-items-center text-secondary mt-1"
-                 style="visibility: hidden;">
-                <div class="spinner-border spinner-border-sm" role="status" title="Preloading card images…"></div>
-                <div id="span-cacheClouds-h" style="font-size: smaller">0</div>
-            </div>
-            <i id="icon-persistent" class="fas fa-user-lock invisible"
-               title="Settings, Bookmarks, Self-Test Answers, Side Bar Notes, Post-its, Annotations and downloaded images will only be deleted when you clear the browser cache"
-            ></i>
-        </div>
     </div>
 </div><!--  mainpage-->
 <div hidden id="sheet-zoom" class="">
@@ -409,9 +397,6 @@
                             title="Recently viewed cards…">
                         <i class="fas fa-history fa-fw"></i>
                     </button>
-                    <button id="btn-help-toolbox" class="btn btn-outline-dark" type="button"
-                            onclick="toggleUserGuide('UserGuide_top');"
-                            title="Show Help…"><i class="fas fa-info fa-fw"></i></button>
                 </div>
             </div>
             <div class="btn-group btn-group btn-block py-0">
@@ -1601,6 +1586,20 @@
         </div>
     </div>
 </div>
+<div hidden id="div-statusbar" class=""
+     style="height: 20px; max-height: 20px; min-height: 20px;overflow: hidden; color: darkgrey;font-size: 10px; font-family: 'Trebuchet MS',sans-serif;">
+    <div>
+        <i class='fas fa-code-branch'></i>&nbsp;<span id="span-version-cache"></span>
+    </div>
+    <div id="div-cacheClouds-h" class="d-flex justify-content-left align-items-center text-secondary mt-1"
+         style="visibility: hidden;">
+        <div class="spinner-border spinner-border-sm" role="status" title="Preloading card images…"></div>
+        <div id="span-cacheClouds-h" style="font-size: smaller">0</div>
+    </div>
+    <i id="icon-persistent" class="fas fa-user-lock invisible"
+       title="Settings, Bookmarks, Self-Test Answers, Side Bar Notes, Post-its, Annotations and downloaded images will only be deleted when you clear the browser cache"
+    ></i>
+</div>
 <div class="modal fade" id="modalClearAnswers" tabindex="-1">
     <div class="modal-dialog">
         <!-- Modal content-->
@@ -2010,10 +2009,10 @@
             <div class="sheets-header sheets-header-sticky bg-white">
                 <div class="btn-group btn-group-toggle ml-2" data-toggle="buttons" onclick="generaSpeciesClicked()">
                     <label class="btn btn-outline-dark active">
-                        <input type="radio" name="options" autocomplete="off" checked>Families/Genera
+                        <input type="radio" name="options" autocomplete="off" checked>List by Families/Genera
                     </label>
                     <label class="btn btn-outline-dark">
-                        <input type="radio" name="options" autocomplete="off">Species
+                        <input type="radio" name="options" autocomplete="off">List by Species
                     </label>
                 </div>
                 <button type="button" class="btn btn-outline-dark btn-sm mr-3"
