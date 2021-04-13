@@ -1,8 +1,8 @@
 {
-  "short_name": "parasites",
-  "name": "parasites",
+  "short_name": "parasites atlas",
+  "name": "parasites atlas",
   "icons": [{
-    "src": "icon.png",
+    "src": "icon2.png",
     "type": "image/png",
     "sizes": "192x192"
   }],
