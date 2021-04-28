@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 5/3/2021 7:59     djml.uk E&OE.                              *
+ * Copyright (c) 28/4/2021 2:3     djml.uk E&OE.                              *
  ******************************************************************************/
 
 // =================================================================== AnswersRecord
@@ -573,7 +573,18 @@ function addLegendArrayToDiv(selectedCardObj) {
     divLegend.innerHTML = '<div class="container container-fluid stripedrows"' +
         // we must override container container-fluid padding and width
         ' style="padding:0; margin:0; width:100%; min-width:100%;">' +
-        mapAnswersArrayToParas(answersArray) + '</div>';
+        mapAnswersArrayToParas(answersArray) +
+
+        '<div class="row d-flex align-items-center">' +
+        '<div class="col-3 legend-subhead">' +
+        'Life Cycle Diagram' +
+        '</div>' +
+        '<div class="col legend-text bg-white" style="padding-bottom: 16px;visibility: ' + (initiallyHideText ? 'hidden' : 'visible') + ';">' +
+        '<img src="'+ 'cardsets/central/lifecycles/' + selectedCardObj.name + ' licy.png' +
+        '" alt="" style="width: 100%; max-width: 100%;" >' +
+        '</div></div>'+
+
+        '</div>';
     divLegend.scrollTop = 0;
     //must call updateDivRevealAnswersForClick LAST to ensure paras are labelled correctly
     updateDivRevealAnswersForClick(selectedCardObj);
