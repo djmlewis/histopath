@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 28/4/2021 2:3     djml.uk E&OE.                              *
+ * Copyright (c) 28/4/2021 3:12     djml.uk E&OE.                             *
  ******************************************************************************/
 
 // =================================================================== AnswersRecord
@@ -580,7 +580,7 @@ function addLegendArrayToDiv(selectedCardObj) {
         'Life Cycle Diagram' +
         '</div>' +
         '<div class="col legend-text bg-white" style="padding-bottom: 16px;visibility: ' + (initiallyHideText ? 'hidden' : 'visible') + ';">' +
-        '<img src="'+ 'cardsets/central/lifecycles/' + selectedCardObj.name + ' licy.png' +
+        '<img src="'+ 'cardsets/central/lifecycles/' + selectedCardObj.name + '.png' +
         '" alt="" style="width: 100%; max-width: 100%;" >' +
         '</div></div>'+
 
