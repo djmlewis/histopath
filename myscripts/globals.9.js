@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 15/3/2021 2:55     djml.uk E&OE.                             *
+ * Copyright (c) 29/4/2021 11:35     djml.uk E&OE.                            *
  ******************************************************************************/
 window.globalIndexHTML = "Still downloading… Please try later";
 window.globalIndexPopeskoHTML = "Still downloading… Please try later";
@@ -23,6 +23,7 @@ const ls_cards_small = "false";
 //window.sheetShown = undefined;
 window.repaintSink = 0;
 // =================================================================== CARD FUNCTIONS
+const lifecyclesfolderpath = 'cardsets/central/lifecycles/';
 window.imageCard=null;
 window.divImageCard=null;
 const frontFace = "/fronts/";

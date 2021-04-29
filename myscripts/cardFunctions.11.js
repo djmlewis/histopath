@@ -1,11 +1,11 @@
 /******************************************************************************
- * Copyright (c) 26/3/2021 2:37     djml.uk E&OE.                             *
+ * Copyright (c) 29/4/2021 11:35     djml.uk E&OE.                            *
  ******************************************************************************/
 
-function createOptionForCardMenuWithCardObject(cardObj, selectcards,index,hideCardTitles) {
+function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
     let opt = document.createElement("option");
     opt.value = cardObj.uniqueCardID;
-    opt.text = hideCardTitles ? "Image "+index : cardObj.title;
+    opt.text = hideCardTitles ? "Image " + index : cardObj.title;
     opt.setAttribute(attr_cardUniqueID, cardObj.uniqueCardID);
     opt.setAttribute(attr_cardImagePath, cardObj.imagePath);
     opt.setAttribute(attr_cardAnswersText, cardObj.answersText);
@@ -94,16 +94,15 @@ function handleWindowResize() {
 }
 
 
-
 function adjustCardWidthHeight() {    // called on window resize and card-image onload
     // called on window resize and card-image onload
-    const barsHeights=
+    const barsHeights =
         document.getElementById("toolbar-row1").getBoundingClientRect().height +
         document.getElementById("toolbar-row2").getBoundingClientRect().height +
         document.getElementById("div-statusbar").getBoundingClientRect().height;
-    const screenH=document.getElementById('div-mainpage').clientHeight;
+    const screenH = document.getElementById('div-mainpage').clientHeight;
     // DODGEROO -set the column heights to ensure scrolling is ok
-    document.getElementById("row-image").style.height = (screenH-barsHeights) + "px";
+    document.getElementById("row-image").style.height = (screenH - barsHeights) + "px";
 }
 
 function hideLegendIfAppropriate() {
@@ -219,13 +218,13 @@ function handleCardDblClick(ev) {
 function handleSliderImageWidthChanged(slider) {
     const colimage = document.getElementById("col-image");
     const divlegendouter = document.getElementById("div-legendouter");
-    if(slider.value<sliderImageWidthMax) {
-        divlegendouter.hidden=false;
+    if (slider.value < sliderImageWidthMax) {
+        divlegendouter.hidden = false;
         colimage.style.width = slider.value + '%';
         colimage.style.maxWidth = colimage.style.width;
         colimage.style.minWidth = colimage.style.width;
     } else {
-        divlegendouter.hidden=true;
+        divlegendouter.hidden = true;
         colimage.style.width = '100%';
         colimage.style.maxWidth = '100%';
         colimage.style.minWidth = '100%';
@@ -275,7 +274,7 @@ function validUniqueCardIDwithSplitter(uniqueCardID, splitter) {
 }
 
 function getCardObjFromUniqueCardIDwithSplitter(uniqueCardID, splitter) {
-    if(validUniqueCardIDwithSplitter(uniqueCardID, splitter)) {
+    if (validUniqueCardIDwithSplitter(uniqueCardID, splitter)) {
         //cardsUniqueIDIndex is a 3 or 5-column § array cardset-chapt-title; possiblt with label index as 4th [3], and cards unique index as 5th item [4]
         const idArray = uniqueCardID.split(splitter);
         return window.collectionobject.cardsetsObj[idArray[0]].chaptersObj[idArray[1]].cardsObj[idArray[2]];
@@ -288,24 +287,26 @@ function toggleNoteVisibility(note) {
 
 function setupFSbutton() {
     const rfs = document.body.requestFullscreen || document.body.webkitRequestFullscreen || document.body.mozRequestFullscreen || document.body.msRequestFullscreen;
-    for(const btn of document.getElementsByClassName('hideBrowserBtn')) {btn.hidden = !rfs}
+    for (const btn of document.getElementsByClassName('hideBrowserBtn')) {
+        btn.hidden = !rfs
+    }
 }
 
 function toggleBrowserVisible(btn) {
     btn.blur();
     const inFS = !!document.fullscreenElement || !!document.webkitFullscreenElement;
-    if(inFS) {
+    if (inFS) {
         const xfs = document.exitFullscreen || document.webkitExitFullscreen;
-        if(!!xfs) xfs.call(document);
+        if (!!xfs) xfs.call(document);
     } else {
         const rfs = document.body.requestFullscreen || document.body.webkitRequestFullscreen || document.body.mozRequestFullscreen || document.body.msRequestFullscreen;
-        if(!!rfs) rfs.call(document.body);
+        if (!!rfs) rfs.call(document.body);
     }
 }
 
 function setupWindowForFullScreen() {
     // only iPads need the padding for status bar. Safari only respond to webkitFullscreenElement. unfortunatly cant stop it adding on Safari Mac
-    if(!document.fullscreenElement && !!document.webkitFullscreenElement) {
+    if (!document.fullscreenElement && !!document.webkitFullscreenElement) {
         document.getElementById('div-mainpage').classList.add('fullScreenMode');
     } else {
         document.getElementById('div-mainpage').classList.remove('fullScreenMode');
@@ -313,7 +314,9 @@ function setupWindowForFullScreen() {
 }
 
 function toggleCardTitle() {
-    ["div-cardTitle-placeholder","div-cardTitle"].forEach(e=>{document.getElementById(e).toggleAttribute("hidden")});
+    ["div-cardTitle-placeholder", "div-cardTitle"].forEach(e => {
+        document.getElementById(e).toggleAttribute("hidden")
+    });
 
 }
 
@@ -325,7 +328,9 @@ function loadCardImage() {
     const selectcard = document.getElementById("select-cards");
     enablePrevNextBtnForSelectCard(selectcard);
     let selectedcardName = selectcard.value;
-    imageDivsIDs.forEach(divimagecardID=> {document.getElementById(divimagecardID).innerHTML = "";});
+    imageDivsIDs.forEach(divimagecardID => {
+        document.getElementById(divimagecardID).innerHTML = "";
+    });
     if (selectedcardName.length > 0) {
         const selectedCardObj = JSON.parse(selectcard.selectedOptions[0].getAttribute(attr_cardObject));
         recordLastCardLoaded(selectedCardObj.uniqueCardID);
@@ -333,21 +338,24 @@ function loadCardImage() {
         addLegendArrayToDiv(selectedCardObj);
         setStatusBtnsForCardUID(selectedCardObj.uniqueCardID);
     } else {
-        cll("no image",selectcard.value);
+        cll("no image", selectcard.value);
         clearStatusBtns();
     }
     adjustCardWidthHeight();
     clearSearchLegend();
 }
-function toggleImagesVisibility(btn,action) {
+
+function toggleImagesVisibility(btn, action) {
     btn.blur();
-    imageDivsIDs.forEach(id=>{for(const img of document.getElementById(id).children) img.style.visibility = action});
+    imageDivsIDs.forEach(id => {
+        for (const img of document.getElementById(id).children) img.style.visibility = action
+    });
 }
 
-function addImagesForCardObj(selectedCardObj){
+function addImagesForCardObj(selectedCardObj) {
     const numImages = selectedCardObj['imageNamesOrientsArray'].length;
     cardImgNamesArray = selectedCardObj['imageNamesOrientsArray'];
-    imageDivsIDs.forEach(divimagecardID=> {
+    imageDivsIDs.forEach(divimagecardID => {
         for (const imageNameOrient of cardImgNamesArray) {
             //[0] is name "xxx yyy pX" [1] is orientation p or l
             const imageNameOrientArray = imageNameOrient.split("\t");
@@ -373,7 +381,7 @@ function addImagesForCardObj(selectedCardObj){
             const imgsrc = selectedCardObj.imagePath + imgName + selectedCardObj.imageType;
             dv.appendChild(newImg);
             newImg.setAttribute('data-imgname', imgName);
-            if(!divimagecardID.includes("fullscreen")) newImg.className = "paraImage";
+            if (!divimagecardID.includes("fullscreen")) newImg.className = "paraImage";
             newImg.style.width = '100%';
             newImg.style.visibility = (initiallyHideImages ? 'hidden' : 'visible');
             newImg.src = imgsrc;
@@ -382,54 +390,54 @@ function addImagesForCardObj(selectedCardObj){
 }
 
 function divimgcardClicked(ev) {
-    if(ev.target.className==='paraImage') {
+    if (ev.target.className === 'paraImage') {
         const selectedCardObj = JSON.parse(document.getElementById("select-cards").selectedOptions[0].getAttribute(attr_cardObject));
-        const indicsList=document.getElementById('carouselZoomImg-indicators');
-        const carouselInner=document.getElementById('carouselZoomImg-inner');
-        indicsList.innerHTML="";
-        carouselInner.innerHTML="";
-        cardImgNamesArray.forEach((imageNameOrient,indx)=> {
+        const indicsList = document.getElementById('carouselZoomImg-indicators');
+        const carouselInner = document.getElementById('carouselZoomImg-inner');
+        indicsList.innerHTML = "";
+        carouselInner.innerHTML = "";
+        cardImgNamesArray.forEach((imageNameOrient, indx) => {
             //[0] is name "xxx yyy pX" [1] is orientation p or l
             const imgName = imageNameOrient.split("\t")[0];
-            const li=document.createElement('li');
-            li.setAttribute('data-target','#carouselZoomImg');
-            li.setAttribute('data-slide-to',indx.toString());
+            const li = document.createElement('li');
+            li.setAttribute('data-target', '#carouselZoomImg');
+            li.setAttribute('data-slide-to', indx.toString());
             indicsList.appendChild(li);
-            const dv=document.createElement('div');
-            dv.className="carousel-item";
-            if(!!imgCaptionsObj && imgCaptionsObj[imgName]) {
+            const dv = document.createElement('div');
+            dv.className = "carousel-item";
+            if (!!imgCaptionsObj && imgCaptionsObj[imgName]) {
                 const capt = document.createElement('div');
                 capt.classList.add("imgCaption");
-                capt.title="Click to show/hide caption";
+                capt.title = "Click to show/hide caption";
                 capt.addEventListener("click", ev => divimgcardClicked(ev));
                 const spn = document.createElement('span');
-                spn.className='spanImgCaption';
-                spn.style.visibility=(initiallyHideCaptions ? 'hidden':'visible');
-                spn.innerText=imgCaptionsObj[imgName];
+                spn.className = 'spanImgCaption';
+                spn.style.visibility = (initiallyHideCaptions ? 'hidden' : 'visible');
+                spn.innerText = imgCaptionsObj[imgName];
                 capt.appendChild(spn);
                 dv.appendChild(capt);
             }
             carouselInner.appendChild(dv);
-            const img=document.createElement('img');
-            img.alt="";
+            const img = document.createElement('img');
+            img.alt = "";
             img.classList.add('zoomImg');
-            img.src=selectedCardObj.imagePath+imgName+selectedCardObj.imageType;
+            img.src = selectedCardObj.imagePath + imgName + selectedCardObj.imageType;
             dv.appendChild(img);
         });
         const clickedImgID = ev.target.getAttribute('data-imgname');
-        const clickedIndex = Math.max(0,cardImgNamesArray.findIndex(e=>e.startsWith(clickedImgID)));
-        [indicsList,carouselInner].forEach(e=>e.children[clickedIndex].classList.add('active'));
+        const clickedIndex = Math.max(0, cardImgNamesArray.findIndex(e => e.startsWith(clickedImgID)));
+        [indicsList, carouselInner].forEach(e => e.children[clickedIndex].classList.add('active'));
         hideSheetZoom(false);
-    }  else if(ev.target.className==='imgCaption') {
+    } else if (ev.target.className === 'imgCaption') {
         ev.target.getElementsByClassName('spanImgCaption')[0].style.visibility =
-            (ev.target.getElementsByClassName('spanImgCaption')[0].style.visibility==="visible" ? 'hidden' : 'visible');
+            (ev.target.getElementsByClassName('spanImgCaption')[0].style.visibility === "visible" ? 'hidden' : 'visible');
         ev.preventDefault();
         ev.stopPropagation();
     }
 }
 
 function loadCardWithUCID(ucid) {
-    function findcardWithUICD(){
+    function findcardWithUICD() {
         for (const cardsetname of Object.keys(window.collectionobject.cardsetsObj)) {
             for (const chaptername of Object.keys(window.collectionobject.cardsetsObj[cardsetname].chaptersObj)) {
                 for (const cardname of Object.keys(window.collectionobject.cardsetsObj[cardsetname].chaptersObj[chaptername].cardsObj)) {
@@ -440,6 +448,7 @@ function loadCardWithUCID(ucid) {
         }
         return null;
     }
+
     const cardObj = findcardWithUICD();
     if (!!cardObj) {
         loadCardByUniqueID(cardObj.uniqueCardID);
@@ -449,9 +458,33 @@ function loadCardWithUCID(ucid) {
 
 function divgroupingsClicked(ev) {
     const ucid = ev.target.getAttribute('data-cardid');
-    if(!!ucid) {
+    if (!!ucid) {
         loadCardWithUCID(ucid);
         hideSheet('sheet-groupings');
     }
 
+}
+
+function lifecycleImgClicked(imgSrc) {
+    cll(imgSrc);
+    //only 1 image is passed-in. the LC image
+    const indicsList = document.getElementById('carouselZoomImg-indicators');
+    const carouselInner = document.getElementById('carouselZoomImg-inner');
+    indicsList.innerHTML = "";
+    carouselInner.innerHTML = "";
+    const li = document.createElement('li');
+    li.setAttribute('data-target', '#carouselZoomImg');
+    li.setAttribute('data-slide-to', '0');
+    indicsList.appendChild(li);
+    const dv = document.createElement('div');
+    dv.className = "carousel-item";
+    carouselInner.appendChild(dv);
+    const img = document.createElement('img');
+    img.alt = "";
+    img.classList.add('zoomImg');
+    img.src = imgSrc;
+    dv.appendChild(img);
+
+    [indicsList, carouselInner].forEach(e => e.children[0].classList.add('active'));
+    hideSheetZoom(false);
 }

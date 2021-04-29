@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 28/4/2021 3:12     djml.uk E&OE.                             *
+ * Copyright (c) 29/4/2021 11:35     djml.uk E&OE.                            *
  ******************************************************************************/
 
 // =================================================================== AnswersRecord
@@ -570,6 +570,7 @@ function handleLegendItemClicked(evt) {
 function addLegendArrayToDiv(selectedCardObj) {
     let answersArray = answersArrayFromSelectedCardObj(selectedCardObj, true);
     const divLegend = document.getElementById("div-revealAnswers");
+    const imgSrc = lifecyclesfolderpath + selectedCardObj.name + '.png' ;
     divLegend.innerHTML = '<div class="container container-fluid stripedrows"' +
         // we must override container container-fluid padding and width
         ' style="padding:0; margin:0; width:100%; min-width:100%;">' +
@@ -580,8 +581,10 @@ function addLegendArrayToDiv(selectedCardObj) {
         'Life Cycle Diagram' +
         '</div>' +
         '<div class="col legend-text bg-white" style="padding-bottom: 16px;visibility: ' + (initiallyHideText ? 'hidden' : 'visible') + ';">' +
-        '<img src="'+ 'cardsets/central/lifecycles/' + selectedCardObj.name + '.png' +
-        '" alt="" style="width: 100%; max-width: 100%;" >' +
+        '<img src="'+ imgSrc +
+        '" alt="" class="lifecycleImg"' +
+        ' onclick="lifecycleImgClicked('+"'"+imgSrc+"'"+')"' +
+        '>' +
         '</div></div>'+
 
         '</div>';

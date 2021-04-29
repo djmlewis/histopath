@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 22/3/2021 7:19     djml.uk E&OE.                             *
+ * Copyright (c) 29/4/2021 11:35     djml.uk E&OE.                            *
  ******************************************************************************/
 /*
 html,body {
@@ -1120,4 +1120,11 @@ font-size: 0.6em;
     background-color: #6772b0;
     color: white;
     border-radius: 4px;
+}
+
+.lifecycleImg {
+    width: 100%;
+    max-width: 100%;
+    cursor: zoom-in;
+    pointer-events: auto;
 }
