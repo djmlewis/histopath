@@ -577,7 +577,7 @@ function addLegendArrayToDiv(selectedCardObj) {
         mapAnswersArrayToParas(answersArray) +
 
         '<div class="row d-flex align-items-center">' +
-        '<div class="col-3 legend-subhead bg-white">' +
+        '<div class="col-3 legend-subhead">' +
         'Life Cycle Diagram' +
         '</div>' +
         '<div class="col legend-text bg-white" style="padding-bottom: 16px;visibility: ' + (initiallyHideText ? 'hidden' : 'visible') + ';">' +
