@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 30/4/2021 1:18     djml.uk E&OE.                             *
+ * Copyright (c) 30/4/2021 1:19     djml.uk E&OE.                             *
  ******************************************************************************/
 
 // =================================================================== AnswersRecord
@@ -576,7 +576,7 @@ function addLegendArrayToDiv(selectedCardObj) {
         ' style="padding:0; margin:0; width:100%; min-width:100%;">' +
         mapAnswersArrayToParas(answersArray) +
 
-        '<div class="row d-flex align-items-center">' +
+        '<div class="row d-flex align-items-center bg-white">' +
         '<div class="col-3 legend-subhead">' +
         'Life Cycle Diagram' +
         '</div>' +
