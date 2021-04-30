@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 30/4/2021 1:26     djml.uk E&OE.                             *
+ * Copyright (c) 30/4/2021 6:4     djml.uk E&OE.                              *
  ******************************************************************************/
 
 // =================================================================== AnswersRecord
@@ -570,7 +570,12 @@ function handleLegendItemClicked(evt) {
 function addLegendArrayToDiv(selectedCardObj) {
     let answersArray = answersArrayFromSelectedCardObj(selectedCardObj, true);
     const divLegend = document.getElementById("div-revealAnswers");
-    const imgSrc = lifecyclesfolderpath + selectedCardObj.name + '.png' +lifecyclesVersion ;
+    let imgSrc;
+    if(document.getElementById("select-cardsset").value.startsWith("Picture")) {
+        //strip off the "p1" etc from the ImgName in Picture Quiz
+        const imgname = selectedCardObj.name.split(" ").slice(0,2).join(" ");
+        imgSrc = lifecyclesfolderpath + imgname + '.png' +lifecyclesVersion ;
+    } else imgSrc = lifecyclesfolderpath + selectedCardObj.name + '.png' +lifecyclesVersion ;
     divLegend.innerHTML = '<div class="container container-fluid stripedrows"' +
         // we must override container container-fluid padding and width
         ' style="padding:0; margin:0; width:100%; min-width:100%;">' +
