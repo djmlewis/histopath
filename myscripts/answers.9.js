@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 29/4/2021 11:35     djml.uk E&OE.                            *
+ * Copyright (c) 30/4/2021 1:3     djml.uk E&OE.                              *
  ******************************************************************************/
 
 // =================================================================== AnswersRecord
@@ -567,10 +567,13 @@ function handleLegendItemClicked(evt) {
     if (evt.target.className.includes('subhead')) toggleElementVisibility(evt.target.parentNode.getElementsByClassName('legend-text')[0]);
 }
 
+/* This is the query string to update the cache when we change pix */
+const lifecyclesVersion = "?v=1";
+/* ***** */
 function addLegendArrayToDiv(selectedCardObj) {
     let answersArray = answersArrayFromSelectedCardObj(selectedCardObj, true);
     const divLegend = document.getElementById("div-revealAnswers");
-    const imgSrc = lifecyclesfolderpath + selectedCardObj.name + '.png' ;
+    const imgSrc = lifecyclesfolderpath + selectedCardObj.name + '.png' +lifecyclesVersion ;
     divLegend.innerHTML = '<div class="container container-fluid stripedrows"' +
         // we must override container container-fluid padding and width
         ' style="padding:0; margin:0; width:100%; min-width:100%;">' +
