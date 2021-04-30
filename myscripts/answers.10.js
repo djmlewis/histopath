@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 30/4/2021 1:3     djml.uk E&OE.                              *
+ * Copyright (c) 30/4/2021 1:5     djml.uk E&OE.                              *
  ******************************************************************************/
 
 // =================================================================== AnswersRecord
@@ -567,9 +567,6 @@ function handleLegendItemClicked(evt) {
     if (evt.target.className.includes('subhead')) toggleElementVisibility(evt.target.parentNode.getElementsByClassName('legend-text')[0]);
 }
 
-/* This is the query string to update the cache when we change pix */
-const lifecyclesVersion = "?v=1";
-/* ***** */
 function addLegendArrayToDiv(selectedCardObj) {
     let answersArray = answersArrayFromSelectedCardObj(selectedCardObj, true);
     const divLegend = document.getElementById("div-revealAnswers");
