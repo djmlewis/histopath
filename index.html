@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 1/5/2021 1:43     djml.uk E&OE.                             *
+  * Copyright (c) 1/5/2021 2:53     djml.uk E&OE.                             *
   ***************************************************************************-->
 
 <!doctype html>
@@ -24,7 +24,7 @@
     <!--  Normalize  -->
     <link rel="stylesheet" href="css/vendor/normalize.1.css">
     <!--  my CSS -->
-    <link rel="stylesheet" href="css/myCSS.7.css">
+    <link rel="stylesheet" href="css/myCSS.8.css">
     <link rel="stylesheet" href="css/topics.1.css">
     <link rel="stylesheet" href="css/gybt.1.css">
     <link rel="stylesheet" href="css/gybt_bmk.1.css">
@@ -32,11 +32,11 @@
     <link rel="stylesheet" href="css/bookmarks.1.css">
     <link rel="stylesheet" href="css/userguide.1.css">
     <link rel="stylesheet" href="css/notes.1.css">
-    <link rel="stylesheet" href="css/legend.1.css">
+    <link rel="stylesheet" href="css/legend.2.css">
     <!--  my startup code-->
     <script>
         /* This is the query string to update the cache when we change pix */
-        const lifecyclesVersion = "?v=9";
+        const lifecyclesVersion = "?v=10";
         /* ***** */
     </script>
     <!--    Objects first as globals uses a CardsetCollection.addcardset() call we can defer as run in order-->
@@ -46,7 +46,7 @@
     <script src="myscripts/globals.9.js" defer></script>
     <script src="myscripts/db.1.js" defer></script>
     <script src="myscripts/utilities.2.js" defer></script>
-    <script src="myscripts/sheets.35.js" defer></script>
+    <script src="myscripts/sheets.36.js" defer></script>
     <!--    ****** CHANGE ME in the R scripts !! version strings-->
     <script>
         window.indicesversionStr = "255";
@@ -77,10 +77,10 @@
     <script src="myscripts/favourites_quickgallery.1.js" defer></script>
     <script src="myscripts/history.1.js" defer></script>
     <script src="myscripts/topics.1.js" defer></script>
-    <script src="myscripts/cardFunctions.11.js" defer></script>
+    <script src="myscripts/cardFunctions.12.js" defer></script>
     <script src="myscripts/helpMenu.3.js" defer></script>
     <script src="myscripts/settings.7.js" defer></script>
-    <script src="myscripts/headScripts.8.js" defer></script>
+    <script src="myscripts/headScripts.9.js" defer></script>
     <script src="myscripts/darkMode.2.js" defer></script>
     <script src="myscripts/notes.1.js" defer></script>
     <script src="myscripts/postits.1.js" defer></script>
@@ -103,6 +103,17 @@
     <div class="d-flex flex-column">
         <div id="toolbar-row1" class="mx-1 mt-2">
             <div class="input-group" style="background-color: transparent;">
+                <button type="button" class="btn btn-outline-primary mr-1"
+                        id="btn-sidebartoggle"
+                        title="Hide Species Index sidebar"
+                        onclick="toggleSidebar();">
+                    <i class="fas fa-columns"></i>
+                </button>
+                <button type="button" class="btn btn-primary mr-1"
+                        title="Show Family/Genera or Species Index in window"
+                        onclick="showSheet('sheet-groupings');">
+                    <i class="fas fa-book"></i>
+                </button>
                 <button id="btn-help-toolbox" class="btn btn-outline-dark mr-1" type="button"
                         onclick="toggleUserGuide('UserGuide_top');"
                         title="Show Help…"><i class="fas fa-info fa-fw"></i></button>
@@ -121,11 +132,6 @@
                         <a class="dropdown-item" href="fronts.html" target="_blank">Open All pictures in new window/tab</a>
                     </div>
                 </div>
-                <button type="button" class="btn btn-outline-dark mr-1"
-                        title="Show Family/Genera or Species Index"
-                        onclick="showSheet('sheet-groupings');">
-                    <i class="fas fa-book"></i>
-                </button>
                 <label for="select-cardsset"></label>
                 <select name="selectcardsset" class="custom-select btn-cardsset rounded-sm mr-1"
                         id="select-cardsset"
@@ -259,6 +265,7 @@
             </div>
         </div>
         <div id="row-image" class="flex-grow-1 d-flex flex-row flex-nowrap mt-1">
+            <div id="div-species-sidebar" class="flex-shrink-1 divspeciessidebar stripedparas" style="overflow-y: auto;padding-bottom: 30px;"></div>
             <div id="col-image" class="flex-grow-1"
                  style="width: 50%; max-width: 50%; min-width: 50%;overflow-y: auto;">
                 <div class="d-flex align-items-center justify-content-between sticky-top pr-3">

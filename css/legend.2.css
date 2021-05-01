@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 19/2/2021 11:13     djml.uk E&OE.                            *
+ * Copyright (c) 1/5/2021 2:53     djml.uk E&OE.                              *
  ******************************************************************************/
 .answersParas {
     line-height: 1;
@@ -7,6 +7,7 @@
 }
 
 .stripedrows > .row:nth-child(odd) {background-color: #f0f0f0}
+.stripedparas > p:nth-child(odd) {background-color: #f0f0f0}
 
 .legend-subhead {
     font-size: 1rem;
