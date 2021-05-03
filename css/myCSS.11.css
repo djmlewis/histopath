@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 3/5/2021 8:35     djml.uk E&OE.                              *
+ * Copyright (c) 3/5/2021 8:37     djml.uk E&OE.                              *
  ******************************************************************************/
 /*
 html,body {
@@ -1112,6 +1112,7 @@ font-size: 0.6em;
     font-family: "Trebuchet MS",sans-serif;
     max-width: 20rem;
     cursor: none;
+    overflow-x: hidden;
     /*pointer-events: none;*/
 }
 
