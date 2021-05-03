@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 1/5/2021 2:53     djml.uk E&OE.                              *
+ * Copyright (c) 3/5/2021 8:33     djml.uk E&OE.                              *
  ******************************************************************************/
 /*
 html,body {
@@ -1110,7 +1110,7 @@ font-size: 0.6em;
 }
 .divspeciessidebar {
     font-family: "Trebuchet MS",sans-serif;
-    max-width: 15rem;
+    max-width: 12rem;
     cursor: none;
     /*pointer-events: none;*/
 }
