@@ -1,19 +1,56 @@
 /******************************************************************************
- * Copyright (c) 15/3/2021 2:55     djml.uk E&OE.                             *
+ * Copyright (c) 7/5/2021 3:19     djml.uk E&OE.                              *
  ******************************************************************************/
+// =================================================================== UTILITY FUNCTIONS
+function getStringCharacterLength (str) {
+    // string .length is unreliable as it uses UTF16!
+    // The string iterator that is used here iterates over characters,not mere code units
+    return [...str].length;
+}
+
+function splitTextByCharacterSkippingBlanks(textToSplit, splitChar) {
+    let array = textToSplit.split(splitChar);
+    return array.filter(line => line.length > 0);
+}
+
+function elementsArrayForClassNameFromElementID(elementID, classname) {
+    return Array.from(document.getElementById(elementID).getElementsByClassName(classname));
+}
+
+function arrayOfIndicesForLength(length) {
+    return Array.from(Array(length).keys());//0...N
+}
+
+function shuffleThisArray(array2shuffle) {
+    for (let i = array2shuffle.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array2shuffle[i], array2shuffle[j]] = [array2shuffle[j], array2shuffle[i]];
+    }
+}
+
+//---------- ******** Debugging *********** ------------------------//
+function cll() {
+    console.log([...arguments].join(" "));
+}
+function cllts() {
+    console.log([new Date().getTime()+Math.random(),...arguments].join(" "));
+}
+
+//---------- ******** RANDOM *********** ------------------------//
+
 function displayNumRandomised() {
     randomSlideCountsIDs.forEach(id => {
-        document.getElementById(id).innerHTML = '<i class="fas fa-images"></i>&nbsp;' + window.randomCardIndices.length
+        document.getElementById(id).innerHTML = '<i class="fas fa-images"></i>&nbsp;' + randomCardIndices.length
     });
 }
 
 function showNextRandomCard() {
-    const indexToShow = window.randomCardIndices.pop();
+    const indexToShow = randomCardIndices.pop();
     selectThisCardIndex(indexToShow);
 }
 
 function btnRandomClicked() {
-    if (window.randomCardIndices.length === 0) setupShuffledCardIndicesArray();
+    if (randomCardIndices.length === 0) setupShuffledCardIndicesArray();
     displayNumRandomised();
     showNextRandomCard();
 }
@@ -25,21 +62,18 @@ function setupShuffledCardIndicesArray() {
     }
     const includeUntested = statusesIncluded.includes('untested');
     const childer = document.getElementById('select-cards').options;
-    window.randomCardIndices = arrayOfIndicesForLength(childer.length).filter(i => {
+    randomCardIndices = arrayOfIndicesForLength(childer.length).filter(i => {
         const cuid = childer[i].value;
         //test statusesIncluded.includes separately to allow !!dbObj_answersObj[cuid] to fail and fall thru to else if (includeUntested)
         if (!!dbObj_answersObj[cuid] && statusesIncluded.includes(dbObj_answersObj[cuid])) return true;
         return !dbObj_answersObj[cuid] && includeUntested;
     });
-    shuffleThisArray(window.randomCardIndices);
+    shuffleThisArray(randomCardIndices);
     displayNumRandomised();
 }
 
 function selectThisCardIndex(index) {
-    //btnFlipThisImageOriginal();
-    //hideLegendIfAppropriate();
-    alignSelectsToSelIndex(["select-cards", "select-cards-toolbox", "select-cards-dropdown"], index);
-    cardFaceShowing = frontFace;
+    document.getElementById("select-cards").selectedIndex = index;
     loadCardImage();
 }
 
@@ -54,7 +88,7 @@ function randomiseCBXclicked() {
 }
 
 function resetRandomIndexArray() {
-    window.randomCardIndices = [];
+    randomCardIndices = [];
     displayNumRandomised();
 }
 
@@ -98,4 +132,9 @@ function btnClearStatusClicked(what) {
 function showHideCardSelect() {
     document.getElementById("select-cards").style.visibility = document.getElementById("select-cards").style.visibility === 'hidden' ?
         'visible' : 'hidden';
+}
+
+//---------- ******** User Guide *********** ------------------------//
+function toggleUserGuide() {
+    window.open("userGuide.html", "Parasites Atlas User Guide");
 }

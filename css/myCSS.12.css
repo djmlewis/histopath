@@ -1,0 +1,263 @@
+/******************************************************************************
+ * Copyright (c) 7/5/2021 3:19     djml.uk E&OE.                              *
+ ******************************************************************************/
+
+.paraImage {
+    cursor: zoom-in;
+}
+.divImgFrame {
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    margin: 2px;
+}
+.imgCaption {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 0.9rem;
+    text-align:center;
+    padding:2px;
+    width: 100%;
+    border: none;
+    cursor: context-menu;
+    background-color: #424242;
+    color:whitesmoke;
+}
+.spanImgCaption {
+    pointer-events: none;
+}
+
+.col-slider {
+    /*width: 10vw;*/
+    width: 10vw;
+    min-width: 10vw;!important;
+}
+.btn-cards {
+    color: #fff;
+    background-color: #cb6633;
+    border-color: #9a4d26
+}
+
+.btn-cards:hover {
+    color: #fff;
+    background-color: #9a4d26;
+    border-color: #633118
+}
+
+.btn-cards:focus {
+    box-shadow: 0 0 0 .2rem rgba(255, 85, 0, .5)
+}
+
+.btn-cards.disabled, .btn-cards:disabled {
+    opacity: 0.3;
+    -webkit-opacity: 0.3;
+}
+
+.btn-cards:not(:disabled):not(.disabled).active,
+.btn-cards:not(:disabled):not(.disabled):active,
+.show > .btn-cards.dropdown-toggle {
+    color: #fff;
+    background-color: #4e2713;
+    border-color: #4e2713
+}
+
+.btn-cards:not(:disabled):not(.disabled).active:focus,
+.btn-cards:not(:disabled):not(.disabled):active:focus,
+.show > .btn-cards.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem rgba(255, 85, 0, .5)
+}
+
+.btn-chapter {
+    color: #fff;
+    background-color: #983300;
+    border-color: #5f1f00
+}
+
+.btn-chapter:hover {
+    color: #fff;
+    background-color: #712500;
+    border-color: #3d1400
+}
+
+.btn-chapter.focus, .btn-chapter:focus {
+    box-shadow: 0 0 0 .2rem rgba(255, 167, 123, .5)
+}
+
+.btn-chapter.disabled, .btn-chapter:disabled {
+    color: #fff;
+    background-color: #ffd1ba;
+    border-color: #ffd1ba
+}
+
+.btn-chapter:not(:disabled):not(.disabled).active,
+.btn-chapter:not(:disabled):not(.disabled):active,
+.show > .btn-chapter.dropdown-toggle {
+    color: #fff;
+    background-color: #983300;
+    border-color: #5f1f00
+}
+
+.btn-chapter:not(:disabled):not(.disabled).active:focus,
+.btn-chapter:not(:disabled):not(.disabled):active:focus,
+.show > .btn-chapter.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem rgba(255, 167, 123, .5)
+}
+
+.btn-cardsset {
+    color: #fff;
+    background-color: #660000;
+    border-color: #530000
+}
+
+.btn-cardsset:hover {
+    color: #fff;
+    background-color: #520001;
+    border-color: #340000
+}
+
+.btn-cardsset.focus, .btn-cardsset:focus {
+    box-shadow: 0 0 0 .2rem rgba(255, 104, 107, .5)
+}
+
+.btn-cardsset.disabled, .btn-cardsset:disabled {
+    color: #fff;
+    background-color: #ffc3c4;
+    border-color: #ffc3c4
+}
+
+.btn-cardsset:not(:disabled):not(.disabled).active,
+.btn-cardsset:not(:disabled):not(.disabled):active,
+.show > .btn-cardsset.dropdown-toggle {
+    color: #fff;
+    background-color: #520001;
+    border-color: #340000
+}
+
+.btn-cardsset:not(:disabled):not(.disabled).active:focus,
+.btn-cardsset:not(:disabled):not(.disabled):active:focus,
+.show > .btn-cardsset.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem rgba(255, 104, 107, .5)
+}
+
+.divgroupings, .divspecies {
+    font-family: "Trebuchet MS",sans-serif;
+    column-width: 20rem;
+    /*column-rule: rgba(0,0,0,0.1) 1px solid;*/
+    cursor: none;
+    pointer-events: none;
+}
+.divspeciessidebar {
+    font-family: "Trebuchet MS",sans-serif;
+    max-width: 20rem;
+    cursor: none;
+    overflow-x: hidden;
+    /*pointer-events: none;*/
+}
+
+.divgroupings p, .divspecies p, .divspeciessidebar p {
+    cursor: pointer;
+    padding-left:1rem;
+    margin-bottom: 2px;
+    pointer-events: auto;
+    hyphens: auto;
+}
+
+.divgroupings p:hover, .divspecies p:hover {
+    background-color: #6772b0;
+    color: white;
+    border-radius: 4px;
+}
+
+.lifecycleImg {
+    width: 100%;
+    max-width: 100%;
+    cursor: zoom-in;
+    pointer-events: auto;
+}
+
+.stripedrows > .row:nth-child(odd) {background-color: #f0f0f0}
+.stripedparas > p:nth-child(odd) {background-color: #f0f0f0}
+
+.legend-subhead {
+    font-size: 1rem;
+    font-family: "Trebuchet MS", sans-serif;
+    text-align: right;
+    hyphens: auto;
+    color: grey;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.legend-text {
+    font-size: 1.3rem;
+    font-family: "Trebuchet MS", sans-serif;
+    color: #424242;
+    font-weight: normal;
+    cursor: none;
+    pointer-events: none;
+}
+
+.sheetholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+!important;
+    height: 100%;
+!important;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5000;
+    overflow: hidden;
+}
+
+.sheets-div,.sheet-fullscreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+!important;
+    background-color: whitesmoke;
+    width: 100%;
+!important;
+    height: 100%;
+!important;
+}
+
+@media (min-width: 576px) {
+    .sheets-div {
+        width: 92%;
+    !important;
+        left: 4%;
+    !important;
+    }
+}
+
+.sheets-header {
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    padding: 6px 0 6px 0;
+}
+
+.sheets-header-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.sheetFullscreenHeader {
+    background-color: whitesmoke;
+}
+.sheets-body {
+    height: 100% !important;
+    overflow: auto;
+}
+
+.zoomImg {
+    max-width: 100vw;
+    max-height: 100vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

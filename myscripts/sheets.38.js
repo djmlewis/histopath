@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 2/5/2021 2:19     djml.uk E&OE.                              *
+ * Copyright (c) 7/5/2021 3:19     djml.uk E&OE.                              *
  ******************************************************************************/
 
 function showSheet(sheetID) {
@@ -13,21 +13,12 @@ function showSheet(sheetID) {
     //clean up when modals show/hide
     window.modal_shown = sheetID;
     //window.sheetShown = sheetID;
-    stopPlayingLabels();
-    if (sheetID === "sheet-index") {
-        modalIndexShownHidden();
-        handleIndexGalleryWillShow();
-    }
+    // stopPlayingLabels();
+    // if (sheetID === "sheet-index") {
+    //     modalIndexShownHidden();
+    //     handleIndexGalleryWillShow();
+    // }
     switch (sheetID) {
-        case "sheet-gallery":
-            showGelleryButtonForCurrentCard();
-            break;
-        case "sheet-globalindex":
-            showGlobalIndexLineForCurrentCard();
-            break;
-        case "sheet-bookmarks":
-            handleBookmarksGalleryWillShow();
-            break;
     }
 }
 
@@ -43,18 +34,6 @@ function hideSheet(sheetID) {
         window.modal_shown = undefined;
         //window.sheetShown = undefined;
         switch (sheetID) {
-            case "sheet-gallery":
-                handleCloseGallery();
-                break;
-            case "sheet-globalindex":
-                if (!!window.globalIndexSelectedLine) {
-                    window.globalIndexSelectedLine.classList.remove("list-globalIndex-selected");
-                    window.globalIndexSelectedLine = undefined;
-                }
-                break;
-            case "sheet-index":
-                modalIndexShownHidden();
-                break;
         }
     }
 }
@@ -73,6 +52,7 @@ function generaSpeciesClicked(){
 }
 
 function hideSheetZoom(hide){
+    window.modal_shown =hide ? undefined : "sheet-zoom";
     document.getElementById("sheet-zoom").hidden=hide;
     document.getElementById("div-mainpage").hidden=!hide;
 }
