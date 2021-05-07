@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 7/5/2021 3:19     djml.uk E&OE.                              *
+ * Copyright (c) 7/5/2021 7:30     djml.uk E&OE.                              *
  ******************************************************************************/
 
 function showSheet(sheetID) {
@@ -33,8 +33,7 @@ function hideSheet(sheetID) {
         //clean up when modals show/hide
         window.modal_shown = undefined;
         //window.sheetShown = undefined;
-        switch (sheetID) {
-        }
+        setTimeout(() => handleWindowResize(), 100);
     }
 }
 
@@ -55,4 +54,5 @@ function hideSheetZoom(hide){
     window.modal_shown =hide ? undefined : "sheet-zoom";
     document.getElementById("sheet-zoom").hidden=hide;
     document.getElementById("div-mainpage").hidden=!hide;
+    if(hide) setTimeout(() => handleWindowResize(), 100);
 }
