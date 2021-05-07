@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 7/5/2021 3:19     djml.uk E&OE.                              *
+ * Copyright (c) 7/5/2021 6:55     djml.uk E&OE.                              *
  ******************************************************************************/
 
 .paraImage {
@@ -184,6 +184,7 @@
     color: grey;
     font-weight: bold;
     cursor: pointer;
+    background-color: inherit;
 }
 
 .legend-text {
@@ -193,6 +194,7 @@
     font-weight: normal;
     cursor: none;
     pointer-events: none;
+    background-color: inherit;
 }
 
 .sheetholder {
