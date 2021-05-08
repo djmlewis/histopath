@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 7/5/2021 3:19     djml.uk E&OE.                              *
+ * Copyright (c) 8/5/2021 1:2     djml.uk E&OE.                               *
  ******************************************************************************/
 function answersArrayFromSelectedCardObj(selectedCardObj, filterNote) {
     const array = splitTextByCharacterSkippingBlanks(selectedCardObj.answersText, "\n");
@@ -49,9 +49,9 @@ function addLegendArrayToDiv(selectedCardObj) {
         mapAnswersArrayToParas(answersArray) +
 
         '<div class="row d-flex align-items-center">' +
-        '<div class="col-3 legend-subhead">' +
+        '<div class="col-3 legend-subhead"><p>' +
         'Life Cycle Diagram' +
-        '</div>' +
+        '</p></div>' +
         '<div class="col legend-text bg-white" style="padding-bottom: 16px;visibility: ' + (initiallyHideText ? 'hidden' : 'visible') + ';">' +
         '<img src="'+ imgSrc +
         '" alt="" class="lifecycleImg"' +
@@ -79,8 +79,8 @@ function answerStringFromAnswerTabString(answerTabString) {
         const answerArray = answerTabString.split(answerSplitter);
         return '<div class="row'+
             (answerArray[0].includes('◎') ? ' px-5 ' : ' ') +
-            'd-flex align-items-center"><div class="col-3 legend-subhead">' +
-            answerArray[0].replace('◎ ','') + '</div>' +
+            'd-flex align-items-center"><div class="col-3 legend-subhead"><p>' +
+            answerArray[0].replace('◎ ','') + '<p></p></div>' +
             '<div class="col legend-text" style="visibility: ' + (initiallyHideText ? 'hidden' : 'visible') + ';">' +
             answerArray[1] + '</div></div>';
     } else return "";

@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 7/5/2021 6:55     djml.uk E&OE.                              *
+ * Copyright (c) 8/5/2021 1:2     djml.uk E&OE.                               *
  ******************************************************************************/
 
 .paraImage {
@@ -180,11 +180,14 @@
     font-size: 1rem;
     font-family: "Trebuchet MS", sans-serif;
     text-align: right;
-    hyphens: auto;
     color: grey;
     font-weight: bold;
     cursor: pointer;
     background-color: inherit;
+}
+.legend-subhead p {
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .legend-text {
