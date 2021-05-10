@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 8/5/2021 1:6     djml.uk E&OE.                               *
+ * Copyright (c) 10/5/2021 1:4     djml.uk E&OE.                              *
  ******************************************************************************/
 
 .paraImage {
@@ -137,10 +137,9 @@
     box-shadow: 0 0 0 .2rem rgba(255, 104, 107, .5)
 }
 
-.divgroupings, .divspecies {
+.divgroupings, .divspecies, .divtaxogenera, .divtaxospecies {
     font-family: "Trebuchet MS",sans-serif;
     column-width: 20rem;
-    /*column-rule: rgba(0,0,0,0.1) 1px solid;*/
     cursor: none;
     pointer-events: none;
 }
@@ -149,10 +148,9 @@
     max-width: 20rem;
     cursor: none;
     overflow-x: hidden;
-    /*pointer-events: none;*/
 }
 
-.divgroupings p, .divspecies p, .divspeciessidebar p {
+.divgroupings p, .divspecies p, .divtaxogenera p, .divtaxospecies p, .divspeciessidebar p {
     cursor: pointer;
     padding-left:1rem;
     margin-bottom: 2px;
@@ -160,10 +158,29 @@
     hyphens: auto;
 }
 
-.divgroupings p:hover, .divspecies p:hover {
+.divgroupings p:hover, .divspecies p:hover, .divtaxogenera p:hover, .divtaxospecies p:hover {
     background-color: #6772b0;
     color: white;
     border-radius: 4px;
+}
+
+.indexH1, .indexH2 {
+    font-family: "Verdana",sans-serif;
+    cursor: none; !important;
+    pointer-events: none; !important;
+    text-align: center;
+}
+
+.indexH1 {
+    font-weight: bold;
+    background-color: #424242;
+    color: white;
+    font-size: 1rem;
+}
+.indexH2 {
+    background-color: #d5d5d5;
+    color: #424242;
+    font-size: 0.9rem;
 }
 
 .lifecycleImg {

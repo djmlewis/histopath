@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 7/5/2021 7:30     djml.uk E&OE.                              *
+ * Copyright (c) 10/5/2021 1:4     djml.uk E&OE.                              *
  ******************************************************************************/
 
 function showSheet(sheetID) {
@@ -46,8 +46,9 @@ function addSheetHolderEventListener() {
     });
 }
 
-function generaSpeciesClicked(){
-    ['div-groupings','div-species'].forEach(id=>document.getElementById(id).toggleAttribute('hidden'));
+function generaSpeciesClicked(e){
+    ['div-groupings','div-species','div-taxogenera','div-taxospecies'].forEach(id=>document.getElementById(id).hidden=true);//toggleAttribute('hidden'));
+    document.getElementById(e.target.id.replace('radio','div')).hidden=false;
 }
 
 function hideSheetZoom(hide){

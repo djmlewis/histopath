@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 7/5/2021 3:19     djml.uk E&OE.                              *
+ * Copyright (c) 10/5/2021 1:4     djml.uk E&OE.                              *
  ******************************************************************************/
 
 //---------- ******** IMMEDIATE GLOBALS *********** ------------------------//
@@ -50,6 +50,7 @@ window.addEventListener('DOMContentLoaded', function () {
     document.getElementById("select-cardsset").addEventListener('change', handleSelectCardsetChanged);
     document.getElementById("select-chapters").addEventListener('change', handleSelectChaptersChanged);
     document.getElementById("select-cards").addEventListener('change', handleSelectCardsChanged);
+    document.getElementById("div-indexradios").addEventListener('click', ev =>  generaSpeciesClicked(ev), false);
     document.addEventListener("keydown", ev => handleKeyboardEvent(ev), false);
     populateSelectCardSets();
 
@@ -69,7 +70,7 @@ window.addEventListener('load', function () {
     // DEFERRED actions
     document.getElementById('div-image-card').addEventListener("click", ev => divimgcardClicked(ev));
     document.getElementById('div-species-sidebar').innerHTML = document.getElementById('div-species').innerHTML;
-    ['div-groupings', 'div-species'].forEach(id => document.getElementById(id).addEventListener("click", ev => divgroupingsClicked(ev, true)));
+    ['div-groupings', 'div-species','div-taxogenera','div-taxospecies'].forEach(id => document.getElementById(id).addEventListener("click", ev => divgroupingsClicked(ev, true)));
     document.getElementById('div-species-sidebar').addEventListener("click", ev => divgroupingsClicked(ev, false));
     window.addEventListener("orientationchange", function () {
         // i don't know why I love you, but I do....
