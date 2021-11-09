@@ -1,11 +1,11 @@
 <!--***************************************************************************
-  * Copyright (c) 8/11/2021 2:19     djml.uk E&OE.                            *
+  * Copyright (c) 9/11/2021 6:0     djml.uk E&OE.                             *
   ***************************************************************************-->
 <!doctype html>
 <html lang="en">
-<head>   
+<head>
     <meta charset="utf-8">
-    <title>Parasites Atlas</title>
+    <title>Histopathology Picture Quiz</title>
     <link rel="shortcut icon" type="image/png" href="favicon2.png?v=2"/>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -23,14 +23,9 @@
     <!--  Normalize  -->
     <link rel="stylesheet" href="css/vendor/normalize.1.css">
     <!--  my CSS -->
-    <link rel="stylesheet" href="css/myCSS.18.css">
+    <link rel="stylesheet" href="css/myCSS.19.css">
     <link rel="stylesheet" href="css/userguide.1.css">
     <!--  my startup code-->
-    <script>
-        /* This is the query string to update the cache when we change pix */
-        const lifecyclesVersion = "?v=14";
-        /* ***** */
-    </script>
     <!--    Objects first as globals uses a CardsetCollection.addcardset() call we can defer as run in order-->
     <script src="myscripts/objects.3.js" defer></script>
     <script src="myscripts/imgCaptionsObj.4.js" defer></script>
@@ -46,21 +41,10 @@
     </script>
     <!--    The collection objects  !!! Always DEFER these to allow libs to laod !!!  -->
     <!--    The order they appear here is the order on the dropdown  -->
-    <script src="collections/Ruminants.53.js" defer></script>
-    <script src="collections/Horses.53.js" defer></script>
-    <script src="collections/Carnivores.53.js" defer></script>
-    <script src="collections/Pigs.53.js" defer></script>
-    <script src="collections/Hares.53.js" defer></script>
-    <script src="collections/Rodents.53.js" defer></script>
-    <script src="collections/Poultry.53.js" defer></script>
-    <script src="collections/Ectoparasites.53.js" defer></script>
-    <script src="collections/Helminths.53.js" defer></script>
-    <script src="collections/Protozoa.53.js" defer></script>
-    <script src="collections/Ectoparasites (all hosts).53.js" defer></script>
-    <script src="collections/Picture Quiz.53.js" defer></script>
+    <script src="collections/Picture Quiz.3.js" defer></script>
 
     <!--    The rest-->
-    <script src="myscripts/answers.22.js" defer></script>
+    <script src="myscripts/answers.23.js" defer></script>
     <script src="myscripts/selectEvents.5.js" defer></script>
     <script src="myscripts/cardFunctions.15.js" defer></script>
     <script src="myscripts/settings.8.js" defer></script>
@@ -78,13 +62,13 @@
     <div class="d-flex flex-column">
         <div id="toolbar-row1" class="mx-1">
             <div class="input-group" style="background-color: transparent;">
-                <button type="button" class="btn btn-outline-primary mr-1"
+                <button hidden type="button" class="btn btn-outline-primary mr-1"
                         id="btn-sidebartoggle"
                         title="Hide Species Index sidebar"
                         onclick="toggleSidebar();">
                     <i class="fas fa-columns"></i>
                 </button>
-                <button type="button" class="btn btn-primary mr-1"
+                <button hidden type="button" class="btn btn-primary mr-1"
                         title="Show Family/Genera or Species Index in window"
                         onclick="showSheet('sheet-groupings');">
                     <i class="fas fa-book"></i>
@@ -92,21 +76,6 @@
                 <button id="btn-help-toolbox" class="btn btn-outline-dark mr-1" type="button"
                         onclick="toggleUserGuide('UserGuide_top');"
                         title="Show Help…"><i class="fas fa-info fa-fw"></i></button>
-                <div class="dropdown mr-1">
-                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" title="Open pictures in new window/tab">
-                        <i class="far fa-images"></i>
-                    </button>
-                    <div class="dropdown-menu" style="z-index:10000;">
-                        <a class="dropdown-item" href="Eggs.html" target="_blank">Open Eggs pictures in new window/tab</a>
-                        <a class="dropdown-item" href="Parasites.html" target="_blank">Open Parasites pictures in new window/tab</a>
-                        <a class="dropdown-item" href="Macroscopic.html" target="_blank">Open Macroscopic pictures in new window/tab</a>
-                        <a class="dropdown-item" href="Insects.html" target="_blank">Open Insects pictures in new window/tab</a>
-                        <a class="dropdown-item" href="Ticks.html" target="_blank">Open Ticks pictures in new window/tab</a>
-                        <a class="dropdown-item" href="Mites.html" target="_blank">Open Mites pictures in new window/tab</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="fronts.html" target="_blank">Open All pictures in new window/tab</a>
-                    </div>
-                </div>
                 <label for="select-cardsset"></label>
                 <select name="selectcardsset" class="custom-select btn-cardsset rounded-sm mr-1"
                         id="select-cardsset"
@@ -240,7 +209,7 @@
             </div>
         </div>
         <div id="row-image" class="flex-grow-1 d-flex flex-row flex-nowrap mt-1">
-            <div id="div-species-sidebar" class="flex-shrink-1 divspeciessidebar stripedparas" style="overflow-y: auto;"></div>
+            <div hidden id="div-species-sidebar" class="flex-shrink-1 divspeciessidebar stripedparas" style="overflow-y: auto;"></div>
             <div id="col-image" class="flex-grow-1"
                  style="width: 50%; max-width: 50%; min-width: 50%;overflow-y: auto;">
                 <div class="d-flex align-items-center justify-content-between sticky-top pr-3">
