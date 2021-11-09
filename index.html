@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 9/11/2021 6:20     djml.uk E&OE.                            *
+  * Copyright (c) 9/11/2021 7:5     djml.uk E&OE.                             *
   ***************************************************************************-->
 <!doctype html>
 <html lang="en">
@@ -28,9 +28,9 @@
     <!--  my startup code-->
     <!--    Objects first as globals uses a CardsetCollection.addcardset() call we can defer as run in order-->
     <script src="myscripts/objects.3.js" defer></script>
-    <script src="myscripts/imgCaptionsObj.4.js" defer></script>
+    <script src="myscripts/imgCaptionsObj.5.js" defer></script>
     <!--    Globals next and utilities-- -->
-    <script src="myscripts/globals.10.js" defer></script>
+    <script src="myscripts/globals.11.js" defer></script>
     <script src="myscripts/db.2.js" defer></script>
     <script src="myscripts/utilities.3.js" defer></script>
     <script src="myscripts/sheets.41.js" defer></script>
@@ -46,7 +46,7 @@
     <!--    The rest-->
     <script src="myscripts/answers.23.js" defer></script>
     <script src="myscripts/selectEvents.5.js" defer></script>
-    <script src="myscripts/cardFunctions.15.js" defer></script>
+    <script src="myscripts/cardFunctions.16.js" defer></script>
     <script src="myscripts/settings.8.js" defer></script>
     <script src="myscripts/headScripts.21.js" defer></script>
     <!-- MUST DOWNLOAD LAST -->
@@ -214,34 +214,34 @@
                  style="width: 50%; max-width: 50%; min-width: 50%;overflow-y: auto;">
                 <div class="d-flex align-items-center justify-content-between sticky-top pr-3">
                     <div class="ml-2 flex-shrink-1 d-flex  flex-wrap">
-                        <div class="text-secondary"> Hide:</div>
-                        <div class="custom-control custom-switch ml-1 border-secondary" title="Hide images initially">
-                            <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
-                                   id="checkbox-initiallyHideI"
-                                   value="true" onclick="checkboxInitiallyHideClicked(this,'images');">
-                            <label class="custom-control-label" for="checkbox-initiallyHideI"><i
-                                    class="fas fa-images"></i></label>
-                        </div>
+                        <div class="text-secondary"> Hide caption on load:</div>
+<!--                        <div class="custom-control custom-switch ml-1 border-secondary" title="Hide images initially">-->
+<!--                            <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"-->
+<!--                                   id="checkbox-initiallyHideI"-->
+<!--                                   value="true" onclick="checkboxInitiallyHideClicked(this,'images');">-->
+<!--                            <label class="custom-control-label" for="checkbox-initiallyHideI"><i-->
+<!--                                    class="fas fa-images"></i></label>-->
+<!--                        </div>-->
                         <div class="custom-control custom-switch ml-2 border-secondary" title="Hide image captions initially">
                             <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
-                                   id="checkbox-initiallyHideCap"
+                                   id="checkbox-initiallyHideCap" checked
                                    value="true" onclick="checkboxInitiallyHideClicked(this,'captions');">
                             <label class="custom-control-label" for="checkbox-initiallyHideCap">
                                 <i class="fas fa-closed-captioning"></i></label>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center mr-5">
-                        <div class="btn-group btn-group-sm flex-shrink-0 ml-1">
-                            <button type="button" class="btn btn-outline-secondary"
-                                    onclick="toggleImagesVisibility(this,'hidden');"
-                                    title="Hide images">
-                                <i class="far fa-square"></i></button>
-                            <button type="button" class="btn btn-outline-secondary"
-                                    onclick="toggleImagesVisibility(this,'visible');"
-                                    title="Reveal images">
-                                <i class="fas fa-images"></i></button>
-                        </div>
-                    </div>
+<!--                    <div class="d-flex align-items-center mr-5">-->
+<!--                        <div class="btn-group btn-group-sm flex-shrink-0 ml-1">-->
+<!--                            <button type="button" class="btn btn-outline-secondary"-->
+<!--                                    onclick="toggleImagesVisibility(this,'hidden');"-->
+<!--                                    title="Hide images">-->
+<!--                                <i class="far fa-square"></i></button>-->
+<!--                            <button type="button" class="btn btn-outline-secondary"-->
+<!--                                    onclick="toggleImagesVisibility(this,'visible');"-->
+<!--                                    title="Reveal images">-->
+<!--                                <i class="fas fa-images"></i></button>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
                 <div id="div-image-card"
                      class="d-flex flex-row flex-wrap align-items-start justify-content-center"></div>
@@ -250,10 +250,10 @@
                 <div class="d-flex align-items-center justify-content-between sticky-top"
                      style="background-color: white;">
                     <div class="ml-2 flex-shrink-1 d-flex  flex-wrap">
-                        <div class="text-secondary"> Hide:</div>
+                        <div class="text-secondary"> Hide text on load:</div>
                         <div class="custom-control custom-switch mx-1" title="Hide text initially">
                             <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
-                                   id="checkbox-initiallyHideT"
+                                   id="checkbox-initiallyHideT" checked
                                    value="true" onclick="checkboxInitiallyHideClicked(this,'text');">
                             <label class="custom-control-label" for="checkbox-initiallyHideT" title="Hide text initially"><i
                                     class="fas fa-list-ul"></i></label>

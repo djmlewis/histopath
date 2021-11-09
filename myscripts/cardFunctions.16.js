@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 7/5/2021 3:19     djml.uk E&OE.                              *
+ * Copyright (c) 9/11/2021 7:5     djml.uk E&OE.                              *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -232,39 +232,17 @@ function divgroupingsClicked(ev, hidesheet) {
 
 }
 
-function lifecycleImgClicked(imgSrc) {
-    //only 1 image is passed-in. the LC image
-    const indicsList = document.getElementById('carouselZoomImg-indicators');
-    const carouselInner = document.getElementById('carouselZoomImg-inner');
-    indicsList.innerHTML = "";
-    carouselInner.innerHTML = "";
-    const li = document.createElement('li');
-    li.setAttribute('data-target', '#carouselZoomImg');
-    li.setAttribute('data-slide-to', '0');
-    indicsList.appendChild(li);
-    const dv = document.createElement('div');
-    dv.className = "carousel-item";
-    carouselInner.appendChild(dv);
-    const img = document.createElement('img');
-    img.alt = "";
-    img.classList.add('zoomImg');
-    img.src = imgSrc;
-    dv.appendChild(img);
-
-    [indicsList, carouselInner].forEach(e => e.children[0].classList.add('active'));
-    hideSheetZoom(false);
-}
 
 function toggleSidebar() {
-    const divsb = document.getElementById('div-species-sidebar');
-    const sbbtn = document.getElementById('btn-sidebartoggle');
-    divsb.hidden = !divsb.hidden;
-    sbbtn.title = divsb.hidden ? "Show Species Index sidebar" : "Hide Species Index sidebar";
-    if (divsb.hidden) {
-        sbbtn.classList.remove('btn-outline-primary');
-        sbbtn.classList.add('btn-primary');
-    } else {
-        sbbtn.classList.add('btn-outline-primary');
-        sbbtn.classList.remove('btn-primary');
-    }
+    // const divsb = document.getElementById('div-species-sidebar');
+    // const sbbtn = document.getElementById('btn-sidebartoggle');
+    // divsb.hidden = !divsb.hidden;
+    // sbbtn.title = divsb.hidden ? "Show Species Index sidebar" : "Hide Species Index sidebar";
+    // if (divsb.hidden) {
+    //     sbbtn.classList.remove('btn-outline-primary');
+    //     sbbtn.classList.add('btn-primary');
+    // } else {
+    //     sbbtn.classList.add('btn-outline-primary');
+    //     sbbtn.classList.remove('btn-primary');
+    // }
 }

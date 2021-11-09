@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 7/5/2021 3:19     djml.uk E&OE.                              *
+ * Copyright (c) 9/11/2021 7:5     djml.uk E&OE.                              *
  ******************************************************************************/
 // =================================================================== COLLECTION OBJECT
 window.collectionobject = new CardsetCollection();
@@ -30,9 +30,9 @@ let setting_lastCardLoadedArray = undefined;
 let randomCardIndices = [];
 
 /* ********************************* */
-let initiallyHideText = false;
+let initiallyHideText = true;
 let initiallyHideImages = false;
-let initiallyHideCaptions = false;
+let initiallyHideCaptions = true;
 
 let db_Obj;
 let dbObj_answersObj;
