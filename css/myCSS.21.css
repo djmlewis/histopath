@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 12/11/2021 1:28     djml.uk E&OE.                            *
+ * Copyright (c) 12/11/2021 1:43     djml.uk E&OE.                            *
  ******************************************************************************/
 
 .paraImage {
@@ -195,11 +195,20 @@
     margin-right: 6px;
 }
 
+/* stripedrows styles legend text */
 .stripedrows > .row:nth-child(odd) {
     background-color: #f0f0f0;
     margin-left: 1px;
     margin-right: 1px;
+    padding-right: 4px;
 }
+.stripedrows > .row:nth-child(even) {
+    margin-left: 1px;
+    margin-right: 1px;
+    padding-right: 4px;
+}
+
+/* stripedparas styles species menu left side, currently hidden */
 .stripedparas > p:nth-child(odd) {background-color: #f0f0f0}
 
 .legend-subhead {
