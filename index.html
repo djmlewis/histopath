@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 12/11/2021 1:43     djml.uk E&OE.                           *
+  * Copyright (c) 12/11/2021 5:31     djml.uk E&OE.                           *
   ***************************************************************************-->
 <!doctype html>
 <html lang="en">
@@ -28,7 +28,7 @@
     <!--  my startup code-->
     <!--    Objects first as globals uses a CardsetCollection.addcardset() call we can defer as run in order-->
     <script src="myscripts/objects.3.js" defer></script>
-    <script src="myscripts/imgCaptionsObj.11.js" defer></script>
+    <script src="myscripts/imgCaptionsObj.12.js" defer></script>
     <!--    Globals next and utilities-- -->
     <script src="myscripts/globals.11.js" defer></script>
     <script src="myscripts/db.2.js" defer></script>
@@ -41,7 +41,7 @@
     </script>
     <!--    The collection objects  !!! Always DEFER these to allow libs to laod !!!  -->
     <!--    The order they appear here is the order on the dropdown  -->
-    <script src="collections/Picture%20Quiz.8.js" defer></script>
+    <script src="collections/Picture%20Quiz.11.js" defer></script>
 
     <!--    The rest-->
     <script src="myscripts/answers.23.js" defer></script>
@@ -212,16 +212,9 @@
             <div hidden id="div-species-sidebar" class="flex-shrink-1 divspeciessidebar stripedparas" style="overflow-y: auto;"></div>
             <div id="col-image" class="flex-grow-1"
                  style="width: 50%; max-width: 50%; min-width: 50%;overflow-y: auto;">
-                <div class="d-flex align-items-center justify-content-between sticky-top pr-3">
+                <div class="d-flex align-items-center justify-content-between sticky-top pr-3" style="min-height: 40px">
                     <div class="ml-2 flex-shrink-1 d-flex  flex-wrap">
                         <div class="text-secondary"> Hide caption on load:</div>
-<!--                        <div class="custom-control custom-switch ml-1 border-secondary" title="Hide images initially">-->
-<!--                            <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"-->
-<!--                                   id="checkbox-initiallyHideI"-->
-<!--                                   value="true" onclick="checkboxInitiallyHideClicked(this,'images');">-->
-<!--                            <label class="custom-control-label" for="checkbox-initiallyHideI"><i-->
-<!--                                    class="fas fa-images"></i></label>-->
-<!--                        </div>-->
                         <div class="custom-control custom-switch ml-2 border-secondary" title="Hide image captions initially">
                             <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
                                    id="checkbox-initiallyHideCap" checked
@@ -230,26 +223,14 @@
                                 <i class="fas fa-closed-captioning"></i></label>
                         </div>
                     </div>
-<!--                    <div class="d-flex align-items-center mr-5">-->
-<!--                        <div class="btn-group btn-group-sm flex-shrink-0 ml-1">-->
-<!--                            <button type="button" class="btn btn-outline-secondary"-->
-<!--                                    onclick="toggleImagesVisibility(this,'hidden');"-->
-<!--                                    title="Hide images">-->
-<!--                                <i class="far fa-square"></i></button>-->
-<!--                            <button type="button" class="btn btn-outline-secondary"-->
-<!--                                    onclick="toggleImagesVisibility(this,'visible');"-->
-<!--                                    title="Reveal images">-->
-<!--                                <i class="fas fa-images"></i></button>-->
-<!--                        </div>-->
-<!--                    </div>-->
-                    <div class="text-secondary text-sm"> Click the grey caption bar to show/hide image title</div>
+                    <div class="text-secondary text-sm" > Click the grey caption bar to show/hide image title</div>
                 </div>
                 <div id="div-image-card"
                      class="d-flex flex-row flex-wrap align-items-start justify-content-center"></div>
             </div>
             <div id="div-legendouter" class="flex-grow-1" style="overflow-y: auto; overflow-x:hidden;">
                 <div class="d-flex align-items-center justify-content-between sticky-top"
-                     style="background-color: white;">
+                     style="background-color: white; min-height: 40px">
                     <div class="ml-2 flex-shrink-1 d-flex  flex-wrap">
                         <div class="text-secondary"> Hide text on load:</div>
                         <div class="custom-control custom-switch mx-1" title="Hide text initially">
@@ -274,7 +255,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="div-revealAnswers" class="divrevealAnswers"></div>
+                <div id="div-revealAnswers" class="divrevealAnswers mt-1"></div>
                 <div class="text-secondary text-sm-left">Click labels in left column to reveal text in that row</div>
             </div>
         </div>

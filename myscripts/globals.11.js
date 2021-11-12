@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 9/11/2021 7:5     djml.uk E&OE.                              *
+ * Copyright (c) 12/11/2021 5:31     djml.uk E&OE.                            *
  ******************************************************************************/
 // =================================================================== COLLECTION OBJECT
 window.collectionobject = new CardsetCollection();
@@ -20,7 +20,7 @@ let cardImgNamesArray = [];
 const answerSplitter = "\t";
 
 // =================================================================== SELECT EVENTS
-let changeChapterAuto=true;
+let changeChapterAuto=false;
 // =================================================================== SETTINGS
 
 const ls_lastCardLoaded = "ls_lastCardLoaded";
