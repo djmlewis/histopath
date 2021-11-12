@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 12/11/2021 1:43     djml.uk E&OE.                            *
+ * Copyright (c) 12/11/2021 6:26     djml.uk E&OE.                            *
  ******************************************************************************/
 
 .paraImage {
@@ -212,16 +212,15 @@
 .stripedparas > p:nth-child(odd) {background-color: #f0f0f0}
 
 .legend-subhead {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-family: "Trebuchet MS", sans-serif;
-    text-align: right;
-    color: grey;
+    text-align: left;
+    color: gray;
     font-weight: bold;
     cursor: pointer;
     background-color: inherit;
     overflow-wrap: break-word;
     hyphens: auto;
-
 }
 /*
 .legend-subhead p {

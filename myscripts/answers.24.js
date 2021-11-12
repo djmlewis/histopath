@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 9/11/2021 6:0     djml.uk E&OE.                              *
+ * Copyright (c) 12/11/2021 6:26     djml.uk E&OE.                            *
  ******************************************************************************/
 function answersArrayFromSelectedCardObj(selectedCardObj, filterNote) {
     const array = splitTextByCharacterSkippingBlanks(selectedCardObj.answersText, "\n");
@@ -69,11 +69,13 @@ function mapAnswersArrayToParas(answersArray) {
 function answerStringFromAnswerTabString(answerTabString) {
     if (!!answerTabString) {
         const answerArray = answerTabString.split(answerSplitter);
+        if(answerArray[0].includes('Diagnosis')) bold = 'font-weight: bold;'
         return '<div class="row'+
-            //(answerArray[0].includes('◎') ? ' px-5 ' : ' ') +
-            ' d-flex align-items-center"><div class="col-3 legend-subhead">' +
+            ' d-flex align-items-center"><div class="col-2 legend-subhead">' +
             answerArray[0] + '</div>' +
-            '<div class="col legend-text" style="visibility: ' + (initiallyHideText ? 'hidden' : 'visible') + ';">' +
+            '<div class="col legend-text" style="' +
+            (answerArray[0].includes('Diagnosis') ? 'font-weight: bold; color: #941651;' : '') +
+            ' visibility: ' + (initiallyHideText ? 'hidden' : 'visible') + ';">' +
             answerArray[1].replaceAll('¶','<br>') + '</div></div>';
     } else return "";
 }
