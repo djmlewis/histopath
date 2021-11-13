@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 9/11/2021 7:5     djml.uk E&OE.                              *
+ * Copyright (c) 13/11/2021 1:9     djml.uk E&OE.                             *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -166,6 +166,7 @@ function divimgcardClicked(ev) {
         cardImgNamesArray.forEach((imageNameOrient, indx) => {
             //[0] is name "xxx yyy pX" [1] is orientation p or l
             const imgName = imageNameOrient.split("\t")[0];
+            const imgZoomClass = (imageNameOrient.split("\t")[1] === 'l') ? 'zoomImg' : 'zoomImgTall';
             const li = document.createElement('li');
             li.setAttribute('data-target', '#carouselZoomImg');
             li.setAttribute('data-slide-to', indx.toString());
@@ -187,7 +188,7 @@ function divimgcardClicked(ev) {
             carouselInner.appendChild(dv);
             const img = document.createElement('img');
             img.alt = "";
-            img.classList.add('zoomImg');
+            img.classList.add(imgZoomClass);
             img.src = selectedCardObj.imagePath + imgName + selectedCardObj.imageType;
             dv.appendChild(img);
         });

@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 12/11/2021 6:26     djml.uk E&OE.                            *
+ * Copyright (c) 13/11/2021 1:9     djml.uk E&OE.                             *
  ******************************************************************************/
 
 .paraImage {
@@ -12,7 +12,7 @@
 }
 .imgCaption {
     font-family: "Trebuchet MS", sans-serif;
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-align:center;
     padding:2px;
     width: 100%;
@@ -302,7 +302,16 @@
 }
 
 .zoomImg {
+    width: 100vw;
     max-width: 100vw;
+    /*max-height: 100vh;*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.zoomImgTall {
+    height: 80vw;
+    /*max-width: 100vw;*/
     max-height: 100vh;
     display: block;
     margin-left: auto;
