@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 13/11/2021 1:9     djml.uk E&OE.                             *
+ * Copyright (c) 13/11/2021 6:33     djml.uk E&OE.                            *
  ******************************************************************************/
 
 .paraImage {
@@ -143,11 +143,23 @@
     cursor: none;
     pointer-events: none;
 }
-.divspeciessidebar {
+.divspeciessidebar, .organHeader {
     font-family: "Trebuchet MS",sans-serif;
-    max-width: 20rem;
+    font-size: 12px;
+    max-width: 12rem;
     cursor: none;
     overflow-x: hidden;
+    hyphens: none;
+}
+
+.organHeader {
+    text-align: center;
+    padding-left:0;
+    margin-bottom: 0;
+    pointer-events: none;
+    hyphens: none;
+    /*background-color: #424242;!important;*/
+    color: white;
 }
 
 .divgroupings p, .divspecies p, .divtaxogenera p, .divtaxospecies p, .divspeciessidebar p {
@@ -209,7 +221,7 @@
 }
 
 /* stripedparas styles species menu left side, currently hidden */
-.stripedparas > p:nth-child(odd) {background-color: #f0f0f0}
+.stripedparas > p:nth-child(odd) {background-color: #e0e0e0}
 
 .legend-subhead {
     font-size: 0.9rem;
@@ -222,13 +234,6 @@
     overflow-wrap: break-word;
     hyphens: auto;
 }
-/*
-.legend-subhead p {
-    overflow-wrap: break-word;
-    hyphens: auto;
-    pointer-events: none;
-}
-*/
 
 .legend-text {
     font-size: 1.3rem;
@@ -317,3 +322,4 @@
     margin-left: auto;
     margin-right: auto;
 }
+
