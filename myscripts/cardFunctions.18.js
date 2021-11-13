@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 13/11/2021 1:9     djml.uk E&OE.                             *
+ * Copyright (c) 13/11/2021 6:35     djml.uk E&OE.                            *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -235,15 +235,15 @@ function divgroupingsClicked(ev, hidesheet) {
 
 
 function toggleSidebar() {
-    // const divsb = document.getElementById('div-species-sidebar');
-    // const sbbtn = document.getElementById('btn-sidebartoggle');
-    // divsb.hidden = !divsb.hidden;
-    // sbbtn.title = divsb.hidden ? "Show Species Index sidebar" : "Hide Species Index sidebar";
-    // if (divsb.hidden) {
-    //     sbbtn.classList.remove('btn-outline-primary');
-    //     sbbtn.classList.add('btn-primary');
-    // } else {
-    //     sbbtn.classList.add('btn-outline-primary');
-    //     sbbtn.classList.remove('btn-primary');
-    // }
+    const divsb = document.getElementById('div-species-sidebar');
+    const sbbtn = document.getElementById('btn-sidebartoggle');
+    divsb.hidden = !divsb.hidden;
+    sbbtn.title = divsb.hidden ? "Show Diagnoses Index sidebar" : "Hide Diagnoses Index sidebar";
+    if (divsb.hidden) {
+        sbbtn.classList.remove('btn-outline-info');
+        sbbtn.classList.add('btn-info');
+    } else {
+        sbbtn.classList.add('btn-outline-info');
+        sbbtn.classList.remove('btn-info');
+    }
 }
