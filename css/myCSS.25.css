@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 13/11/2021 6:33     djml.uk E&OE.                            *
+ * Copyright (c) 13/11/2021 6:48     djml.uk E&OE.                            *
  ******************************************************************************/
 
 .paraImage {
@@ -147,6 +147,7 @@
     font-family: "Trebuchet MS",sans-serif;
     font-size: 12px;
     max-width: 12rem;
+    min-width: 12rem;
     cursor: none;
     overflow-x: hidden;
     hyphens: none;
@@ -154,7 +155,7 @@
 
 .organHeader {
     text-align: center;
-    padding-left:0;
+    width: 100%;
     margin-bottom: 0;
     pointer-events: none;
     hyphens: none;
@@ -164,10 +165,11 @@
 
 .divgroupings p, .divspecies p, .divtaxogenera p, .divtaxospecies p, .divspeciessidebar p {
     cursor: pointer;
-    padding-left:1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     margin-bottom: 2px;
     pointer-events: auto;
-    hyphens: auto;
+    hyphens: none;
 }
 
 .divgroupings p:hover, .divspecies p:hover, .divtaxogenera p:hover, .divtaxospecies p:hover {
