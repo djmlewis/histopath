@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 7/5/2021 3:19     djml.uk E&OE.                              *
+ * Copyright (c) 13/11/2021 8:35     djml.uk E&OE.                            *
  ******************************************************************************/
 // =================================================================== UTILITY FUNCTIONS
 function getStringCharacterLength (str) {
@@ -136,5 +136,5 @@ function showHideCardSelect() {
 
 //---------- ******** User Guide *********** ------------------------//
 function toggleUserGuide() {
-    window.open("userGuide.html", "Parasites Atlas User Guide");
+    window.open("userGuide.html", "Histology Pathology Picture Quiz User Guide");
 }
