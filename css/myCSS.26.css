@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 13/11/2021 6:48     djml.uk E&OE.                            *
+ * Copyright (c) 14/11/2021 9:42     djml.uk E&OE.                            *
  ******************************************************************************/
 
 .paraImage {
@@ -161,6 +161,18 @@
     hyphens: none;
     /*background-color: #424242;!important;*/
     color: white;
+}
+
+.MACR, .HIST {
+    font-family: "Garamond",serif;
+    font-size: 9px;
+    font-weight: bolder;
+}
+.MACR {
+    color: #660000;
+}
+.HIST {
+    color: #000099;
 }
 
 .divgroupings p, .divspecies p, .divtaxogenera p, .divtaxospecies p, .divspeciessidebar p {
