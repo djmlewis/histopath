@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 13/11/2021 6:35     djml.uk E&OE.                            *
+ * Copyright (c) 15/11/2021 5:20     djml.uk E&OE.                            *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -120,8 +120,8 @@ function toggleImagesVisibility(btn, action) {
 }
 
 function addImagesForCardObj(selectedCardObj) {
-    const numImages = selectedCardObj['imageNamesOrientsArray'].length;
     cardImgNamesArray = selectedCardObj['imageNamesOrientsArray'];
+    const numImages = cardImgNamesArray.length;
     imageDivsIDs.forEach(divimagecardID => {
         for (const imageNameOrient of cardImgNamesArray) {
             //[0] is name "xxx yyy pX" [1] is orientation p or l
