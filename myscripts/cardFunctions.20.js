@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 15/11/2021 5:20     djml.uk E&OE.                            *
+ * Copyright (c) 16/11/2021 4:12     djml.uk E&OE.                            *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -103,7 +103,7 @@ function loadCardImage() {
         const selectedCardObj = JSON.parse(selectcard.selectedOptions[0].getAttribute(attr_cardObject));
         recordLastCardLoaded(selectedCardObj.uniqueCardID);
         addImagesForCardObj(selectedCardObj);
-        addLegendArrayToDiv(selectedCardObj);
+        addLegendArrayToDiv(selectedCardObj,document.getElementById("div-revealAnswers"),true);
         setStatusBtnsForCardUID(selectedCardObj.uniqueCardID);
     } else {
         cll("no image", selectcard.value);
@@ -112,14 +112,15 @@ function loadCardImage() {
     adjustCardWidthHeight();
 }
 
-function toggleImagesVisibility(btn, action) {
-    btn.blur();
-    imageDivsIDs.forEach(id => {
-        for (const img of document.getElementById(id).children) img.style.visibility = action
-    });
-}
+// function toggleImagesVisibility(btn, action) {
+//     btn.blur();
+//     imageDivsIDs.forEach(id => {
+//         for (const img of document.getElementById(id).children) img.style.visibility = action
+//     });
+// }
 
 function addImagesForCardObj(selectedCardObj) {
+    resetTextFullScreen();
     cardImgNamesArray = selectedCardObj['imageNamesOrientsArray'];
     const numImages = cardImgNamesArray.length;
     imageDivsIDs.forEach(divimagecardID => {
@@ -147,8 +148,17 @@ function addImagesForCardObj(selectedCardObj) {
             const newImg = document.createElement('img');
             const imgsrc = selectedCardObj.imagePath + imgName + selectedCardObj.imageType;
             dv.appendChild(newImg);
+            if (!divimagecardID.includes("fullscreen")) {
+                newImg.className = "paraImage";
+            } else {
+                const dvtext = document.createElement('div');
+                dvtext.className = 'divFullscreenText'
+                dvtext.style.width = dv.style.width;
+                addLegendArrayToDiv(selectedCardObj,dvtext,false);
+                dvtext.hidden = true;
+                dv.appendChild(dvtext);
+            }
             newImg.setAttribute('data-imgname', imgName);
-            if (!divimagecardID.includes("fullscreen")) newImg.className = "paraImage";
             newImg.style.width = '100%';
             newImg.style.visibility = (initiallyHideImages ? 'hidden' : 'visible');
             newImg.src = imgsrc;
@@ -233,7 +243,6 @@ function divgroupingsClicked(ev, hidesheet) {
 
 }
 
-
 function toggleSidebar() {
     const divsb = document.getElementById('div-species-sidebar');
     const sbbtn = document.getElementById('btn-sidebartoggle');
@@ -246,4 +255,29 @@ function toggleSidebar() {
         sbbtn.classList.add('btn-outline-info');
         sbbtn.classList.remove('btn-info');
     }
+}
+
+function showTextFullScreen(btn) {
+    elementsArrayForClassNameFromElementID("div-image-card-fullscreen",'divFullscreenText').forEach(el=>el.toggleAttribute('hidden'));
+    if(btn.title.includes('Show')) {
+        btn.title = 'Hide Text';
+        btn.innerHTML = '<i class="fas fa-ellipsis-v fa-fw"></i>&nbsp;Hide Text';
+        btn.classList.remove('btn-dark');
+        btn.classList.add('btn-outline-dark');
+    } else {
+        btn.title = 'Show Text';
+        btn.innerHTML = '<i class="fas fa-list-ul fa-fw"></i>&nbsp;Show Text';
+        btn.classList.add('btn-dark');
+        btn.classList.remove('btn-outline-dark');
+    }
+}
+
+function resetTextFullScreen() {
+    elementsArrayForClassNameFromElementID("div-image-card-fullscreen",'divFullscreenText').forEach(el=>el.setAttribute('hidden','true'));
+    elementsArrayForClassNameFromElementID("div-image-card-fullscreen",'spanImgCaption').forEach(el=>el.style.visibility = 'hidden');
+    const btn = document.getElementById('btn-showTextFullscreen');
+    btn.title = 'Show Text';
+    btn.innerHTML = '<i class="fas fa-list-ul fa-fw"></i>&nbsp;Show Text';
+    btn.classList.add('btn-dark');
+    btn.classList.remove('btn-outline-dark');
 }

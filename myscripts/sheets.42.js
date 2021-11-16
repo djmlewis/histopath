@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 10/5/2021 1:4     djml.uk E&OE.                              *
+ * Copyright (c) 16/11/2021 4:12     djml.uk E&OE.                            *
  ******************************************************************************/
 
 function showSheet(sheetID) {
@@ -8,18 +8,16 @@ function showSheet(sheetID) {
     const sheet = document.getElementById(sheetID);
     sheetholder.appendChild(sheet);
     //document.getElementById("div-mainpage").hidden = true;
+    switch (sheetID) {
+        case 'sheet-fullscreen':
+            resetTextFullScreen();
+            break;
+    }
     sheetholder.hidden = false;
 
     //clean up when modals show/hide
     window.modal_shown = sheetID;
-    //window.sheetShown = sheetID;
-    // stopPlayingLabels();
-    // if (sheetID === "sheet-index") {
-    //     modalIndexShownHidden();
-    //     handleIndexGalleryWillShow();
-    // }
-    switch (sheetID) {
-    }
+
 }
 
 function hideSheet(sheetID) {

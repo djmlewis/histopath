@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 15/11/2021 5:20     djml.uk E&OE.                           *
+  * Copyright (c) 16/11/2021 4:12     djml.uk E&OE.                           *
   ***************************************************************************-->
 <!doctype html>
 <html lang="en">
@@ -23,7 +23,7 @@
     <!--  Normalize  -->
     <link rel="stylesheet" href="css/vendor/normalize.1.css">
     <!--  my CSS -->
-    <link rel="stylesheet" href="css/myCSS.27.css">
+    <link rel="stylesheet" href="css/myCSS.28.css">
     <link rel="stylesheet" href="css/userguide.2.css">
     <!--  my startup code-->
     <!--    Objects first as globals uses a CardsetCollection.addcardset() call we can defer as run in order-->
@@ -33,7 +33,7 @@
     <script src="myscripts/globals.11.js" defer></script>
     <script src="myscripts/db.2.js" defer></script>
     <script src="myscripts/utilities.4.js" defer></script>
-    <script src="myscripts/sheets.41.js" defer></script>
+    <script src="myscripts/sheets.42.js" defer></script>
     <!--    ****** CHANGE ME in the R scripts !! version strings-->
     <script>
         window.indicesversionStr = "255";
@@ -44,9 +44,9 @@
     <script src="collections/Picture%20Quiz.33.js" defer></script>
 
     <!--    The rest-->
-    <script src="myscripts/answers.24.js" defer></script>
+    <script src="myscripts/answers.25.js" defer></script>
     <script src="myscripts/selectEvents.5.js" defer></script>
-    <script src="myscripts/cardFunctions.19.js" defer></script>
+    <script src="myscripts/cardFunctions.20.js" defer></script>
     <script src="myscripts/settings.8.js" defer></script>
     <script src="myscripts/headScripts.21.js" defer></script>
     <!-- MUST DOWNLOAD LAST -->
@@ -426,7 +426,7 @@
                     <div class="custom-control custom-switch border-secondary"
                          title="Hide image captions initially">
                         <input class="custom-control-input" type="checkbox" name="checkbox-testButtons"
-                               id="checkbox-initiallyHideCap-fullscreen"
+                               id="checkbox-initiallyHideCap-fullscreen"  checked
                                value="true" onclick="checkboxInitiallyHideClicked(this,'captions');">
                         <label class="custom-control-label" for="checkbox-initiallyHideCap-fullscreen">
                             <i class="fas fa-closed-captioning"></i></label>
@@ -471,14 +471,19 @@
                         </div>
                     </div>
                 </div>
+                <button id="btn-showTextFullscreen"
+                        type="button" class="btn btn-dark btn-sm"
+                        onclick="showTextFullScreen(this);"
+                        title="Show Text">
+                    <i class="fas fa-list-ul fa-fw"></i>&nbsp;Show Text
+                </button>
                 <button type="button" class="btn btn-danger btn-sm"
                         onclick="hideSheet('sheet-fullscreen');"
                         title="Close">
                     <i class="fa fa-times"></i>
                 </button>
             </div>
-            <div id="div-image-card-fullscreen"
-                 class="d-flex flex-row flex-wrap align-items-start justify-content-center"></div>
+            <div id="div-image-card-fullscreen" class="d-flex flex-row flex-wrap align-items-start justify-content-center"></div>
         </div>
     </div>
 </div>
