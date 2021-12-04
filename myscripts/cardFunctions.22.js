@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 4/12/2021 11:24     djml.uk E&OE.                            *
+ * Copyright (c) 4/12/2021 11:26     djml.uk E&OE.                            *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -195,7 +195,7 @@ function divimgcardClicked(ev) {
                 dv.appendChild(capt);
             }
             carouselInner.appendChild(dv);
-            const imgZoomClass = 'zoomImgTall'; // (imageNameOrient.split("\t")[1] === 'l') ? 'zoomImg' : 'zoomImgTall';
+            const imgZoomClass = (imageNameOrient.split("\t")[1] === 'l') ? 'zoomImg' : 'zoomImgTall';
             const img = document.createElement('img');
             img.alt = "";
             img.classList.add(imgZoomClass);
