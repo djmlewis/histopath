@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 7/5/2021 3:19     djml.uk E&OE.                              *
+ * Copyright (c) 4/12/2021 1:48     djml.uk E&OE.                             *
  ******************************************************************************/
 
 //---------- ******** SELECT EVENTS *********** ------------------------//
@@ -113,4 +113,35 @@ function getSelectCardsSelectedCardObject() {
 }
 function getSelectCardsSelectedCardObjectUniqueCardID() {
     return getSelectCardsSelectedCardObject().uniqueCardID;
+}
+
+function searchLegend() {
+    const searchStr = document.getElementById("input-searchlegend").value.toLowerCase();
+    if (searchStr.length > -1) {
+        const answersHanger = document.getElementById("div-species-sidebar");
+        if(answersHanger.hidden === true) toggleSidebar();// answersHanger.hidden = false;
+        const answersChildren = answersHanger.children;
+        const answersChildrenNum = answersChildren.length;
+        //answersHanger.hidden = true;
+        for (let i = 0; i < answersChildrenNum; i++) {
+            const para = answersChildren[i];
+            para.hidden = para.innerText.toLowerCase().includes(searchStr) === false;
+        }
+    }
+}
+
+function clearSearchLegend() {
+    const answersHanger = document.getElementById("div-species-sidebar");
+    const answersChildren = answersHanger.children;
+    const answersChildrenNum = answersChildren.length;
+    //answersHanger.hidden = true;
+    for (let i = 0; i < answersChildrenNum; i++) {
+        answersChildren[i].hidden = false;
+    }
+    //answersHanger.hidden = false;
+    document.getElementById("input-searchlegend").value = "";
+}
+
+function restoreSeriesIndexHiddenState() {
+
 }
