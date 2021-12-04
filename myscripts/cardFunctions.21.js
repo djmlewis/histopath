@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 16/11/2021 4:12     djml.uk E&OE.                            *
+ * Copyright (c) 4/12/2021 11:24     djml.uk E&OE.                            *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -176,7 +176,6 @@ function divimgcardClicked(ev) {
         cardImgNamesArray.forEach((imageNameOrient, indx) => {
             //[0] is name "xxx yyy pX" [1] is orientation p or l
             const imgName = imageNameOrient.split("\t")[0];
-            const imgZoomClass = (imageNameOrient.split("\t")[1] === 'l') ? 'zoomImg' : 'zoomImgTall';
             const li = document.createElement('li');
             li.setAttribute('data-target', '#carouselZoomImg');
             li.setAttribute('data-slide-to', indx.toString());
@@ -196,6 +195,7 @@ function divimgcardClicked(ev) {
                 dv.appendChild(capt);
             }
             carouselInner.appendChild(dv);
+            const imgZoomClass = 'zoomImgTall'; // (imageNameOrient.split("\t")[1] === 'l') ? 'zoomImg' : 'zoomImgTall';
             const img = document.createElement('img');
             img.alt = "";
             img.classList.add(imgZoomClass);
@@ -211,6 +211,18 @@ function divimgcardClicked(ev) {
             (ev.target.getElementsByClassName('spanImgCaption')[0].style.visibility === "visible" ? 'hidden' : 'visible');
         ev.preventDefault();
         ev.stopPropagation();
+    }
+}
+
+function handleZoomOImgOrient(orient) {
+    const carouselInner = document.getElementById('carouselZoomImg-inner');
+    const image = carouselInner.getElementsByTagName('img')[0];
+    if(orient === 'w') {
+        image.classList.remove('zoomImgTall');
+        image.classList.add('zoomImg');
+    } else {
+        image.classList.add('zoomImgTall');
+        image.classList.remove('zoomImg');
     }
 }
 

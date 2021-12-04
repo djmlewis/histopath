@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 16/11/2021 4:12     djml.uk E&OE.                           *
+  * Copyright (c) 4/12/2021 11:24     djml.uk E&OE.                           *
   ***************************************************************************-->
 <!doctype html>
 <html lang="en">
@@ -23,7 +23,7 @@
     <!--  Normalize  -->
     <link rel="stylesheet" href="css/vendor/normalize.1.css">
     <!--  my CSS -->
-    <link rel="stylesheet" href="css/myCSS.28.css">
+    <link rel="stylesheet" href="css/myCSS.29.css">
     <link rel="stylesheet" href="css/userguide.2.css">
     <!--  my startup code-->
     <!--    Objects first as globals uses a CardsetCollection.addcardset() call we can defer as run in order-->
@@ -46,7 +46,7 @@
     <!--    The rest-->
     <script src="myscripts/answers.25.js" defer></script>
     <script src="myscripts/selectEvents.5.js" defer></script>
-    <script src="myscripts/cardFunctions.20.js" defer></script>
+    <script src="myscripts/cardFunctions.21.js" defer></script>
     <script src="myscripts/settings.8.js" defer></script>
     <script src="myscripts/headScripts.21.js" defer></script>
     <!-- MUST DOWNLOAD LAST -->
@@ -267,8 +267,21 @@
             title="Close">
         <i class="fa fa-times"></i>
     </button>
+    <div class="btn-group btn-group-toggle btn-sm sticky-top float-left" data-toggle="buttons">
+        <label id="imageFitPage" class="btn btn-sm btn-primary"
+               title="Fit image to height"
+               onclick="handleZoomOImgOrient('h');">
+            <input type="radio" name="setting_imageFit" autocomplete="off">
+            <i class="fas fa-arrows-alt-v"></i></label>
+        <label id="imageFitWidth" class="btn btn-sm btn-primary"
+               title="Fit image to width"
+               onclick="handleZoomOImgOrient('w');">
+            <input type="radio" name="setting_imageFit" autocomplete="off">
+            <i class="fas fa-arrows-alt-h"></i></label>
+    </div>
+
     <div id="carouselZoomImg" class="carousel slide bg-primary" style="position: absolute;top: 0;left: 0; height: 100vh; width: 100vw;" data-interval="false" data-ride="false">
-        <div id="carouselZoomImg-inner" class="carousel-inner" style="height: 100%;overflow-x: hidden;overflow-y: auto; background-color: #f0f0f0;"></div>
+        <div id="carouselZoomImg-inner" class="carousel-inner" style="height: 100%;overflow-x: auto;overflow-y: auto; background-color: #424242;"></div>
         <ol hidden id="carouselZoomImg-indicators" class="carousel"></ol>
         <a hidden class="carousel-control-prev" href="#carouselZoomImg" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

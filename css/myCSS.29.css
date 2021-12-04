@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 16/11/2021 4:12     djml.uk E&OE.                            *
+ * Copyright (c) 4/12/2021 11:24     djml.uk E&OE.                            *
  ******************************************************************************/
 
 .paraImage {
@@ -16,7 +16,7 @@
     text-align:center;
     padding:2px;
     width: 100%;
-    border: none;
+    /*border: none;*/
     cursor: context-menu;
     background-color: #424242;
     color:whitesmoke;
@@ -335,8 +335,7 @@
     margin-right: auto;
 }
 .zoomImgTall {
-    height: 80vw;
-    /*max-width: 100vw;*/
+    height: 100vh;
     max-height: 100vh;
     display: block;
     margin-left: auto;
