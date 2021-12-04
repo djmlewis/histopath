@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 4/12/2021 11:24     djml.uk E&OE.                            *
+ * Copyright (c) 4/12/2021 2:13     djml.uk E&OE.                             *
  ******************************************************************************/
 
 .paraImage {
@@ -241,7 +241,10 @@
 }
 
 /* stripedparas styles species menu left side, currently hidden */
-.stripedparas > p:nth-child(odd) {background-color: #e0e0e0}
+/*.stripedparas > p:nth-child(odd) {background-color: #e0e0e0}*/
+.stripedparas > p{
+    border-bottom: 1px solid #e0e0e0;
+}
 
 .legend-subhead {
     font-size: 0.9rem;
