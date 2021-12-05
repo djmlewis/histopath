@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 5/12/2021 5:54     djml.uk E&OE.                             *
+ * Copyright (c) 5/12/2021 6:18     djml.uk E&OE.                             *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -274,13 +274,13 @@ function showTextFullScreen(btn) {
     if(btn.title.includes('Show')) {
         btn.title = 'Hide Text';
         btn.innerHTML = '<i class="fas fa-ellipsis-v fa-fw"></i>&nbsp;Hide Text';
-        btn.classList.remove('btn-dark');
-        btn.classList.add('btn-outline-dark');
+        btn.classList.remove('btn-secondary');
+        btn.classList.add('btn-outline-secondary');
     } else {
         btn.title = 'Show Text';
         btn.innerHTML = '<i class="fas fa-list-ul fa-fw"></i>&nbsp;Show Text';
-        btn.classList.add('btn-dark');
-        btn.classList.remove('btn-outline-dark');
+        btn.classList.add('btn-secondary');
+        btn.classList.remove('btn-outline-secondary');
     }
 }
 
@@ -290,6 +290,6 @@ function resetTextFullScreen() {
     const btn = document.getElementById('btn-showTextFullscreen');
     btn.title = 'Show Text';
     btn.innerHTML = '<i class="fas fa-list-ul fa-fw"></i>&nbsp;Show Text';
-    btn.classList.add('btn-dark');
-    btn.classList.remove('btn-outline-dark');
+    btn.classList.add('btn-secondary');
+    btn.classList.remove('btn-outline-secondary');
 }

@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 5/12/2021 5:54     djml.uk E&OE.                            *
+  * Copyright (c) 5/12/2021 6:18     djml.uk E&OE.                            *
   ***************************************************************************-->
 <!doctype html>
 <html lang="en">
@@ -32,7 +32,7 @@
     <!--    Globals next and utilities-- -->
     <script src="myscripts/globals.12.js" defer></script>
     <script src="myscripts/db.2.js" defer></script>
-    <script src="myscripts/utilities.4.js" defer></script>
+    <script src="myscripts/utilities.5.js" defer></script>
     <script src="myscripts/sheets.42.js" defer></script>
     <!--    ****** CHANGE ME in the R scripts !! version strings-->
     <script>
@@ -46,7 +46,7 @@
     <!--    The rest-->
     <script src="myscripts/answers.25.js" defer></script>
     <script src="myscripts/selectEvents.6.js" defer></script>
-    <script src="myscripts/cardFunctions.23.js" defer></script>
+    <script src="myscripts/cardFunctions.24.js" defer></script>
     <!--    settings must come after globals -->
     <script src="myscripts/settings.9.js" defer></script>
     <script src="myscripts/headScripts.21.js" defer></script>
@@ -135,12 +135,12 @@
                        oninput="handleSliderImageWidthChanged(this)">
             </div>
             <div class="d-flex flex-row align-items-center flex-wrap">
-                <button type="button" class="btn btn-sm btn-outline-primary mr-1"
+                <button type="button" class="btn btn-sm btn-dark mr-1"
                         id="btn-fullscreen"
                         style="visibility: hidden;"
                         onclick="showSheet('sheet-fullscreen');"
-                        title="Fullscreen images">
-                    <i class="fas fa-expand-alt"></i></button>
+                        title="Fullscreen mode">
+                    <i class="fas fa-expand-alt"></i>&nbsp;&nbsp;Fullscreen</button>
                 <div>
                     <div class="input-group input-group-sm">
                         <div class="input-group-prepend">
@@ -153,7 +153,7 @@
                                     <input class="custom-control-input" type="checkbox"
                                            name="checkbox-randomiseUntested"
                                            id="checkbox-randomiseUntested" data-status="untested"
-                                           value="true" checked onclick="randomiseCBXclicked();">
+                                           value="true" checked onclick="randomiseCBXclicked(this);">
                                     <label class="custom-control-label" for="checkbox-randomiseUntested"><i
                                             class="fas fa-question-circle"></i></label>
                                 </div>
@@ -161,21 +161,21 @@
                                     <input class="custom-control-input" type="checkbox"
                                            name="checkbox-randomiseIncorrect"
                                            id="checkbox-randomiseIncorrect" data-status="incorrect"
-                                           value="true" checked onclick="randomiseCBXclicked();">
+                                           value="true" checked onclick="randomiseCBXclicked(this);">
                                     <label class="custom-control-label" for="checkbox-randomiseIncorrect"><i
                                             class="fas fa-times-circle"></i></label>
                                 </div>
                                 <div class="custom-control custom-switch text-success mx-1">
                                     <input class="custom-control-input" type="checkbox" name="checkbox-randomiseCorrect"
                                            id="checkbox-randomiseCorrect" data-status="correct"
-                                           value="true" checked onclick="randomiseCBXclicked();">
+                                           value="true" checked onclick="randomiseCBXclicked(this);">
                                     <label class="custom-control-label" for="checkbox-randomiseCorrect"><i
                                             class="fas fa-check-circle"></i></label>
                                 </div>
                                 <div class="custom-control custom-switch text-warning mx-1">
                                     <input class="custom-control-input" type="checkbox" name="checkbox-randomiseStar"
                                            id="checkbox-randomiseStar" data-status="star"
-                                           value="true" checked onclick="randomiseCBXclicked();">
+                                           value="true" checked onclick="randomiseCBXclicked(this);">
                                     <label class="custom-control-label" for="checkbox-randomiseStar"><i
                                             class="fas fa-star"></i></label>
                                 </div>
@@ -465,6 +465,63 @@
                             <i class="fas fa-closed-captioning"></i></label>
                     </div>
                 </div>
+                <button id="btn-showTextFullscreen"
+                        type="button" class="btn btn-secondary btn-sm"
+                        onclick="showTextFullScreen(this);"
+                        title="Show Text">
+                    <i class="fas fa-list-ul fa-fw"></i>&nbsp;Show Text
+                </button>
+                <div>
+                    <div class="input-group input-group-sm">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-sm btn-primary" type="button"
+                                    onclick="randomiseBtnClicked();"
+                            >Randomise
+                            </button>
+                            <div id="inputgp-statuscbxs-fullscreen" class="input-group-text bg-white">
+                                <div class="custom-control custom-switch text-secondary mr-1">
+                                    <input class="custom-control-input" type="checkbox"
+                                           name="checkbox-randomiseUntested-fullscreen"
+                                           id="checkbox-randomiseUntested-fullscreen" data-status="untested"
+                                           value="true" checked onclick="randomiseCBXclicked(this);">
+                                    <label class="custom-control-label" for="checkbox-randomiseUntested-fullscreen"><i
+                                            class="fas fa-question-circle"></i></label>
+                                </div>
+                                <div class="custom-control custom-switch text-danger mx-1">
+                                    <input class="custom-control-input" type="checkbox"
+                                           name="checkbox-randomiseIncorrect-fullscreen"
+                                           id="checkbox-randomiseIncorrect-fullscreen" data-status="incorrect"
+                                           value="true" checked onclick="randomiseCBXclicked(this);">
+                                    <label class="custom-control-label" for="checkbox-randomiseIncorrect-fullscreen"><i
+                                            class="fas fa-times-circle"></i></label>
+                                </div>
+                                <div class="custom-control custom-switch text-success mx-1">
+                                    <input class="custom-control-input" type="checkbox"
+                                           name="checkbox-randomiseCorrect-fullscreen"
+                                           id="checkbox-randomiseCorrect-fullscreen" data-status="correct"
+                                           value="true" checked onclick="randomiseCBXclicked(this);">
+                                    <label class="custom-control-label" for="checkbox-randomiseCorrect-fullscreen"><i
+                                            class="fas fa-check-circle"></i></label>
+                                </div>
+                                <div class="custom-control custom-switch text-warning mx-1">
+                                    <input class="custom-control-input" type="checkbox"
+                                           name="checkbox-randomiseStar-fullscreen"
+                                           id="checkbox-randomiseStar-fullscreen" data-status="star"
+                                           value="true" checked onclick="randomiseCBXclicked(this);">
+                                    <label class="custom-control-label" for="checkbox-randomiseStar-fullscreen"><i
+                                            class="fas fa-star"></i></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group-append">
+                            <span id="span-randomSlideCount-fullscreen" class="input-group-text text-right"></span>
+                            <button type="button" class="btn btn-sm btn-primary"
+                                    onclick="btnRandomClicked();"
+                                    title="Click to select next random card from current chapter">
+                                <i class="fas fa-random"></i>&nbsp;Next Image</button>
+                        </div>
+                    </div>
+                </div>
                 <div id="btngp-status-fullscreen" class="btn-group btn-group-sm">
                     <button id="btnstatus-untested-fullscreen" type="button" class="btn btn-secondary"
                             onclick="btnStatusClicked('untested');"
@@ -487,29 +544,6 @@
                         <i class="fas fa-star"></i>
                     </button>
                 </div>
-                <div>
-                    <div class="input-group input-group-sm">
-                        <div class="input-group-prepend">
-                            <button class="btn btn-sm btn-primary" type="button"
-                                    onclick="randomiseBtnClicked();"
-                            >Randomise
-                            </button>
-                        </div>
-                        <div class="input-group-append">
-                            <span id="span-randomSlideCount-fullscreen" class="input-group-text text-right"></span>
-                            <button type="button" class="btn btn-sm btn-primary"
-                                    onclick="btnRandomClicked();"
-                                    title="Click to select next random card from current chapter">
-                                <i class="fas fa-random"></i>&nbsp;Next Image</button>
-                        </div>
-                    </div>
-                </div>
-                <button id="btn-showTextFullscreen"
-                        type="button" class="btn btn-dark btn-sm"
-                        onclick="showTextFullScreen(this);"
-                        title="Show Text">
-                    <i class="fas fa-list-ul fa-fw"></i>&nbsp;Show Text
-                </button>
                 <button type="button" class="btn btn-danger btn-sm"
                         onclick="hideSheet('sheet-fullscreen');"
                         title="Close">

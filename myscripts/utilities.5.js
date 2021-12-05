@@ -1,13 +1,14 @@
 /******************************************************************************
- * Copyright (c) 13/11/2021 8:35     djml.uk E&OE.                            *
+ * Copyright (c) 5/12/2021 6:18     djml.uk E&OE.                             *
  ******************************************************************************/
 // =================================================================== UTILITY FUNCTIONS
+/*
 function getStringCharacterLength (str) {
     // string .length is unreliable as it uses UTF16!
     // The string iterator that is used here iterates over characters,not mere code units
     return [...str].length;
 }
-
+*/
 function splitTextByCharacterSkippingBlanks(textToSplit, splitChar) {
     let array = textToSplit.split(splitChar);
     return array.filter(line => line.length > 0);
@@ -32,9 +33,9 @@ function shuffleThisArray(array2shuffle) {
 function cll() {
     console.log([...arguments].join(" "));
 }
-function cllts() {
-    console.log([new Date().getTime()+Math.random(),...arguments].join(" "));
-}
+// function cllts() {
+//     console.log([new Date().getTime()+Math.random(),...arguments].join(" "));
+// }
 
 //---------- ******** RANDOM *********** ------------------------//
 
@@ -82,7 +83,14 @@ function randomiseBtnClicked() {
     showNextRandomCard();
 }
 
-function randomiseCBXclicked() {
+function randomiseCBXclicked(cbx) {
+    // harmonise with cbx sibling
+    let id = cbx.id;
+    if(id.includes('fullscreen')) {
+        document.getElementById(id.replace('-fullscreen','')).checked = cbx.checked;
+    } else {
+        document.getElementById(id+'-fullscreen').checked = cbx.checked;
+    }
     setupShuffledCardIndicesArray();
     showNextRandomCard();
 }
