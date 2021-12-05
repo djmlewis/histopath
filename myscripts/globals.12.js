@@ -1,11 +1,11 @@
 /******************************************************************************
- * Copyright (c) 12/11/2021 5:31     djml.uk E&OE.                            *
+ * Copyright (c) 5/12/2021 4:41     djml.uk E&OE.                             *
  ******************************************************************************/
 // =================================================================== COLLECTION OBJECT
 window.collectionobject = new CardsetCollection();
 // =================================================================== MODAL FUNCTIONS
 window.modal_shown = undefined;
-// =================================================================== SHEETS
+// =================================================================== SETTINGS
 // =================================================================== CARD FUNCTIONS
 const lifecyclesfolderpath = 'cardsets/central/lifecycles/';
 const nextValue = "1";
@@ -29,10 +29,17 @@ let setting_lastCardLoadedArray = undefined;
 //---------- ******** Random *********** ------------------------//
 let randomCardIndices = [];
 
-/* ********************************* */
+// ********************************* CHECKBOXES
+// these are set at startup to defaults in setupHideTextCapsImagesCheckboxesAtStartup
 let initiallyHideText = true;
 let initiallyHideImages = false;
 let initiallyHideCaptions = true;
+
+const ls_initiallyHideText = "ls_initiallyHideText";
+const ls_initiallyHideImages = "ls_initiallyHideImages";
+const ls_initiallyHideCaptions = "ls_initiallyHideCaptions";
+
+/* ********************************* */
 
 let db_Obj;
 let dbObj_answersObj;
