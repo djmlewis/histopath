@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 4/12/2021 11:26     djml.uk E&OE.                            *
+ * Copyright (c) 5/12/2021 5:54     djml.uk E&OE.                             *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -286,7 +286,7 @@ function showTextFullScreen(btn) {
 
 function resetTextFullScreen() {
     elementsArrayForClassNameFromElementID("div-image-card-fullscreen",'divFullscreenText').forEach(el=>el.setAttribute('hidden','true'));
-    elementsArrayForClassNameFromElementID("div-image-card-fullscreen",'spanImgCaption').forEach(el=>el.style.visibility = 'hidden');
+    elementsArrayForClassNameFromElementID("div-image-card-fullscreen",'spanImgCaption').forEach(el=>el.style.visibility = initiallyHideCaptions ? 'hidden' : 'visible');
     const btn = document.getElementById('btn-showTextFullscreen');
     btn.title = 'Show Text';
     btn.innerHTML = '<i class="fas fa-list-ul fa-fw"></i>&nbsp;Show Text';
