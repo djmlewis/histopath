@@ -30,9 +30,11 @@
         <div class="col-12">
             <blockquote>
                 The Histopathology Picture Quiz consist of a collection of unique cards - one for each pathological or histological specimen.<br>
-                The cards are grouped into image sets such as "Histology" which can be accessed using the left dropdown menu on the top toolbar.<br>
-                Within each image set cards are listed alphabetically by Organ/System Class such as "Dermatology", "Respiratory". Use the right-hand menu to switch between cards, or the brown arrow buttons.
-                The menu has the diagnosis obscured and lists the cards just as "Image 1, Image 2" to assist with testing.
+                All the cards are in a single cardset but grouped into "chapters" such as "Histology" which can be accessed using the lefthand dropdown menu on the top toolbar.<br>
+                Within each chapter cards are listed alphabetically by Diagnosis Organ/System Class such as "Dermatology", "Respiratory".<br>
+                The righthand menu has the diagnosis obscured and lists the cards just as "Image 1, Image 2" (within this chapter) to assist with testing.<br>
+                Only one image per card is displayed, and some cards may repeat within a chapter if it has more than one image.<br>
+                Use the righthand menu or the brown arrow buttons to move between cards in a chapter.
             </blockquote>
         </div>
     </div>
@@ -41,7 +43,7 @@
             <img src="help/img/nextprev.png" alt="" height="40">
         </div>
         <div class="col my-auto">
-            Click the arrows (or tap keyboard arrows) to show the previous / next card - the position will not move between the topics ("chapters").
+            Click the arrows (or tap keyboard arrows) to show the previous / next card - the position will not move between the "chapters".
         </div>
     </div>
     <div class="row my-1">
@@ -49,20 +51,7 @@
             <img src="help/img/hide.png" alt="" height="40">
         </div>
         <div class="col my-auto">
-            Tap the hide button to hide the rightmost menu when testing to avoid remembering the numbering.
-        </div>
-    </div>
-    <div hidden class="row my-1">
-        <div class="col-3 text-right my-auto">
-            <img src="help/img/index.png" alt="" height="40">
-        </div>
-        <div class="col my-auto">
-            Click the book button to show the <b>Cards Index</b>.<br>
-            <img src="help/img/famspec2.png" alt="" height="20">
-            Use the buttons in the header to choose to Family/Genus or Species, sorted either by name A-Z, or by taxonomy.
-            Click an entry to show the card. Use the browser's <b>inbuilt search (usually cmd-F)</b> to find entries on the page.
-            Several Species entries may direct to the same card.
-            Click the close button <img src="help/img/close2.png" alt="" height="20"> or tap Esc on the keyboard to close the window.
+            Tap the hide button to hide the righthand menu when testing to avoid remembering the numbering.
         </div>
     </div>
     <div class="row my-1">
@@ -82,18 +71,8 @@
         <div class="col my-auto">
             Type in the box to find diagnoses in the sidebar that match the text <b>exactly</b> - diagnoses will disappear as you type more text as it must be an exact match, delete text to widen the search. If the sidebar is hidden it appears.
             Tap the diagnosis you want to open the card.<br>
-            Tap clear button <img src="help/img/searchClear.png" alt="" height="30"> to reset sidebar to show all diagnoses.
+            Tap clear button <img src="help/img/searchClear.png" alt="" height="30"> to reset sidebar to show all diagnoses.<br>
             Alternatively, use the browser's <b>inbuilt search (usually cmd-F)</b> to find entries on the sidebar.
-        </div>
-    </div>
-    <div hidden class="row my-1">
-        <div class="col-3 text-right my-auto">
-            <img src="help/img/pics.png" alt="" height="40"></div>
-        <div class="col my-auto">
-            Click to reveal a dropdown menu - select an option to open a <b>new browser window/tab</b> with pictures and captions.
-            Use the browser's <b>inbuilt search (usually cmd-F)</b> to find pictures on the page.
-            The pictures match the Picture Quiz chapters plus one with all images in the Parasites Atlas.
-            The images are listed in alphabetical order of Family/Genus.
         </div>
     </div>
     <div class="row my-1">
@@ -109,7 +88,7 @@
             <img src="help/img/zoom.png" alt="" height="40">
         </div>
         <div class="col my-auto">
-            When the mouse hovers over an image the zoom cursor appears. Click on an image to zoom it full screen.
+            When the mouse hovers over an image the zoom cursor appears. Click on an image to zoom it full screen.<br>
             Click the close button <img src="help/img/close2.png" alt="" height="20"> or tap Esc on the keyboard to close the window.<br>
             Use the <b>Fit width</b> and <b>Fit height</b> buttons <img src="help/img/zoomwidetall.png" alt="" height="30"> to enlarge/shrink the image.
             Scrollbars will appear if the image is too wide or tall to fit the window.
@@ -120,7 +99,7 @@
             <img src="help/img/hidecc.png" alt="" height="25">
         </div>
         <div class="col my-auto">
-            Use the switches to have the captions initially hidden each time a new card loads.<br>
+            Use the switches to have the captions initially hidden (switch on) or visble (switch off) each time a new card loads.<br>
             <span class="text-primary font-weight-bold">Click the grey caption bar</span> to reveal a hidden caption, or hide a visible one.<br>
             Toggling the switch has the immediate effect on displayed card.<br>
             Initially hiding the captions is important when testing.<br>
@@ -132,7 +111,7 @@
             <img src="help/img/hidetext%20on.png" alt="" height="25">
         </div>
         <div class="col my-auto">
-            Use the switch to have the text entries initially hidden when the card loads.<br>
+            Use the switch to have the text entries initially hidden (switch on) or visble (switch off) each time a new card loads.<br>
             <span class="text-primary font-weight-bold">Click the label in the lefthand column of a row</span> to reveal hidden text or hide visible text in that row.<br>
             Toggling the switch has the immediate effect on displayed card.<br>
             Initially hiding the text is important when testing.<br>
@@ -144,7 +123,7 @@
             <img src="help/img/revhidebtns.png" alt="" height="40">
         </div>
         <div class="col my-auto">
-            Click <img src="help/img/revhidetext.png" alt="" height="30"> to temporarily reveal or hide all the text on a card.
+            Click <img src="help/img/revhidetext.png" alt="" height="30"> to temporarily hide or reveal all the text on the displayed card.
         </div>
     </div>
     <div class="row header_h3 header_h3_inset my-1">
@@ -157,12 +136,13 @@
             The righthand menu now only displays "Image 1" etc.
                 (Click the hide button <img src="help/img/hide.png" alt="" height="30"> to hide even that numbering).<br>
                 The left dropdown menu offers "chapters" of images to test.
-                Only one image per card is displayed if the card has more than one image associated with it (some cards may therefore repeat within a chapter).<br><br>
+                Only one image per card is displayed, and some cards may repeat within a chapter if it has more than one image.<br><br>
                 The concept behind the app is to progress through the images in a chapter, testing recognition, which is described in detail in the sections below.<br>
                 <b>In overview:</b><br>
                 • You can use the "Show / Hide" switches to initially hide image captions and card text.<br>
                 • Optionally, use the <b>Fullscreen button</b> to focus the view, or set the slider to enlarge the images and remove the text.<br>
-                • Use the <img src="help/img/randomise.png" alt="" height="30"> button to re-order the cards in the selected chapter.<br>
+                • Use the <img src="help/img/randomise.png" alt="" height="30"> button to re-order the cards in the selected chapter,
+            including only cards selected by the category switches.<br>
                 • Tap <img src="help/img/nextrand.png" alt="" height="30"> to move to the next random card rather than the brown ← → buttons.
         </div>
     </div>
@@ -202,7 +182,7 @@
             When the last image is viewed the system automatically re-randomises the list and starts again.<br>
             Repeatedly clicking <b>Randomise</b> may repeat images,
             whereas using <img src="help/img/nextrand.png" alt="" height="25">  to move to the next image in the shuffled list ensures you will be tested on all images only once.<br><br>
-            Use the switches to include (switch on) or exclude (switch off) cards with the relevant category.
+            Use the <b>category switches</b> to include (switch on) or exclude (switch off) cards with the relevant category.
             As you change the switches the app will re-Randomise the cards automatically using only categories that are switched on.
             The app also remembers the switch settings and will reload those options next time it runs (on the same browser and same computer).
         </div>
