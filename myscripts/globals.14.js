@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 5/12/2021 4:41     djml.uk E&OE.                             *
+ * Copyright (c) 6/12/2021 11:53     djml.uk E&OE.                            *
  ******************************************************************************/
 // =================================================================== COLLECTION OBJECT
 window.collectionobject = new CardsetCollection();
@@ -39,6 +39,11 @@ const ls_initiallyHideText = "ls_initiallyHideText";
 const ls_initiallyHideImages = "ls_initiallyHideImages";
 const ls_initiallyHideCaptions = "ls_initiallyHideCaptions";
 
+// const ls_checkbox_randomiseUntested = "checkbox-randomiseUntested";
+// const ls_checkbox_randomiseIncorrect = "checkbox-randomiseIncorrect";
+// const ls_checkbox_randomiseCorrect = "checkbox-randomiseCorrect";
+// const ls_checkbox_randomiseStar = "checkbox-randomiseStar";
+
 /* ********************************* */
 
 let db_Obj;
@@ -46,6 +51,8 @@ let dbObj_answersObj;
 
 let sliderImageWidthMax = 0;
 
+// ********************************* ID arrays
 let imageDivsIDs = ["div-image-card","div-image-card-fullscreen"];
 let randomSlideCountsIDs = ["span-randomSlideCount","span-randomSlideCount-fullscreen"];
+let randomiseCheckboxesIDs = ["checkbox-randomiseUntested","checkbox-randomiseIncorrect","checkbox-randomiseCorrect","checkbox-randomiseStar"];
 let fullscreenIDs = ["","-fullscreen"];

@@ -1,12 +1,32 @@
 /******************************************************************************
- * Copyright (c) 5/12/2021 4:41     djml.uk E&OE.                             *
+ * Copyright (c) 6/12/2021 11:53     djml.uk E&OE.                            *
  ******************************************************************************/
 
 //================= STARTUP
 function applySettingsAtStartup() {
-    setupHideTextCapsImagesCheckboxesAtStartup();
+    setupShowHideCheckboxesAtStartup();
+    applyRandomiseCheckboxesSettings();
     loadLastCardLoaded();
 }
+
+
+//================= CHECKBOXES
+function applyRandomiseCheckboxesSettings() {
+    randomiseCheckboxesIDs.forEach(cbxid=>{
+        if (!localStorage.getItem(cbxid)) localStorage.setItem(cbxid, "true");
+        fullscreenIDs.forEach(fsid=>{
+            document.getElementById(cbxid+fsid).checked = localStorage.getItem(cbxid) === "true";
+        });
+    });
+}
+
+function updateRandomiseCheckboxesSettings() {
+    // dont need to query fs cbxs as aligned with mainscreen
+    randomiseCheckboxesIDs.forEach(cbxid=>{
+        localStorage.setItem(cbxid, document.getElementById(cbxid).checked === true ? "true" : "false");
+    });
+}
+
 
 //================= LAST CARD
 function recordLastCardLoaded(cardUniqueID) {
@@ -21,7 +41,7 @@ function loadLastCardLoaded() {
 }
 
 /* ************************** */
-function setupHideTextCapsImagesCheckboxesAtStartup() {
+function setupShowHideCheckboxesAtStartup() {
     // defined and set to defaults in globals.js
     if (!localStorage.getItem(ls_initiallyHideText)) localStorage.setItem(ls_initiallyHideText, initiallyHideText ? "true" : "false");
     initiallyHideText = localStorage.getItem(ls_initiallyHideText)==="true";
@@ -36,10 +56,10 @@ function setupHideTextCapsImagesCheckboxesAtStartup() {
     document.getElementById('checkbox-initiallyHideCap-fullscreen').checked = initiallyHideCaptions;
 
 
-    alignCBXsCaption();
+    alignCaptionCbxs();
 }
 
-function checkboxInitiallyHideClicked(cbx, what) {
+function checkboxShowHideInitiallyHideClicked(cbx, what) {
     switch (what) {
         case 'text': {
             initiallyHideText = cbx.checked;
@@ -54,14 +74,14 @@ function checkboxInitiallyHideClicked(cbx, what) {
         case 'captions': {
             initiallyHideCaptions = cbx.checked;
             localStorage.setItem(ls_initiallyHideCaptions, initiallyHideCaptions ? "true" : "false");
-            alignCBXsCaption();
+            alignCaptionCbxs();
             break;
         }
     }
     loadCardImage();
 }
 
-function alignCBXsCaption() {
+function alignCaptionCbxs() {
     fullscreenIDs.forEach(suffix => {
         document.getElementById('checkbox-initiallyHideCap' + suffix).checked = initiallyHideCaptions;
     });

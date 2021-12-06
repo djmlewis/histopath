@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 5/12/2021 6:18     djml.uk E&OE.                             *
+ * Copyright (c) 6/12/2021 11:53     djml.uk E&OE.                            *
  ******************************************************************************/
 // =================================================================== UTILITY FUNCTIONS
 /*
@@ -91,9 +91,11 @@ function randomiseCBXclicked(cbx) {
     } else {
         document.getElementById(id+'-fullscreen').checked = cbx.checked;
     }
+    updateRandomiseCheckboxesSettings();
     setupShuffledCardIndicesArray();
     showNextRandomCard();
 }
+
 
 function resetRandomIndexArray() {
     randomCardIndices = [];
