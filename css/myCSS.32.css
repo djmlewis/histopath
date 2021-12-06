@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 6/12/2021 6:8     djml.uk E&OE.                              *
+ * Copyright (c) 6/12/2021 6:59     djml.uk E&OE.                             *
  ******************************************************************************/
 
 .paraImage {
@@ -142,6 +142,9 @@
     column-width: 20rem;
     cursor: none;
     pointer-events: none;
+}
+.divspeciessidebar {
+    padding-bottom: 8px;
 }
 .divspeciessidebar, .organHeader {
     font-family: "Trebuchet MS",sans-serif;
