@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 5/12/2021 6:18     djml.uk E&OE.                             *
+ * Copyright (c) 6/12/2021 11:3     djml.uk E&OE.                             *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -273,12 +273,12 @@ function showTextFullScreen(btn) {
     elementsArrayForClassNameFromElementID("div-image-card-fullscreen",'divFullscreenText').forEach(el=>el.toggleAttribute('hidden'));
     if(btn.title.includes('Show')) {
         btn.title = 'Hide Text';
-        btn.innerHTML = '<i class="fas fa-ellipsis-v fa-fw"></i>&nbsp;Hide Text';
+        btn.innerHTML = '<i class="fas fa-ellipsis-v fa-fw"></i>&nbsp;Hide&nbsp;Text';
         btn.classList.remove('btn-secondary');
         btn.classList.add('btn-outline-secondary');
     } else {
         btn.title = 'Show Text';
-        btn.innerHTML = '<i class="fas fa-list-ul fa-fw"></i>&nbsp;Show Text';
+        btn.innerHTML = '<i class="fas fa-list-ul fa-fw"></i>&nbsp;Show&nbsp;Text';
         btn.classList.add('btn-secondary');
         btn.classList.remove('btn-outline-secondary');
     }
