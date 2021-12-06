@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 13/11/2021 2:28     djml.uk E&OE.                            *
+ * Copyright (c) 6/12/2021 0:58     djml.uk E&OE.                             *
  ******************************************************************************/
 #userguidemenu .list-group-item {
     padding: 0.3rem;
@@ -11,7 +11,7 @@
 }
 .userguidetable .row {
     border-bottom: 1px solid #cccccc;
-    padding-bottom: 4px;
+    padding: 0 8px 4px 0;
 }
 
 .userguidetable .col {

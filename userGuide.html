@@ -3,8 +3,8 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8" content="">
-    <title>Histology Pathology Picture Quiz Help</title>
-    <link rel="shortcut icon" type="image/png" href="favicon2.png?v=2"/>
+    <title>User Guide</title>
+    <link rel="shortcut icon" type="image/png" href="favicon4.png?v=2"/>
     <!--  BOOTSTRAP -->
     <!-- jQ comes first -->
     <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="FontAwesome/css/regular.min.css">
     <link rel="stylesheet" href="FontAwesome/css/solid.min.css">
 
-    <link rel="stylesheet" href="css/userguide.2.css">
+    <link rel="stylesheet" href="css/userguide.3.css">
 </head>
 <body>
 <div hidden></div>
@@ -120,9 +120,10 @@
             <img src="help/img/hidecc.png" alt="" height="25">
         </div>
         <div class="col my-auto">
-            Use the switches to have the captions initially hidden each time a new card loads.
-            Toggling a switch has the immediate effect on displayed card.
-            Initially hiding the captions is important when testing - to reveal a caption click the grey caption bar.
+            Use the switches to have the captions initially hidden each time a new card loads.<br>
+            <span class="text-primary font-weight-bold">Click the grey caption bar</span> to reveal a hidden caption, or hide a visible one.<br>
+            Toggling the switch has the immediate effect on displayed card.<br>
+            Initially hiding the captions is important when testing.<br>
             The app remembers your choice and loads it next time it runs on the same browser and computer.
         </div>
     </div>
@@ -131,8 +132,10 @@
             <img src="help/img/hidetext%20on.png" alt="" height="25">
         </div>
         <div class="col my-auto">
-            Use the switch to have the text entries initially hidden when the card loads. Toggling the switch has the immediate effect on displayed card.
-            Initially hiding the text is important when testing - to reveal/hide a single row click the label for that row.
+            Use the switch to have the text entries initially hidden when the card loads.<br>
+            <span class="text-primary font-weight-bold">Click the label in the lefthand column of a row</span> to reveal hidden text or hide visible text in that row.<br>
+            Toggling the switch has the immediate effect on displayed card.<br>
+            Initially hiding the text is important when testing.<br>
             The app remembers your choice and loads it next time it runs on the same browser and computer.
         </div>
     </div>
@@ -141,7 +144,7 @@
             <img src="help/img/revhidebtns.png" alt="" height="40">
         </div>
         <div class="col my-auto">
-            To temporarily reveal or hide all the text click <img src="help/img/revhidetext.png" alt="" height="30">.
+            Click <img src="help/img/revhidetext.png" alt="" height="30"> to temporarily reveal or hide all the text on a card.
         </div>
     </div>
     <div class="row header_h3 header_h3_inset my-1">
@@ -150,15 +153,17 @@
         </div>
     </div>
     <div class="row my-1">
-        <div class="col-12">
-            <blockquote>The rightmost menu now only displays "Image 1" etc.
-                (Click the hide button <img src="help/img/hide.png" alt="" height="30"> to hide even that).
-                The left dropdown menu offers groups of images to test.
-                The text area remains the same and only one image per card is displayed if that card has more than one image associated with it.
-                The purpose is to progress through the images in a chapter testing recognition. Use the switches to initially hide image captions and card text, or
-                the slider to remove the text. Use the <img src="help/img/randomise.png" alt="" height="30"> button to re-order the cards in that set and tape <img src="help/img/nextrand.png" alt="" height="30"> to move to the next random card,
-                rather than the brown ← → buttons (see below)
-            </blockquote>
+        <div class="col-12 header_h3_inset">
+            The righthand menu now only displays "Image 1" etc.
+                (Click the hide button <img src="help/img/hide.png" alt="" height="30"> to hide even that numbering).<br>
+                The left dropdown menu offers "chapters" of images to test.
+                Only one image per card is displayed if the card has more than one image associated with it (some cards may therefore repeat within a chapter).<br><br>
+                The concept behind the app is to progress through the images in a chapter, testing recognition, which is described in detail in the sections below.<br>
+                <b>In overview:</b><br>
+                • You can use the "Show / Hide" switches to initially hide image captions and card text.<br>
+                • Optionally, use the <b>Fullscreen button</b> to focus the view, or set the slider to enlarge the images and remove the text.<br>
+                • Use the <img src="help/img/randomise.png" alt="" height="30"> button to re-order the cards in the selected chapter.<br>
+                • Tap <img src="help/img/nextrand.png" alt="" height="30"> to move to the next random card rather than the brown ← → buttons.
         </div>
     </div>
     <div class="row my-1">
@@ -166,8 +171,8 @@
             <img src="help/img/zoomtest.png" alt="" height="40">
         </div>
         <div class="col my-auto">
-            Tap to reveal an uncluttered screen with just images and captions.
-            Click the close button <img src="help/img/close2.png" alt="" height="20"> or tap Esc on the keyboard to close the window.
+            Tap the <b>Fullscreen button</b> to reveal an uncluttered screen with just images and captions.<br>
+            Tap the close button <img src="help/img/close2.png" alt="" height="20"> or tap Esc on the keyboard to close the window.
         </div>
     </div>
     <div class="row my-1">
@@ -177,9 +182,9 @@
         <div class="col my-auto">
             Use these buttons to categorise a card as:<br>
             <b><span class="text-secondary">Untested</span> -- <span class="text-danger">Incorrectly Identified</span> -- <span class="text-success">Correctly Identified</span> -- <span class="text-warning">Favourite</span></b><br>
+            These catogorisations can be used to include/exclude cards from testing (see <b>Randomise</b> below).<br>
             The catogorisations are remembered by the browser.
-            Use the <img src="help/img/cleardropdown.png" alt="" height="30">  dropdown to reset categorisations back to Untested.<br>
-            These catogorisations can be used to include/exclude cards from testing (see Randomise below).
+            Use the <img src="help/img/cleardropdown.png" alt="" height="30">  dropdown to reset all categorisations for a chapter or the whole cardset back to Untested.<br>
         </div>
     </div>
     <div class="row my-1">
@@ -188,16 +193,21 @@
             <img src="help/img/nextrand.png" alt="" height="40">
         </div>
         <div class="col my-auto">
-            Set the <img src="help/img/hidecc.png" alt="" height="30"> and <img src="help/img/hidetext on.png" alt="" height="30"> switches ON to initially hide image captions and card text.<br><br>
+            <b>Running a Picture Quiz with the images in the selected chapter</b><br>
+            Set the <img src="help/img/hidecc.png" alt="" height="20"> and <img src="help/img/hidetext on.png" alt="" height="20"> switches ON to initially hide image captions and card text when it loads.<br><br>
             <img src="help/img/randbar1.png" alt="" style="max-width: 60%; max-height: 30px;"><br>
-            Use the switches to include (switch on) or exclude (switch off) cards with the relevant category, then click <b>Randomise</b> to create a random list of images in this chapter -- the number remaining untested (including the displayed image) is shown on the right.
-             If you change the switches tap <b>Randomise</b> again.<br><br>
-            Identify the first image, tap the grey caption bar to reveal the answer, tap a category button to record.<br>
-            Then tap <img src="help/img/nextrand.png" alt="" height="30">  to move to the next image on the list - the numbers remaining count down.<br>
-            When the last image is viewed the system automatically re-randomises the list and starts again.
+            Tap <b>Randomise</b> to create a random list of images in this chapter -- the number remaining untested is shown on the right.<br>
+            Identify the image, tap the grey caption bar to reveal the answer, and (optionally) tap a category button to record correct/incorrect.<br>
+            Tap <img src="help/img/nextrand.png" alt="" height="25">  to move to the next image on the shuffled list - the numbers remaining count down.<br>
+            When the last image is viewed the system automatically re-randomises the list and starts again.<br>
+            Repeatedly clicking <b>Randomise</b> may repeat images,
+            whereas using <img src="help/img/nextrand.png" alt="" height="25">  to move to the next image in the shuffled list ensures you will be tested on all images only once.<br><br>
+            Use the switches to include (switch on) or exclude (switch off) cards with the relevant category.
+            As you change the switches the app will re-Randomise the cards automatically using only categories that are switched on.
+            The app also remembers the switch settings and will reload those options next time it runs (on the same browser and same computer).
         </div>
     </div>
 </div>
-© 2021
+© djml.uk 2021 E&OE
 </body>
 </html>
