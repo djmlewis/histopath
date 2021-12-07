@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 6/12/2021 6:59     djml.uk E&OE.                             *
+ * Copyright (c) 7/12/2021 8:57     djml.uk E&OE.                             *
  ******************************************************************************/
 
 .paraImage {
@@ -175,7 +175,7 @@
     color: #990000;
 }
 .HIST {
-    color: #000099;
+    color: #0096ff;
 }
 
 .divgroupings p, .divspecies p, .divtaxogenera p, .divtaxospecies p, .divspeciessidebar p {
@@ -223,7 +223,14 @@
     border: 1px solid darkgray;
     margin-right: 6px;
 }
+.divrevealAnswersNoBorder {
+    border: 0;
+    margin-right: 6px;
+}
 
+.toolbar {
+    background-color: #eaeaea;!important;
+}
 /* stripedrows styles legend text */
 .stripedrows > .row:nth-child(odd) {
     background-color: #f0f0f0;

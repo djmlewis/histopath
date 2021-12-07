@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 6/12/2021 11:3     djml.uk E&OE.                             *
+ * Copyright (c) 7/12/2021 8:57     djml.uk E&OE.                             *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -105,8 +105,13 @@ function loadCardImage() {
         addImagesForCardObj(selectedCardObj);
         addLegendArrayToDiv(selectedCardObj,document.getElementById("div-revealAnswers"),true);
         setStatusBtnsForCardUID(selectedCardObj.uniqueCardID);
+        document.getElementById('div-labelClickLabels').hidden = false;
+        document.getElementById('div-revealAnswers').classList.remove('divrevealAnswersNoBorder');
     } else {
         cll("no image", selectcard.value);
+        document.getElementById('div-revealAnswers').innerHTML = "";
+        document.getElementById('div-revealAnswers').classList.add('divrevealAnswersNoBorder');
+        document.getElementById('div-labelClickLabels').hidden = true;
         clearStatusBtns();
     }
     adjustCardWidthHeight();

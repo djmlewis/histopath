@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 6/12/2021 11:53     djml.uk E&OE.                            *
+ * Copyright (c) 7/12/2021 8:57     djml.uk E&OE.                             *
  ******************************************************************************/
 // =================================================================== UTILITY FUNCTIONS
 /*
@@ -39,9 +39,10 @@ function cll() {
 
 //---------- ******** RANDOM *********** ------------------------//
 
-function displayNumRandomised() {
+function displayNumRandomised(displayNumber) {
     randomSlideCountsIDs.forEach(id => {
-        document.getElementById(id).innerHTML = '<i class="fas fa-images"></i>&nbsp;' + randomCardIndices.length
+        if(displayNumber) document.getElementById(id).innerHTML = '<i class="fas fa-images"></i>&nbsp;' + String(randomCardIndices.length - 1)
+        else document.getElementById(id).innerHTML = '<span class="text-primary">No cards<br>match</span>'
     });
 }
 
@@ -50,9 +51,11 @@ function showNextRandomCard() {
     selectThisCardIndex(indexToShow);
 }
 
-function btnRandomClicked() {
-    if (randomCardIndices.length === 0) setupShuffledCardIndicesArray();
-    displayNumRandomised();
+function btnNextRandomCardClicked() {
+    if (randomCardIndices.length === 0) {
+        setupShuffledCardIndicesArray();
+    }
+    displayNumRandomised(randomCardIndices.length > 0);
     showNextRandomCard();
 }
 
@@ -65,12 +68,17 @@ function setupShuffledCardIndicesArray() {
     const childer = document.getElementById('select-cards').options;
     randomCardIndices = arrayOfIndicesForLength(childer.length).filter(i => {
         const cuid = childer[i].value;
+        const selectedCardObj = JSON.parse(childer[i].getAttribute(attr_cardObject));
+        const organ = (selectedCardObj.answersText.split('\t'))[1].split('\n')[0];
+        const includedInOrgansRandomisedArray = organsRandomisedArray.includes(organ);
         //test statusesIncluded.includes separately to allow !!dbObj_answersObj[cuid] to fail and fall thru to else if (includeUntested)
-        if (!!dbObj_answersObj[cuid] && statusesIncluded.includes(dbObj_answersObj[cuid])) return true;
-        return !dbObj_answersObj[cuid] && includeUntested;
+        if (!!dbObj_answersObj[cuid] && statusesIncluded.includes(dbObj_answersObj[cuid]) && includedInOrgansRandomisedArray) return true;
+        // single ! below for !dbObj_answersObj[cuid] as we are testing for the absence of a dbObj_answersObj to indicate it is untested
+        return !dbObj_answersObj[cuid] && includeUntested && includedInOrgansRandomisedArray;
     });
-    shuffleThisArray(randomCardIndices);
-    displayNumRandomised();
+    if(randomCardIndices.length > 0) shuffleThisArray(randomCardIndices);
+    displayNumRandomised(randomCardIndices.length > 0);
+    setupRandomiseButtonsForCardsAvailableCount();
 }
 
 function selectThisCardIndex(index) {
@@ -92,14 +100,18 @@ function randomiseCBXclicked(cbx) {
         document.getElementById(id+'-fullscreen').checked = cbx.checked;
     }
     updateRandomiseCheckboxesSettings();
-    setupShuffledCardIndicesArray();
-    showNextRandomCard();
+    resetAfterRandomiseCriteriaChanged();
 }
 
+function resetAfterRandomiseCriteriaChanged() {
+    setupShuffledCardIndicesArray();
+    showNextRandomCard();
+    setupRandomiseButtonsForCardsAvailableCount();
+}
 
 function resetRandomIndexArray() {
     randomCardIndices = [];
-    displayNumRandomised();
+    //displayNumRandomised(false);
 }
 
 function btnStatusClicked(what) {

@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 6/12/2021 11:53     djml.uk E&OE.                            *
+ * Copyright (c) 7/12/2021 8:57     djml.uk E&OE.                             *
  ******************************************************************************/
 // =================================================================== COLLECTION OBJECT
 window.collectionobject = new CardsetCollection();
@@ -7,7 +7,7 @@ window.collectionobject = new CardsetCollection();
 window.modal_shown = undefined;
 // =================================================================== SETTINGS
 // =================================================================== CARD FUNCTIONS
-const lifecyclesfolderpath = 'cardsets/central/lifecycles/';
+//const lifecyclesfolderpath = 'cardsets/central/lifecycles/';
 const nextValue = "1";
 const prevValue = "-1";
 const attr_cardUniqueID = "data-attr_cardUniqueID";
@@ -44,6 +44,7 @@ const ls_initiallyHideCaptions = "ls_initiallyHideCaptions";
 // const ls_checkbox_randomiseCorrect = "checkbox-randomiseCorrect";
 // const ls_checkbox_randomiseStar = "checkbox-randomiseStar";
 
+let organsRandomisedArray = [];
 /* ********************************* */
 
 let db_Obj;

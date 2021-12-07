@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 4/12/2021 1:48     djml.uk E&OE.                             *
+ * Copyright (c) 7/12/2021 8:57     djml.uk E&OE.                             *
  ******************************************************************************/
 
 //---------- ******** SELECT EVENTS *********** ------------------------//
@@ -22,9 +22,9 @@ function selectCardsetLastUsed() {
         if (indexOfLastCardset !== -1) document.getElementById("select-cardsset").selectedIndex = indexOfLastCardset;
     }
 }
-function alignSelectsToSelIndex(selects,index) {
-    selects.forEach((select) => document.getElementById(select).selectedIndex = index);
-}
+// function alignSelectsToSelIndex(selects,index) {
+//     selects.forEach((select) => document.getElementById(select).selectedIndex = index);
+// }
 
 function handleSelectCardsetChanged() {
     populateSelectChapterOnCardsetChange();
@@ -105,6 +105,7 @@ function populateSelectCardsOnChapterChange(btnValue) {
             if (indexOfLastCard !== -1) document.getElementById("select-cards").selectedIndex = indexOfLastCard;
         }
     }
+    createOrgansDropdowns(selectChapterValue);
     loadCardImage();
 }
 
@@ -142,6 +143,74 @@ function clearSearchLegend() {
     document.getElementById("input-searchlegend").value = "";
 }
 
-function restoreSeriesIndexHiddenState() {
+function createOrgansDropdowns(selectChapterValue) {
+    const chapterPrefix = selectChapterValue.substr(0,4).toLowerCase();
+    const organsInChapter = chapterDiagnosesObj[chapterPrefix];
+    organsRandomisedArray = organsInChapter;
+    fullscreenIDs.forEach(fsid => {
+        const dropdownMenu = document.getElementById("dropdownMenuChapters"+fsid);
+        dropdownMenu.innerHTML = "";
+        organsInChapter.forEach(function (organName) {
+            let opt = document.createElement("button");
+            opt.classList.add("dropdown-item");
+            opt.classList.add("active");
+            opt.classList.add("btn-info");
+            opt.type = 'button';
+            const btnOrgan = String(organName);
+            opt.setAttribute('data-organ', btnOrgan);
+            opt.id = "btnOrgan-"+btnOrgan+fsid;
+            opt.innerText = btnOrgan;
+            opt.onclick = (ev)=>chapterButtonSelected(ev);
+            dropdownMenu.appendChild(opt);
+        });
+    });
+}
 
+
+function chapterButtonSelected(ev) {
+    let btn = ev.target;
+    const btnOrgan = btn.getAttribute('data-organ');
+    if(btn.classList.contains('active')) {
+        btn.classList.remove('active');
+        const altBtnID = btn.id.includes('fullscreen') ? btn.id.replace('-fullscreen','') : btn.id+'-fullscreen';
+        document.getElementById(altBtnID).classList.remove('active');
+        organsRandomisedArray = organsRandomisedArray.filter(e => e !== btnOrgan);
+    } else {
+        btn.classList.add('active');
+        document.getElementById(btn.id.includes('fullscreen') ? btn.id.replace('-fullscreen','') : btn.id+'-fullscreen').classList.add('active');
+        organsRandomisedArray.push(btnOrgan);
+    }
+    // if(organsRandomisedArray.length === 0) {
+    //     randomCardIndices = [];
+    //     clearImageForNoRandomCardsAvailable();
+    // }
+    resetAfterRandomiseCriteriaChanged();
+    //displayNumRandomised(randomCardIndices.length > 0);
+    //setupRandomiseButtonsForCardsAvailableCount();
+}
+
+function selectAllNoneChapters(select){
+    fullscreenIDs.forEach(fsid => {
+        const dropdownMenu = document.getElementById("dropdownMenuChapters"+fsid);
+        const opts = Array.from(dropdownMenu.children);
+        if (select === 'all') {
+            opts.forEach(e => {
+                organsRandomisedArray.push(e.getAttribute('data-organ'));
+                e.classList.add('active');
+            });
+            randomiseBtnClicked();
+        } else {
+            organsRandomisedArray = [];
+            opts.forEach(e => e.classList.remove('active'));
+        }
+    });
+    resetAfterRandomiseCriteriaChanged();
+}
+
+
+function setupRandomiseButtonsForCardsAvailableCount() {
+    fullscreenIDs.forEach(fsid => {
+        document.getElementById("btn-nextRandomCard"+fsid).disabled = randomCardIndices.length === 0;
+        document.getElementById("btn-randomise"+fsid).disabled = randomCardIndices.length === 0;
+    });
 }
