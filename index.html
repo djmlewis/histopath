@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 8/12/2021 9:18     djml.uk E&OE.                            *
+  * Copyright (c) 8/12/2021 9:47     djml.uk E&OE.                            *
   ***************************************************************************-->
 <!doctype html>
 <html lang="en">
@@ -135,12 +135,6 @@
                        oninput="handleSliderImageWidthChanged(this)">
             </div>
             <div class="d-flex flex-row align-items-center flex-wrap">
-                <button type="button" class="btn btn-sm btn-dark mr-1"
-                        id="btn-fullscreen"
-                        style="visibility: hidden;"
-                        onclick="showSheet('sheet-fullscreen');"
-                        title="Fullscreen mode">
-                    <i class="fas fa-expand-alt"></i>&nbsp;&nbsp;Fullscreen</button>
                 <div>
                     <div class="input-group input-group-sm bg-white">
                         <div class="input-group-prepend">
@@ -149,7 +143,7 @@
                                     onclick="randomiseBtnClicked();"
                             >Randomise
                             </button>
-                            <div id="inputgp-statuscbxs" class="input-group-text bg-white">
+                            <div id="inputgp-statuscbxs" class="input-group-text bg-white border-top border-bottom border-left-0 border-right-0 border-secondary">
                                 <div class="custom-control custom-switch text-secondary mr-1">
                                     <input class="custom-control-input" type="checkbox"
                                            name="checkbox-randomiseUntested"
@@ -198,7 +192,7 @@
                             </button>
                         </div>
                         <div class="input-group-append">
-                            <span id="span-randomSlideCount" class="input-group-text text-center" style="max-height: 40px;line-height: 90%;"></span>
+                            <span id="span-randomSlideCount" class="input-group-text text-center bg-white border-top border-bottom border-left-0 border-right-0 border-secondary" style="max-height: 40px;line-height: 90%;"></span>
                             <button type="button" class="btn btn-sm btn-primary"
                                     id="btn-nextRandomCard"
                                     onclick="btnNextRandomCardClicked();"
@@ -244,6 +238,13 @@
                     </button>
                 </div>
             </div>
+            <button type="button" class="btn btn-sm btn-dark mr-1"
+                    id="btn-fullscreen"
+                    style="visibility: hidden;"
+                    onclick="showSheet('sheet-fullscreen');"
+                    title="Fullscreen mode">
+                <i class="fas fa-expand-alt"></i>&nbsp;&nbsp;Fullscreen
+            </button>
         </div>
         <div id="row-image" class="flex-grow-1 d-flex flex-row flex-nowrap mt-1">
             <div id="div-species-sidebar" class="flex-shrink-1 divspeciessidebar stripedparas" style="overflow-y: auto;"></div>
@@ -480,7 +481,7 @@
                                     onclick="randomiseBtnClicked();"
                             >Randomise
                             </button>
-                            <div id="inputgp-statuscbxs-fullscreen" class="input-group-text bg-white">
+                            <div id="inputgp-statuscbxs-fullscreen" class="input-group-text bg-white border-top border-bottom border-left-0 border-right-0 border-secondary">
                                 <div class="custom-control custom-switch text-secondary mr-1">
                                     <input class="custom-control-input" type="checkbox"
                                            name="checkbox-randomiseUntested-fullscreen"
@@ -531,7 +532,7 @@
                             </button>
                         </div>
                         <div class="input-group-append">
-                            <span id="span-randomSlideCount-fullscreen" class="input-group-text text-right"></span>
+                            <span id="span-randomSlideCount-fullscreen" class="input-group-text text-right bg-white border-top border-bottom border-left-0 border-right-0 border-secondary"></span>
                             <button type="button" class="btn btn-sm btn-primary"
                                     id="btn-nextRandomCard-fullscreen"
                                     onclick="btnNextRandomCardClicked();"
