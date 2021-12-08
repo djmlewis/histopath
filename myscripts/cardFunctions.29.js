@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 8/12/2021 2:24     djml.uk E&OE.                             *
+ * Copyright (c) 8/12/2021 7:21     djml.uk E&OE.                             *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -165,7 +165,6 @@ function addImagesForCardObj(selectedCardObj) {
             } else {
                 const dvtext = document.createElement('div');
                 dvtext.className = 'divFullscreenText'
-                dvtext.style.width = dv.style.width;
                 addLegendArrayToDiv(selectedCardObj,dvtext,false);
                 dvtext.hidden = true;
                 dv.appendChild(dvtext);
