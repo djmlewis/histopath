@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 7/12/2021 8:57     djml.uk E&OE.                             *
+ * Copyright (c) 8/12/2021 9:18     djml.uk E&OE.                             *
  ******************************************************************************/
 
 //---------- ******** SELECT EVENTS *********** ------------------------//
@@ -185,6 +185,7 @@ function chapterButtonSelected(ev) {
     //     clearImageForNoRandomCardsAvailable();
     // }
     resetAfterRandomiseCriteriaChanged();
+    setupRandomDropdownForChaptersSelected();
     //displayNumRandomised(randomCardIndices.length > 0);
     //setupRandomiseButtonsForCardsAvailableCount();
 }
@@ -205,9 +206,21 @@ function selectAllNoneChapters(select){
         }
     });
     resetAfterRandomiseCriteriaChanged();
+    setupRandomDropdownForChaptersSelected();
 }
 
-
+function setupRandomDropdownForChaptersSelected() {
+    fullscreenIDs.forEach(fsid => {
+        const dropdownBtn = document.getElementById("btn-randomDropdown"+fsid);
+        if(organsRandomisedArray.length > 0) {
+            dropdownBtn.classList.remove('btn-outline-info');
+            dropdownBtn.classList.add('btn-info');
+        } else {
+            dropdownBtn.classList.add('btn-outline-info');
+            dropdownBtn.classList.remove('btn-info');
+        }
+    });
+}
 function setupRandomiseButtonsForCardsAvailableCount() {
     fullscreenIDs.forEach(fsid => {
         document.getElementById("btn-nextRandomCard"+fsid).disabled = randomCardIndices.length === 0;

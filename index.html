@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 7/12/2021 8:57     djml.uk E&OE.                            *
+  * Copyright (c) 8/12/2021 9:18     djml.uk E&OE.                            *
   ***************************************************************************-->
 <!doctype html>
 <html lang="en">
@@ -45,7 +45,7 @@
 
     <!--    The rest-->
     <script src="myscripts/answers.25.js" defer></script>
-    <script src="myscripts/selectEvents.8.js" defer></script>
+    <script src="myscripts/selectEvents.9.js" defer></script>
     <script src="myscripts/cardFunctions.27.js" defer></script>
     <!--    settings must come after globals -->
     <script src="myscripts/settings.10.js" defer></script>
@@ -182,7 +182,9 @@
                                 </div>
                             </div>
                             <div class="dropdown">
-                                <button class="btn btn-sm btn-info dropdown-toggle" type="button" style="height: 40px; border-radius: 0;" data-toggle="dropdown">
+                                <button class="btn btn-sm btn-info dropdown-toggle" type="button" style="height: 40px; border-radius: 0;"
+                                        id="btn-randomDropdown"
+                                        data-toggle="dropdown">
                                     <i class="fas fa-book-open"></i>
                                 </button>
                                 <div id="dropdownMenuChapters" class="dropdown-menu" style="z-index: 10000;">
@@ -191,7 +193,7 @@
                             <button class="btn btn-sm btn-info" type="button"
                                     onclick="selectAllNoneChapters('all');">All
                             </button>
-                            <button class="btn btn-sm btn-info" type="button"
+                            <button class="btn btn-sm btn-outline-info" type="button"
                                     onclick="selectAllNoneChapters('none');">None
                             </button>
                         </div>
@@ -513,7 +515,9 @@
                                 </div>
                             </div>
                             <div class="dropdown">
-                                <button class="btn btn-sm btn-info dropdown-toggle" type="button" style="height: 40px; border-radius: 0;" data-toggle="dropdown">
+                                <button class="btn btn-sm btn-info dropdown-toggle" type="button" style="height: 40px; border-radius: 0;"
+                                        id="btn-randomDropdown-fullscreen"
+                                        data-toggle="dropdown">
                                     <i class="fas fa-book-open"></i>
                                 </button>
                                 <div id="dropdownMenuChapters-fullscreen" class="dropdown-menu" style="z-index: 10000;">
@@ -522,7 +526,7 @@
                             <button class="btn btn-sm btn-info" type="button"
                                     onclick="selectAllNoneChapters('all');">All
                             </button>
-                            <button class="btn btn-sm btn-info" type="button"
+                            <button class="btn btn-sm btn-outline-info" type="button"
                                     onclick="selectAllNoneChapters('none');">None
                             </button>
                         </div>
