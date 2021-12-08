@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 8/12/2021 7:6     djml.uk E&OE.                             *
+  * Copyright (c) 8/12/2021 7:16     djml.uk E&OE.                            *
   ***************************************************************************-->
 <!doctype html>
 <html lang="en">
@@ -23,7 +23,7 @@
     <!--  Normalize  -->
     <link rel="stylesheet" href="css/vendor/normalize.1.css">
     <!--  my CSS -->
-    <link rel="stylesheet" href="css/myCSS.35.css">
+    <link rel="stylesheet" href="css/myCSS.37.css">
     <link rel="stylesheet" href="css/userguide.3.css">
     <!--  my startup code-->
     <!--    Objects first as globals uses a CardsetCollection.addcardset() call we can defer as run in order-->
@@ -232,7 +232,7 @@
                         </div>
                         <div class="input-group-append">
                             <span id="span-randomSlideCount"
-                                  class="input-group-text text-center border-top border-bottom border-left-0 border-right-0 border-secondary"
+                                  class="input-group-text text-center border-top border-bottom border-left-0 border-right-0 border-secondary text-primary"
                                   style="max-height: 40px;line-height: 90%;"></span>
                             <button type="button" class="btn btn-sm btn-primary"
                                     id="btn-nextRandomCard"
@@ -749,16 +749,16 @@
                         </div>
                         <div class="input-group-append">
                             <span id="span-randomSlideCount-fullscreen"
-                                  class="input-group-text text-right border-top border-bottom border-left-0 border-right border-secondary"></span>
+                                  class="input-group-text text-right border-top border-bottom border-left-0 border-right-0 border-secondary text-primary"></span>
+                            <button type="button" class="btn btn-sm btn-primary"
+                                    id="btn-nextRandomCard-fullscreen"
+                                    onclick="btnNextRandomCardClicked();"
+                                    title="Click to select next random card from current chapter">
+                                <i class="fas fa-random"></i>&nbsp;Next Image
+                            </button>
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-sm btn-primary mt-1"
-                        id="btn-nextRandomCard-fullscreen"
-                        onclick="btnNextRandomCardClicked();"
-                        title="Click to select next random card from current chapter">
-                    <i class="fas fa-random"></i>&nbsp;Next Image
-                </button>
                 <div class="flex-shrink-1 d-flex flex-wrap mt-1">
                     <div class="">Hide:</div>
                     <div class="custom-control custom-switch border-secondary"

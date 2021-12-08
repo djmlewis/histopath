@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 8/12/2021 7:6     djml.uk E&OE.                              *
+ * Copyright (c) 8/12/2021 7:16     djml.uk E&OE.                             *
  ******************************************************************************/
 
 .paraImage {
@@ -361,7 +361,7 @@
 
 .divFullscreenText {
     position: absolute;
-    top: 58px;
+    top: 48px;
     height: 100%;
     padding-bottom: 100px;
     background-color: rgba(255,255,255,70%);
