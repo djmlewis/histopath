@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 8/12/2021 6:50     djml.uk E&OE.                            *
+  * Copyright (c) 8/12/2021 6:52     djml.uk E&OE.                            *
   ***************************************************************************-->
 <!doctype html>
 <html lang="en">
@@ -135,6 +135,42 @@
                     </div>
                 </div>
             </div>
+            <div id="btngp-status" class="btn-group btn-group-sm bg-white">
+                <button id="btnstatus-untested" type="button" class="btn btn-secondary"
+                        onclick="btnStatusClicked('untested');"
+                        title="Set status as untested">
+                    <i class="fas fa-question-circle"></i>
+                </button>
+                <button id="btnstatus-incorrect" type="button" class="btn btn-outline-danger"
+                        onclick="btnStatusClicked('incorrect');"
+                        title="Set status as incorrect">
+                    <i class="fas fa-times-circle"></i>
+                </button>
+                <button id="btnstatus-correct" type="button" class="btn btn-outline-success"
+                        onclick="btnStatusClicked('correct');"
+                        title="Set status as correct">
+                    <i class="fas fa-check-circle"></i>
+                </button>
+                <button id="btnstatus-star" type="button" class="btn btn-outline-warning"
+                        onclick="btnStatusClicked('star');"
+                        title="Set status as starred">
+                    <i class="fas fa-star"></i>
+                </button>
+                <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" data-toggle="dropdown"><i
+                        class="fas fa-eraser"></i></button>
+                <div class="dropdown-menu" style="z-index:10000;">
+                    <button class="dropdown-item text-danger" type="button"
+                            onclick="btnClearStatusClicked('chapter');"
+                            title="Unmark all cards in this chapter">
+                        Unmark this chapter
+                    </button>
+                    <button class="dropdown-item text-danger" type="button"
+                            onclick="btnClearStatusClicked('cardset');"
+                            title="Unmark all cards in this cardset">
+                        Unmark this cardset
+                    </button>
+                </div>
+            </div>
             <div class="d-flex flex-row align-items-center flex-wrap">
                 <div>
                     <div class="input-group input-group-sm bg-white">
@@ -206,42 +242,6 @@
                             </button>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div id="btngp-status" class="btn-group btn-group-sm bg-white">
-                <button id="btnstatus-untested" type="button" class="btn btn-secondary"
-                        onclick="btnStatusClicked('untested');"
-                        title="Set status as untested">
-                    <i class="fas fa-question-circle"></i>
-                </button>
-                <button id="btnstatus-incorrect" type="button" class="btn btn-outline-danger"
-                        onclick="btnStatusClicked('incorrect');"
-                        title="Set status as incorrect">
-                    <i class="fas fa-times-circle"></i>
-                </button>
-                <button id="btnstatus-correct" type="button" class="btn btn-outline-success"
-                        onclick="btnStatusClicked('correct');"
-                        title="Set status as correct">
-                    <i class="fas fa-check-circle"></i>
-                </button>
-                <button id="btnstatus-star" type="button" class="btn btn-outline-warning"
-                        onclick="btnStatusClicked('star');"
-                        title="Set status as starred">
-                    <i class="fas fa-star"></i>
-                </button>
-                <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" data-toggle="dropdown"><i
-                        class="fas fa-eraser"></i></button>
-                <div class="dropdown-menu" style="z-index:10000;">
-                    <button class="dropdown-item text-danger" type="button"
-                            onclick="btnClearStatusClicked('chapter');"
-                            title="Unmark all cards in this chapter">
-                        Unmark this chapter
-                    </button>
-                    <button class="dropdown-item text-danger" type="button"
-                            onclick="btnClearStatusClicked('cardset');"
-                            title="Unmark all cards in this cardset">
-                        Unmark this cardset
-                    </button>
                 </div>
             </div>
             <div id="col-slider-image-Width" class="col-slider">
