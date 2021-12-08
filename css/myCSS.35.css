@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 7/12/2021 8:57     djml.uk E&OE.                             *
+ * Copyright (c) 8/12/2021 2:24     djml.uk E&OE.                             *
  ******************************************************************************/
 
 .paraImage {
@@ -21,10 +21,12 @@
     background-color: #424242;
     color:whitesmoke;
 }
-.spanImgCaption {
+.spanImgCaption, .spanImgCaptionClickme {
     pointer-events: none;
 }
-
+.spanImgCaptionClickme {
+    color: grey;
+}
 .col-slider {
     /*width: 10vw;*/
     width: 10vw;
@@ -357,7 +359,7 @@
 
 .divFullscreenText {
     position: absolute;
-    top: 75px;
+    top: 58px;
     height: 100%;
     padding-bottom: 100px;
     background-color: rgba(255,255,255,70%);

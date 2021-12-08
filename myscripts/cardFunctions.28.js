@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 7/12/2021 8:57     djml.uk E&OE.                             *
+ * Copyright (c) 8/12/2021 2:24     djml.uk E&OE.                             *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -144,9 +144,16 @@ function addImagesForCardObj(selectedCardObj) {
                 capt.title = "Click to show/hide caption";
                 const spn = document.createElement('span');
                 spn.className = 'spanImgCaption';
-                spn.style.visibility = (initiallyHideCaptions ? 'hidden' : 'visible');
+                spn.hidden = initiallyHideCaptions;
+                //spn.style.visibility = (initiallyHideCaptions ? 'hidden' : 'visible');
                 spn.innerText = imgCaptionsObj[imgName];
+                const spnClickme = document.createElement('span');
+                spnClickme.className = 'spanImgCaptionClickme';
+                spnClickme.hidden = !initiallyHideCaptions;
+                //spnClickme.style.visibility = (!initiallyHideCaptions ? 'hidden' : 'visible');
+                spnClickme.innerText = "Click to reveal title";
                 capt.appendChild(spn);
+                capt.appendChild(spnClickme);
                 dv.appendChild(capt);
             }
             document.getElementById(divimagecardID).appendChild(dv);
@@ -212,8 +219,14 @@ function divimgcardClicked(ev) {
         [indicsList, carouselInner].forEach(e => e.children[clickedIndex].classList.add('active'));
         hideSheetZoom(false);
     } else if (ev.target.className === 'imgCaption') {
-        ev.target.getElementsByClassName('spanImgCaption')[0].style.visibility =
-            (ev.target.getElementsByClassName('spanImgCaption')[0].style.visibility === "visible" ? 'hidden' : 'visible');
+        ev.target.getElementsByClassName('spanImgCaption')[0].toggleAttribute('hidden');
+        ev.target.getElementsByClassName('spanImgCaptionClickme')[0].toggleAttribute('hidden');
+
+        // ev.target.getElementsByClassName('spanImgCaption')[0].style.visibility =
+        //     (ev.target.getElementsByClassName('spanImgCaption')[0].style.visibility === "visible" ? 'hidden' : 'visible');
+        // ev.target.getElementsByClassName('spanImgCaptionClickme')[0].style.visibility =
+        //     (ev.target.getElementsByClassName('spanImgCaptionClickme')[0].style.visibility === "visible" ? 'hidden' : 'visible');
+
         ev.preventDefault();
         ev.stopPropagation();
     }
@@ -247,7 +260,6 @@ function loadCardWithUCID(ucid) {
     const cardObj = findcardWithUICD();
     if (!!cardObj) {
         loadCardByUniqueID(cardObj.uniqueCardID);
-        //hideSheet('sheet-groupingIndex')
     }
 }
 
@@ -291,7 +303,12 @@ function showTextFullScreen(btn) {
 
 function resetTextFullScreen() {
     elementsArrayForClassNameFromElementID("div-image-card-fullscreen",'divFullscreenText').forEach(el=>el.setAttribute('hidden','true'));
-    elementsArrayForClassNameFromElementID("div-image-card-fullscreen",'spanImgCaption').forEach(el=>el.style.visibility = initiallyHideCaptions ? 'hidden' : 'visible');
+
+    elementsArrayForClassNameFromElementID("div-image-card-fullscreen",'spanImgCaption').forEach(el=>el.hidden = initiallyHideCaptions);
+    elementsArrayForClassNameFromElementID("div-image-card-fullscreen",'spanImgCaptionClickme').forEach(el=>el.hidden = !initiallyHideCaptions);
+    // elementsArrayForClassNameFromElementID("div-image-card-fullscreen",'spanImgCaption').forEach(el=>el.style.visibility = initiallyHideCaptions ? 'hidden' : 'visible');
+    // elementsArrayForClassNameFromElementID("div-image-card-fullscreen",'spanImgCaptionClickme').forEach(el=>el.style.visibility = !initiallyHideCaptions ? 'hidden' : 'visible');
+
     const btn = document.getElementById('btn-showTextFullscreen');
     btn.title = 'Show Text';
     btn.innerHTML = '<i class="fas fa-list-ul fa-fw"></i>&nbsp;Show Text';

@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 8/12/2021 9:54     djml.uk E&OE.                            *
+  * Copyright (c) 8/12/2021 2:24     djml.uk E&OE.                            *
   ***************************************************************************-->
 <!doctype html>
 <html lang="en">
@@ -23,7 +23,7 @@
     <!--  Normalize  -->
     <link rel="stylesheet" href="css/vendor/normalize.1.css">
     <!--  my CSS -->
-    <link rel="stylesheet" href="css/myCSS.34.css">
+    <link rel="stylesheet" href="css/myCSS.35.css">
     <link rel="stylesheet" href="css/userguide.3.css">
     <!--  my startup code-->
     <!--    Objects first as globals uses a CardsetCollection.addcardset() call we can defer as run in order-->
@@ -46,7 +46,7 @@
     <!--    The rest-->
     <script src="myscripts/answers.25.js" defer></script>
     <script src="myscripts/selectEvents.9.js" defer></script>
-    <script src="myscripts/cardFunctions.27.js" defer></script>
+    <script src="myscripts/cardFunctions.28.js" defer></script>
     <!--    settings must come after globals -->
     <script src="myscripts/settings.10.js" defer></script>
     <script src="myscripts/headScripts.21.js" defer></script>
@@ -192,7 +192,7 @@
                             </button>
                         </div>
                         <div class="input-group-append">
-                            <span id="span-randomSlideCount" class="input-group-text text-center bg-white border-top border-bottom border-left-0 border-right-0 border-secondary" style="max-height: 40px;line-height: 90%;"></span>
+                            <span id="span-randomSlideCount" class="input-group-text text-center border-top border-bottom border-left-0 border-right-0 border-secondary" style="max-height: 40px;line-height: 90%;"></span>
                             <button type="button" class="btn btn-sm btn-primary"
                                     id="btn-nextRandomCard"
                                     onclick="btnNextRandomCardClicked();"
@@ -261,10 +261,8 @@
                                 <i class="fas fa-closed-captioning"></i></label>
                         </div>
                     </div>
-                    <div class="text-secondary text-sm" > Click the grey caption bar to show/hide image title</div>
                 </div>
-                <div id="div-image-card"
-                     class="d-flex flex-row flex-wrap align-items-start justify-content-center"></div>
+                <div id="div-image-card" class="d-flex flex-row flex-wrap align-items-start justify-content-center"></div>
             </div>
             <div id="div-legendouter" class="flex-grow-1" style="overflow-y: auto; overflow-x:hidden;">
                 <div class="d-flex align-items-center justify-content-between sticky-top"
@@ -280,7 +278,7 @@
                         </div>
                     </div>
                     <div class="d-flex align-items-center">
-                        <div class="text-secondary text-sm-right">Click to show/hide all text rows:&nbsp;</div>
+                        <div class="text-secondary text-sm-right">Show/hide all text:&nbsp;</div>
                         <div class="btn-group btn-group-sm flex-shrink-0 m-1">
                             <button type="button" class="btn btn-outline-secondary"
                                     onclick="toggleLegendTextItemsVisibility(this,'hidden');"
@@ -294,10 +292,10 @@
                     </div>
                 </div>
                 <div id="div-revealAnswers" class="divrevealAnswers mt-1"></div>
-                <div id="div-labelClickLabels" class="text-secondary text-sm-left">Click labels in left column to reveal text in that row</div>
+                <div id="div-labelClickLabels" style="color: #c0c0c0" class="text-sm-left">Click labels in left column to reveal text in that row</div>
             </div>
         </div>
-        <div class="text-white text-center mt-0 mb-1" style="background-color: #cccccc; height: 35px;"><i class="fas fa-exclamation-circle" style="color: #ff9300"></i><span class="text-sm" > Always refresh this page when returning as this is a beta website under active development. </span><i class="fas fa-exclamation-circle" style="color: #ff9300"></i></div>
+        <div class="text-white text-center mt-0 mb-1" style="background-color: #cccccc; height: 35px;"><i class="fas fa-exclamation-triangle" style="color: #ff2600"></i><span class="text-sm" style="color: #5e5e5e"> Always refresh this page when returning as this is a beta website under active development. </span><i class="fas fa-exclamation-triangle" style="color: #ff2600"></i></div>
     </div>
 </div><!--  mainpage-->
 <div hidden id="sheet-zoom" class="">
@@ -472,9 +470,9 @@
     <!--    IMAGES fullscreen -->
     <div id="sheet-fullscreen" class="sheet-fullscreen">
         <div class="sheets-body">
-            <div class="sheets-header sheets-header-sticky justify-content-between sheetFullscreenHeader flex-wrap mt-2 mx-2">
+            <div class="sheets-header sheets-header-sticky justify-content-between flex-wrap pt-2 px-2 toolbar border-bottom border-secondary">
                 <div>
-                    <div class="input-group input-group-sm">
+                    <div class="input-group input-group-sm bg-white">
                         <div class="input-group-prepend">
                             <button class="btn btn-sm btn-primary" type="button"
                                     id="btn-randomise-fullscreen"
@@ -532,7 +530,7 @@
                             </button>
                         </div>
                         <div class="input-group-append">
-                            <span id="span-randomSlideCount-fullscreen" class="input-group-text text-right bg-white border-top border-bottom border-left-0 border-right-0 border-secondary"></span>
+                            <span id="span-randomSlideCount-fullscreen" class="input-group-text text-right border-top border-bottom border-left-0 border-right-0 border-secondary"></span>
                             <button type="button" class="btn btn-sm btn-primary"
                                     id="btn-nextRandomCard-fullscreen"
                                     onclick="btnNextRandomCardClicked();"
