@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 8/12/2021 6:52     djml.uk E&OE.                            *
+  * Copyright (c) 8/12/2021 7:6     djml.uk E&OE.                             *
   ***************************************************************************-->
 <!doctype html>
 <html lang="en">
@@ -664,8 +664,30 @@
     <!--    IMAGES fullscreen -->
     <div id="sheet-fullscreen" class="sheet-fullscreen">
         <div class="sheets-body">
-            <div class="sheets-header sheets-header-sticky justify-content-between flex-wrap pt-2 px-2 toolbar border-bottom border-secondary">
-                <div>
+            <div class="sheets-header-noTop sheets-header-sticky justify-content-between flex-wrap px-2 toolbar border-bottom border-secondary py-n1">
+                <div id="btngp-status-fullscreen" class="btn-group btn-group-sm mt-1">
+                    <button id="btnstatus-untested-fullscreen" type="button" class="btn btn-secondary"
+                            onclick="btnStatusClicked('untested');"
+                            title="Set status as untested">
+                        <i class="fas fa-question-circle"></i>
+                    </button>
+                    <button id="btnstatus-incorrect-fullscreen" type="button" class="btn btn-outline-danger"
+                            onclick="btnStatusClicked('incorrect');"
+                            title="Set status as incorrect">
+                        <i class="fas fa-times-circle"></i>
+                    </button>
+                    <button id="btnstatus-correct-fullscreen" type="button" class="btn btn-outline-success"
+                            onclick="btnStatusClicked('correct');"
+                            title="Set status as correct">
+                        <i class="fas fa-check-circle"></i>
+                    </button>
+                    <button id="btnstatus-star-fullscreen" type="button" class="btn btn-outline-warning"
+                            onclick="btnStatusClicked('star');"
+                            title="Set status as starred">
+                        <i class="fas fa-star"></i>
+                    </button>
+                </div>
+                <div class="mt-1">
                     <div class="input-group input-group-sm bg-white">
                         <div class="input-group-prepend">
                             <button class="btn btn-sm btn-primary" type="button"
@@ -727,39 +749,17 @@
                         </div>
                         <div class="input-group-append">
                             <span id="span-randomSlideCount-fullscreen"
-                                  class="input-group-text text-right border-top border-bottom border-left-0 border-right-0 border-secondary"></span>
-                            <button type="button" class="btn btn-sm btn-primary"
-                                    id="btn-nextRandomCard-fullscreen"
-                                    onclick="btnNextRandomCardClicked();"
-                                    title="Click to select next random card from current chapter">
-                                <i class="fas fa-random"></i>&nbsp;Next Image
-                            </button>
+                                  class="input-group-text text-right border-top border-bottom border-left-0 border-right border-secondary"></span>
                         </div>
                     </div>
                 </div>
-                <div id="btngp-status-fullscreen" class="btn-group btn-group-sm">
-                    <button id="btnstatus-untested-fullscreen" type="button" class="btn btn-secondary"
-                            onclick="btnStatusClicked('untested');"
-                            title="Set status as untested">
-                        <i class="fas fa-question-circle"></i>
-                    </button>
-                    <button id="btnstatus-incorrect-fullscreen" type="button" class="btn btn-outline-danger"
-                            onclick="btnStatusClicked('incorrect');"
-                            title="Set status as incorrect">
-                        <i class="fas fa-times-circle"></i>
-                    </button>
-                    <button id="btnstatus-correct-fullscreen" type="button" class="btn btn-outline-success"
-                            onclick="btnStatusClicked('correct');"
-                            title="Set status as correct">
-                        <i class="fas fa-check-circle"></i>
-                    </button>
-                    <button id="btnstatus-star-fullscreen" type="button" class="btn btn-outline-warning"
-                            onclick="btnStatusClicked('star');"
-                            title="Set status as starred">
-                        <i class="fas fa-star"></i>
-                    </button>
-                </div>
-                <div class="flex-shrink-1 d-flex  flex-wrap">
+                <button type="button" class="btn btn-sm btn-primary mt-1"
+                        id="btn-nextRandomCard-fullscreen"
+                        onclick="btnNextRandomCardClicked();"
+                        title="Click to select next random card from current chapter">
+                    <i class="fas fa-random"></i>&nbsp;Next Image
+                </button>
+                <div class="flex-shrink-1 d-flex flex-wrap mt-1">
                     <div class="">Hide:</div>
                     <div class="custom-control custom-switch border-secondary"
                          title="Hide image captions initially">
@@ -770,13 +770,13 @@
                             <i class="fas fa-closed-captioning"></i></label>
                     </div>
                 </div>
-                <button id="btn-showTextFullscreen"
-                        type="button" class="btn btn-secondary btn-sm"
+                <button id="btn-showTextFullscreen" type="button"
+                        class="btn btn-secondary btn-sm mt-1"
                         onclick="showTextFullScreen(this);"
                         title="Show Text">
                     <i class="fas fa-list-ul fa-fw"></i>&nbsp;Show&nbsp;Text
                 </button>
-                <button type="button" class="btn btn-danger btn-sm"
+                <button type="button" class="btn btn-danger btn-sm mt-1"
                         onclick="hideSheet('sheet-fullscreen');"
                         title="Close">
                     <i class="fa fa-times"></i>

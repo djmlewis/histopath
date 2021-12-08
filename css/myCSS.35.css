@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 8/12/2021 2:24     djml.uk E&OE.                             *
+ * Copyright (c) 8/12/2021 7:6     djml.uk E&OE.                              *
  ******************************************************************************/
 
 .paraImage {
@@ -316,7 +316,7 @@
     }
 }
 
-.sheets-header {
+.sheets-header, .sheets-header-noTop {
     display: -ms-flexbox !important;
     display: flex !important;
     -ms-flex-pack: justify !important;
@@ -325,7 +325,9 @@
     align-items: center !important;
     padding: 6px 0 6px 0;
 }
-
+.sheets-header-noTop {
+    padding: 0;
+}
 .sheets-header-sticky {
     position: -webkit-sticky;
     position: sticky;
