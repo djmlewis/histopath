@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 9/12/2021 7:50     djml.uk E&OE.                             *
+ * Copyright (c) 9/12/2021 8:2     djml.uk E&OE.                              *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -162,7 +162,6 @@ function addImagesForCardObj(selectedCardObj) {
             document.getElementById(divimagecardID).appendChild(dv);
             const newImg = document.createElement('img');
             const imgsrc = selectedCardObj.imagePath + imgName + selectedCardObj.imageType;
-            dv.appendChild(newImg);
             if (!divimagecardID.includes("fullscreen")) {
                 newImg.className = "paraImage";
             } else {
@@ -172,6 +171,8 @@ function addImagesForCardObj(selectedCardObj) {
                 dvtext.hidden = true;
                 dv.appendChild(dvtext);
             }
+            // put the image BELOW the text
+            dv.appendChild(newImg);
             newImg.setAttribute('data-imgname', imgName);
             newImg.style.width = '100%';
             newImg.style.visibility = (initiallyHideImages ? 'hidden' : 'visible');

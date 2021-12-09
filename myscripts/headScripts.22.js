@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 10/5/2021 1:4     djml.uk E&OE.                              *
+ * Copyright (c) 9/12/2021 8:2     djml.uk E&OE.                              *
  ******************************************************************************/
 
 //---------- ******** IMMEDIATE GLOBALS *********** ------------------------//
@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', function () {
 window.addEventListener('load', function () {
     // DEFERRED actions
     document.getElementById('div-image-card').addEventListener("click", ev => divimgcardClicked(ev));
-    document.getElementById('div-species-sidebar').innerHTML = document.getElementById('div-species').innerHTML;
+    //document.getElementById('div-species-sidebar').innerHTML = document.getElementById('div-species').innerHTML;
     ['div-groupings', 'div-species','div-taxogenera','div-taxospecies'].forEach(id => document.getElementById(id).addEventListener("click", ev => divgroupingsClicked(ev, true)));
     document.getElementById('div-species-sidebar').addEventListener("click", ev => divgroupingsClicked(ev, false));
     window.addEventListener("orientationchange", function () {
