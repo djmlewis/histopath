@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 9/12/2021 8:2     djml.uk E&OE.                              *
+ * Copyright (c) 9/12/2021 8:6     djml.uk E&OE.                              *
  ******************************************************************************/
 
 .paraImage {
@@ -359,10 +359,8 @@
 }
 
 .divFullscreenText {
-    /*position: absolute;*/
-    /*top: 48px;*/
     width: 100%;
-    padding-bottom: 10px;
+    /*padding-bottom: 10px;*/
     background-color: rgba(255,255,255,70%);
-    overflow-y: auto;
+    /*overflow-y: auto;*/
 }
