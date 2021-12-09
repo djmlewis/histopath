@@ -1,5 +1,5 @@
 <!--***************************************************************************
-  * Copyright (c) 8/12/2021 7:24     djml.uk E&OE.                            *
+  * Copyright (c) 9/12/2021 7:50     djml.uk E&OE.                            *
   ***************************************************************************-->
 <!doctype html>
 <html lang="en">
@@ -23,14 +23,14 @@
     <!--  Normalize  -->
     <link rel="stylesheet" href="css/vendor/normalize.1.css">
     <!--  my CSS -->
-    <link rel="stylesheet" href="css/myCSS.38.css">
+    <link rel="stylesheet" href="css/myCSS.39.css">
     <link rel="stylesheet" href="css/userguide.3.css">
     <!--  my startup code-->
     <!--    Objects first as globals uses a CardsetCollection.addcardset() call we can defer as run in order-->
     <script src="myscripts/objects.3.js" defer></script>
     <script src="myscripts/imgCaptionsObj.32.js" defer></script>
     <!--    Globals next and utilities-- -->
-    <script src="myscripts/globals.16.js" defer></script>
+    <script src="myscripts/globals.17.js" defer></script>
     <script src="myscripts/db.2.js" defer></script>
     <script src="myscripts/utilities.8.js" defer></script>
     <script src="myscripts/sheets.42.js" defer></script>
@@ -46,7 +46,7 @@
     <!--    The rest-->
     <script src="myscripts/answers.25.js" defer></script>
     <script src="myscripts/selectEvents.9.js" defer></script>
-    <script src="myscripts/cardFunctions.29.js" defer></script>
+    <script src="myscripts/cardFunctions.30.js" defer></script>
     <!--    settings must come after globals -->
     <script src="myscripts/settings.10.js" defer></script>
     <script src="myscripts/headScripts.21.js" defer></script>
@@ -244,19 +244,21 @@
                     </div>
                 </div>
             </div>
+            <!-- if slider-image-Width initial value changes then change col-image 48%  -->
             <div id="col-slider-image-Width" class="col-slider">
                 <label hidden for="slider-image-Width"></label>
                 <input type="range" class="form-control-range" id="slider-image-Width"
                        title="Adjust image width"
-                       min="10" max="70" step="10" value="50"
-                       oninput="handleSliderImageWidthChanged(this)">
+                       min="18" max="88" step="10" value="48"
+                       oninput="handleSliderImageWidthChanged()">
             </div>
         </div>
         <div id="row-image" class="flex-grow-1 d-flex flex-row flex-nowrap mt-1">
-            <div id="div-species-sidebar" class="flex-shrink-1 divspeciessidebar stripedparas"
+            <div id="div-species-sidebar" class="divspeciessidebar stripedparas"
                  style="overflow-y: auto;"></div>
+            <!-- if slider-image-Width initial value changes then change col-image 48%  -->
             <div id="col-image" class="flex-grow-1"
-                 style="width: 50%; max-width: 50%; min-width: 50%;overflow-y: auto;">
+                 style="width: 48%; max-width: 48%; min-width: 48%; overflow-y: auto;">
                 <div class="d-flex align-items-center justify-content-between sticky-top pr-3" style="min-height: 40px">
                     <div class="ml-2 flex-shrink-1 d-flex  flex-wrap">
                         <div class="text-secondary"> Hide caption on load:</div>

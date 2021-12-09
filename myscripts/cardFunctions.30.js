@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 8/12/2021 7:21     djml.uk E&OE.                             *
+ * Copyright (c) 9/12/2021 7:50     djml.uk E&OE.                             *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -74,19 +74,22 @@ function handleChangeCardIndex(btnValue) {
     loadCardImage();
 }
 
-function handleSliderImageWidthChanged(slider) {
+function handleSliderImageWidthChanged() {
+    const slider = document.getElementById('slider-image-Width');
+    // the slider can go to 88%, and we add 0 or 12% for the presence/absence of the side panel
     const colimage = document.getElementById("col-image");
     const divlegendouter = document.getElementById("div-legendouter");
     if (slider.value < sliderImageWidthMax) {
         divlegendouter.hidden = false;
-        colimage.style.width = slider.value + '%';
+        colimage.style.width = (parseInt(slider.value) + currentSliderIncrementForSidePanel) + '%';
         colimage.style.maxWidth = colimage.style.width;
         colimage.style.minWidth = colimage.style.width;
     } else {
         divlegendouter.hidden = true;
-        colimage.style.width = '100%';
-        colimage.style.maxWidth = '100%';
-        colimage.style.minWidth = '100%';
+        const sliderMaxForSidePanel = (sliderImageWidthMax + currentSliderIncrementForSidePanel) + '%'
+        colimage.style.width = sliderMaxForSidePanel;
+        colimage.style.maxWidth = sliderMaxForSidePanel;
+        colimage.style.minWidth = sliderMaxForSidePanel;
     }
     adjustCardWidthHeight();
 }
@@ -127,7 +130,7 @@ function loadCardImage() {
 function addImagesForCardObj(selectedCardObj) {
     resetTextFullScreen();
     cardImgNamesArray = selectedCardObj['imageNamesOrientsArray'];
-    const numImages = cardImgNamesArray.length;
+    // const numImages = cardImgNamesArray.length;
     imageDivsIDs.forEach(divimagecardID => {
         for (const imageNameOrient of cardImgNamesArray) {
             //[0] is name "xxx yyy pX" [1] is orientation p or l
@@ -135,7 +138,7 @@ function addImagesForCardObj(selectedCardObj) {
             const imgName = imageNameOrientArray[0];
             const dv = document.createElement('div');
             dv.className = "divImgFrame";
-            dv.style.width = numImages > 1 ? "45%" : "95%";
+            dv.style.width = '100%';//numImages > 1 ? "45%" : "95%";
             dv.setAttribute('data-imgname', imgName);
             if (!!imgCaptionsObj && imgCaptionsObj[imgName]) {
                 const capt = document.createElement('div');
@@ -279,10 +282,13 @@ function toggleSidebar() {
     if (divsb.hidden) {
         sbbtn.classList.remove('btn-outline-info');
         sbbtn.classList.add('btn-info');
+        currentSliderIncrementForSidePanel = kSliderIncrementForSidePanelHidden;
     } else {
         sbbtn.classList.add('btn-outline-info');
         sbbtn.classList.remove('btn-info');
+        currentSliderIncrementForSidePanel = kSliderIncrementForSidePanelVisible;
     }
+    handleSliderImageWidthChanged();
 }
 
 function showTextFullScreen(btn) {

@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 7/12/2021 8:57     djml.uk E&OE.                             *
+ * Copyright (c) 9/12/2021 7:50     djml.uk E&OE.                             *
  ******************************************************************************/
 // =================================================================== COLLECTION OBJECT
 window.collectionobject = new CardsetCollection();
@@ -50,7 +50,10 @@ let organsRandomisedArray = [];
 let db_Obj;
 let dbObj_answersObj;
 
-let sliderImageWidthMax = 0;
+let sliderImageWidthMax = 88;
+let currentSliderIncrementForSidePanel = 0; // starts visible
+const kSliderIncrementForSidePanelHidden = 12;
+const kSliderIncrementForSidePanelVisible = 0;
 
 // ********************************* ID arrays
 let imageDivsIDs = ["div-image-card","div-image-card-fullscreen"];

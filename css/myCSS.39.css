@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 8/12/2021 7:21     djml.uk E&OE.                             *
+ * Copyright (c) 9/12/2021 7:50     djml.uk E&OE.                             *
  ******************************************************************************/
 
 .paraImage {
@@ -145,26 +145,24 @@
     cursor: none;
     pointer-events: none;
 }
-.divspeciessidebar {
-    padding-bottom: 8px;
-}
 .divspeciessidebar, .organHeader {
     font-family: "Trebuchet MS",sans-serif;
     font-size: 12px;
-    max-width: 12rem;
-    min-width: 12rem;
     cursor: none;
     overflow-x: hidden;
     hyphens: none;
 }
-
+.divspeciessidebar {
+    padding-bottom: 8px;
+    width: 12%;
+    max-width: 12%;
+    min-width: 12%;
+}
 .organHeader {
     text-align: center;
     width: 100%;
     margin-bottom: 0;
     pointer-events: none;
-    hyphens: none;
-    /*background-color: #424242;!important;*/
     color: white;
 }
 
