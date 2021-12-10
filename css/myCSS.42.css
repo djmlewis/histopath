@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 9/12/2021 8:6     djml.uk E&OE.                              *
+ * Copyright (c) 10/12/2021 9:30     djml.uk E&OE.                            *
  ******************************************************************************/
 
 .paraImage {
@@ -265,8 +265,10 @@
     font-weight: bold;
     cursor: pointer;
     /*background-color: inherit;*/
-    overflow-wrap: break-word;
+    overflow-wrap: normal;
     hyphens: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .legend-text {
