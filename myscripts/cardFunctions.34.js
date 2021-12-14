@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 14/12/2021 10:7     djml.uk E&OE.                            *
+ * Copyright (c) 14/12/2021 10:18     djml.uk E&OE.                           *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -204,9 +204,16 @@ function divimgcardClicked(ev) {
                 capt.addEventListener("click", ev => divimgcardClicked(ev));
                 const spn = document.createElement('span');
                 spn.className = 'spanImgCaption';
-                spn.style.visibility = (initiallyHideCaptions ? 'hidden' : 'visible');
+                spn.hidden = initiallyHideCaptions;
+                //spn.style.visibility = (initiallyHideCaptions ? 'hidden' : 'visible');
                 spn.innerText = imgCaptionsObj[imgName];
+                const spnClickme = document.createElement('span');
+                spnClickme.className = 'spanImgCaptionClickme';
+                spnClickme.hidden = !initiallyHideCaptions;
+                //spnClickme.style.visibility = (!initiallyHideCaptions ? 'hidden' : 'visible');
+                spnClickme.innerText = "Click to reveal title";
                 capt.appendChild(spn);
+                capt.appendChild(spnClickme);
                 dv.appendChild(capt);
             }
             carouselInner.appendChild(dv);
