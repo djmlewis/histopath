@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 14/12/2021 10:2     djml.uk E&OE.                            *
+ * Copyright (c) 14/12/2021 10:7     djml.uk E&OE.                            *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -142,7 +142,7 @@ function addImagesForCardObj(selectedCardObj) {
             dv.setAttribute('data-imgname', imgName);
             if (!!imgCaptionsObj && imgCaptionsObj[imgName]) {
                 const capt = document.createElement('div');
-                capt.className = imgName.endsWith('u') ? "imgCaptionUimage" : "imgCaption";
+                capt.className =  "imgCaption";
                 capt.addEventListener("click", ev => divimgcardClicked(ev));
                 capt.title = "Click to show/hide caption";
                 const spn = document.createElement('span');
