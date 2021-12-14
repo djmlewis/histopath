@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 10/12/2021 9:30     djml.uk E&OE.                            *
+ * Copyright (c) 14/12/2021 10:2     djml.uk E&OE.                            *
  ******************************************************************************/
 
 .paraImage {
@@ -10,7 +10,7 @@
     border-radius: 4px;
     margin: 2px;
 }
-.imgCaption {
+.imgCaption, .imgCaptionUimage {
     font-family: "Trebuchet MS", sans-serif;
     font-size: 1rem;
     text-align:center;
@@ -18,8 +18,13 @@
     width: 100%;
     /*border: none;*/
     cursor: context-menu;
-    background-color: #424242;
     color:whitesmoke;
+}
+.imgCaption {
+    background-color: #424242;
+}
+.imgCaptionUimage {
+    background-color: #424242;
 }
 .spanImgCaption, .spanImgCaptionClickme {
     pointer-events: none;

@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 9/12/2021 8:2     djml.uk E&OE.                              *
+ * Copyright (c) 14/12/2021 10:2     djml.uk E&OE.                            *
  ******************************************************************************/
 
 function createOptionForCardMenuWithCardObject(cardObj, selectcards, index, hideCardTitles) {
@@ -142,7 +142,7 @@ function addImagesForCardObj(selectedCardObj) {
             dv.setAttribute('data-imgname', imgName);
             if (!!imgCaptionsObj && imgCaptionsObj[imgName]) {
                 const capt = document.createElement('div');
-                capt.className = "imgCaption";
+                capt.className = imgName.endsWith('u') ? "imgCaptionUimage" : "imgCaption";
                 capt.addEventListener("click", ev => divimgcardClicked(ev));
                 capt.title = "Click to show/hide caption";
                 const spn = document.createElement('span');
@@ -222,8 +222,8 @@ function divimgcardClicked(ev) {
         [indicsList, carouselInner].forEach(e => e.children[clickedIndex].classList.add('active'));
         hideSheetZoom(false);
     } else if (ev.target.className === 'imgCaption') {
-        ev.target.getElementsByClassName('spanImgCaption')[0].toggleAttribute('hidden');
-        ev.target.getElementsByClassName('spanImgCaptionClickme')[0].toggleAttribute('hidden');
+        Array.from(ev.target.getElementsByClassName('spanImgCaption')).forEach(e=>e.toggleAttribute('hidden'));
+        Array.from(ev.target.getElementsByClassName('spanImgCaptionClickme')).forEach(e=>e.toggleAttribute('hidden'));
 
         // ev.target.getElementsByClassName('spanImgCaption')[0].style.visibility =
         //     (ev.target.getElementsByClassName('spanImgCaption')[0].style.visibility === "visible" ? 'hidden' : 'visible');
