@@ -3,9 +3,7 @@
  ******************************************************************************/
 function answersArrayFromSelectedCardObj(selectedCardObj, filterNote) {
     const array = splitTextByCharacterSkippingBlanks(selectedCardObj.answersText, "\n");
-    if (filterNote && array.length > 0) return array.filter(a => {
-        return !a.startsWith('Note')
-    });
+    if (filterNote && array.length > 0) return array.filter(a => !a.startsWith('Note'));
     else return array;
 }
 
@@ -54,9 +52,7 @@ function mapAnswersArrayToParas(answersArray, isRevealAnswers) {
     //calc the length of the longest subhead
     //let maxLen = 0;
     //for (const ans of answersArray) maxLen = Math.max(maxLen, getStringCharacterLength(ans.split("\t")[0]));
-    return answersArray.map(answer=>{
-        return answerStringFromAnswerTabString(answer, isRevealAnswers);
-    }).join("");
+    return answersArray.map(answer=> answerStringFromAnswerTabString(answer, isRevealAnswers)).join("");
 }
 
 function answerStringFromAnswerTabString(answerTabString, isRevealAnswers) {
